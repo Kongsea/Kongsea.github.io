@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="升级,Windows,微软," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="可能很多朋友很久以前就有机会安装试用了Windows 7，但月夜一直没有这样的机会，主要是Windows 7体积巨大，而自己的电脑上网时每天只有区区200M流量，如此的流量妄图下载Windows 7，几乎是不可能的事情。因此，眼瞅着朋友们都能用上强大的新版操作系统，月夜却唯有眼馋的份儿。所幸，最近在月夜开始使用IPv6以后，在六维空间上找到了Windows 7的种子，就下载下来试用了。需要说明的是">
+<meta name="keywords" content="升级,Windows,微软">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Windows 7 7068 安装体验笔记">
+<meta property="og:url" content="http://yoursite.com/2009/04/10/note-of-installing-and-experiencing-windows-7/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="可能很多朋友很久以前就有机会安装试用了Windows 7，但月夜一直没有这样的机会，主要是Windows 7体积巨大，而自己的电脑上网时每天只有区区200M流量，如此的流量妄图下载Windows 7，几乎是不可能的事情。因此，眼瞅着朋友们都能用上强大的新版操作系统，月夜却唯有眼馋的份儿。所幸，最近在月夜开始使用IPv6以后，在六维空间上找到了Windows 7的种子，就下载下来试用了。需要说明的是">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12392844941601810998/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12392844951601810999/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12392844951601811000/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12392846570856609983/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12392846570856609984/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12392846570856609985/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12392846570856609986/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12392846580856609987/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12392846772074245991/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12392846782074245992/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12392846782074245993/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12392846792074245994/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12392847950042617793/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12392847950042617794/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12392847950042617795/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12392847950042617796/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12392847960042617797/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12392848171288514989/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12392848181288514990/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12392848191288514991/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12392848191288514992/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12392848201288514993/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12392848600633537105/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12392848610633537106/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12392848870791843894/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12392848600633537102/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12392848600633537103/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12392848600633537104/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12392848880791843895/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12392848880791843896/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12392848880791843897/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12392848880791843898/A/1/m.jpg">
+<meta property="og:updated_time" content="2018-07-27T03:00:21.883Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Windows 7 7068 安装体验笔记">
+<meta name="twitter:description" content="可能很多朋友很久以前就有机会安装试用了Windows 7，但月夜一直没有这样的机会，主要是Windows 7体积巨大，而自己的电脑上网时每天只有区区200M流量，如此的流量妄图下载Windows 7，几乎是不可能的事情。因此，眼瞅着朋友们都能用上强大的新版操作系统，月夜却唯有眼馋的份儿。所幸，最近在月夜开始使用IPv6以后，在六维空间上找到了Windows 7的种子，就下载下来试用了。需要说明的是">
+<meta name="twitter:image" content="http://laiba.tianya.cn/laiba/images/615721/12392844941601810998/A/1/m.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2009/04/10/note-of-installing-and-experiencing-windows-7/"/>
+
+
+
+
+
+  <title>Windows 7 7068 安装体验笔记 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2009/04/10/note-of-installing-and-experiencing-windows-7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Windows 7 7068 安装体验笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2009-04-10T08:14:20+08:00">
+                2009-04-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/时讯品评/" itemprop="url" rel="index">
+                    <span itemprop="name">时讯品评</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>可能很多朋友很久以前就有机会安装试用了Windows 7，但<a href="https://www.yueye.org" target="_blank" rel="noopener">月夜</a>一直没有这样的机会，主要是Windows 7体积巨大，而自己的电脑上网时每天只有区区200M流量，如此的流量妄图下载Windows 7，几乎是不可能的事情。因此，眼瞅着朋友们都能用上强大的新版操作系统，月夜却唯有眼馋的份儿。所幸，最近在月夜开始使用IPv6以后，在六维空间上找到了Windows 7的种子，就下载下来试用了。需要说明的是，尽管目前已经出现了7079版本，但月夜此次下载的只是7068版本。不过相差应该不会太大，因此也就应该没有什么影响。 首先是安装，直接在Windows XP（月夜此次使用的版本）或者其他的Windows系统（没有试验，应该如此）中直接点击Windows 7操作系统的安装程序，即可跳出安装界面：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12392844941601810998/A/1/m.jpg" alt="" title="Windows 7 安装界面"></p>
+<p>通常情况下，无需检查兼容性，即可直接点击现在安装。然后安装程序跳到安装启动界面：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12392844951601810999/A/1/m.jpg" alt="" title="Windows 7 安装准备界面"></p>
+<p>稍等片刻，安装会跳到如下界面：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12392844951601811000/A/1/m.jpg" alt="" title="Windows 7 安装更新界面"></p>
+<p>在如上的界面上，我们可以选择是否获取安装更新，以及是否帮助改进Windows安装，等等。点击不获取更新，直接进入到下一个界面：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12392846570856609983/A/1/m.jpg" alt="" title="Windows 7 安装类型选择界面"></p>
+<p>因为Windows 7 目前仍然是Beta版本，为了保险以及不影响我们正常使用原来的系统，选择自定义安装，而不要选择升级，然后安装程序跳到如下界面：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12392846570856609984/A/1/m.jpg" alt="" title="Windows 7安装位置选择界面"></p>
+<p>为了不对我们原来的操作系统造成影响，不要选择安装在我们原来的操作系统所在的硬盘里；但为了能发挥好Windows 7的性能，最好选择安装在一个剩余容量大于10G的硬盘分区里，比如这里，月夜就选择了最后一个分区，然后点击下一步，系统开始安装，安装中的几个界面如下：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12392846570856609985/A/1/m.jpg" alt="" title="Windows 7安装界面"></p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12392846570856609986/A/1/m.jpg" alt="" title="Windows 7安装界面"></p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12392846580856609987/A/1/m.jpg" alt="" title="Windows 7安装界面"></p>
+<p>Windows 7的安装界面较Windows XP发生了很大变化，但安装时间并没有太多变化，仍然需要半小时以上的时间。耐心等待安装完成以后，我们就可以进入到朝思暮想的Windows 7操作系统了。在电脑重启中，我们可以看到，安装好Windows 7操作系统之后，操作系统选择界面里有这样的选项，一个是早期版本的Windows，一个是Windows 7；我们选择早期版本，可以正常进入到原来的操作系统，而选择Windows 7，则可以直接进入Windows 7操作系统。首先来看一下进去之后的第一印象：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12392846772074245991/A/1/m.jpg" alt="" title="Windows 7 桌面"></p>
+<p>可以看出，相比以前的Windows版本，Windows 7的界面实在是无比华美。当然，Windows 7的改变不只是界面，首先Windows 7修改了电脑资源的组织方式，将原来的我的电脑整合到了一个库里面：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12392846782074245992/A/1/m.jpg" alt="" title="Windows 7 库界面"></p>
+<p>而其中的媒体也整合到了一个庞大的媒体库里：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12392846782074245993/A/1/m.jpg" alt="" title="Windows 7媒体库"></p>
+<p>如此的组织方式，尽管可能方便了很多，但一时半会儿还真的不易适应。 接下来，我们来看Windows 7的其他改进。在桌面上点击右键，可以看到Windows 7的右键快捷菜单：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12392846792074245994/A/1/m.jpg" alt="" title="Windows 7 桌面快捷菜单"></p>
+<p>点击其中的个性化，可以进入到如下的个性化窗口对Windows 7进行所谓的个性化：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12392847950042617793/A/1/m.jpg" alt="" title="Windows 7 个性化窗口"></p>
+<p>通过个性化窗口，我们可以对包括桌面背景、窗口颜色、主题、鼠标样式进行个性化。而点击桌面快捷菜单中的小工具，则可以弹出小工具窗口，从而在桌面上添加各种实用的小工具：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12392847950042617794/A/1/m.jpg" alt="" title="Windows 7 桌面小工具"></p>
+<p>这些小工具和鱼鱼桌面秀、八戒桌面小工具等类似，只不过工具相对较少而已。 在桌面的右下角，我们可以调出对话框对任务栏进行设置：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12392847950042617795/A/1/m.jpg" alt="" title="任务栏设置"></p>
+<p>调出的对话框如下：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12392847950042617796/A/1/m.jpg" alt="" title="设置任务栏对话框"></p>
+<p>在如上所示的对话框中，我们可以灵活地对Windows 7 的任务栏进行各种设置。 接下来我们继续来体验Windows 7的酷炫界面，如下图，我们正通过浏览器浏览一个页面：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12392847960042617797/A/1/m.jpg" alt="" title="Windows 7 酷炫界面体验"></p>
+<p>此时，我们将鼠标滑到任务栏上的快速启动栏中，比如滑到播放器上，播放器的缩略图就会弹出。而如果我们将鼠标继续滑行到播放器缩略图上的话，就会出现如下的界面：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12392848171288514989/A/1/m.jpg" alt="" title="Windows 7 酷炫界面"></p>
+<p>可以看到，播放器窗口被放出，而浏览器窗口则被自动隐藏；此时，如果将鼠标滑行到其他地方，则播放器窗口会被隐藏，原来的浏览器窗口再次弹出；但，若点击一下正在播放的播放器，播放器则会被调到前台，一直显示。如果鼠标滑行到的快速启动栏类别中打开了多个窗口，则会显示多个缩略图，如下：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12392848181288514990/A/1/m.jpg" alt="" title="Windows 7 酷炫界面"></p>
+<p>接着，我们来看Windows 7对开始菜单的改进。如下图：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12392848191288514991/A/1/m.jpg" alt="" title="Windows 7 开始菜单"></p>
+<p>可以看出，Windows 7的开始菜单并没有太大改动，只不过添加了一个“入门”菜单而已。将鼠标放到如上图中的“所有程序”上，或者点击之，开始菜单会变成如下样式：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12392848191288514992/A/1/m.jpg" alt="" title="Windows 7 开始菜单所有程序"></p>
+<p>是的，相比以前的XP，Windows 7 的开始菜单还是作了些改动；不过其中的所有程序和以前的版本相比并没有太大区别。下面，我们来看Windows 7 所有程序中附件部分的改动：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12392848201288514993/A/1/m.jpg" alt="" title="Windows 7 附件"></p>
+<p>和以前的XP相比，改动较大的是画图程序的界面：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12392848600633537105/A/1/m.jpg" alt="" title="Windows 7 画图程序界面"></p>
+<p>而相比以前的版本，则新增了截图工具和数学输入面板两个程序。 截图工具的界面如下：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12392848610633537106/A/1/m.jpg" alt="" title="Windows 7 截图工具"></p>
+<p>数学输入面板的界面如下：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12392848870791843894/A/1/m.jpg" alt="" title="Windows 7 数学输入面板"></p>
+<p>可以看出，相比截图工具的弱小功能，数学输入工具提供了相当不错的功能，已经能识别很复杂的字符。 接下来，我们接着来看Windows 7 附件中的其他程序，如下：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12392848600633537102/A/1/m.jpg" alt="" title="Windows 7 附件"></p>
+<p>这里，Windows 7 提供了如手写输入、语音识别、Windows 日记本以及PowerShell等功能。 Windows 7 附件中的系统工具更新如下：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12392848600633537103/A/1/m.jpg" alt="" title="Windows 7 附件系统工具"></p>
+<p>相比以前的版本，Windows 7 的系统工具并没有太大变化。但在维护和游戏两方面，Windows 7 则作了较大改进，如下：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12392848600633537104/A/1/m.jpg" alt="" title="Windows 7 维护和游戏菜单"></p>
+<p>维护中新增了备份和还原功能，藉以取代原来需要使用Ghost来完成的功能：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12392848880791843895/A/1/m.jpg" alt="" title="Windows 7 备份和还原"></p>
+<p>Windows 7 还新增了创建系统修复光盘功能：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12392848880791843896/A/1/m.jpg" alt="" title="Windows 7 创建系统修复光盘功能"></p>
+<p>但这一功能需要CD/DVD刻录机的支持，相信在当前情况下，这一功能在大陆不会得到广泛应用。 Windows 7 对游戏的改进表现在，添加了一个游戏资源管理器：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12392848880791843897/A/1/m.jpg" alt="" title="Windows 7 游戏资源管理器"></p>
+<p><a href="https://www.yueye.org" target="_blank" rel="noopener">月夜</a>的安装试用笔记到此结束，可能朋友们也已经看到，在试用中，多次在界面中出现乱码，比如下面的这个播放器中的乱码：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12392848880791843898/A/1/m.jpg" alt="" title="Windows 7 乱码"></p>
+<p><a href="https://www.yueye.org" target="_blank" rel="noopener">月夜</a>水平有限，不知道到底是什么原因。希望在后续版本中能不再出现这一问题。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/升级/" rel="tag"># 升级</a>
+          
+            <a href="/tags/Windows/" rel="tag"># Windows</a>
+          
+            <a href="/tags/微软/" rel="tag"># 微软</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2009/04/08/functions-must-known-using-wordpress-second/" rel="next" title="用好WordPress不可不知的函数（二）">
+                <i class="fa fa-chevron-left"></i> 用好WordPress不可不知的函数（二）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2009/04/10/welcome-to-exchange-blogrolls/" rel="prev" title="欢迎朋友们交换友链">
+                欢迎朋友们交换友链 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">434</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">108</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

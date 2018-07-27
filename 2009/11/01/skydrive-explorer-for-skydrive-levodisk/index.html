@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="网络硬盘,微软,SkyDrive," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="我想很多朋友肯定也像 月夜 一样一直在使用微软的精品网络硬盘SkyDrive，这款由财大气粗的微软提供的优质网络硬盘经过最近一次的重要升级之后为我们提供了丰厚的条件：  高达25G的总容量； 永久保存； 微软提供，可信赖；等等。  虽然单个文件最大只支持到50M，而且最近又取消了原来支持的超链接，但目前仍然是网络硬盘市场中的一款相当不错的产品，甚至月夜在最大最好的免费网络硬盘一文中将其排在了所有免">
+<meta name="keywords" content="网络硬盘,微软,SkyDrive">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SkyDrive Explorer:SkyDrive网络硬盘本地管理工具">
+<meta property="og:url" content="http://yoursite.com/2009/11/01/skydrive-explorer-for-skydrive-levodisk/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="我想很多朋友肯定也像 月夜 一样一直在使用微软的精品网络硬盘SkyDrive，这款由财大气粗的微软提供的优质网络硬盘经过最近一次的重要升级之后为我们提供了丰厚的条件：  高达25G的总容量； 永久保存； 微软提供，可信赖；等等。  虽然单个文件最大只支持到50M，而且最近又取消了原来支持的超链接，但目前仍然是网络硬盘市场中的一款相当不错的产品，甚至月夜在最大最好的免费网络硬盘一文中将其排在了所有免">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://img1.laibafile.cn/laiba/images/615721/12570565670818562326/A/1/m.jpg">
+<meta property="og:image" content="http://img2.laibafile.cn/laiba/images/615721/12570565670818562327/A/1/m.jpg">
+<meta property="og:image" content="http://img1.laibafile.cn/laiba/images/615721/12570565670818562328/A/1/m.jpg">
+<meta property="og:image" content="http://img2.laibafile.cn/laiba/images/615721/12570565670818562329/A/1/m.jpg">
+<meta property="og:image" content="http://img1.laibafile.cn/laiba/images/615721/12570565670818562330/A/1/m.jpg">
+<meta property="og:image" content="http://img2.laibafile.cn/laiba/images/615721/12570565800173469535/A/1/m.jpg">
+<meta property="og:updated_time" content="2018-07-27T03:00:21.887Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SkyDrive Explorer:SkyDrive网络硬盘本地管理工具">
+<meta name="twitter:description" content="我想很多朋友肯定也像 月夜 一样一直在使用微软的精品网络硬盘SkyDrive，这款由财大气粗的微软提供的优质网络硬盘经过最近一次的重要升级之后为我们提供了丰厚的条件：  高达25G的总容量； 永久保存； 微软提供，可信赖；等等。  虽然单个文件最大只支持到50M，而且最近又取消了原来支持的超链接，但目前仍然是网络硬盘市场中的一款相当不错的产品，甚至月夜在最大最好的免费网络硬盘一文中将其排在了所有免">
+<meta name="twitter:image" content="http://img1.laibafile.cn/laiba/images/615721/12570565670818562326/A/1/m.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2009/11/01/skydrive-explorer-for-skydrive-levodisk/"/>
+
+
+
+
+
+  <title>SkyDrive Explorer:SkyDrive网络硬盘本地管理工具 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2009/11/01/skydrive-explorer-for-skydrive-levodisk/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">SkyDrive Explorer:SkyDrive网络硬盘本地管理工具</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2009-11-01T15:14:12+08:00">
+                2009-11-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/免费资源/" itemprop="url" rel="index">
+                    <span itemprop="name">免费资源</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>我想很多朋友肯定也像 <a href="https://www.yueye.org" target="_blank" rel="noopener">月夜</a> 一样一直在使用微软的精品网络硬盘SkyDrive，这款由财大气粗的微软提供的优质网络硬盘经过<a href="https://www.yueye.org/2008/microsoft-levodisk-skydrive-update.html" target="_blank" rel="noopener">最近一次的重要升级</a>之后为我们提供了丰厚的条件：</p>
+<blockquote>
+<p>高达25G的总容量； 永久保存； 微软提供，可信赖；等等。</p>
+</blockquote>
+<p>虽然单个文件最大只支持到50M，而且最近又取消了原来支持的超链接，但目前仍然是网络硬盘市场中的一款相当不错的产品，甚至月夜在<a href="https://www.yueye.org/2008/largest-best-free-levodisk.html" target="_blank" rel="noopener">最大最好的免费网络硬盘</a>一文中将其排在了所有免费网络硬盘的榜首。 然而，SkyDrive的速度一直很让人揪心；除此之外，这款网络硬盘提供的功能简单弱小的线上管理功能也一直为人诟病。然而，现在我们看到了一款像Gmail drive一样辅助SkyDrive支持在本地存取管理文件的工具——SkyDrive Explorer。这款软件为辅助SkyDrive网络硬盘而诞生，提供了如下的诸多功能：</p>
+<blockquote>
+<p>单个或批量上传下载文件到SkyDrive； 单个或批量删除SkyDrive中的文件或文件夹； 使得可以像管理本地磁盘上的文件或文件夹一样管理SkyDrive；等等。</p>
+</blockquote>
+<p>这款软件的官方主页地址是：<a href="http://skydriveexplorer.com/index.php" target="_blank" rel="noopener">SkyDrive Explorer</a>；<a href="http://skydriveexplorer.com/download/SkyDriveExplorer.exe" target="_blank" rel="noopener">点击此处</a>即可下载这款软件；将程序下载到本地之后，即可直接安装；安装过程和其他普通软件类似，此处不再赘述。安装完成之后，打开“我的电脑”，即可在“我的电脑”页面上看到如下图所示的SkyDrive Explorer图标：</p>
+<p><img src="http://img1.laibafile.cn/laiba/images/615721/12570565670818562326/A/1/m.jpg" alt="" title="SkyDrive Explorer界面"></p>
+<p>可以看出，这样的一个图标和本地磁盘的一个盘符类似，也就相当于本地磁盘多了一块25G容量的空间。 安装完成之后，首次双击该图标将显示如下图所示的登录SkyDrive帐号窗口：</p>
+<p><img src="http://img2.laibafile.cn/laiba/images/615721/12570565670818562327/A/1/m.jpg" alt="" title="SkyDrive Explorer帐号登录窗口"></p>
+<p>在如上图所示的登录窗口中输入你的SkyDrive网络硬盘的帐号和密码，如果是你自己的私人电脑，还可以选中下方的两个复选框记住密码，然后点击“Sign in”按钮，即可使用Explorer登录到SkyDrive网络硬盘中，登录后的界面如下图所示：</p>
+<p><img src="http://img1.laibafile.cn/laiba/images/615721/12570565670818562328/A/1/m.jpg" alt="" title="SkyDrive Explorer界面"></p>
+<p>可以看到，在SkyDrive Explorer的主界面上显示了你的SkyDrive网络硬盘里面的各种文件，在这里你可以方便地对其进行管理。 下面图像是在SkyDrive Explorer中创建文件夹的界面：</p>
+<p><img src="http://img2.laibafile.cn/laiba/images/615721/12570565670818562329/A/1/m.jpg" alt="" title="SkyDrive Explorer"></p>
+<p>如下图是通过SkyDrive Explorer往SkyDrive网络硬盘中复制文件的界面：</p>
+<p><img src="http://img1.laibafile.cn/laiba/images/615721/12570565670818562330/A/1/m.jpg" alt="" title="SkyDrive Explorer"></p>
+<p>接下来的这个图像显示的是通过SkyDrive Explorer删除SkyDrive网络硬盘中的文件时的系统提示：</p>
+<p><img src="http://img2.laibafile.cn/laiba/images/615721/12570565800173469535/A/1/m.jpg" alt="" title="SkyDrive Explorer"></p>
+<p>如上即是对SkyDrive Explorer的简单介绍，因其和普通电脑磁盘的操作类似，所以十分简单，我们此处不再赘述。另外需要说明的是，SkyDrive Explorer是通过标准的Microsoft库与Live ID进行操作，所以你可以对帐号的安全问题尽管放心。此外，Explorer与SkyDrive的操作使用https协议来保护数据，所以，对数据的安全你也可以放心。 但目前略有遗憾的是，SkyDrive Explorer的功能还略显简单，比如我们无法从Explorer中获知SkyDrive网络硬盘里的文件夹的私有或公开权限等。不过正如官方所言，他们正在努力改进，相信很快我们就可以看到一个功能更为强大的SkyDrive网络硬盘辅助工具。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/网络硬盘/" rel="tag"># 网络硬盘</a>
+          
+            <a href="/tags/微软/" rel="tag"># 微软</a>
+          
+            <a href="/tags/SkyDrive/" rel="tag"># SkyDrive</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2009/10/28/the-romantic-experience-of-xiaoling-and-me/" rel="next" title="我和小菱的四周缘">
+                <i class="fa fa-chevron-left"></i> 我和小菱的四周缘
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2009/11/03/boxstr-levodisk-is-updating/" rel="prev" title="BOXSTr网络硬盘重要升级">
+                BOXSTr网络硬盘重要升级 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">434</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">108</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

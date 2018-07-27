@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="经验分享,飞信," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="昨天是传说中的光棍节，在此为兄弟姐妹们提供一个搜索并添加MM或GG的方法。 事实上我们大家都经历过使用QQ搜索添加好友的日子，但那早已是过去的事情了。而且就目前来说，使用QQ搜索好友有很大的缺点和不足。一方面，QQ用户众多，但虚假信息也较多，而且经常使用QQ的人可能会是网虫，这往往不是我们想要的；另一方面，QQ没有办法添加一个地方的好友，而且也不能批量添加。而使用飞信，则完全没有了这些缺点。飞信和">
+<meta name="keywords" content="经验分享,飞信">
+<meta property="og:type" content="article">
+<meta property="og:title" content="批量添加飞信好友">
+<meta property="og:url" content="http://yoursite.com/2008/11/12/batch-add-fetion-friends/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="昨天是传说中的光棍节，在此为兄弟姐妹们提供一个搜索并添加MM或GG的方法。 事实上我们大家都经历过使用QQ搜索添加好友的日子，但那早已是过去的事情了。而且就目前来说，使用QQ搜索好友有很大的缺点和不足。一方面，QQ用户众多，但虚假信息也较多，而且经常使用QQ的人可能会是网虫，这往往不是我们想要的；另一方面，QQ没有办法添加一个地方的好友，而且也不能批量添加。而使用飞信，则完全没有了这些缺点。飞信和">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://img.yueye.org/2008/11/12/01.jpg">
+<meta property="og:image" content="https://img.yueye.org/2008/11/12/02.jpg">
+<meta property="og:image" content="https://img.yueye.org/2008/11/12/03.jpg">
+<meta property="og:image" content="https://img.yueye.org/2008/11/12/04.jpg">
+<meta property="og:image" content="https://img.yueye.org/2008/11/12/05.jpg">
+<meta property="og:image" content="https://img.yueye.org/2008/11/12/06.jpg">
+<meta property="og:updated_time" content="2018-07-27T03:00:21.879Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="批量添加飞信好友">
+<meta name="twitter:description" content="昨天是传说中的光棍节，在此为兄弟姐妹们提供一个搜索并添加MM或GG的方法。 事实上我们大家都经历过使用QQ搜索添加好友的日子，但那早已是过去的事情了。而且就目前来说，使用QQ搜索好友有很大的缺点和不足。一方面，QQ用户众多，但虚假信息也较多，而且经常使用QQ的人可能会是网虫，这往往不是我们想要的；另一方面，QQ没有办法添加一个地方的好友，而且也不能批量添加。而使用飞信，则完全没有了这些缺点。飞信和">
+<meta name="twitter:image" content="https://img.yueye.org/2008/11/12/01.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2008/11/12/batch-add-fetion-friends/"/>
+
+
+
+
+
+  <title>批量添加飞信好友 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2008/11/12/batch-add-fetion-friends/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">批量添加飞信好友</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2008-11-12T10:04:35+08:00">
+                2008-11-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/经验知识/" itemprop="url" rel="index">
+                    <span itemprop="name">经验知识</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>昨天是传说中的光棍节，在此为兄弟姐妹们提供一个搜索并添加MM或GG的方法。 事实上我们大家都经历过使用QQ搜索添加好友的日子，但那早已是过去的事情了。而且就目前来说，使用QQ搜索好友有很大的缺点和不足。一方面，QQ用户众多，但虚假信息也较多，而且经常使用QQ的人可能会是网虫，这往往不是我们想要的；另一方面，QQ没有办法添加一个地方的好友，而且也不能批量添加。而使用飞信，则完全没有了这些缺点。飞信和手机相连，保证了信息的真实性；飞信可以批量添加好友；而最重要的一点是，我们使用飞信可以定向添加一个地方的好友，比如，你知道其中的一个手机号是某某大学的号码，那么你可以将尾号的最后几位适当修改，那么几乎可以保证，修改后的手机号也是该大学的号码。 闲话不提，下面我们开始批量添加飞信好友。这种批量添加的方法使用了飞信的导出导入好友列表功能。 首先，我们在飞信的窗口中右键点击，可以看到如下图所示的菜单：</p>
+<p><a href="https://img.yueye.org/2008/11/12/01.jpg" target="_blank" rel="noopener"><img src="https://img.yueye.org/2008/11/12/01.jpg" alt="" title="批量添加飞信好友"></a></p>
+<p>首先，我们选择导出好友列表菜单导出好友列表，来查看一下飞信好友列表的格式，如下图所示：</p>
+<p><a href="https://img.yueye.org/2008/11/12/02.jpg" target="_blank" rel="noopener"><img src="https://img.yueye.org/2008/11/12/02.jpg" alt="" title="批量添加飞信好友"></a></p>
+<p>看到了飞信好友列表的格式，我们就可以编写程序来生成类似的好友列表了。 C++程序代码如下图所示：</p>
+<blockquote>
+<p>#include &lt;iostream.h&gt; #include &lt;time.h&gt; #include &lt;stdlib.h&gt; #include &lt;fstream.h&gt; long int PrintNumBasic=0, PrintNumBegin=0, PrintNumEnd=0; void main() { cout&lt;&lt;”请输入您想生成的手机号序列的前7位（如：1358888）:\n”; cin&gt;&gt;PrintNumBasic; cout&lt;&lt;”请输入您想生成的手机号序列后四位的起始数（输入数字，不要加前缀的0，如20）:\n”; cin&gt;&gt;PrintNumBegin; cout&lt;&lt;”请输入您想生成的手机号序列后四位的结束数（输入数字，不要加前缀的0，如99）:\n”; cin&gt;&gt;PrintNumEnd; ofstream outfile(“out.fcl”); outfile&lt;&lt;”&lt;?xml version=\“1.0\“ encoding=\“gb2312\“ ?&gt;\n”; outfile&lt;&lt;”<contacts>\n”; srand(unsigned(time(NULL))); for(long int i=PrintNumBegin;i&lt;=PrintNumEnd;++i) { outfile&lt;&lt;”<contact><fetionid></fetionid><mobileno>“; outfile&lt;&lt;PrintNumBasic; if(i&lt;10) outfile&lt;&lt;”000”; else if(i&lt;100) outfile&lt;&lt;”00”; else if(i&lt;1000) outfile&lt;&lt;”0”; outfile&lt;&lt;i; outfile&lt;&lt;”</mobileno><name></name><nickname></nickname></contact>“; outfile&lt;&lt;”\n”; } outfile&lt;&lt;”</contacts>“; }</p>
+</blockquote>
+<p>将上面的代码在VC中编译连接生成相应的程序以供我们下面使用。当然你也可以<a href="http://cid-b1feed689d047bdb.skydrive.live.com/self.aspx/MySoft/MobileNumGen.rar" target="_blank" rel="noopener">点此</a>直接下载编译好的程序。 将编译或者直接下载的程序复制到一个文件夹中，在这里我推荐你复制到根目录下（比如E盘下）。然后调出DOS命令行窗口，如下图所示（下例中程序名为MobileNumGen，放到了E盘根目录下）：</p>
+<p><a href="https://img.yueye.org/2008/11/12/03.jpg" target="_blank" rel="noopener"><img src="https://img.yueye.org/2008/11/12/03.jpg" alt="" title="批量添加飞信好友"></a></p>
+<p>调出命令行后，输入e:并回车将命令行目录切换到E盘，然后输出程序名，如“MobileNumGen”回车，将开始执行程序。根据程序相应提示，输入相应的信息，程序就会在E盘根目录下生成飞信好友列表文件。生成的好友列表文件如下图所示：</p>
+<p><a href="https://img.yueye.org/2008/11/12/04.jpg" target="_blank" rel="noopener"><img src="https://img.yueye.org/2008/11/12/04.jpg" alt="" title="批量添加飞信好友"></a></p>
+<p>然后我们在飞信中批量添加好友。首先还是在飞信主程序窗口中右击，从飞信弹出的快捷菜单中选择导入好友列表，飞信将弹出如下图所示的“导入联系人”对话框：</p>
+<p><a href="https://img.yueye.org/2008/11/12/05.jpg" target="_blank" rel="noopener"><img src="https://img.yueye.org/2008/11/12/05.jpg" alt="" title="批量添加飞信好友"></a></p>
+<p>我们选择从包含联系人信息的文件导入选项，然后单击浏览，选择刚刚生成的飞信联系人文件，如下图所示：</p>
+<p><a href="https://img.yueye.org/2008/11/12/06.jpg" target="_blank" rel="noopener"><img src="https://img.yueye.org/2008/11/12/06.jpg" alt="" title="批量添加飞信好友"></a></p>
+<p>选择好文件以后，直接点击下一步，在弹出的对话框中选择你想要添加的好友，或者直接点击全选，接着点击下一步，即可完成飞信好友批量添加了。 注：文中所述方法不可用于非法用途，因此造成的任何后果均由使用人负责，<a href="https://www.yueye.org" target="_blank" rel="noopener">月夜博客</a>不承担任何责任。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/经验分享/" rel="tag"># 经验分享</a>
+          
+            <a href="/tags/飞信/" rel="tag"># 飞信</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2008/11/11/5g-50g-web-yourfreehosting/" rel="next" title="5G容量50G流量免费空间Yourfreehosting">
+                <i class="fa fa-chevron-left"></i> 5G容量50G流量免费空间Yourfreehosting
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2008/11/12/100m-2g-100megsfree8/" rel="prev" title="100M空间2G流量免费空间100megsfree8">
+                100M空间2G流量免费空间100megsfree8 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">434</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">108</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

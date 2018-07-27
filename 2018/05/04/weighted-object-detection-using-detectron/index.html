@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="TensorFlow,Python,计算机视觉," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="使用深度学习解决分类问题时，类间不平衡是一个常见的问题，我们也有很多常用的方法去解决这一问题。比如，对类别少的样本进行augment，或者重采样；对类别多的样本进行降采样；根据不同类别的样本数目对损失函数进行加权；或者简单粗暴地对较少的样本在数据集内进行复制；等等。 不过这些方法中，考虑到数据对深度学习的重要性，一般不会使用对数据进行降采样的方法；而augment、重采样以及复制数据，都需要对数据">
+<meta name="keywords" content="TensorFlow,Python,计算机视觉">
+<meta property="og:type" content="article">
+<meta property="og:title" content="通过加权解决Detectron训练object detection模型时的类间不平衡问题">
+<meta property="og:url" content="http://yoursite.com/2018/05/04/weighted-object-detection-using-detectron/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="使用深度学习解决分类问题时，类间不平衡是一个常见的问题，我们也有很多常用的方法去解决这一问题。比如，对类别少的样本进行augment，或者重采样；对类别多的样本进行降采样；根据不同类别的样本数目对损失函数进行加权；或者简单粗暴地对较少的样本在数据集内进行复制；等等。 不过这些方法中，考虑到数据对深度学习的重要性，一般不会使用对数据进行降采样的方法；而augment、重采样以及复制数据，都需要对数据">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-27T03:00:21.891Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="通过加权解决Detectron训练object detection模型时的类间不平衡问题">
+<meta name="twitter:description" content="使用深度学习解决分类问题时，类间不平衡是一个常见的问题，我们也有很多常用的方法去解决这一问题。比如，对类别少的样本进行augment，或者重采样；对类别多的样本进行降采样；根据不同类别的样本数目对损失函数进行加权；或者简单粗暴地对较少的样本在数据集内进行复制；等等。 不过这些方法中，考虑到数据对深度学习的重要性，一般不会使用对数据进行降采样的方法；而augment、重采样以及复制数据，都需要对数据">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/05/04/weighted-object-detection-using-detectron/"/>
+
+
+
+
+
+  <title>通过加权解决Detectron训练object detection模型时的类间不平衡问题 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/04/weighted-object-detection-using-detectron/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">通过加权解决Detectron训练object detection模型时的类间不平衡问题</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-04T20:45:58+08:00">
+                2018-05-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/人工智能/" itemprop="url" rel="index">
+                    <span itemprop="name">人工智能</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>使用深度学习解决分类问题时，类间不平衡是一个常见的问题，我们也有很多常用的方法去解决这一问题。比如，对类别少的样本进行augment，或者重采样；对类别多的样本进行降采样；根据不同类别的样本数目对损失函数进行加权；或者简单粗暴地对较少的样本在数据集内进行复制；等等。 不过这些方法中，考虑到数据对深度学习的重要性，一般不会使用对数据进行降采样的方法；而augment、重采样以及复制数据，都需要对数据进行直接操作，也并不如修改损失函数进行加权的方法简单优雅。这种对损失函数进行加权的方法如下：</p>
+<p>Loss = class_of_less_samples_loss * weights + class_of_more_samples_loss</p>
+<p>不过，这种方法虽然简单优雅，对分类问题进行处理也简单方便，但如果是目标检测问题，则可能需要考虑更多东西；如果我们使用的是像Detectron这样包装严密的框架，处理起来可能难上加难。本文，我们就以Detectron里的Faster-RCNN来详细描述一下这一问题，以期提供一些经验参考。</p>
+<h3 id="1-Faster-RCNN的loss"><a href="#1-Faster-RCNN的loss" class="headerlink" title="1.Faster-RCNN的loss"></a>1.Faster-RCNN的loss</h3><p>Faster-RCNN一共有4个loss，包括前面的RPN的classification loss和regression loss，以及后面的classification loss和regression loss。但RPN部分除了前景、背景的分类之外，一般不按具体的类别进行区分，所以，我们无法对这一部分进行加权。而且由于这一部分仅仅进行region proposal，与具体的类别关系不大，所以对其进行加权也意义不大。至于后面的Fast-RCNN部分，对边框进行回归的regression loss同样意义不大，所以我们进行加权，主要加权的部分就是这里的classification loss。 当然，除了对不同类别的分类进行加权之外，我们还考虑到这样一个情况，即有时候分类错误的损失影响较大，而只要检测出来，检测到的物体的边框并不一定要求特别精确，所以，通常会针对具体问题，对这个地方进行修改，改变两者的权重占比。</p>
+<h3 id="2-Detectron的caffe2"><a href="#2-Detectron的caffe2" class="headerlink" title="2.Detectron的caffe2"></a>2.Detectron的caffe2</h3><p>caffe2是Facebook推出的主要面向产品部署等场景的深度学习框架，而针对于研究等方向，Facebook则推出的是简单易用的PyTorch；因此，caffe2过于关注了性能，其易用性并不好。所以，基于caffe2的Detectron用起来虽然训练速度很好，但想对其进行修改，却并非易事。 与caffe类似，caffe2也是使用Blob来管理数据的。所以，在caffe2中，传进传出的参数，通常只有一个名字，这让很多人摸不着头脑，也使得调试十分困难。 在caffe2中，新建一个Blob可以使用如下代码：</p>
+<p>import numpy as np<br>from caffe2.python import core, workspace</p>
+<p>labels_array = np.array(…)<br>labels = workspace.FeedBlob(‘labels’, labels_array)</p>
+<p>这样，我们就新建了一个名为labels的Blob。 然后，我们可以在其他地方使用，使用时，直接把数据fetch出来即可：</p>
+<p>from caffe2.python import core, workspace</p>
+<p>labels = workspace.FetchBlob(‘labels’)<br># labels = workspace.FetchBlob(core.ScopedName(‘labels’))</p>
+<p>如果labels是一个全局名，可以直接进行fetch；如果它是定义在一个scope里面的Blob，则需要首先对名字进行一下处理，否则可能提示找不到相应的Blob。 在Detectron中，有很多使用Blob的例子，如<a href="https://github.com/facebookresearch/Detectron/blob/master/tests/test_loader.py#L48" target="_blank" rel="noopener">这个</a>，以及<a href="https://github.com/facebookresearch/Detectron/blob/master/tests/test_loader.py#L79" target="_blank" rel="noopener">这个</a>。</p>
+<h3 id="3-修改Detectron中Faster-RCNN的loss-cls和loss-bbox的比例"><a href="#3-修改Detectron中Faster-RCNN的loss-cls和loss-bbox的比例" class="headerlink" title="3.修改Detectron中Faster-RCNN的loss_cls和loss_bbox的比例"></a>3.修改Detectron中Faster-RCNN的loss_cls和loss_bbox的比例</h3><p>Faster-RCNN中，建立这两个loss是在<a href="https://github.com/facebookresearch/Detectron/blob/master/lib/modeling/fast_rcnn_heads.py#L70" target="_blank" rel="noopener">fast_rcnn_heads.py中的add_fast_rcnn_losses函数</a>，该函数中，分别使用model.net.SoftmaxWithLoss和model.net.SmoothL1Loss得到了相应的loss值。而SoftmaxWithLoss这个函数中的参数scale=model.GetLossScale()，即是控制比例的地方。函数中，这个比例根据使用GPU的数量进行调节，我们为了最小修改原来的内容，直接在这个函数后面加上修改的比例即可，比如，将其修改为：scale=model.GetLossScale()*2，即将loss_cls的比重扩大到原来的2倍。如果与此同时，对SmoothL1Loss的scale不作调整，则相当于将classification的loss权重提高到了regression loss的2倍。</p>
+<h3 id="4-根据不同类别的Object，修改其在loss中的权重"><a href="#4-根据不同类别的Object，修改其在loss中的权重" class="headerlink" title="4.根据不同类别的Object，修改其在loss中的权重"></a>4.根据不同类别的Object，修改其在loss中的权重</h3><p>我们首先来看3中的loss_cls，这个loss是使用model.net.SoftmaxWithLoss来生成的。查阅<a href="https://github.com/caffe2/caffe2/blob/master/caffe2/operators/softmax_with_loss_op.cc#L50" target="_blank" rel="noopener">这个函数的文档</a>，可以看到，其输入值，除了logits、labels，还可以输入一个Blob作为weights。这就是我们需要修改的地方。 在<a href="https://github.com/facebookresearch/Detectron/blob/master/lib/roi_data/minibatch.py#L64" target="_blank" rel="noopener">minibatch.py里的get_minibatch函数</a>中，可以看到，读取RPN的Blob是通过roi_data.rpn.add_rpn_blobs来完成的，而读取Fast-RCNN的数据，则是通过roi_data.fast_rcnn.add_fast_rcnn_blobs来完成的。因此，如上分析，我们需要修改进行加权的操作，是需要在后面这个函数中进行的。 在<a href="https://github.com/facebookresearch/Detectron/blob/master/lib/roi_data/fast_rcnn.py#L108" target="_blank" rel="noopener">fast_rcnn.py里的add_fast_rcnn_blobs函数</a>中，进行了数据的读取操作，具体来说，读取操作是在<a href="https://github.com/facebookresearch/Detectron/blob/master/lib/roi_data/fast_rcnn.py#L112" target="_blank" rel="noopener">函数中的_sample_rois(entry, im_scales[im_i], im_i)</a>来完成的。 我们跳转到<a href="https://github.com/facebookresearch/Detectron/blob/master/lib/roi_data/fast_rcnn.py#L132" target="_blank" rel="noopener">_sample_rois这个函数</a>里，我们找到<a href="https://github.com/facebookresearch/Detectron/blob/master/lib/roi_data/fast_rcnn.py#L170" target="_blank" rel="noopener">labels生成的地方</a>，然后根据labels，来生成我们需要的weights即可。如下：</p>
+<p># Add weights<br>weights = (np.where(sampled_labels==2, 5, 1)).astype(np.float32)</p>
+<p>在这里，我们将label为2的类别的权重设置为了5，而其他类别保持了不变。然后，在下面要反悔的blob_dict里添加上这个weights即可，如下：</p>
+<p>blob_dict = dict(<br>      labels_int32=sampled_labels.astype(np.int32, copy=False),<br>      weights=weights,<br>      rois=sampled_rois,<br>      bbox_targets=bbox_targets,<br>      bbox_inside_weights=bbox_inside_weights,<br>      bbox_outside_weights=bbox_outside_weights<br>)</p>
+<p>不过，在此之前，需要添加一个名为weights的Blob。 在<a href="https://github.com/facebookresearch/Detectron/blob/master/lib/roi_data/fast_rcnn.py#L40" target="_blank" rel="noopener">fast_rcnn.py里的get_fast_rcnn_blob_names函数</a>中，直接添加即可，如下：</p>
+<p># Add weights<br>if is_training:<br>  blob_names += [‘weights’]</p>
+<p>如此，即可为指定类别的Object进行加权，从而突出其在object detection时的重要性，对其进行特殊对待。</p>
+<h3 id="5-对某些图片进行加权"><a href="#5-对某些图片进行加权" class="headerlink" title="5.对某些图片进行加权"></a>5.对某些图片进行加权</h3><p>有时候，我们不仅想要对这些类别进行加权，我们还希望对出现了这个类别的图片进行加权，这时候应该这么处理呢？ 这个比较简单，直接在最开始读数据roidb时进行处理即可。在<a href="https://github.com/facebookresearch/Detectron/blob/master/lib/utils/train.py#L180" target="_blank" rel="noopener">train.py里的combined_roidb_for_training函数</a>，是建立数据roidb用于训练的。该函数定义在<a href="https://github.com/facebookresearch/Detectron/blob/master/lib/datasets/roidb.py#L36" target="_blank" rel="noopener">roidb.py</a>文件中，在该函数中，我们可以看到一个<a href="https://github.com/facebookresearch/Detectron/blob/master/lib/datasets/roidb.py#L65" target="_blank" rel="noopener">过滤roidb中数据的函数</a>，该函数用来“Remove roidb entries that have no usable RoIs based on config settings”。我们可以仿照这个函数，构建一个augment_roidb_for_training函数。如下：</p>
+<p>def augment_for_training(roidb):<br>  “””Augment roidb entries that have some RoIs.<br>  “””<br>  num = len(roidb)<br>  auged_roidb = []<br>  for db in roidb:<br>    if np.sum(db[‘gt_classes’]==2)&gt;=1:<br>      auged_roidb.append(db)<br>      auged_roidb.append(db)<br>    else:<br>      auged_roidb.append(db)<br>  num_after = len(auged_roidb)<br>  logger.info(‘Augment {} roidb entries: {} -&gt; {}’.<br>              format(num_after - num, num, num_after))<br>  return auged_roidb</p>
+<p>这样，我们将含有label为2的图片复制成了两份，即相当于对其完成了加权。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/TensorFlow/" rel="tag"># TensorFlow</a>
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+            <a href="/tags/计算机视觉/" rel="tag"># 计算机视觉</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/18/faster-rcnn-coupled-with-fpn-in-tensorflow/" rel="next" title="使用TensorFlow训练综合FPN和Faster-RCNN的目标检测模型">
+                <i class="fa fa-chevron-left"></i> 使用TensorFlow训练综合FPN和Faster-RCNN的目标检测模型
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/27/resize-an-image-in-tensorflow-while-keeping-the-aspect-ratio/" rel="prev" title="在TensorFlow里把Image Resize到固定尺寸同时保持宽高比">
+                在TensorFlow里把Image Resize到固定尺寸同时保持宽高比 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">434</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">108</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Faster-RCNN的loss"><span class="nav-number">1.</span> <span class="nav-text">1.Faster-RCNN的loss</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Detectron的caffe2"><span class="nav-number">2.</span> <span class="nav-text">2.Detectron的caffe2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-修改Detectron中Faster-RCNN的loss-cls和loss-bbox的比例"><span class="nav-number">3.</span> <span class="nav-text">3.修改Detectron中Faster-RCNN的loss_cls和loss_bbox的比例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-根据不同类别的Object，修改其在loss中的权重"><span class="nav-number">4.</span> <span class="nav-text">4.根据不同类别的Object，修改其在loss中的权重</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-对某些图片进行加权"><span class="nav-number">5.</span> <span class="nav-text">5.对某些图片进行加权</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

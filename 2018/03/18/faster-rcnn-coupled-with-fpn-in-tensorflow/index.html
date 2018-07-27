@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Deep Learning,TensorFlow,计算机视觉," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="Faster-RCNN已经推出几年了，尽管其后有相当多另辟蹊径的方法，比如SSD和YOLO，等等，但目前其仍是目标检测领域精度最优的模型之一。而最近推出的FPN模型，更是融合神经网络中不同层之间的特征，对目标检测的大小物体兼顾，从而达到了最好的检测结果。比如，COCO目标检测的Leaderboard前几名目前无不是基于FPN进行的各种改进。 我想着将FPN与Faster-RCNN结合使用，GitH">
+<meta name="keywords" content="Deep Learning,TensorFlow,计算机视觉">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用TensorFlow训练综合FPN和Faster-RCNN的目标检测模型">
+<meta property="og:url" content="http://yoursite.com/2018/03/18/faster-rcnn-coupled-with-fpn-in-tensorflow/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Faster-RCNN已经推出几年了，尽管其后有相当多另辟蹊径的方法，比如SSD和YOLO，等等，但目前其仍是目标检测领域精度最优的模型之一。而最近推出的FPN模型，更是融合神经网络中不同层之间的特征，对目标检测的大小物体兼顾，从而达到了最好的检测结果。比如，COCO目标检测的Leaderboard前几名目前无不是基于FPN进行的各种改进。 我想着将FPN与Faster-RCNN结合使用，GitH">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-27T03:00:21.891Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用TensorFlow训练综合FPN和Faster-RCNN的目标检测模型">
+<meta name="twitter:description" content="Faster-RCNN已经推出几年了，尽管其后有相当多另辟蹊径的方法，比如SSD和YOLO，等等，但目前其仍是目标检测领域精度最优的模型之一。而最近推出的FPN模型，更是融合神经网络中不同层之间的特征，对目标检测的大小物体兼顾，从而达到了最好的检测结果。比如，COCO目标检测的Leaderboard前几名目前无不是基于FPN进行的各种改进。 我想着将FPN与Faster-RCNN结合使用，GitH">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/03/18/faster-rcnn-coupled-with-fpn-in-tensorflow/"/>
+
+
+
+
+
+  <title>使用TensorFlow训练综合FPN和Faster-RCNN的目标检测模型 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/18/faster-rcnn-coupled-with-fpn-in-tensorflow/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">使用TensorFlow训练综合FPN和Faster-RCNN的目标检测模型</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-18T10:10:52+08:00">
+                2018-03-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/人工智能/" itemprop="url" rel="index">
+                    <span itemprop="name">人工智能</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Faster-RCNN已经推出几年了，尽管其后有相当多另辟蹊径的方法，比如SSD和YOLO，等等，但目前其仍是目标检测领域精度最优的模型之一。而最近推出的FPN模型，更是融合神经网络中不同层之间的特征，对目标检测的大小物体兼顾，从而达到了最好的检测结果。比如，<a href="http://cocodataset.org/#detections-leaderboard" target="_blank" rel="noopener">COCO目标检测的Leaderboard</a>前几名目前无不是基于FPN进行的各种改进。 我想着将FPN与Faster-RCNN结合使用，GitHub上目前一共有3个类似的Repositories： <a href="https://github.com/yangxue0827/FPN_Tensorflow" target="_blank" rel="noopener">FPN_Tensorflow</a>、<a href="https://github.com/wuzheng-sjtu/FastFPN" target="_blank" rel="noopener">FastFPN</a>和<a href="https://github.com/xmyqsh/FPN" target="_blank" rel="noopener">FPN</a>。 我将它们分别clone了下来，并试着调试使用，最后发现最好用的是FPN_Tensorflow，而其他两个，在调试和使用中，要么碰到各种问题，提issue未获解决；要么虽然跑通了，但无法测试模型的效果，也没有评估模型mAP的程序。 下面，我就将我在调试和使用这个FPN_Tensorflow Repository的过程中总结的经验简单记录一下，以备以后使用需要。需要特别说明的是，虽然作者说“not suitable for multi-target detection tasks”，但经我实验，对于multi-target的检测任务，其效果也是可以的。 此外，我将自己修改和订制过的Repository上传到了我的GitHub上，<a href="https://github.com/Kongsea/FPN_TensorFlow" target="_blank" rel="noopener">可以点此访问参考</a>。</p>
+<h3 id="1-从GitHub上将项目clone下来"><a href="#1-从GitHub上将项目clone下来" class="headerlink" title="1. 从GitHub上将项目clone下来"></a>1. 从GitHub上将项目clone下来</h3><h3 id="2-根据数据集的名字修改配置文件"><a href="#2-根据数据集的名字修改配置文件" class="headerlink" title="2. 根据数据集的名字修改配置文件"></a>2. 根据数据集的名字修改配置文件</h3><p>修改libs/configs/cfgs.py文件中的DATASET_NAME，将其修改为自己的数据集的名字，如：</p>
+<p>DATASET_NAME = ‘animals’</p>
+<h3 id="3-将数据集放到项目的data文件夹下"><a href="#3-将数据集放到项目的data文件夹下" class="headerlink" title="3. 将数据集放到项目的data文件夹下"></a>3. 将数据集放到项目的data文件夹下</h3><p>比如，我们放置的数据集名为animals，然后将数据放到animals文件夹下</p>
+<h4 id="3-1-原始图片放到data-animals-JPEGImages文件夹下"><a href="#3-1-原始图片放到data-animals-JPEGImages文件夹下" class="headerlink" title="3.1 原始图片放到data/animals/JPEGImages文件夹下"></a>3.1 原始图片放到data/animals/JPEGImages文件夹下</h4><h4 id="3-2-原始标注信息放到data-animals-annotations文件夹下"><a href="#3-2-原始标注信息放到data-animals-annotations文件夹下" class="headerlink" title="3.2 原始标注信息放到data/animals/annotations文件夹下"></a>3.2 原始标注信息放到data/animals/annotations文件夹下</h4><h4 id="3-3-在data-animals文件夹下生成一个classes-txt的文件，将所有的类别（除background）逐行放到该文件里"><a href="#3-3-在data-animals文件夹下生成一个classes-txt的文件，将所有的类别（除background）逐行放到该文件里" class="headerlink" title="3.3 在data/animals文件夹下生成一个classes.txt的文件，将所有的类别（除background）逐行放到该文件里"></a>3.3 在data/animals文件夹下生成一个classes.txt的文件，将所有的类别（除background）逐行放到该文件里</h4><p>在我的Repository里，运行项目根目录下的gen_classes.py即可在data/animals文件夹下生成一个classes.txt文件。</p>
+<h4 id="3-4-将标注信息转化为PASCAL-VOC格式的xml标注文件"><a href="#3-4-将标注信息转化为PASCAL-VOC格式的xml标注文件" class="headerlink" title="3.4 将标注信息转化为PASCAL VOC格式的xml标注文件"></a>3.4 将标注信息转化为PASCAL VOC格式的xml标注文件</h4><p>在我的Repository里，运行根目录下的convert_txt2xml.py即可将我自己的TXT格式的标注信息转化为xml格式的文件，并放置在data/animals/Annotations文件夹里。你可以参考我的程序，根据自己的原始标注信息，将其转化为PASCAL VOC格式的xml文件。</p>
+<h4 id="3-5-运行data-io-convert-data-to-tfrecord-py将准备好的数据转化为TensorFlow的tfrecords格式的文件"><a href="#3-5-运行data-io-convert-data-to-tfrecord-py将准备好的数据转化为TensorFlow的tfrecords格式的文件" class="headerlink" title="3.5 运行data/io/convert_data_to_tfrecord.py将准备好的数据转化为TensorFlow的tfrecords格式的文件"></a>3.5 运行data/io/convert_data_to_tfrecord.py将准备好的数据转化为TensorFlow的tfrecords格式的文件</h4><p>这些转化后的文件，位于data/tfrecords文件夹下，名为{dataset}_train.tfrecord和{dataset}_test.tfrecord。 转化好之后，可以在项目根目录下运行“./scripts/test.sh 0 output/res101_trained_weights/v1_animals/animals_model.ckpt 20”来测试验证生成的数据是否正确。运行后，会在tools/test_result文件夹下生成一些样例图片，查看检查即可。需要注意的是，这里需要指定一个模型，如果没有模型，可以略过此步，直接进行下面的训练，训练出模型之后，再回头通过这一步验证数据集的正确性。</p>
+<h3 id="4-修改其他参数"><a href="#4-修改其他参数" class="headerlink" title="4. 修改其他参数"></a>4. 修改其他参数</h3><p>准备好数据之后，还需要修改一些其他参数，如下：</p>
+<h4 id="4-1-修改libs-configs-cfgs-py中的参数"><a href="#4-1-修改libs-configs-cfgs-py中的参数" class="headerlink" title="4.1 修改libs/configs/cfgs.py中的参数"></a>4.1 修改libs/configs/cfgs.py中的参数</h4><p>我们在上面2中已经修改了这个配置文件中DATASET_NAME这个参数了，下面还可以修改这个文件中的其他参数，如：</p>
+<p>NET_NAME = ‘resnet_v1_101’<br>DATASET_NAME = ‘animals’<br>VERSION = ‘v1_{}’.format(DATASET_NAME)<br>ANCHOR_SCALES = [0.5, 1., 2.]<br>ANCHOR_RATIOS = [0.5, 1, 2] # height to width<br>SCALE_FACTORS = [10., 5., 1., 0.5]</p>
+<p>此外，如CLASS_NUM也需要根据数据集进行针对性地修改。这里的CLASS_NUM不包含background，可以直接将其修改为前面3.3中生成的classes.txt中的class的数量即可。</p>
+<h4 id="4-2-修改configs-config-py中的参数"><a href="#4-2-修改configs-config-py中的参数" class="headerlink" title="4.2 修改configs/config_*.py中的参数"></a>4.2 修改configs/config_*.py中的参数</h4><p>这里修改的配置文件位于configs文件夹下，具体修改哪个文件，根据4.1中的NET_NAME来确定，如上，我们选择的网络为resnet_v1_101，所以我们需要修改的配置文件是configs/config_res101.py，可以修改的参数主要有：</p>
+<p>pretrained_model_path # to use a pretrained model<br>batch_size</p>
+<h4 id="4-3-在程序中添加数据集的名字"><a href="#4-3-在程序中添加数据集的名字" class="headerlink" title="4.3 在程序中添加数据集的名字"></a>4.3 在程序中添加数据集的名字</h4><p>具体来说，是在文件data/io/read_tfrecord.py中的next_batch函数的第一行添加数据集的名字，如下：</p>
+<p>if dataset_name not in [‘cooler’, ‘animals’, ‘pascal’, ‘coco’, ‘layer’, ‘shelf’]:<br>  raise ValueError(‘dataSet name must be in cooler, animals, pascal, coco, layer or shelf’)</p>
+<h4 id="4-4-在程序中添加label映射NAME-LABEL-MAP"><a href="#4-4-在程序中添加label映射NAME-LABEL-MAP" class="headerlink" title="4.4 在程序中添加label映射NAME_LABEL_MAP"></a>4.4 在程序中添加label映射NAME_LABEL_MAP</h4><p>具体来说，是在libs/label_name_dict/label_dict.py文件中添加，如下：</p>
+<p>elif cfgs.DATASET_NAME == ‘animals’:<br>  NAME_LABEL_MAP = {}<br>  NAME_LABEL_MAP[‘back_ground’] = 0<br>  with open(‘data/{}/classes.txt’.format(cfgs.DATASET_NAME)) as f:<br>    lines = [line.strip() for line in f.readlines()]<br>  for i, line in enumerate(lines, 1):<br>    NAME_LABEL_MAP[line] = i<br>elif cfgs.DATASET_NAME == ‘layer’:<br>  NAME_LABEL_MAP = {<br>      ‘back_ground’: 0,<br>      “layer”: 1<br>  }</p>
+<p>如果类别较少，如layer这种Dataset，可以直接手动添加；如果类别较多，推荐采用上面的animals这种通过文件的添加方式进行添加。</p>
+<h3 id="5-运行scripts-train-sh训练网络"><a href="#5-运行scripts-train-sh训练网络" class="headerlink" title="5. 运行scripts/train.sh训练网络"></a>5. 运行scripts/train.sh训练网络</h3><p>在项目根目录运行如下所示的脚本进行训练：</p>
+<p>cd $ FPN_Tensorflow<br># ./scripts/train.sh GPU DATASET<br>./scripts/train.sh 0 animals</p>
+<p>如上，运行train.sh脚本时，后面跟两个参数，第一个指定使用第几块GPU，第二个指定使用的数据集。</p>
+<h3 id="6-评测训练得到的网络的效果"><a href="#6-评测训练得到的网络的效果" class="headerlink" title="6.评测训练得到的网络的效果"></a>6.评测训练得到的网络的效果</h3><p>在项目根目录下运行以下所示脚本进行评测：</p>
+<p>cd $ FPN_Tensorflow<br># ./scripts/test.sh GPU MODEL_PATH IMG_NUM<br>./scripts/test.sh 0 output/res101_trained_weights/v1_animals/animals_model.ckpt 20<br># ./scripts/eval.sh GPU MODEL_PATH IMG_NUM<br>./scripts/eval.sh 0 output/res101_trained_weights/v1_animals/animals_model.ckpt 20<br># ./scripts/demo.sh GPU MODEL_PATH<br>./scripts/demo.sh 0 output/res101_trained_weights/v1_animals/animals_model.ckpt<br># ./scripts/inference.sh GPU MODEL_PATH<br>./scripts/inference.sh 0 output/res101_trained_weights/v1_animals/animals_model.ckpt</p>
+<p>如上，需要注意的是这些脚本的几个参数： GPU指定使用的哪块GPU； MODEL_PATH指定评测哪个模型，为模型的路径； IMG_NUM指定测试或验证多少张图片。</p>
+<h3 id="7-可能遇到的一些错误"><a href="#7-可能遇到的一些错误" class="headerlink" title="7. 可能遇到的一些错误"></a>7. 可能遇到的一些错误</h3><h4 id="7-1-LossTensor-is-inf-or-nan-Tensor-had-NaN-values"><a href="#7-1-LossTensor-is-inf-or-nan-Tensor-had-NaN-values" class="headerlink" title="7.1 LossTensor is inf or nan : Tensor had NaN values"></a>7.1 LossTensor is inf or nan : Tensor had NaN values</h4><p>错误如下：</p>
+<p>InvalidArgumentError (see above for traceback): LossTensor is inf or nan : Tensor had NaN values<br>   [[Node: train_op/CheckNumerics = CheckNumerics[T=DT_FLOAT, message=”LossTensor is inf or nan”, _device=”/job:localhost/replica:0/task:0/device:GPU:0”](control_dependency)]]<br>   [[Node: gradients/rpn_net/concat_grad/Squeeze_3/_1493 = _Recv[client_terminated=false, recv_device=”/job:localhost/replica:0/task:0/device:CPU:0”, send_device=”/job:localhost/replica:0/task:0/device:GPU:0”, send_device_incarnation=1, tensor_name=”edge_8085_gradients/rpn_net/concat_grad/Squeeze_3”, tensor_type=DT_INT64, _device=”/job:localhost/replica:0/task:0/device:CPU:0”]()]]</p>
+<p>可能是因为数据自身的原因，比如标注的坐标超出了图片的范围，如标注坐标小于0，或者大于图像的高或者宽，等等。</p>
+<h4 id="7-2-signed-integer-is-less-than-minimum"><a href="#7-2-signed-integer-is-less-than-minimum" class="headerlink" title="7.2 signed integer is less than minimum"></a>7.2 signed integer is less than minimum</h4><p>错误如下：</p>
+<p>UnknownError (see above for traceback): exceptions.OverflowError: signed integer is less than minimum<br>   [[Node: fast_rcnn_loss/PyFunc_1 = PyFunc[Tin=[DT_FLOAT, DT_FLOAT, DT_INT32], Tout=[DT_UINT8], token=”pyfunc_7”, _device=”/job:localhost/replica:0/task:0/device:CPU:0”](rpn_losses/Squeeze/_1579, fast_rcnn_loss/mul_1/_1759, fast_rcnn_loss/strided_slice_1/_1761)]]<br>   [[Node: draw_proposals/Reshape_2/tensor/_1825 = _Recv[client_terminated=false, recv_device=”/job:localhost/replica:0/task:0/device:GPU:0”, send_device=”/job:localhost/replica:0/task:0/device:CPU:0”, send_device_incarnation=1, tensor_name=”edge_3802_draw_proposals/Reshape_2/tensor”, tensor_type=DT_UINT8, _device=”/job:localhost/replica:0/task:0/device:GPU:0”]()]]</p>
+<p>原因可能与7.1类似。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Deep-Learning/" rel="tag"># Deep Learning</a>
+          
+            <a href="/tags/TensorFlow/" rel="tag"># TensorFlow</a>
+          
+            <a href="/tags/计算机视觉/" rel="tag"># 计算机视觉</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/10/train-object-detection-model-using-detectron/" rel="next" title="以Detectron用自己的数据集训练目标检测模型">
+                <i class="fa fa-chevron-left"></i> 以Detectron用自己的数据集训练目标检测模型
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/04/weighted-object-detection-using-detectron/" rel="prev" title="通过加权解决Detectron训练object detection模型时的类间不平衡问题">
+                通过加权解决Detectron训练object detection模型时的类间不平衡问题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">434</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">108</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-从GitHub上将项目clone下来"><span class="nav-number">1.</span> <span class="nav-text">1. 从GitHub上将项目clone下来</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-根据数据集的名字修改配置文件"><span class="nav-number">2.</span> <span class="nav-text">2. 根据数据集的名字修改配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-将数据集放到项目的data文件夹下"><span class="nav-number">3.</span> <span class="nav-text">3. 将数据集放到项目的data文件夹下</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-原始图片放到data-animals-JPEGImages文件夹下"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 原始图片放到data/animals/JPEGImages文件夹下</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-原始标注信息放到data-animals-annotations文件夹下"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 原始标注信息放到data/animals/annotations文件夹下</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-在data-animals文件夹下生成一个classes-txt的文件，将所有的类别（除background）逐行放到该文件里"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 在data/animals文件夹下生成一个classes.txt的文件，将所有的类别（除background）逐行放到该文件里</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-将标注信息转化为PASCAL-VOC格式的xml标注文件"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 将标注信息转化为PASCAL VOC格式的xml标注文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-5-运行data-io-convert-data-to-tfrecord-py将准备好的数据转化为TensorFlow的tfrecords格式的文件"><span class="nav-number">3.5.</span> <span class="nav-text">3.5 运行data/io/convert_data_to_tfrecord.py将准备好的数据转化为TensorFlow的tfrecords格式的文件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-修改其他参数"><span class="nav-number">4.</span> <span class="nav-text">4. 修改其他参数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-修改libs-configs-cfgs-py中的参数"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 修改libs/configs/cfgs.py中的参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-修改configs-config-py中的参数"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 修改configs/config_*.py中的参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-在程序中添加数据集的名字"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 在程序中添加数据集的名字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-4-在程序中添加label映射NAME-LABEL-MAP"><span class="nav-number">4.4.</span> <span class="nav-text">4.4 在程序中添加label映射NAME_LABEL_MAP</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-运行scripts-train-sh训练网络"><span class="nav-number">5.</span> <span class="nav-text">5. 运行scripts/train.sh训练网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-评测训练得到的网络的效果"><span class="nav-number">6.</span> <span class="nav-text">6.评测训练得到的网络的效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-可能遇到的一些错误"><span class="nav-number">7.</span> <span class="nav-text">7. 可能遇到的一些错误</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-1-LossTensor-is-inf-or-nan-Tensor-had-NaN-values"><span class="nav-number">7.1.</span> <span class="nav-text">7.1 LossTensor is inf or nan : Tensor had NaN values</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-2-signed-integer-is-less-than-minimum"><span class="nav-number">7.2.</span> <span class="nav-text">7.2 signed integer is less than minimum</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

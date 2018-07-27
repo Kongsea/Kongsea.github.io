@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="网站建设,经验分享,WordPress,网站,意见建议,MySQL," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="在前面的文章再谈博客搬家中的几点经验中，月夜 已经为您分享了博客搬家中的一些经验，比如域名的选择，站点ico的订制，WordPress安装过程中的一些问题等等。本文，月夜将继续为您分享博客搬家中的一些经验。 显然，在博客搬家中，最为重要的过程就是数据库的导入以及相应信息的修改。所以，月夜也将从数据库导入和修改来开始我们的经验分享过程。 四、MySQL数据库的导入和修改 更换空间和域名，在安装完成W">
+<meta name="keywords" content="网站建设,经验分享,WordPress,网站,意见建议,MySQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="三谈博客搬家中的几点经验">
+<meta property="og:url" content="http://yoursite.com/2008/12/22/experience-move-yueye-blog-third/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="在前面的文章再谈博客搬家中的几点经验中，月夜 已经为您分享了博客搬家中的一些经验，比如域名的选择，站点ico的订制，WordPress安装过程中的一些问题等等。本文，月夜将继续为您分享博客搬家中的一些经验。 显然，在博客搬家中，最为重要的过程就是数据库的导入以及相应信息的修改。所以，月夜也将从数据库导入和修改来开始我们的经验分享过程。 四、MySQL数据库的导入和修改 更换空间和域名，在安装完成W">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://img.yueye.org/2008/12/222/01.jpg">
+<meta property="og:image" content="https://img.yueye.org/2008/12/222/02.jpg">
+<meta property="og:image" content="https://img.yueye.org/2008/12/222/03.jpg">
+<meta property="og:image" content="https://img.yueye.org/2008/12/222/04.jpg">
+<meta property="og:updated_time" content="2018-07-27T03:00:21.883Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="三谈博客搬家中的几点经验">
+<meta name="twitter:description" content="在前面的文章再谈博客搬家中的几点经验中，月夜 已经为您分享了博客搬家中的一些经验，比如域名的选择，站点ico的订制，WordPress安装过程中的一些问题等等。本文，月夜将继续为您分享博客搬家中的一些经验。 显然，在博客搬家中，最为重要的过程就是数据库的导入以及相应信息的修改。所以，月夜也将从数据库导入和修改来开始我们的经验分享过程。 四、MySQL数据库的导入和修改 更换空间和域名，在安装完成W">
+<meta name="twitter:image" content="https://img.yueye.org/2008/12/222/01.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2008/12/22/experience-move-yueye-blog-third/"/>
+
+
+
+
+
+  <title>三谈博客搬家中的几点经验 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2008/12/22/experience-move-yueye-blog-third/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">三谈博客搬家中的几点经验</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2008-12-22T13:03:10+08:00">
+                2008-12-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/网站相关/" itemprop="url" rel="index">
+                    <span itemprop="name">网站相关</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在前面的文章<a href="https://www.yueye.org/2008/experience-move-yueye-blog-second.html" title="打开 再谈博客搬家中的几点经验" target="_blank" rel="noopener">再谈博客搬家中的几点经验</a>中，月夜 已经为您分享了博客搬家中的一些经验，比如域名的选择，站点ico的订制，WordPress安装过程中的一些问题等等。本文，月夜将继续为您分享博客搬家中的一些经验。 显然，在博客搬家中，最为重要的过程就是数据库的导入以及相应信息的修改。所以，月夜也将从数据库导入和修改来开始我们的经验分享过程。</p>
+<h1 id="四、MySQL数据库的导入和修改"><a href="#四、MySQL数据库的导入和修改" class="headerlink" title="四、MySQL数据库的导入和修改"></a>四、MySQL数据库的导入和修改</h1><blockquote>
+<p>更换空间和域名，在安装完成WordPress之后，我们需要做的首先就是将原来站点备份的MySQL数据库导入到新站点的数据库中。当然，导入是很容易的，此处也不消月夜多言，但导入之后，还需要做一些事情，比如修改站点首页的URL链接，修改WordPress后台的链接等等。其实需要修改的地方也并不是太多，而且通常需要修改的地方集中在数据库中的wp_options表中。 进入phpMyadmin后台，打开数据库，浏览到wp_options表页面，我们找到此表的最前部分，如下图：</p>
+<p><img src="https://img.yueye.org/2008/12/222/01.jpg" alt="" title="MySQL数据库修改"></p>
+<p>我们必须修改第一行的siteurl，将其修改为新域名，比如月夜的<a href="https://www.yueye.org" target="_blank" rel="noopener">www.yueye.org</a>；除此之外，你还可以选择修改如上图的第2、3、5行等内容，将其修改为新的内容。 然后翻到此表的第二页，找到option_id为39的home，将其修改为新的域名地址；然后将option_id为大约60的upload_path修改为适宜于新的空间的路径。 事实上必须修改的部分只有siteurl、home以及upload_path三项内容，当然，除此之外，你还可以选择修改其他内容。而且，根据你安装插件的不同，可能还会有其他选项需要修改，比如月夜的option_id为大约127的useronline_url就需要做些修改，这是因为月夜安装了一个Useronline插件。 至此，我们就完成了WordPress的MySQL数据库的一些基本设置，网站就可以正常访问了。需要说明的一点是，如果你将自己网站的MySQL数据库在本地使用，当你将其导入到本地的WordPress中以后，也需要做这些基本的修改，只不过可能会把home和siteurl修改为形如<a href="http://localhost" target="_blank" rel="noopener">http://localhost</a>的形式。 修改完毕这些基本内容之后，我们还需要修改一些其他的内容。比如在wp_comments表中的如下管理员评论：</p>
+<p><img src="https://img.yueye.org/2008/12/222/02.jpg" alt="" title="MySQL数据库修改"></p>
+<p>显然，我们需要将这些评论信息中的邮箱(admin#51blog.co.cc)和网站地址(<a href="https://www.yueye.org" target="_blank" rel="noopener">https://www.yueye.org</a>)修改为当前管理员使用的邮箱(i#yueye.org)和地址(<a href="https://www.yueye.org" target="_blank" rel="noopener">https://www.yueye.org</a>)。 事实上修改这些信息十分容易，只需执行这样的一句SQL语句就可以了（不过你需要将其修改为适合自己数据库的语句）：</p>
+<p>UPDATE `DatabaseName`.`wp_comments` SET `comment_author_email` = ‘i#yueye.org’, `comment_author_url` = ‘<a href="https://www.yueye.org&#39;" target="_blank" rel="noopener">https://www.yueye.org&#39;</a> WHERE `wp_comments`.`comment_author` =’admin’;</p>
+<p>但如下图所示的wp_comments表中的信息却不容易修改：</p>
+<p><img src="https://img.yueye.org/2008/12/222/03.jpg" alt="" title="MySQL数据库修改"></p>
+<p>如上图，显然，我们需要将评论中的这些信息进行一些修改，比如，将comment_author中的 我要博客 全部修改为 月夜 ；将comment_author_url中链接51blog.co.cc全部修改为<a href="https://www.yueye.org" target="_blank" rel="noopener">www.yueye.org</a>等等。 但遗憾的是，因为SQL语句知识的匮乏，月夜并没有发现合适的语句可以完成这些任务，所以，月夜最终只能一项一项逐一修改，不过好在不是太多，大约一个小时左右，就完成了这项艰巨的任务。 至此，修改WordPress的MySQL数据库的任务我们已经成功完成。至于其他的一些细枝末节，完全可以在WordPress后台进行设置，或者可以暂且放下，以后重改。</p>
+</blockquote>
+<h1 id="五、修改WordPress的默认管理员"><a href="#五、修改WordPress的默认管理员" class="headerlink" title="五、修改WordPress的默认管理员"></a>五、修改WordPress的默认管理员</h1><blockquote>
+<p>WordPress安装完成之后的管理员用户名是admin，几乎所有人都知道，包括对你的小站不怀好意的人，这样就会给我们的博客带来很大的隐患，所以我们可以将其修改为其他名字。 修改方法十分简单，不过同样需要通过phpMyadmin进入到MySQL数据库后台，然后打开WordPress数据库中的wp_users表，在其中找到ID为1的用户admin，点击编辑，将其“user_login”修改为你想要的名字（当然，应该是只接受英文和数字），然后点击“执行”完成修改。这样，我们就成功地将WordPress的默认管理员修改掉了，从而增加了WordPress的安全性。</p>
+</blockquote>
+<h1 id="六、修改WordPress的后台登录界面logo"><a href="#六、修改WordPress的后台登录界面logo" class="headerlink" title="六、修改WordPress的后台登录界面logo"></a>六、修改WordPress的后台登录界面logo</h1><blockquote>
+<p>不知道为什么，总觉得这个WordPress默认的logo用着不爽，就希望换为自己站点的独特标志。其实也很容易，首先自己订制一个名为 logo-login.gif 大小为310*70的站点logo图形文件。订制完成后将其上传到WordPress根目录下的wp-admin文件夹下的images文件夹中，替换到原来的文件，可以看到，后台的logo已经被修改为了我们自己的logo文件。 但月夜认为，还需要做一些事情，此时你可以把鼠标放到后台的logo上，可以看到，logo的链接是WordPress官方网站，但我觉得如果将其链接到我们的站点首页应该是一种比较理想的状态。进行这样的修改也十分简单，打开WordPress站点根目录下的 wp-login.php 文件，找到第59行，代码如下所示：</p>
+<p><div id="login"><h1><a href="<?php echo apply\_filters('login\_headerurl', 'http://wordpress.org/'); ?>" title="<?php echo apply\_filters('login\_headertitle', __('Powered by WordPress')); ?>">&lt;?php bloginfo(‘name’); ?&gt;</a></h1></div></p>
+<p>我们将其修改为这样的形式：</p>
+<p><div id="login"><h1><a href="<?php bloginfo('url'); ?>" title="<?php echo apply\_filters('login\_headertitle', __('Powered by WordPress')); ?>">&lt;?php bloginfo(‘name’); ?&gt;</a></h1></div></p>
+<p>这样，logo的链接就被指向到了我们站点的首页了。当然，你也可以将上面的</p>
+<p>title=”&lt;?php echo apply_filters(‘login_headertitle’, __(‘Powered by WordPress’)); ?&gt;”</p>
+<p>修改为</p>
+<p>title=”&lt;?php bloginfo(‘description’); ?&gt;”</p>
+<p>借以将鼠标悬停于logo上的文字修改为自己站点的描述。当然，月夜并没有这样修改，月夜觉得一个提示信息没有什么影响，而且提示的那个信息“由WordPress驱动”还挺有意义。</p>
+</blockquote>
+<h1 id="七、修改WordPress模板的版权信息等底部设置"><a href="#七、修改WordPress模板的版权信息等底部设置" class="headerlink" title="七、修改WordPress模板的版权信息等底部设置"></a>七、修改WordPress模板的版权信息等底部设置</h1><blockquote>
+<p>部分WordPress模板的footer.php比较简陋，一些基本的信息没有添加，但月夜觉得形如下图的底部信息是必备的设置：</p>
+<p><img src="https://img.yueye.org/2008/12/222/04.jpg" alt="" title="WordPress版权信息设置"></p>
+<p>其实设置这样的信息极其容易，但如时间信息通常都需要改动，而我们的设置则完全可以让其自动根据当前时间和站点内容来更新信息。月夜的WordPress模板的footer.php代码的核心部分如下：</p>
+<p>Copyright  &copy; 2005 - &lt;?php the_time(‘Y’); ?&gt; <a href="<?php bloginfo('url'); ?>" title="<?php bloginfo('description'); ?>">&lt;?php bloginfo(‘name’); ?&gt;</a> All rights reserved</p>
+<p>这样，当你设置好以后，只需要改动前面的版权起始时间，以后不必对模板的底部信息做任何改动，版权的终止时间会随着系统时间的变化而自动变化。</p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/网站建设/" rel="tag"># 网站建设</a>
+          
+            <a href="/tags/经验分享/" rel="tag"># 经验分享</a>
+          
+            <a href="/tags/WordPress/" rel="tag"># WordPress</a>
+          
+            <a href="/tags/网站/" rel="tag"># 网站</a>
+          
+            <a href="/tags/意见建议/" rel="tag"># 意见建议</a>
+          
+            <a href="/tags/MySQL/" rel="tag"># MySQL</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2008/12/22/experience-move-yueye-blog-second/" rel="next" title="再谈博客搬家中的几点经验">
+                <i class="fa fa-chevron-left"></i> 再谈博客搬家中的几点经验
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2008/12/23/solution-to-sitemap-error/" rel="prev" title="XML格式的Sitemap站点地图出错">
+                XML格式的Sitemap站点地图出错 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">434</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">108</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#四、MySQL数据库的导入和修改"><span class="nav-number">1.</span> <span class="nav-text">四、MySQL数据库的导入和修改</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#五、修改WordPress的默认管理员"><span class="nav-number">2.</span> <span class="nav-text">五、修改WordPress的默认管理员</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#六、修改WordPress的后台登录界面logo"><span class="nav-number">3.</span> <span class="nav-text">六、修改WordPress的后台登录界面logo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">&lt;?php bloginfo(‘name’); ?&gt;</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">&lt;?php bloginfo(‘name’); ?&gt;</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#七、修改WordPress模板的版权信息等底部设置"><span class="nav-number">6.</span> <span class="nav-text">七、修改WordPress模板的版权信息等底部设置</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

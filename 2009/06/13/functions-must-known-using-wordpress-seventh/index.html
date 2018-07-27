@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="WordPress,函数," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="在前面的文章中，月夜 为你介绍了WordPress中的一些函数，分类比较庞杂，包括获取文章tag、title等的函数，本文，我们继续为朋友们介绍WordPress中的其他函数。 今天我们要介绍的主要包括显示文章title的the_title()、single_post_title()等函数；获取当前文章ID号的the_ID()函数；以及the_permalink()等用来获取当前文章链接的函数；等">
+<meta name="keywords" content="WordPress,函数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用好WordPress不可不知的函数（七）">
+<meta property="og:url" content="http://yoursite.com/2009/06/13/functions-must-known-using-wordpress-seventh/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="在前面的文章中，月夜 为你介绍了WordPress中的一些函数，分类比较庞杂，包括获取文章tag、title等的函数，本文，我们继续为朋友们介绍WordPress中的其他函数。 今天我们要介绍的主要包括显示文章title的the_title()、single_post_title()等函数；获取当前文章ID号的the_ID()函数；以及the_permalink()等用来获取当前文章链接的函数；等">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-27T03:00:21.887Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="用好WordPress不可不知的函数（七）">
+<meta name="twitter:description" content="在前面的文章中，月夜 为你介绍了WordPress中的一些函数，分类比较庞杂，包括获取文章tag、title等的函数，本文，我们继续为朋友们介绍WordPress中的其他函数。 今天我们要介绍的主要包括显示文章title的the_title()、single_post_title()等函数；获取当前文章ID号的the_ID()函数；以及the_permalink()等用来获取当前文章链接的函数；等">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2009/06/13/functions-must-known-using-wordpress-seventh/"/>
+
+
+
+
+
+  <title>用好WordPress不可不知的函数（七） | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2009/06/13/functions-must-known-using-wordpress-seventh/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">用好WordPress不可不知的函数（七）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2009-06-13T19:33:12+08:00">
+                2009-06-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/网站相关/" itemprop="url" rel="index">
+                    <span itemprop="name">网站相关</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在<a href="https://www.yueye.org/2009/functions-must-known-using-wordpress-sixth.html" target="_blank" rel="noopener">前面的文章</a>中，<a href="https://www.yueye.org" target="_blank" rel="noopener">月夜</a> 为你介绍了WordPress中的一些函数，分类比较庞杂，包括获取文章tag、title等的函数，本文，我们继续为朋友们介绍WordPress中的其他函数。 今天我们要介绍的主要包括显示文章title的the_title()、single_post_title()等函数；获取当前文章ID号的the_ID()函数；以及the_permalink()等用来获取当前文章链接的函数；等等。</p>
+<h2 id="42-the-title-、the-title-attribute"><a href="#42-the-title-、the-title-attribute" class="headerlink" title="42.the_title()、the_title_attribute()"></a>42.the_title()、the_title_attribute()</h2><blockquote>
+<p>the_title()函数主要用来获取当前文章的title，其后可以跟上三个参数（可全部省略，取默认值），调用形式如下：</p>
+<p>&lt;?php the_title(‘before’, ‘after’, display); ?&gt;</p>
+<p>参数before用来设置在获取的title前面显示的字符内容；after用来设置title其后显示的内容；而display是一个Bool值，用于控制获取的title是否显示出来。 the_title_attribute()函数与the_title()类似，其使用方法如下：</p>
+<p>the_title_attribute(‘before=前&amp;after=后&amp;echo=true’)</p>
+<p>其中before=和after=分别用于设置title前面和后面显示的字符；echo=true或者false用户设置获取的title字符串是否显示出来。 形如&lt;?php the_title(‘当前文章’, ‘的评论：’, true); ?&gt;或the_title_attribute(‘before=当前文章&amp;after=的评论：&amp;echo=true’)的调用形式将会显示如下的结果：</p>
+<p>当前文章用好WordPress不可不知的函数（七）的评论：</p>
+</blockquote>
+<h2 id="43-single-post-title-、single-tag-title-、single-cat-title"><a href="#43-single-post-title-、single-tag-title-、single-cat-title" class="headerlink" title="43.single_post_title()、single_tag_title()、single_cat_title()"></a>43.single_post_title()、single_tag_title()、single_cat_title()</h2><blockquote>
+<p>这一系列函数用于获取当前文章页面、tag页面或分类页面的title字符串。其后可跟两个参数，调用形式如下：</p>
+<p>&lt;?php single_post_title(‘前缀’,display); ?&gt;</p>
+<p>可以使用形如&lt;?php single_post_title(‘当前文章：’,TRUE); ?&gt;或&lt;?php single_post_title(‘当前文章：’); ?&gt;的调用形式来显示如下的结果：</p>
+<p>当前文章：用好WordPress不可不知的函数（七）</p>
+<p>此外，也可以像42中的函数一样，将显示属性设置为false，把获取的title字符串传给一个变量，以供其他语句使用。此时的调用形式如下：</p>
+<p>&lt;?php $tt = single_post_title(‘当前文章：’,false); ?&gt;</p>
+</blockquote>
+<h2 id="44-the-ID"><a href="#44-the-ID" class="headerlink" title="44.the_ID()"></a>44.the_ID()</h2><blockquote>
+<p>该函数后面不跟任何参数，使用如下所示的调用方式：</p>
+<p>&lt;?php $id = the_ID(); echo $id; ?&gt; 用于获取并显示当前文章页面的ID号。不过需要特别注意的一点是，该函数只能在WordPress的大循环内使用，在其他地方使用可能也会显示ID号，但显示的内容始终不会随文章而改变。 此外，该函数通常还会在如下所示的CSS结构中使用：</p>
+<p></p><h2 id="post-<?php the\_ID(); ?>"> &lt;?php the_title(); ?&gt; </h2> 可为博客中不同的作者设置不同的title样式，以示区分。<p></p>
+</blockquote>
+<h2 id="45-get-the-ID"><a href="#45-get-the-ID" class="headerlink" title="45.get_the_ID()"></a>45.get_the_ID()</h2><blockquote>
+<p>该函数与44.the_ID()函数实现完全相同的功能，目前WordPress官方也没有提供该函数的使用说明。你可以参阅如上44中对the_ID()函数的介绍。特别提醒一点，该函数与the_ID()类似，也只能在WordPress的大循环中才能正确使用。</p>
+</blockquote>
+<h2 id="46-the-time-、get-the-time"><a href="#46-the-time-、get-the-time" class="headerlink" title="46.the_time()、get_the_time()"></a>46.the_time()、get_the_time()</h2><blockquote>
+<p>the_time()用来获取并显示当前文章发布的时间，和上面几个函数类似，此函数也是只能在WordPress的大循环中使用。 该函数后面可以跟控制日期或时间格式的参数，常用的参数形式如下：</p>
+<p>如&lt;?php the_time(‘F j, Y’); ?&gt;的调用形式显示效果为：六月13, 2009（英文状态下显示June 13, 2009）；</p>
+<p>如&lt;?php the_time(‘g:i a’); ?&gt;的调用形式显示效果为：7:09 下午（英文状态下显示7:09 pm）；</p>
+<p>如&lt;?php the_time(‘G:i’); ?&gt;的调用形式显示效果为：19:09。</p>
+<p>事实上，除了使用the_time()函数之外，WordPress还提供了一个具有类似功能的get_the_time()函数。该函数除了不具有the_time()函数的显示功能之外，其余功能二者完全相同。使用get_the_time()函数时，如欲将获取的时间显示出来，需要使用专用语句。 下面，我们籍此机会来简单了解一下WordPress中时间的格式。在WordPress中，通常用于控制时间格式的有一下字符：l, F, j, S, Y, G, g, i, a等等，其详细意义如下：</p>
+<p>l（小写L）用来显示一周之中每一天的名称，比如星期六，或者在英文中显示Saturday；</p>
+<p>F用来显示月份名称，比如六月，或者June；</p>
+<p>j用来显示一月之中的某一天，比如13；</p>
+<p>Y用来以4位数字形式显示年份，使用y则以末两位数字显示年份，比如2009或09；</p>
+<p>G, g, i, a等四个字符通常组合使用，如前例子，有两种形式：</p>
+<p>g:i a以形如7:09 下午或7:09 pm的形式显示时间；</p>
+<p>G:i以形如19:09的24小时进制形式显示时间。</p>
+<p>S通常紧跟在j后面，表示是否在一月之中某天之后添加英文后缀（st, nd, th等）。</p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/WordPress/" rel="tag"># WordPress</a>
+          
+            <a href="/tags/函数/" rel="tag"># 函数</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2009/06/10/qq-mail-customs-letter-paper/" rel="next" title="QQ邮箱增强自定义信纸功能">
+                <i class="fa fa-chevron-left"></i> QQ邮箱增强自定义信纸功能
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2009/06/17/some-advice-to-2009-cee/" rel="prev" title="2009年阳光高考填报志愿的几点建议">
+                2009年阳光高考填报志愿的几点建议 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">434</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">108</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#42-the-title-、the-title-attribute"><span class="nav-number">1.</span> <span class="nav-text">42.the_title()、the_title_attribute()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#43-single-post-title-、single-tag-title-、single-cat-title"><span class="nav-number">2.</span> <span class="nav-text">43.single_post_title()、single_tag_title()、single_cat_title()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#44-the-ID"><span class="nav-number">3.</span> <span class="nav-text">44.the_ID()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#post-<?php the\_ID(); ?>"><span class="nav-number">4.</span> <span class="nav-text"> &lt;?php the_title(); ?&gt; </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#45-get-the-ID"><span class="nav-number">5.</span> <span class="nav-text">45.get_the_ID()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#46-the-time-、get-the-time"><span class="nav-number">6.</span> <span class="nav-text">46.the_time()、get_the_time()</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="经验分享,大学学习,MATLAB," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="MATLAB作为高校理工科类本科生或研究生必不可少的科研工具已经有着很多年的历史，以至于在我们的大学生活里或科研工作中，MATLAB处处闪现着它的身影，给我们带来了不少的帮助和便利。而随着MATLAB新版本的逐步推进，目前其功能已经日趋完善。 但比较遗憾的是，经过这么多年的发展，MATLAB对中文的支持依然有着缺陷。当然，使用MATLAB的我们从来不必期待其帮助系统中文化，个中理由无需多言。可MA">
+<meta name="keywords" content="经验分享,大学学习,MATLAB">
+<meta property="og:type" content="article">
+<meta property="og:title" content="修改美化MATLAB字体设置">
+<meta property="og:url" content="http://yoursite.com/2011/05/07/beautify-matlab-font-settings/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="MATLAB作为高校理工科类本科生或研究生必不可少的科研工具已经有着很多年的历史，以至于在我们的大学生活里或科研工作中，MATLAB处处闪现着它的身影，给我们带来了不少的帮助和便利。而随着MATLAB新版本的逐步推进，目前其功能已经日趋完善。 但比较遗憾的是，经过这么多年的发展，MATLAB对中文的支持依然有着缺陷。当然，使用MATLAB的我们从来不必期待其帮助系统中文化，个中理由无需多言。可MA">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://img.yueye.org/2011/05/07/01.jpg">
+<meta property="og:image" content="https://img.yueye.org/2011/05/07/02.jpg">
+<meta property="og:image" content="https://img.yueye.org/2011/05/07/03.jpg">
+<meta property="og:updated_time" content="2018-07-27T03:00:21.887Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="修改美化MATLAB字体设置">
+<meta name="twitter:description" content="MATLAB作为高校理工科类本科生或研究生必不可少的科研工具已经有着很多年的历史，以至于在我们的大学生活里或科研工作中，MATLAB处处闪现着它的身影，给我们带来了不少的帮助和便利。而随着MATLAB新版本的逐步推进，目前其功能已经日趋完善。 但比较遗憾的是，经过这么多年的发展，MATLAB对中文的支持依然有着缺陷。当然，使用MATLAB的我们从来不必期待其帮助系统中文化，个中理由无需多言。可MA">
+<meta name="twitter:image" content="https://img.yueye.org/2011/05/07/01.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2011/05/07/beautify-matlab-font-settings/"/>
+
+
+
+
+
+  <title>修改美化MATLAB字体设置 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2011/05/07/beautify-matlab-font-settings/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">修改美化MATLAB字体设置</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2011-05-07T14:42:46+08:00">
+                2011-05-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/经验知识/" itemprop="url" rel="index">
+                    <span itemprop="name">经验知识</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>MATLAB作为高校理工科类本科生或研究生必不可少的科研工具已经有着很多年的历史，以至于在我们的大学生活里或科研工作中，MATLAB处处闪现着它的身影，给我们带来了不少的帮助和便利。而随着MATLAB新版本的逐步推进，目前其功能已经日趋完善。 但比较遗憾的是，经过这么多年的发展，MATLAB对中文的支持依然有着缺陷。当然，使用MATLAB的我们从来不必期待其帮助系统中文化，个中理由无需多言。可MATLAB对中文字体的支持就是一个问题，在MATLAB中我们经常可以看到如下图所示的乱码：</p>
+<p><img src="https://img.yueye.org/2011/05/07/01.jpg" alt="" title="MATLAB中中文字体显示乱码"></p>
+<p>究其原因，无非是我们设置了MATLAB中编辑器Editor的字体为一款我们比较喜欢的英文字体（比如Courier New等），而MATLAB便无法显示我们输入的中文。可朋友们是否有印象，若在Visual Studio中，如果我们设置使用了英文字体，则中文从来不会显示为乱码，哪怕是显示为比较丑陋的宋体。 话虽如此，难道我们就甘心终日对着MATLAB中丑陋的英文字体（字体设置为使用中文字体时，对应的英文字体通常较为丑陋）或者乱码的中文（字体设置为使用心仪的英文字体时，中文就会显示为乱码）而学习或者研究吗？当然不能！下面，月夜为朋友们分享一款自己基于华文细黑和Courier New两款字体重新打包生成的名为MATLAB的新字体。该字体的英文和数字字符，以及部分标点符号使用Courier New的字库，而除此之外的其他字体则全部使用了华文细黑的字库。 当在MATLAB中设置使用了该字体之后，英文可以显示为Courier New的字体效果，而中文则显示为华文细黑的效果，从而再也不会看到MATLAB中的中文出现乱码，从此就可以跟MATLAB中的中文字体乱码说再见！使用该款字体之后的无中文乱码的MATLAB编辑器Editor的界面如下图所示：</p>
+<p><img src="https://img.yueye.org/2011/05/07/02.jpg" alt="" title="使用MATLAB字体的MATLAB中中文字体没有乱码"></p>
+<p>该款由月夜打包名为MATLAB的字体的下载地址在这里</p>
+<p><a href="http://u.115.com/file/dn6dnxsf" target="_blank" rel="noopener">115网盘</a> | <a href="http://cid-cf3c061de4569560.office.live.com/embedicon.aspx/yueye.org/MATLAB.TTF" target="_blank" rel="noopener">SkyDrive网络硬盘</a></p>
+<p>下载后复制到Windows系统目录下fonts文件夹中安装，然后在MATLAB中通过File-&gt;Preferences打开Preferences对话框，然后在其中的Fonts-&gt;Custom下可以进行MATLAB字体的详细设置，设置使用该款MATLAB字体即可。 如果你只是寻找一款字库的话，读到这里，下载完文件，安装好就可以使用了。而如果你要自己打包制作自己的字库，则请继续往下阅读，月夜为你简单讲述一下如何利用已有的字体打包字库。</p>
+<h1 id="字库打包制作方法"><a href="#字库打包制作方法" class="headerlink" title="字库打包制作方法"></a>字库打包制作方法</h1><h3 id="1-FontCreator"><a href="#1-FontCreator" class="headerlink" title="1.FontCreator"></a>1.FontCreator</h3><blockquote>
+<p>使用已有字体打包字库需要使用一款软件，该软件名为FontCreator。你可以通过Google搜索其下载地址。需要说明的是，试用版无法保存创建的字库。因此，要么你购买正版，要么需要想法下载到合适的版本。 而且，我们需要使用该软件完成的任务十分简单，所以完全不必使用其最新版。一款FontCreator V6.0软件，已经足以完成我们的任务。 下载后的安装，月夜此处也不赘言。因为许多版本是绿色版，而安装版的安装过程也没有什么可资叙述的内容。</p>
+</blockquote>
+<h3 id="2-制作新的字库"><a href="#2-制作新的字库" class="headerlink" title="2.制作新的字库"></a>2.制作新的字库</h3><blockquote>
+<p>首先使用FontCreator软件打开一款中文字体软件，比如这里我们打开华文细黑，然后将其另存为我们想要的字体名字，比如MATLAB.TTF； 然后我们使用FontCreator软件打开一款自己比较喜欢的英文字体软件，比如这里我们打开Courier New，然后选中其中如下图所示的部分：</p>
+<p><img src="https://img.yueye.org/2011/05/07/03.jpg" alt="" title="FontCeator软件中打开的字体"></p>
+<p>即选中字体文件中从$0004到$0061的格子中的图像，按Ctrl+C将其复制。 接着我们回到FontCreator中刚刚打开的中文字体文件中，选中与英文字体对应的这些从$0004到$0061的格子中的图像，然后按Ctrl+V，将复制过来的英文字体粘贴到中文字体文件中。 最后我们将修改过的中文字体文件保存，即得到了自己想要的字体文件。</p>
+</blockquote>
+<h3 id="3-其他说明"><a href="#3-其他说明" class="headerlink" title="3.其他说明"></a>3.其他说明</h3><blockquote>
+<p>需要说明的是，这样只更改了文件名而重新保存的字体，其字体名称并没有变化，一旦安装，系统中将出现两款相同名称（比如华文细黑）的字体。 而我们可以在打开该字体文件后，通过Format-&gt;Naming菜单，打开Naming对话框，从而在其中修改与字体标识相关的信息。 我们可以先在Platform中选择对应的操作系统（比如Windows Unicode BMP），然后在Language中选择中文或英文，并编辑对话框右侧Naming中的标识信息，最后将字体重新进行保存，即可使得我们重新打包的字库在操作系统中具有自己独特的名字。</p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/经验分享/" rel="tag"># 经验分享</a>
+          
+            <a href="/tags/大学学习/" rel="tag"># 大学学习</a>
+          
+            <a href="/tags/MATLAB/" rel="tag"># MATLAB</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2011/04/29/set-matlab-current-default-folder/" rel="next" title="设置MATLAB中Current Folder的默认文件夹">
+                <i class="fa fa-chevron-left"></i> 设置MATLAB中Current Folder的默认文件夹
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2011/05/12/some-complaints-on-dormitory/" rel="prev" title="不想习惯被“强奸”">
+                不想习惯被“强奸” <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">434</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">108</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#字库打包制作方法"><span class="nav-number">1.</span> <span class="nav-text">字库打包制作方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-FontCreator"><span class="nav-number">1.0.1.</span> <span class="nav-text">1.FontCreator</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-制作新的字库"><span class="nav-number">1.0.2.</span> <span class="nav-text">2.制作新的字库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-其他说明"><span class="nav-number">1.0.3.</span> <span class="nav-text">3.其他说明</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="经验分享,生活辅助," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="肯定我们每个人都为自己忘记父母、亲人、好友、同学的生日而难受过，是啊，在这个生活节奏越来越快的时代里，谁又能确保记住一个一年一次的日子呢。然而，在这个科技高度发达的时代，手机作为每个人随身携带的工具，使其在好友生日到来的日子里给你一些提醒还是没有什么困难的。事实上开始时51blog想到的是使用Google日历来完成这些任务，然而，和很多人一样，我们遗憾的发现Google日历不能按照农历的周年设置循">
+<meta name="keywords" content="经验分享,生活辅助">
+<meta property="og:type" content="article">
+<meta property="og:title" content="为你记住并免费短信提醒好友的生日">
+<meta property="og:url" content="http://yoursite.com/2008/11/29/remember-remind-friend-birthday/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="肯定我们每个人都为自己忘记父母、亲人、好友、同学的生日而难受过，是啊，在这个生活节奏越来越快的时代里，谁又能确保记住一个一年一次的日子呢。然而，在这个科技高度发达的时代，手机作为每个人随身携带的工具，使其在好友生日到来的日子里给你一些提醒还是没有什么困难的。事实上开始时51blog想到的是使用Google日历来完成这些任务，然而，和很多人一样，我们遗憾的发现Google日历不能按照农历的周年设置循">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://img.yueye.org/2008/11/29/01.jpg">
+<meta property="og:image" content="https://img.yueye.org/2008/11/29/02.jpg">
+<meta property="og:image" content="https://img.yueye.org/2008/11/29/03.jpg">
+<meta property="og:image" content="https://img.yueye.org/2008/11/29/04.jpg">
+<meta property="og:image" content="https://img.yueye.org/2008/11/29/05.jpg">
+<meta property="og:image" content="https://img.yueye.org/2008/11/29/06.jpg">
+<meta property="og:image" content="https://img.yueye.org/2008/11/29/07.jpg">
+<meta property="og:image" content="https://img.yueye.org/2008/11/29/08.jpg">
+<meta property="og:image" content="https://img.yueye.org/2008/11/29/09.jpg">
+<meta property="og:image" content="https://img.yueye.org/2008/11/29/10.jpg">
+<meta property="og:image" content="https://img.yueye.org/2008/11/29/11.jpg">
+<meta property="og:image" content="https://img.yueye.org/2008/11/29/12.jpg">
+<meta property="og:image" content="https://img.yueye.org/2008/11/29/13.jpg">
+<meta property="og:updated_time" content="2018-07-27T03:00:21.883Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="为你记住并免费短信提醒好友的生日">
+<meta name="twitter:description" content="肯定我们每个人都为自己忘记父母、亲人、好友、同学的生日而难受过，是啊，在这个生活节奏越来越快的时代里，谁又能确保记住一个一年一次的日子呢。然而，在这个科技高度发达的时代，手机作为每个人随身携带的工具，使其在好友生日到来的日子里给你一些提醒还是没有什么困难的。事实上开始时51blog想到的是使用Google日历来完成这些任务，然而，和很多人一样，我们遗憾的发现Google日历不能按照农历的周年设置循">
+<meta name="twitter:image" content="https://img.yueye.org/2008/11/29/01.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2008/11/29/remember-remind-friend-birthday/"/>
+
+
+
+
+
+  <title>为你记住并免费短信提醒好友的生日 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2008/11/29/remember-remind-friend-birthday/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">为你记住并免费短信提醒好友的生日</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2008-11-29T18:23:39+08:00">
+                2008-11-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/经验知识/" itemprop="url" rel="index">
+                    <span itemprop="name">经验知识</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>肯定我们每个人都为自己忘记父母、亲人、好友、同学的生日而难受过，是啊，在这个生活节奏越来越快的时代里，谁又能确保记住一个一年一次的日子呢。然而，在这个科技高度发达的时代，手机作为每个人随身携带的工具，使其在好友生日到来的日子里给你一些提醒还是没有什么困难的。事实上开始时<a href="https://www.yueye.org" target="_blank" rel="noopener">51blog</a>想到的是使用Google日历来完成这些任务，然而，和很多人一样，我们遗憾的发现Google日历不能按照农历的周年设置循环，也是，毕竟那是英语国家开发出来的东西，他们怎么会知道什么是农历呢。不过这样的功能早就有人做了出来，还做成了网站，建立了与手机以及邮箱的接口，以方便我们广大人民的使用。 这就是<a href="https://www.yueye.org" target="_blank" rel="noopener">51blog</a>今天要为大家介绍的内容：记住你所有好友的生日，并在好友生日即将到来的日子里免费给你按时发送手机短信来提醒你。提供该服务的网站名叫“记忆日”，网站地址是：</p>
+<p><a href="http://www.jiyiri.com/InviteFriend/Back/key/WcvE5alV4IBN1Mjo3OxOA/source/qq" target="_blank" rel="noopener">http://www.jiyiri.com</a></p>
+<p>首先点击上面的网址进入网站，在站点首页的右侧可以看到如下图所示的登录表单：</p>
+<p><img src="https://img.yueye.org/2008/11/29/01.jpg" alt="" title="51blog"></p>
+<p>点击如上图所示的“10秒注册记忆日”按钮，即可开始注册，如下图所示：</p>
+<p><img src="https://img.yueye.org/2008/11/29/02.jpg" alt="" title="短信提醒好友生日"></p>
+<p>在如上图所示的注册表单中填写好相应的信息（注意邮箱要填写自己的常用邮箱，以方便系统提示信息），然后点击注册按钮，即可完成注册。注册成功登录到系统以后的页面如下图所示：</p>
+<p><img src="https://img.yueye.org/2008/11/29/03.jpg" alt="" title="短信提醒好友生日"></p>
+<p>在如上图所示的页面中点击“添加生日”，页面即弹出添加生日提醒对话框，如下图：</p>
+<p><img src="https://img.yueye.org/2008/11/29/04.jpg" alt="" title="我要博客"></p>
+<p>在如上图所示的对话框中填好好友的生日信息（注意根据好友是过阳历还是阴历生日选择好相应的农历和公历），然后点击保存，即可将好友添加到列表中。添加好好友之后的列表如下图所示：</p>
+<p><img src="https://img.yueye.org/2008/11/29/05.jpg" alt="" title="我要博客"></p>
+<p>在如上图所示的生日列表中，将鼠标浮动到下次提醒下的“还有**天”或者点击，我们可以看到好友的年龄信息以及下一个生日的相关信息；点击生日下的相应日子，或者姓名下的相应姓名，我们可以看到系统弹出了如下的查看生日提醒对话框：</p>
+<p><img src="https://img.yueye.org/2008/11/29/06.jpg" alt="" title="短信提醒好友生日"></p>
+<p>点击如上对话框中的修改按钮可以修改相应信息，点击删除可以删除好友以及相关信息，点击确认关闭，则关闭对话框回到好友列表页面。 看完了基本设置之后，下面我们来看看如何让你的手机在好友生日到来时收到免费的提醒短信。 首先在网页的右侧可以看到如下图所示的按钮：</p>
+<p><img src="https://img.yueye.org/2008/11/29/07.jpg" alt="" title="我要博客"></p>
+<p>点击上图中的“设置手机短信提醒”按钮，即可进入到设置手机的页面，如下图：</p>
+<p><img src="https://img.yueye.org/2008/11/29/08.jpg" alt="" title="短信提醒好友生日"></p>
+<p>在如上图所示的方框中填入你的手机号，然后点击“设置手机”按钮，页面即跳到如下的页面：</p>
+<p><img src="https://img.yueye.org/2008/11/29/09.jpg" alt="" title="我要博客"></p>
+<p>如上图提示，等待片刻我们即可收到相应的激活码，在方框中输入收到的激活码以后，点击“激活”按钮，即可成功绑定手机。绑定激活后的页面如下图所示：</p>
+<p><img src="https://img.yueye.org/2008/11/29/10.jpg" alt="" title="免费短信提醒好友生日"></p>
+<p>可以在如上图所示的页面中看到“删除并重设”按钮，当我们更换手机时，就可以点击此按钮重新绑定激活我们的新手机了。 绑定手机之后，下面我们再来看看绑定邮箱的过程。点击如上第四图中的“设定E-mail提醒”按钮，系统转到新的页面，如下图所示：</p>
+<p><img src="https://img.yueye.org/2008/11/29/11.jpg" alt="" title="51blog"></p>
+<p>在如上图所示的页面中选择修改相应的选项，然后点击确认按钮，即能设置好相应的邮件提醒。 设置好相应的邮件提醒功能之后，我们再来看看其他的功能。 在这里，<a href="https://www.yueye.org" target="_blank" rel="noopener">51blog</a>只简单说一下其中的一个功能：让好友添加自己的生日。 在生日列表等页面的左下角可以看到如下图所示的部分：</p>
+<p><img src="https://img.yueye.org/2008/11/29/12.jpg" alt="" title="我要博客"></p>
+<p>点击上图中的“一个好办法”超链接，系统弹出如下图所示的询问亲友生日对话框，</p>
+<p><img src="https://img.yueye.org/2008/11/29/13.jpg" alt="" title="免费短信提醒好友生日"></p>
+<p>将如上图所示的对话框中的链接复制，然后发给你的好友，他们就可以打开相应的页面，可以在页面中设置输入自己的生日以及信息，然后信息就会自动保存到你的账户中。 怎么样，网站提供的服务和功能还不错吧，有了这样的方法，以后就再也不会害怕忘记好友生日而发生囧事了。那就赶快去<a href="http://www.jiyiri.com/InviteFriend/Back/key/WcvE5alV4IBN1Mjo3OxOA/source/qq" target="_blank" rel="noopener">注册设置</a>吧。更多精彩的经验分享，请查看月夜博客的经验分享：<a href="https://www.yueye.org/category/expesharing" target="_blank" rel="noopener">https://www.yueye.org/category/expesharing</a><a href="https://www.yueye.org/" target="_blank" rel="noopener"></a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/经验分享/" rel="tag"># 经验分享</a>
+          
+            <a href="/tags/生活辅助/" rel="tag"># 生活辅助</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2008/11/29/move-from-linux-win-host/" rel="next" title="从国外免费Linux空间成功搬回国内Win主机空间">
+                <i class="fa fa-chevron-left"></i> 从国外免费Linux空间成功搬回国内Win主机空间
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2008/12/01/add-category-icon-for-template/" rel="prev" title="为WordPress主题添加分类图标">
+                为WordPress主题添加分类图标 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">434</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">108</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

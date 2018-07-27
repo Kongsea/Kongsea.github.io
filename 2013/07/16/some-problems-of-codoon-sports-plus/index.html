@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="大学生活,Android,手机," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="最近一段时间一直在不停地运动，我想逐步提高自己的身体状态。而运动中所能使用的智能机上的一些运动追踪类的应用，比如咕咚运动+、Nike+等深深地吸引了我。所以每晚的跑步中，我基本上都要开启这些软件追踪记录运动。 经过最近对咕咚运动这将近两周的使用，发现了一些问题，现在简单记录下来，以期能引起官方重视，加紧改进，为用户提供最好的运动记录体验。 1.定位不能成功 开阔的大操场上，周围没有什么高楼和密树阻">
+<meta name="keywords" content="大学生活,Android,手机">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用咕咚运动+中出现的几个问题">
+<meta property="og:url" content="http://yoursite.com/2013/07/16/some-problems-of-codoon-sports-plus/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="最近一段时间一直在不停地运动，我想逐步提高自己的身体状态。而运动中所能使用的智能机上的一些运动追踪类的应用，比如咕咚运动+、Nike+等深深地吸引了我。所以每晚的跑步中，我基本上都要开启这些软件追踪记录运动。 经过最近对咕咚运动这将近两周的使用，发现了一些问题，现在简单记录下来，以期能引起官方重视，加紧改进，为用户提供最好的运动记录体验。 1.定位不能成功 开阔的大操场上，周围没有什么高楼和密树阻">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://img.yueye.org/2013/07/16/01.png">
+<meta property="og:image" content="https://img.yueye.org/2013/07/16/02.png">
+<meta property="og:image" content="https://img.yueye.org/2013/07/16/03.png">
+<meta property="og:image" content="https://img.yueye.org/2013/07/16/04.png">
+<meta property="og:image" content="https://img.yueye.org/2013/07/16/05.png">
+<meta property="og:updated_time" content="2018-07-27T03:00:21.891Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用咕咚运动+中出现的几个问题">
+<meta name="twitter:description" content="最近一段时间一直在不停地运动，我想逐步提高自己的身体状态。而运动中所能使用的智能机上的一些运动追踪类的应用，比如咕咚运动+、Nike+等深深地吸引了我。所以每晚的跑步中，我基本上都要开启这些软件追踪记录运动。 经过最近对咕咚运动这将近两周的使用，发现了一些问题，现在简单记录下来，以期能引起官方重视，加紧改进，为用户提供最好的运动记录体验。 1.定位不能成功 开阔的大操场上，周围没有什么高楼和密树阻">
+<meta name="twitter:image" content="https://img.yueye.org/2013/07/16/01.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2013/07/16/some-problems-of-codoon-sports-plus/"/>
+
+
+
+
+
+  <title>使用咕咚运动+中出现的几个问题 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/07/16/some-problems-of-codoon-sports-plus/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">使用咕咚运动+中出现的几个问题</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2013-07-16T18:59:40+08:00">
+                2013-07-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/评测建议/" itemprop="url" rel="index">
+                    <span itemprop="name">评测建议</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近一段时间一直在不停地运动，我想逐步提高自己的身体状态。而运动中所能使用的智能机上的一些运动追踪类的应用，比如咕咚运动+、Nike+等深深地吸引了我。所以每晚的跑步中，我基本上都要开启这些软件追踪记录运动。 经过最近对咕咚运动这将近两周的使用，发现了一些问题，现在简单记录下来，以期能引起官方重视，加紧改进，为用户提供最好的运动记录体验。</p>
+<h1 id="1-定位不能成功"><a href="#1-定位不能成功" class="headerlink" title="1.定位不能成功"></a>1.定位不能成功</h1><blockquote>
+<p>开阔的大操场上，周围没有什么高楼和密树阻挡，打开GPS搜星定位却数分钟没有任何结果！简直了！难道运动前还要让用户经历这些考验？开始跑吧，怕运动记录不成功，最后没有记录上去；不跑吧，苦等定位什么时候是个头？ 我想，设若是一个体育爱好者，而非如我这样的技术控，经过这样的几次经历后，打开咕咚运动会有一个阴暗的预期。所以，咕咚运动的团队为什么还不着手解决这些很迫切的问题呢？</p>
+</blockquote>
+<h1 id="2-咕咚运动-上传记录失败"><a href="#2-咕咚运动-上传记录失败" class="headerlink" title="2.咕咚运动+上传记录失败"></a>2.咕咚运动+上传记录失败</h1><blockquote>
+<p>经过几十分钟大汗淋漓的狂奔，运动完毕，点击完成后，咕咚运动+卡在了保存或上传的界面上，不免让我们提心吊胆，保存了吗？上传了吗？到底出现什么问题了呢？这简直有些虐心！ 下面这是某次跑步结束时，我的上传经历。首先需要说明的是，跑步中同时开启的Nike+在跑完步后很快就上传完毕。 而咕咚运动+先是卡在上传的界面上不能动弹，等待很久无奈中只好强行关闭咕咚运动，接着重新打开咕咚运动时，软件出现了如下图所示要求完善资料的对话框：</p>
+<p><img src="https://img.yueye.org/2013/07/16/01.png" alt="" title="咕咚运动+出现的问题"></p>
+<p>可问题是这些东西我老早都填过了，我已经使用了半个多月的咕咚运动了！ 接着，它竟然要求你设置头像：</p>
+<p><img src="https://img.yueye.org/2013/07/16/02.png" alt="" title="咕咚运动+出现的问题"></p>
+<p>是啊，我的头像设置了不知道多久了，而且，上图中的这个初始头像跟我没有任何关系，我从来没有过这样的头像！ 好吧，设置完毕，咕咚运动跳出了新用户引导界面：</p>
+<p><img src="https://img.yueye.org/2013/07/16/03.png" alt="" title="咕咚运动+出现的问题"></p>
+<p>这是把我当成新人了？！不会我以前的数据都没有了吧！我隐隐中有一种不祥的预感。 果不其然，软件显示，我所有的记录都没有了，是的，我完完全全成了咕咚运动的一个新人！</p>
+<p><img src="https://img.yueye.org/2013/07/16/04.png" alt="" title="咕咚运动+出现的问题"></p>
+<p>我已经无话可说，我已经濒于崩溃。抱着最后一丝希望，我点开了软件的更多选项，选择注销当前账户。可是，可是，你看到了什么！！！我登录的账户竟然是paul288！这压根儿不是我的账户！我怎么莫名其妙的登上了这个账户！</p>
+<p><img src="https://img.yueye.org/2013/07/16/05.png" alt="" title="咕咚运动+出现的问题"></p>
+<p>然后，我只能注销这个账户了，我试图重新登录自己的账户，但是我至少登录了一两个小时，竟然始终没能登录成功，我的网络没有任何问题，期间我刷微博，玩微信，一切正常，但我想说，这天煞的咕咚运动，你™在干嘛！ 是的，最后我找回了数据，在登录数小时而无果，最后不得不在注销账户并重启手机之后，我登录了自己的咕咚网账户，我找回了自己的数据。但谁能告诉我，刚刚发生了什么，这是什么穿越大剧！</p>
+</blockquote>
+<h1 id="3-同步成功，丢失记录"><a href="#3-同步成功，丢失记录" class="headerlink" title="3.同步成功，丢失记录"></a>3.同步成功，丢失记录</h1><blockquote>
+<p>但还没完，咕咚运动的奇葩问题可谓层出不穷。 昨天晚上，跑步结束之后，同步、分享运动记录一切正常。可是，今天早上来到办公室登录了咕咚网查看运动记录的时候，竟然！系统显示我凌晨3点多上传了一条记录！可是我的手机都已经切断了网络！ 而且，昨晚显示同步成功的两条记录，这凌晨3点多的是第一条记录，而第二条记录，手机里显示同步成功，也显示在了咕咚网的首页上，但是在我的账户页面上，根本就没有这项记录，我昨晚的3公里跑步记录，莫名其妙的失踪了！</p>
+</blockquote>
+<h1 id="4-软件设计的其他缺陷"><a href="#4-软件设计的其他缺陷" class="headerlink" title="4.软件设计的其他缺陷"></a>4.软件设计的其他缺陷</h1><blockquote>
+<p>就我目前所知，咕咚运动在你跑步之间没法设置播放的音乐，以此可以陪伴你读过枯燥的运动时间。 就我目前所知，在你点击开始运动，而倒计时没有结束之前，如果你手动关闭了屏幕，运动将不会开始，咕咚运动停止了工作。 就我目前所知，咕咚运动+这个名字中的+号，除了给人以第一印象：模仿Nike+之外，没有什么其他的特别意义。这名字后的+号，是什么样的奇葩的奇葩主意？！</p>
+</blockquote>
+<h1 id="5-被商业强奸的咕咚运动-APP"><a href="#5-被商业强奸的咕咚运动-APP" class="headerlink" title="5.被商业强奸的咕咚运动+APP"></a>5.被商业强奸的咕咚运动+APP</h1><blockquote>
+<p>目前的情况，我只能说，咕咚网的眼光或者有问题，或者就是咕咚运动+APP被公司内部的其他商业项目给强奸了，所以公司在这款APP上投入不够，而且对其丝毫不予重视。 想一想吧，咕咚运动的“计划”型运动中只有区区数种很简单的入门计划，没有五公里，没有十公里，勿论半马和全马！这压根儿就没有投入什么心思！ 咕咚运动+APP已经推出了这么久了，没有听说其与国内的马拉松赛有过什么关系，没有听说过有什么咕咚军团。但其他的很多应用已经开始在做这些了。</p>
+</blockquote>
+<p>所以，我真心希望，咕咚运动+APP不要被所在公司的短视给害了，专注做好一款APP本身就是很不容易的事情，如果有更多用户用起来更为舒心，咕咚的商业化会是水到渠成的事情；而如果一款免费的APP都做得让用户怨声载道，那么何以让用户放心地去消费公司的其他商业化产品。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/大学生活/" rel="tag"># 大学生活</a>
+          
+            <a href="/tags/Android/" rel="tag"># Android</a>
+          
+            <a href="/tags/手机/" rel="tag"># 手机</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2013/07/03/solution-to-format-mismatching-of-excel/" rel="next" title="Excel中“您尝试打开的文件的格式与文件扩展名指定的格式不一致”的解决方法">
+                <i class="fa fa-chevron-left"></i> Excel中“您尝试打开的文件的格式与文件扩展名指定的格式不一致”的解决方法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2013/07/17/give-back-users-message-push-of-wechat/" rel="prev" title="说说微信公众号的信息推送：何不把选择权交给用户？">
+                说说微信公众号的信息推送：何不把选择权交给用户？ <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">434</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">108</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-定位不能成功"><span class="nav-number">1.</span> <span class="nav-text">1.定位不能成功</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-咕咚运动-上传记录失败"><span class="nav-number">2.</span> <span class="nav-text">2.咕咚运动+上传记录失败</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-同步成功，丢失记录"><span class="nav-number">3.</span> <span class="nav-text">3.同步成功，丢失记录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-软件设计的其他缺陷"><span class="nav-number">4.</span> <span class="nav-text">4.软件设计的其他缺陷</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-被商业强奸的咕咚运动-APP"><span class="nav-number">5.</span> <span class="nav-text">5.被商业强奸的咕咚运动+APP</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

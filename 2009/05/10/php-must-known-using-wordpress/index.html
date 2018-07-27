@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="WordPress,主题,PHP," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="已经连续数天没有更新博客，至于知识类文章的缺失更是长达半月之久，可能是最近一段时间心情有些郁闷，但原因又说不出来。当然，人的心情总不能每天都高亢，但不因心情低落而影响其他工作才是一种比较好的习惯。于是，今天，月夜 就试着继续更新博客，权且作为送给天下所有母亲的礼物，祝所有的母亲都身体健康，幸福快乐！ 在今天的文章里，月夜试着为朋友们讲述一些在使用WordPress的过程中不可不知的PHP知识。当然">
+<meta name="keywords" content="WordPress,主题,PHP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用好WordPress不可不知的PHP知识">
+<meta property="og:url" content="http://yoursite.com/2009/05/10/php-must-known-using-wordpress/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="已经连续数天没有更新博客，至于知识类文章的缺失更是长达半月之久，可能是最近一段时间心情有些郁闷，但原因又说不出来。当然，人的心情总不能每天都高亢，但不因心情低落而影响其他工作才是一种比较好的习惯。于是，今天，月夜 就试着继续更新博客，权且作为送给天下所有母亲的礼物，祝所有的母亲都身体健康，幸福快乐！ 在今天的文章里，月夜试着为朋友们讲述一些在使用WordPress的过程中不可不知的PHP知识。当然">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-27T03:00:21.887Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="用好WordPress不可不知的PHP知识">
+<meta name="twitter:description" content="已经连续数天没有更新博客，至于知识类文章的缺失更是长达半月之久，可能是最近一段时间心情有些郁闷，但原因又说不出来。当然，人的心情总不能每天都高亢，但不因心情低落而影响其他工作才是一种比较好的习惯。于是，今天，月夜 就试着继续更新博客，权且作为送给天下所有母亲的礼物，祝所有的母亲都身体健康，幸福快乐！ 在今天的文章里，月夜试着为朋友们讲述一些在使用WordPress的过程中不可不知的PHP知识。当然">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2009/05/10/php-must-known-using-wordpress/"/>
+
+
+
+
+
+  <title>用好WordPress不可不知的PHP知识 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2009/05/10/php-must-known-using-wordpress/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">用好WordPress不可不知的PHP知识</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2009-05-10T19:33:28+08:00">
+                2009-05-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/网站相关/" itemprop="url" rel="index">
+                    <span itemprop="name">网站相关</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>已经连续数天没有更新博客，至于知识类文章的缺失更是长达半月之久，可能是最近一段时间心情有些郁闷，但原因又说不出来。当然，人的心情总不能每天都高亢，但不因心情低落而影响其他工作才是一种比较好的习惯。于是，今天，<a href="https://www.yueye.org" target="_blank" rel="noopener">月夜</a> 就试着继续更新博客，权且作为送给天下所有母亲的礼物，祝所有的母亲都身体健康，幸福快乐！ 在今天的文章里，月夜试着为朋友们讲述一些在使用WordPress的过程中不可不知的PHP知识。当然，因为使用WordPress对PHP的要求并不高，所以这里讲述的其实是最基本的PHP知识；因此，如果你是PHP高手，或者在使用WordPress的过程中对PHP知识用起来已经不再困难，则你完全可以忽视本文。可是，如果你对PHP知识一窍不通，或者在使用WordPress的过程中已经为此掣肘，则月夜强烈推荐你认真阅读本文，并籍此获得一些PHP知识，使自己在使用WordPress的过程中能够更得心应手。 首先需要说明的一点是，本文假定朋友们具有了至少一种编程语言（最好是C语言或者C++语言）的基本知识，因为PHP语言和其他语言的语句、变量等基本相同。而如果你不具有这方面的基础，要想把PHP语言叙述到能够在使用WordPress的过程中自如应用，则不是如本文这样的一篇小文所可叙述清楚的了。 学习PHP知识，你应该确保自己有一个PHP的学习调试环境。在进行下面的讲述前，首先确认自己已经<a href="https://www.yueye.org/2009/setup-local-wamp-to-learn-wordpress.html" target="_blank" rel="noopener">按照月夜前面的文章安装了本地环境</a>。有了环境之后，下面我们就来简单了解一下在使用WordPress的过程中不可不知的PHP知识。 1.PHP语言的结构</p>
+<blockquote>
+<p>PHP语言的代码可以直接嵌入到静态的HTML页面中，但嵌入到页面中的PHP代码有一个结构，需要放置到指定的标记中。在静态HTML页面中，PHP代码的标记是以&lt;?php开头，并以?&gt;结尾。 比如，在如下的HTML代码中：</p>
+<p><title> &lt;?php wp_title(‘ | ‘,true,’right’); ?&gt; &lt;?php bloginfo(‘name’); ?&gt; - &lt;?php bloginfo(‘description’); ?&gt; </title> &lt;?php wp_title(‘ | ‘,true,’right’); ?&gt;、&lt;?php bloginfo(‘name’); ?&gt;和&lt;?php bloginfo(‘description’); ?&gt;分别各为一段PHP代码。 此外，标记PHP代码还有其他方式，比如其中的一种形式以&lt;?开头，以?&gt;结尾，但通常情况下，我们还是应该（而且很多人在）使用默认的以&lt;?php开头的方式。</p>
+</blockquote>
+<p>2.PHP语言的语句</p>
+<blockquote>
+<p>从如上1中的代码实例可以看出，每一条PHP代码的语句都以分号（;）结尾（尽管在只含有一个PHP语句的代码块中，PHP语句末尾的分号可以省略，但月夜绝不推荐！）。下面再举一个PHP代码例子：</p>
+<p><a href="<?php bloginfo('url'); ?>/about">&lt;?php bloginfo(‘description’); ?&gt;</a></p>
+
+<p>如上的HTML代码中，包含了两个PHP代码块，从中可以看出，PHP代码和HTML语句完全可以无缝对接。</p>
+</blockquote>
+<p>3.PHP的注释</p>
+<blockquote>
+<p>尽管PHP提供了多种注释方式，但月夜只推荐朋友们记住其中的两种方法，而且，通常在实际应用中，人们只会用到这样两种方法。这两种方法和C++语言的注释类似，分别为单行注释和多行注释：</p>
+<p>//此为单行注释，以//开头；</p>
+<p>/*此为多行注释，</p>
+<p>包含在/<em>和</em>/之间*/</p>
+</blockquote>
+<p>4.PHP的变量</p>
+<blockquote>
+<p>除了不需要显式声明之外，PHP语言中的变量形式也和其他常用语言不同，PHP的变量总是在变量名称之前添加一个$符号，至于变量名，则和其他语言的规则相同。下面是几个PHP变量的例子：</p>
+<p>$title、$description、$counter</p>
+<p>下面是一个应用了PHP变量的PHP代码块：</p>
+<p>&lt;?php if ($post-&gt;post_excerpt) { $description = $post-&gt;post_excerpt; } else { $description = mb_substr(strip_tags($post-&gt;post_content),0,120); } ?&gt; 此外，还需要注意一点，PHP的变量区分大小写。</p>
+</blockquote>
+<p>5.PHP语言的输出和字符串变量</p>
+<blockquote>
+<p>这里我们将这样两个东西放到一起讲述，因为输出十分简单，只有在输出字符串变量时，才需要稍加注意。 PHP语言的输出语句通常使用的是这样两个：</p>
+<p>print()和echo()</p>
+<p>二者的使用方法基本相同，而且十分简单。几个例子如下：</p>
+<p>&lt;?php $title = “Yueye.org”; print $title.” is a good site\n</p><p>“; echo $title.” is a good site\n</p><p>“; print “$title is a good site\n</p><p>“; echo “$title is a good site\n</p><p>“; print ‘$title is a good site\n</p><p>‘; echo ‘$title is a good site\n</p><p>‘; ?&gt; 如上示例输出的结果为：</p>
+<p>Yueye.org is a good site Yueye.org is a good site Yueye.org is a good site Yueye.org is a good site $title is a good site\n $title is a good site\n 在PHP语言中，字符串的连接（拼接）使用的是如上例子中的点号（.），它可以将两个字符串拼接成一个字符串。PHP语言中的输出语句，可以输出其后双引号（”）或单引号（’）中包含的内容，也可以输出未包含在引号内的变量内容。此处单引号和双引号的区别显然也可以看出：双引号内部的内容中，变量和转义符都会得到解析；而单引号内的内容，变量和转义符也会原样输出。</p>
+</blockquote>
+<p>6.关于PHP语言的其他需要注意的地方</p>
+<blockquote>
+<p>关于PHP语言，月夜就为你简单介绍到这里，其实，在使用WordPress的过程中，对PHP知识只需要简单了解一些即可，有如上的一些知识，即已足够。下面，我们再简单叙述一下PHP语言和其他语言（比如C语言、C++等）的不同之处。 1) 数组</p>
+<p>PHP语言的数组有两种形式，一种是数值键（也就是通常的形式），另一种是关联键。</p>
+<p>a.数值键：</p>
+<p>形如$price = array( 0 =&gt; “1.8”, “1” =&gt; “2.5”, “2” =&gt; “3.2”);或者$price = array(“1.8”, “2.5”, “3.2”);的定义方式定义的是使用数值键的数组，因为PHP的数值索引也从位置0开始，所以上面两种定义方式效果相同。</p>
+<p>$price[1]引用的数值都是2.5。</p>
+<p>b.关联键：</p>
+<p>形如$price = array( “pear” =&gt; “1.8”, “apple” =&gt; “2.5”, “peach” =&gt; “3.2”);的定义方式定义的是使用关联键的数组。</p>
+<p>可以用形如$price[“pear”]的方式来引用”1.8”。</p>
+<p>2) foreach</p>
+<p>foreach是PHP语言特有的一个循环结构，主要用来处理数组。通常的结构有如下两种形式：</p>
+<p>a.如上6.1.a中定义的数组，可以使用如下形式：</p>
+<p>foreach($price as $p) {</p>
+<p>echo “price is $p.</p><p>“;</p>
+<p>}</p>
+<p>来逐一输出数组内容。</p>
+<p>b.如上6.1.b中定义的数组，可以使用如下形式：</p>
+<p>foreach($price as $product=&gt;$p) {</p>
+<p>echo “$product is $p a kilogram.</p><p>“;</p>
+<p>}</p>
+<p>来逐一输出数组内容。</p>
+</blockquote>
+<p>好了，关于在使用WordPress的过程中需要知道的PHP语言的一些知识，<a href="https://www.yueye.org" target="_blank" rel="noopener">月夜</a> 就为你介绍到这里。显然，内容十分简单，不过在使用WordPress的过程中，对PHP的要求的确很低。但是，仍然要求你对此有所了解；而且，在上面的内容中，月夜假设你比较熟悉一种其他语言（比如C语言），所以，如果你对此并不了解，或者没有如此的基础知识，那么就需要花费一些精力去慢慢学习。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/WordPress/" rel="tag"># WordPress</a>
+          
+            <a href="/tags/主题/" rel="tag"># 主题</a>
+          
+            <a href="/tags/PHP/" rel="tag"># PHP</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2009/05/06/yueye-experiences-qq-player-11/" rel="next" title="QQ影音1.1版特色功能新鲜体验">
+                <i class="fa fa-chevron-left"></i> QQ影音1.1版特色功能新鲜体验
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2009/05/11/dont-want-to-make-yueye-gray/" rel="prev" title="不想让网站变灰色">
+                不想让网站变灰色 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">434</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">108</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

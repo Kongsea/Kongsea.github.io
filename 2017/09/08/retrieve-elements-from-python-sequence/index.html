@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Python," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="随着深度学习以及人工智能领域的火热，Python越发普及和流行。使用Python进行数据处理时，有时候会有这样的操作，比如从一个列表或者numpy array中随机取出一个元素，对一个列表中的元素进行shuffle，等等。虽然这些操作也可以通过编写很简短的程序完成，但我们使用Python有一点很重要，就是不要重复遭轮子，如果有轮子可以直接拿来用，为什么不省时省力地去用呢？ 1.从序列中随机取出一个">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python下几种从一个序列中取出元素的方法">
+<meta property="og:url" content="http://yoursite.com/2017/09/08/retrieve-elements-from-python-sequence/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="随着深度学习以及人工智能领域的火热，Python越发普及和流行。使用Python进行数据处理时，有时候会有这样的操作，比如从一个列表或者numpy array中随机取出一个元素，对一个列表中的元素进行shuffle，等等。虽然这些操作也可以通过编写很简短的程序完成，但我们使用Python有一点很重要，就是不要重复遭轮子，如果有轮子可以直接拿来用，为什么不省时省力地去用呢？ 1.从序列中随机取出一个">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-27T03:00:21.891Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python下几种从一个序列中取出元素的方法">
+<meta name="twitter:description" content="随着深度学习以及人工智能领域的火热，Python越发普及和流行。使用Python进行数据处理时，有时候会有这样的操作，比如从一个列表或者numpy array中随机取出一个元素，对一个列表中的元素进行shuffle，等等。虽然这些操作也可以通过编写很简短的程序完成，但我们使用Python有一点很重要，就是不要重复遭轮子，如果有轮子可以直接拿来用，为什么不省时省力地去用呢？ 1.从序列中随机取出一个">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/09/08/retrieve-elements-from-python-sequence/"/>
+
+
+
+
+
+  <title>Python下几种从一个序列中取出元素的方法 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/08/retrieve-elements-from-python-sequence/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Python下几种从一个序列中取出元素的方法</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-08T16:57:10+08:00">
+                2017-09-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/人工智能/" itemprop="url" rel="index">
+                    <span itemprop="name">人工智能</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>随着深度学习以及人工智能领域的火热，Python越发普及和流行。使用Python进行数据处理时，有时候会有这样的操作，比如从一个列表或者numpy array中随机取出一个元素，对一个列表中的元素进行shuffle，等等。虽然这些操作也可以通过编写很简短的程序完成，但我们使用Python有一点很重要，就是不要重复遭轮子，如果有轮子可以直接拿来用，为什么不省时省力地去用呢？</p>
+<h3 id="1-从序列中随机取出一个或多个元素"><a href="#1-从序列中随机取出一个或多个元素" class="headerlink" title="1.从序列中随机取出一个或多个元素"></a>1.从序列中随机取出一个或多个元素</h3><p>使用random模块的sample函数： 从列表lst或numpy array中随机取出k（当然，k要小于等于lst中元素的个数）个元素：random.sample(lst, k)</p>
+<p>import random<br>lst = range(20)<br>print(random.sample(lst, 1)) #取出1个元素<br>print(random.sample(lst, 5)) #取出多个元素</p>
+<h3 id="2-对一个序列中的元素进行shuffle"><a href="#2-对一个序列中的元素进行shuffle" class="headerlink" title="2.对一个序列中的元素进行shuffle"></a>2.对一个序列中的元素进行shuffle</h3><p>其实如果使用1中的sample函数，从lst中随机取出所有元素，也就实现了对列表中元素进行shuffle的目的。</p>
+<p>import random<br>lst = range(20)<br>print(random.sample(lst, len(lst)))</p>
+<p>也有另一种方法，使用numpy的random下的permutation函数，即：np.random.permutation。该函数直接输入一个序列，即返回shuffle后的该序列。其参数可以为列表，也可以为numpy array。</p>
+<p>import numpy as np<br>nda = np.array(range(20))<br>print(np.random.permutation(nda))</p>
+<h3 id="3-从序列中取出固定长度的所有组合"><a href="#3-从序列中取出固定长度的所有组合" class="headerlink" title="3.从序列中取出固定长度的所有组合"></a>3.从序列中取出固定长度的所有组合</h3><p>有时候我们需要从序列中取出固定长度的所有组合，比如一个有10个元素的列表，我们从中取出所有元素的两两组合，即取出长度为2的所有组合，可以使用itertools模块的combinations函数：</p>
+<p>import itertools<br>lst = range(10)<br>print(list(itertools.combinations(lst, 2)))</p>
+<p>上面的程序中，因为itertools的函数返回的是一个iterator，所以需要用list将其转为列表，然后打印输出。</p>
+<h3 id="4-从序列中取出元素的所有排列组合"><a href="#4-从序列中取出元素的所有排列组合" class="headerlink" title="4.从序列中取出元素的所有排列组合"></a>4.从序列中取出元素的所有排列组合</h3><p>有时候我们需要从序列中取出元素的所有组合，比如，如果列表中的每个元素对应于一个模型的效果，我们想看不同模型ensamble起来的结果，来找到最优组合，就需要这种操作。 还是使用itertools的combinations函数，如下：</p>
+<p>import itertools<br>lst = range(5)<br>for i in range(len(lst)):<br>  _lst = itertools.combinations(lst, i+1)<br>  print(_lst)</p>
+<p>该函数返回的是一个iterable，所以打印显示前需要用list转化一下。 如果取出元素的顺序不同也算不同的方式，即取出元素的所有排列呢？可以使用itertools的permutations函数，如下：</p>
+<p>import itertools<br>lst = range(5)<br>print(list(itertools.permutations(lst)))<br>print(list(itertools.permutations(lst, 3)))</p>
+<p>该函数返回的也是一个iterable，所以打印显示前也需要用list转化一下。 此外，该函数可以传一个长度的参数，以示取出的排列长度。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/04/use-minpy-to-accelerate-numpy/" rel="next" title="使用GPU加速numpy运算">
+                <i class="fa fa-chevron-left"></i> 使用GPU加速numpy运算
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/15/summary-of-save-and-restore-models-in-tensorflow/" rel="prev" title="TensorFlow保存和恢复模型的方法总结">
+                TensorFlow保存和恢复模型的方法总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">434</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">108</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-从序列中随机取出一个或多个元素"><span class="nav-number">1.</span> <span class="nav-text">1.从序列中随机取出一个或多个元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-对一个序列中的元素进行shuffle"><span class="nav-number">2.</span> <span class="nav-text">2.对一个序列中的元素进行shuffle</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-从序列中取出固定长度的所有组合"><span class="nav-number">3.</span> <span class="nav-text">3.从序列中取出固定长度的所有组合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-从序列中取出元素的所有排列组合"><span class="nav-number">4.</span> <span class="nav-text">4.从序列中取出元素的所有排列组合</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

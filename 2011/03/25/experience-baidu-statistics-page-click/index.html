@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="网站建设,百度," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="作为一名站长或博主，一个清晰实用的统计工具必不可少；而当前国内市场上的统计工具也丰富多彩，有来自国外的Google Analytics，有雅虎遗留下来的量子恒道网站统计，也有51拉、迅雷等推出的各种统计工具。 作为互联网行业的巨擘，百度也有自己的统计工具推出，而且，最近一段时间以来，百度统计一再革新，推出了不少新的功能。其最近推出的热力图就是一个很不错的功能，下面就请朋友们跟随月夜一起来看一看这种">
+<meta name="keywords" content="网站建设,百度">
+<meta property="og:type" content="article">
+<meta property="og:title" content="百度统计热力图初体验">
+<meta property="og:url" content="http://yoursite.com/2011/03/25/experience-baidu-statistics-page-click/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="作为一名站长或博主，一个清晰实用的统计工具必不可少；而当前国内市场上的统计工具也丰富多彩，有来自国外的Google Analytics，有雅虎遗留下来的量子恒道网站统计，也有51拉、迅雷等推出的各种统计工具。 作为互联网行业的巨擘，百度也有自己的统计工具推出，而且，最近一段时间以来，百度统计一再革新，推出了不少新的功能。其最近推出的热力图就是一个很不错的功能，下面就请朋友们跟随月夜一起来看一看这种">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://img.yueye.org/2011/03/25/01.jpg">
+<meta property="og:image" content="https://img.yueye.org/2011/03/25/02.jpg">
+<meta property="og:image" content="https://img.yueye.org/2011/03/25/03.jpg">
+<meta property="og:image" content="https://img.yueye.org/2011/03/25/04.JPG">
+<meta property="og:image" content="https://img.yueye.org/2011/03/25/05.jpg">
+<meta property="og:image" content="https://img.yueye.org/2011/03/25/06.jpg">
+<meta property="og:updated_time" content="2018-07-27T03:00:21.887Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="百度统计热力图初体验">
+<meta name="twitter:description" content="作为一名站长或博主，一个清晰实用的统计工具必不可少；而当前国内市场上的统计工具也丰富多彩，有来自国外的Google Analytics，有雅虎遗留下来的量子恒道网站统计，也有51拉、迅雷等推出的各种统计工具。 作为互联网行业的巨擘，百度也有自己的统计工具推出，而且，最近一段时间以来，百度统计一再革新，推出了不少新的功能。其最近推出的热力图就是一个很不错的功能，下面就请朋友们跟随月夜一起来看一看这种">
+<meta name="twitter:image" content="https://img.yueye.org/2011/03/25/01.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2011/03/25/experience-baidu-statistics-page-click/"/>
+
+
+
+
+
+  <title>百度统计热力图初体验 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2011/03/25/experience-baidu-statistics-page-click/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">百度统计热力图初体验</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2011-03-25T20:54:13+08:00">
+                2011-03-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/时讯品评/" itemprop="url" rel="index">
+                    <span itemprop="name">时讯品评</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>作为一名站长或博主，一个清晰实用的统计工具必不可少；而当前国内市场上的统计工具也丰富多彩，有来自国外的Google Analytics，有雅虎遗留下来的量子恒道网站统计，也有51拉、迅雷等推出的各种统计工具。 作为互联网行业的巨擘，百度也有自己的统计工具推出，而且，最近一段时间以来，百度统计一再革新，推出了不少新的功能。其最近推出的热力图就是一个很不错的功能，下面就请朋友们跟随月夜一起来看一看这种统计的新概念，感受一下什么是不一样的统计热力图。 首先，<a href="http://tongji.baidu.com" target="_blank" rel="noopener">点此登录</a>进入你的百度统计页面，在百度统计页面的左侧，“网站分析”菜单下我们可以看到“页面点击图”子菜单，这里就是百度统计热力图的藏身之处：</p>
+<p><img src="https://img.yueye.org/2011/03/25/01.jpg" alt="" title="百度统计热力图入口"></p>
+<p>不过，目前百度统计热力图功能还处在内测阶段，你需要有邀请码才能正式登入试用。月夜目前一共保有8枚邀请码，你可以在本文文后留言向月夜索取。在点击链接出现的输入邀请码的窗口内输入邀请码之后，进入页面点击图页面，就可以为你的网站创建页面点击图了：</p>
+<p><img src="https://img.yueye.org/2011/03/25/02.jpg" alt="" title="百度统计热力图创建入口"></p>
+<p>点击如上图所示的“立即创建”按钮，系统弹出“创建页面点击图”页面，如下图：</p>
+<p><img src="https://img.yueye.org/2011/03/25/03.jpg" alt="" title="百度统计热力图创建页面"></p>
+<p>在弹出的页面上，输入所需要的信息之后，点击确定按钮，即可为相应页面创建对应的热力图。创建好热力图之后的百度统计页面点击图页面如下图所示：</p>
+<p><img src="https://img.yueye.org/2011/03/25/04.JPG" alt="" title="百度统计热力图"></p>
+<p>需要说明的是，百度统计热力图的效果显示需要一定的历史数据，所以对于刚刚创建好的统计图，我们查看时显示不出明显的效果，需要根据访问量的多少等待一段时间，待系统存有相应的数据之后再进行查看。百度统计热力图的显示效果如下：</p>
+<p><img src="https://img.yueye.org/2011/03/25/05.jpg" alt="" title="百度统计热力图显示效果图"></p>
+<p>我们可以在如上所示显示的百度统计热力图效果图上用鼠标框选对应区域以分析某个区域的访问来源等数据，如下图：</p>
+<p><img src="https://img.yueye.org/2011/03/25/06.jpg" alt="" title="百度统计热力图分析数据效果"></p>
+<p>因为热力图的功能并不是太多，所以我们的初次体验报告就为朋友们介绍到这里。如果你对百度统计热力图感兴趣的话，请在本文文后留言向月夜索取邀请码，以便测试体验。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/网站建设/" rel="tag"># 网站建设</a>
+          
+            <a href="/tags/百度/" rel="tag"># 百度</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2011/03/19/solution-of-windows-sockets-error/" rel="next" title="Windows Sockets 出错解决方法">
+                <i class="fa fa-chevron-left"></i> Windows Sockets 出错解决方法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2011/03/29/10000-day-of-my-life/" rel="prev" title="在我生命中的第10000天">
+                在我生命中的第10000天 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">434</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">108</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

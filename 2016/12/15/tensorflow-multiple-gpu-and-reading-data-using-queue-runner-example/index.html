@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="#!/usr/local/bin/python# -- coding: utf-8 --‘’’3D convolutional neural network trained   to reduce the False Positive Rate for the LUNA datasets.   The LUNA datasets are organized in the CIFAR archite">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TensorFlow Multiple GPU and Reading data using Queue Runner Example">
+<meta property="og:url" content="http://yoursite.com/2016/12/15/tensorflow-multiple-gpu-and-reading-data-using-queue-runner-example/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="#!/usr/local/bin/python# -- coding: utf-8 --‘’’3D convolutional neural network trained   to reduce the False Positive Rate for the LUNA datasets.   The LUNA datasets are organized in the CIFAR archite">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-27T03:00:21.875Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TensorFlow Multiple GPU and Reading data using Queue Runner Example">
+<meta name="twitter:description" content="#!/usr/local/bin/python# -- coding: utf-8 --‘’’3D convolutional neural network trained   to reduce the False Positive Rate for the LUNA datasets.   The LUNA datasets are organized in the CIFAR archite">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/12/15/tensorflow-multiple-gpu-and-reading-data-using-queue-runner-example/"/>
+
+
+
+
+
+  <title>TensorFlow Multiple GPU and Reading data using Queue Runner Example | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/15/tensorflow-multiple-gpu-and-reading-data-using-queue-runner-example/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">TensorFlow Multiple GPU and Reading data using Queue Runner Example</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-15T20:14:52+08:00">
+                2016-12-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/谈天说地/" itemprop="url" rel="index">
+                    <span itemprop="name">谈天说地</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>#!/usr/local/bin/python<br># -<em>- coding: utf-8 -</em>-<br>‘’’3D convolutional neural network trained<br>   to reduce the False Positive Rate for the LUNA datasets.<br>   The LUNA datasets are organized in the CIFAR architecture.</p>
+<p>   Author: Kong Haiyang<br>‘’’<br>from __future__ import absolute_import<br>from __future__ import division<br>from __future__ import print_function</p>
+<p>import os<br>import sys<br>import time<br>import math<br>import numpy as np<br>from six.moves import xrange<br>import tensorflow as tf<br>import csv<br>import cv2</p>
+<p>FLAGS = tf.app.flags.FLAGS<br>tf.app.flags.DEFINE_integer(‘IMAGE_SIZE’, 40, “Size of input Image.”)<br>tf.app.flags.DEFINE_integer(‘PIXEL_DATA_SIZE’, 4, “Size of Image pixel.”)<br>tf.app.flags.DEFINE_integer(‘CHANNEL_NUMBER’, 1, “Size of input Image.”)<br>tf.app.flags.DEFINE_integer(‘LABEL_NUMBER’, 2, “Label number.”)<br>tf.app.flags.DEFINE_integer(‘BATCH_SIZE’, 128, “Size of a Batch.”)<br>tf.app.flags.DEFINE_integer(‘NUM_EPOCHS’, 10, “Number of epochs.”)<br>tf.app.flags.DEFINE_integer(‘EVAL_BATCH_SIZE’, 64, “Size of an Evalution Batch.”)<br>tf.app.flags.DEFINE_integer(‘SEED’, 66478, “Seed of Shuffle.”)<br>tf.app.flags.DEFINE_string(‘TOWER_NAME’, ‘JP’, “Name of tower.”)<br>tf.app.flags.DEFINE_integer(‘NUM_GPU’, 2, “How many GPUs to use.”)<br>tf.app.flags.DEFINE_integer(‘NUM_PREPROCESS_THREADS’, 8,<br>                            “Number of preprocessing threads.”)<br>tf.app.flags.DEFINE_integer(‘NUM_LABEL’, 1, “How many Label bytes in a unit of Bin file.”)<br>tf.app.flags.DEFINE_integer(<br>    ‘NUM_IMAGE’, 40 ** 3, “How many Image bytes in a unit of Bin file.”)<br>tf.app.flags.DEFINE_integer(‘BYTE_LENGTH’, 4, “Byte length of label or image bytes.”)<br>tf.app.flags.DEFINE_string(<br>    ‘CSV_FILE’, ‘/home/kong/4T/official3D_110W/Shuffle.csv’, “Csv file path and name.”)<br>tf.app.flags.DEFINE_string(<br>    ‘BIN_FILE’, ‘/home/kong/4T/official3D_110W/shuffle3D64.bin’, “Bin file path and name.”)<br>tf.app.flags.DEFINE_string(‘XAVIER_INIT’,<br>                           ‘tf.contrib.layers.xavier_initializer(seed=SEED)’,<br>                           “Initialize with XAVIER_INIT.”)</p>
+<p>IMAGE_SIZE = FLAGS.IMAGE_SIZE<br>PIXEL_DATA_SIZE = FLAGS.PIXEL_DATA_SIZE<br>NUM_CHANNELS = FLAGS.CHANNEL_NUMBER<br>NUM_LABELS = FLAGS.LABEL_NUMBER<br>SEED = FLAGS.SEED<br>BATCH_SIZE = FLAGS.BATCH_SIZE<br>NUM_EPOCHS = FLAGS.NUM_EPOCHS<br>EVAL_BATCH_SIZE = FLAGS.EVAL_BATCH_SIZE<br>XAVIER_INIT = FLAGS.XAVIER_INIT<br>TOWER_NAME = FLAGS.TOWER_NAME<br>NUM_GPU = FLAGS.NUM_GPU<br>NUM_PREPROCESS_THREADS = FLAGS.NUM_PREPROCESS_THREADS<br>CSV_FILE = FLAGS.CSV_FILE<br>BIN_FILE = FLAGS.BIN_FILE<br>NUM_LABEL = FLAGS.NUM_LABEL<br>NUM_IMAGE = FLAGS.NUM_IMAGE<br>BYTE_LENGTH = FLAGS.BYTE_LENGTH<br>DTYPE = tf.float32</p>
+<p>def readCSV(filename):<br>  ‘’’read lines from a csv file.<br>  ‘’’<br>  lines = []<br>  with open(filename, “rb”) as f:<br>    csvreader = csv.reader(f)<br>    for line in csvreader:<br>      lines.append(line)<br>  return lines</p>
+<p>def get_noaug_first(CSV_FILE, BIN_FILE, no, count):<br>  lines = readCSV(CSV_FILE)[1:]<br>  data = np.empty([count, IMAGE_SIZE, IMAGE_SIZE, IMAGE_SIZE, 1], dtype=float)<br>  labels = np.empty(count, dtype=int)<br>  i = count_ = 0<br>  length = (NUM_LABEL + NUM_IMAGE) <em> 4<br>  with open(BIN_FILE, ‘rb’) as f:<br>    for line in lines:<br>      if line[1] == str(no) and line[-1] == ‘0’ and line[-2] == ‘1’:<br>        f.seek(i </em> length)<br>        buf = f.read(length)<br>        data[count_, …] = (np.frombuffer(buf[4:], dtype=np.float32)).reshape(<br>            IMAGE_SIZE, IMAGE_SIZE, IMAGE_SIZE, 1)<br>        labels[count_] = np.frombuffer(buf[0:4], dtype=np.float32).astype(np.int64)<br>        count_ += 1<br>      i += 1<br>  return data, labels</p>
+<p>def init_bin_file(BIN_FILE):<br>  bin_file_name = [BIN_FILE]<br>  for f in bin_file_name:<br>    if not tf.gfile.Exists(f):<br>      raise ValueError(‘Failed to find file: ‘ + f)<br>  fqb = tf.train.string_input_producer(bin_file_name, num_epochs=1)<br>  record_bytes = (NUM_LABEL + NUM_IMAGE) * BYTE_LENGTH<br>  rb = tf.FixedLengthRecordReader(record_bytes=record_bytes)<br>  return fqb, rb</p>
+<p>def init_csv_file(CSV_FILE):<br>  csv_file_name = [CSV_FILE]<br>  for f in csv_file_name:<br>    if not tf.gfile.Exists(f):<br>      raise ValueError(‘Failed to find file: ‘ + f)<br>  fqc = tf.train.string_input_producer(csv_file_name, num_epochs=1)<br>  rc = tf.TextLineReader(skip_header_lines=True)<br>  return fqc, rc</p>
+<p>def get_data_without_no(fqb, rb, fqc, rc, val_no, test_no):<br>  def getBIN():<br>    def getID():<br>      key_raw, value = rc.read(fqc)<br>      value_raw = tf.reshape(value, [1])<br>      split_values = tf.string_split(value_raw, delimiter=’,’)<br>      subsetid = tf.string_to_number(split_values.values[1], out_type=tf.int32)<br>      return subsetid<br>    key, value = rb.read(fqb)<br>    record_bytes = tf.decode_raw(value, tf.float32)<br>    label = tf.cast(tf.slice(record_bytes, [0], [NUM_LABEL]), tf.int64)<br>    image = tf.reshape(tf.slice(record_bytes, [NUM_LABEL], [NUM_IMAGE]),<br>                       shape=[40, 40, 40, 1])<br>    return getID(), label, image<br>  subsetid, label, image = getBIN()<br>  cond = lambda subsetid, label, image: tf.logical_or(tf.equal(subsetid, tf.constant(<br>      val_no, dtype=tf.int32)), tf.equal(subsetid, tf.constant(test_no, dtype=tf.int32)))<br>  doRead = lambda subsetid, label, image: getBIN()<br>  result = tf.while_loop(cond, doRead, [subsetid, label, image])<br>  return result</p>
+<p>def get_data_with_no(fqb, rb, fqc, rc, no):<br>  def getBIN():<br>    def getID():<br>      key_raw, value = rc.read(fqc)<br>      value_raw = tf.reshape(value, [1])<br>      split_values = tf.string_split(value_raw, delimiter=’,’)<br>      subsetid = tf.string_to_number(split_values.values[1], out_type=tf.int32)<br>      return subsetid<br>    key, value = rb.read(fqb)<br>    record_bytes = tf.decode_raw(value, tf.float32)<br>    label = tf.cast(tf.slice(record_bytes, [0], [NUM_LABEL]), tf.int64)<br>    image = tf.reshape(tf.slice(record_bytes, [NUM_LABEL], [NUM_IMAGE]),<br>                       shape=[40, 40, 40, 1])<br>    return getID(), label, image<br>  subsetid, label, image = getBIN()<br>  cond = lambda subsetid, label, image: tf.not_equal(<br>      subsetid, tf.constant(no, dtype=tf.int32))<br>  doRead = lambda subsetid, label, image: getBIN()<br>  result = tf.while_loop(cond, doRead, [subsetid, label, image])<br>  return result</p>
+<p>def get_noaug_with_no(fqb, rb, fqc, rc, no):<br>  def getBIN():<br>    def getID():<br>      key_raw, value = rc.read(fqc)<br>      value_raw = tf.reshape(value, [1])<br>      split_values = tf.string_split(value_raw, delimiter=’,’)<br>      subsetid = tf.string_to_number(split_values.values[1], out_type=tf.int32)<br>      class_flag = tf.string_to_number(split_values.values[-2], out_type=tf.int32)<br>      noaug = tf.string_to_number(split_values.values[-1], out_type=tf.int32)<br>      return subsetid, class_flag, noaug<br>    key, value = rb.read(fqb)<br>    record_bytes = tf.decode_raw(value, tf.float32)<br>    label = tf.cast(tf.slice(record_bytes, [0], [NUM_LABEL]), tf.int64)<br>    image = tf.reshape(tf.slice(record_bytes, [NUM_LABEL], [NUM_IMAGE]),<br>                       shape=[40, 40, 40, 1])<br>    subsetid, class_flag, noaug = getID()<br>    return subsetid, class_flag, noaug, label, image<br>  subsetid, class_flag, noaug, label, image = getBIN()<br>  cond = lambda subsetid, class_flag, noaug, label, image: tf.logical_or(tf.not_equal(subsetid, tf.constant(no, dtype=tf.int32)),<br>                                                                         tf.logical_or(tf.not_equal(class_flag, tf.constant(1, dtype=tf.int32)), tf.not_equal(noaug, tf.constant(0, dtype=tf.int32))))<br>  doRead = lambda subsetid, class_flag, noaug, label, image: getBIN()<br>  result = tf.while_loop(cond, doRead, [subsetid, class_flag, noaug, label, image])<br>  return result</p>
+<p>def get_train_data(fqb, rb, fqc, rc, val_no, test_no):<br>  subsetid, label, image = get_data_without_no(fqb, rb, fqc, rc, val_no, test_no)<br>  min_queue_examples = BATCH_SIZE <em> 20<br>  sis, labels, images = tf.train.batch(<br>      [subsetid, label, image],<br>      batch_size=BATCH_SIZE,<br>      num_threads=NUM_PREPROCESS_THREADS,<br>      capacity=min_queue_examples + 3 </em> BATCH_SIZE)<br>  labels = tf.reshape(labels, [-1])<br>  return labels, images</p>
+<p>def get_test_data(fqb, rb, fqc, rc, no):<br>  subsetid, label, image = get_data_with_no(fqb, rb, fqc, rc, no)<br>  min_queue_examples = BATCH_SIZE <em> 20<br>  sis, labels, images = tf.train.batch(<br>      [subsetid, label, image],<br>      batch_size=BATCH_SIZE,<br>      num_threads=NUM_PREPROCESS_THREADS,<br>      capacity=min_queue_examples + 3 </em> BATCH_SIZE)<br>  labels = tf.reshape(labels, [-1])<br>  return labels, images</p>
+<p>def get_noaug_data(fqb, rb, fqc, rc, no):<br>  subsetid, class_flag, noaug, label, image = get_noaug_with_no(fqb, rb, fqc, rc, no)<br>  min_queue_examples = BATCH_SIZE <em> 20<br>  sis, cfs, noaugs, labels, images = tf.train.batch(<br>      [subsetid, class_flag, noaug, label, image],<br>      batch_size=BATCH_SIZE // 10,<br>      num_threads=NUM_PREPROCESS_THREADS,<br>      capacity=min_queue_examples + 3 </em> BATCH_SIZE)<br>  labels = tf.reshape(labels, [-1])<br>  return sis, cfs, noaugs, labels, images</p>
+<p>def get_size(CSV_FILE):<br>  ss = [0] <em> 10<br>  noaug = [0] </em> 10<br>  with open(CSV_FILE) as f:<br>    csvreader = csv.reader(f)<br>    for line in csvreader:<br>      if line[0] != ‘candidateID’:<br>        ss[int(line[1])] += 1<br>        if line[-1] == ‘0’ and line[-2] == ‘1’:<br>          noaug[int(line[1])] += 1<br>  return ss, noaug</p>
+<p>def _weight_on_cpu(name, shape):<br>  with tf.device(‘/cpu:0’):<br>    var = tf.get_variable(name, shape, DTYPE, tf.truncated_normal_initializer(stddev=0.1))<br>  return var</p>
+<p>def _bias_on_cpu(name, shape):<br>  with tf.device(‘/cpu:0’):<br>    var = tf.get_variable(name, shape, DTYPE, tf.constant_initializer(0.0))<br>  return var</p>
+<p>def model(data, isTraining, keep_prob):<br>  with tf.variable_scope(‘conv1’) as scope:<br>    W1 = _weight_on_cpu(‘W1’, [3, 3, 3, NUM_CHANNELS, 16])<br>    conv = tf.nn.conv3d(data, W1, strides=[1, 1, 1, 1, 1], padding=’SAME’)<br>    b1 = _bias_on_cpu(‘b1’, [16])<br>    relu = tf.nn.relu(tf.nn.bias_add(conv, b1))<br>  with tf.variable_scope(‘conv2’) as scope:<br>    W2 = _weight_on_cpu(‘W2’, [3, 3, 3, 16, 24])<br>    conv = tf.nn.conv3d(relu, W2, strides=[1, 1, 1, 1, 1], padding=’SAME’)<br>    b2 = _bias_on_cpu(‘b2’, [24])<br>    relu = tf.nn.relu(tf.nn.bias_add(conv, b2))<br>    pool = tf.nn.max_pool3d(relu, ksize=[1, 2, 2, 2, 1],<br>                            strides=[1, 2, 2, 2, 1], padding=’VALID’)<br>  with tf.variable_scope(‘conv3’) as scope:<br>    W3 = _weight_on_cpu(‘W3’, [3, 3, 3, 24, 32])<br>    conv = tf.nn.conv3d(pool, W3, strides=[1, 1, 1, 1, 1], padding=’SAME’)<br>    b3 = _bias_on_cpu(‘b3’, [32])<br>    relu = tf.nn.relu(tf.nn.bias_add(conv, b3))<br>    pool = tf.nn.max_pool3d(relu, ksize=[1, 2, 2, 2, 1],<br>                            strides=[1, 2, 2, 2, 1], padding=’VALID’)<br>  with tf.variable_scope(‘conv4’) as scope:<br>    W4 = _weight_on_cpu(‘W4’, [3, 3, 3, 32, 48])<br>    conv = tf.nn.conv3d(pool, W4, strides=[1, 1, 1, 1, 1], padding=’SAME’)<br>    b4 = _bias_on_cpu(‘b4’, [48])<br>    relu = tf.nn.relu(tf.nn.bias_add(conv, b4))<br>    pool = tf.nn.max_pool3d(relu, ksize=[1, 2, 2, 2, 1],<br>                            strides=[1, 2, 2, 2, 1], padding=’VALID’)<br>  with tf.variable_scope(‘conv5’) as scope:<br>    W5 = _weight_on_cpu(‘W5’, [3, 3, 3, 48, 64])<br>    conv = tf.nn.conv3d(pool, W5, strides=[1, 1, 1, 1, 1], padding=’SAME’)<br>    b5 = _bias_on_cpu(‘b5’, [64])<br>    relu = tf.nn.relu(tf.nn.bias_add(conv, b5))<br>    pool = tf.nn.max_pool3d(relu, ksize=[1, 2, 2, 2, 1],<br>                            strides=[1, 2, 2, 2, 1], padding=’VALID’)<br>  with tf.variable_scope(‘reshape’) as scope:<br>    ps = pool.get_shape().as_list()<br>    reshape = tf.reshape(pool, [-1, ps[1] <em> ps[2] </em> ps[3] <em> ps[4]])<br>  with tf.variable_scope(‘fc1’) as scope:<br>    fcw1 = _weight_on_cpu(‘fcw1’, [2\</em>*3 * 64, 32])<br>    fcb1 = _bias_on_cpu(‘fcb1’, [32])<br>    hidden = tf.nn.relu(tf.matmul(reshape, fcw1) + fcb1)</p>
+<pre><code>hidden = tf.cond(isTraining,
+                 lambda: tf.nn.dropout(hidden, keep_prob),
+                 lambda: hidden)
+</code></pre><p>  with tf.variable_scope(‘fc2’) as scope:<br>    fcw2 = _weight_on_cpu(‘fcw2’, [32, NUM_LABELS])<br>    fcb2 = _bias_on_cpu(‘fcb2’, [NUM_LABELS])<br>    out = tf.add(tf.matmul(hidden, fcw2), fcb2)<br>  return out</p>
+<p>def loss(logits, labels):<br>  “””Add L2Loss to all the trainable variables.<br>  “””<br>  cross_entropy = tf.nn.sparse_softmax_cross_entropy_with_logits(<br>      logits, labels, name=’cross_entropy_per_example’)<br>  cross_entropy_mean = tf.reduce_mean(cross_entropy, name=’cross_entropy’)<br>  tf.add_to_collection(‘losses’, cross_entropy_mean)</p>
+<p>  return tf.add_n(tf.get_collection(‘losses’), name=’total_loss’)</p>
+<p>def tower_loss(images, labels, isTraining, scope):<br>  logits = model(images, isTraining, 0.5)<br>  _ = loss(logits, labels)<br>  losses = tf.get_collection(‘losses’, scope)<br>  total_loss = tf.add_n(losses, name=’total_loss’)</p>
+<p>  loss_averages = tf.train.ExponentialMovingAverage(0.9, name=’avg’)<br>  loss_averages_op = loss_averages.apply(losses + [total_loss])</p>
+<p>  with tf.control_dependencies([loss_averages_op]):<br>    total_loss = tf.identity(total_loss)<br>  return total_loss, logits</p>
+<p>def average_gradients(tower_grads):<br>  “””Calculate the average gradient for each shared variable across all towers.<br>  Note that this function provides a synchronization point across all towers.<br>  “””<br>  average_grads = []<br>  for grad_and_vars in zip(*tower_grads):<br>    grads = []<br>    for g, _ in grad_and_vars:<br>      expanded_g = tf.expand_dims(g, 0)<br>      grads.append(expanded_g)</p>
+<pre><code>grad = tf.concat(0, grads)
+grad = tf.reduce_mean(grad, 0)
+v = grad\_and\_vars\[0\]\[1\]
+grad\_and\_var = (grad, v)
+average\_grads.append(grad\_and_var)
+</code></pre><p>  return average_grads</p>
+<p>def eval_in_batches(data, sess, eval_prediction, eval_data, isTraining):<br>  size = data.shape[0]<br>  if size &lt; EVAL_BATCH_SIZE:<br>    raise ValueError(“batch size for evals larger than dataset: %d” % size)</p>
+<h1 id="size-size-NUM-GPU-comment-this-will-cause-tf-exception"><a href="#size-size-NUM-GPU-comment-this-will-cause-tf-exception" class="headerlink" title="size -= size % NUM_GPU  # comment this will cause tf exception?"></a>size -= size % NUM_GPU  # comment this will cause tf exception?</h1><p>  predictions = np.ndarray(shape=(size, NUM_LABELS), dtype=np.float32)<br>  for begin in xrange(0, size, EVAL_BATCH_SIZE):<br>    end = begin + EVAL_BATCH_SIZE<br>    if end &lt;= size:<br>      predict = sess.run(eval_prediction, feed_dict={<br>          eval_data: data[begin:end, …], isTraining: False})<br>      predictions[begin:end, :] = np.vstack(predict)<br>    else:<br>      batch_predictions = sess.run(eval_prediction, feed_dict={<br>          eval_data: data[-EVAL_BATCH_SIZE:, …], isTraining: False})<br>      predictions[begin:, :] = batch_predictions[begin - size:, :]<br>  return predictions</p>
+<p>def error_rate(predictions, labels):<br>  “””Return the error rate based on dense predictions and sparse labels.”””<br>  return 100.0 - (100.0 * np.sum(np.argmax(predictions, 1) == labels) /<br>                  predictions.shape[0])</p>
+<p>def lunaTrain(VIEW_DIRECTORY, imgName, csvName, ss_list, noaug_list):<br>  with tf.Graph().as_default(), tf.device(‘/cpu:0’):<br>    for cross in range(10):<br>      sssstttt = time.time()<br>      print(‘Cross {}…’.format(cross))<br>      WORK_DIRECTORY = os.path.join(VIEW_DIRECTORY, ‘Cross{}’.format(cross))<br>      testNo = cross<br>      valNo = (cross + 1) % 10<br>      st = time.time()<br>      train_size = sum(ss_list) - ss_list[testNo] - ss_list[valNo]<br>      test_no_aug_data, test_no_aug_label = get_noaug_first(<br>          CSV_FILE, BIN_FILE, testNo, noaug_list[testNo])<br>      val_no_aug_data, val_no_aug_label = get_noaug_first(<br>          CSV_FILE, BIN_FILE, valNo, noaug_list[valNo])<br>      print(‘Reading no aug data finished in {:.2f} seconds…’.format(time.time() - st))<br>      st = time.time()<br>      fqbt, rbt = init_bin_file(BIN_FILE)<br>      fqct, rct = init_csv_file(CSV_FILE)<br>      fqbe, rbe = init_bin_file(BIN_FILE)<br>      fqce, rce = init_csv_file(CSV_FILE)<br>      data_node = tf.placeholder(tf.float32, shape=(<br>          None, IMAGE_SIZE, IMAGE_SIZE, IMAGE_SIZE, NUM_CHANNELS))<br>      labels_node = tf.placeholder(tf.int64, shape=(None,))<br>      isTraining = tf.placeholder(tf.bool, name=’isTrain’)</p>
+<pre><code>batch = tf.Variable(0, trainable=False)
+learning\_rate = tf.train.exponential\_decay(0.01, batch * BATCH\_SIZE, train\_size / 5,
+                                           0.95, staircase=True)
+opt = tf.train.MomentumOptimizer(learning_rate, 0.9)
+
+split\_images = tf.split(0, NUM\_GPU, data_node)
+split\_labels = tf.split(0, NUM\_GPU, labels_node)
+
+eval_predictions = \[\]
+tower_grads = \[\]
+for i in xrange(NUM_GPU):
+  with tf.device(&apos;/gpu:%d&apos; % i):
+    with tf.name\_scope(&apos;%s\_%d&apos; % (TOWER_NAME, i)) as scope:
+      loss, logits = tower\_loss(split\_images\[i\], split_labels\[i\], isTraining, scope)
+      predictions = tf.nn.softmax(logits)
+      eval_predictions.append(predictions)
+      tf.get\_variable\_scope().reuse_variables()
+
+      grads = opt.compute_gradients(loss)
+      tower_grads.append(grads)
+
+grads = average\_gradients(tower\_grads)
+apply\_gradient\_op = opt.apply_gradients(grads)
+
+variable_averages = tf.train.ExponentialMovingAverage(0.9999)
+variables\_averages\_op = variable\_averages.apply(tf.trainable\_variables())
+
+train\_op = tf.group(apply\_gradient\_op, variables\_averages_op)
+
+train\_label\_node, train\_data\_node = get\_train\_data(
+    fqbt, rbt, fqct, rct, valNo, testNo)
+val\_label\_node, val\_data\_node = get\_test\_data(fqbe, rbe, fqce, rce, valNo)
+test\_label\_node, test\_data\_node = get\_test\_data(fqbe, rbe, fqce, rce, testNo)
+
+saver = tf.train.Saver(tf.all_variables())
+
+TRAIN\_FREQUENCY = train\_size // BATCH_SIZE // 20
+VAL\_FREQUENCY = train\_size // BATCH_SIZE
+TEST\_FREQUENCY = train\_size // BATCH_SIZE * 5
+
+config = tf.ConfigProto(allow\_soft\_placement=True, log\_device\_placement=False)
+with tf.Session(config=config) as sess:
+  summary\_writer = tf.train.SummaryWriter(WORK\_DIRECTORY, sess.graph)
+  sess.run(tf.initialize\_local\_variables())
+  sess.run(tf.initialize\_all\_variables())
+  coord = tf.train.Coordinator()
+  threads = tf.train.start\_queue\_runners(sess=sess, coord=coord)
+  try:
+    while not coord.should_stop():
+      start_time = time.time()
+      for step in xrange(int(NUM\_EPOCHS * train\_size) // BATCH_SIZE):
+        train\_data, train\_label = sess.run(\[train\_data\_node, train\_label\_node\])
+        feed\_dict = {data\_node: train_data,
+                     labels\_node: train\_label, isTraining: True}
+        _, l, lr = sess.run(\[train\_op, loss, learning\_rate\], feed\_dict=feed\_dict)
+        if step != 0 and step % TRAIN_FREQUENCY == 0:
+          et = time.time() - start_time
+          print(&apos;Step %d (epoch %.2f), %.1f ms&apos; %
+                (step, float(step) * BATCH\_SIZE / train\_size, 1000 * et / TRAIN_FREQUENCY))
+          print(&apos;Minibatch loss: %.3f, learning rate: %.6f&apos; % (l, lr))
+          start_time = time.time()
+        if step != 0 and VAL\_FREQUENCY != 0 and step % VAL\_FREQUENCY == 0:
+          val\_data, val\_label = sess.run(\[val\_data\_node, val\_label\_node\])
+          valE = error\_rate(eval\_in_batches(
+              val\_data, sess, eval\_predictions, data\_node, isTraining), val\_label)
+          print(&apos;Validation error: %.3f%%&apos; % valE)
+          valPE = error\_rate(eval\_in_batches(
+              val\_no\_aug\_data, sess, eval\_predictions, data\_node, isTraining), val\_no\_aug\_label)
+          print(&apos;Validation error of no aug Positive: %.3f%%&apos; % valPE)
+          val_data = 0
+          start_time = time.time()
+        if step != 0 and TEST\_FREQUENCY != 0 and step % TEST\_FREQUENCY == 0:
+          test\_data, test\_label = sess.run(\[test\_data\_node, test\_label\_node\])
+          test\_error = error\_rate(eval\_in\_batches(
+              test\_data, sess, eval\_predictions, data\_node, isTraining), test\_label)
+          print(&apos;Test error: %.3f%%&apos; % test_error)
+          test\_errorP = error\_rate(eval\_in\_batches(
+              test\_no\_aug\_data, sess, eval\_predictions, data\_node, isTraining), test\_no\_aug\_label)
+          print(&apos;Test error of no aug Positive: %.3f%%&apos; % test_errorP)
+          test_data = 0
+          start_time = time.time()
+      else:
+        checkpoint\_path = os.path.join(WORK\_DIRECTORY, &apos;model.ckpt&apos;)
+        saver.save(sess, checkpoint\_path, global\_step=step)
+  except tf.errors.OutOfRangeError:
+    print(&apos;Done training -- epoch limit reached&apos;)
+  finally:
+    coord.request_stop()
+  coord.join(threads)
+print(&apos;All costs {:.2f} seconds...&apos;.format(time.time() - sssstttt))
+train\_data = val\_data = test_data = 0
+train\_labels = val\_labels = test_labels = 0
+</code></pre><p>def main(_):<br>  viewPath = ‘/home/kong/4T/official3D_110W’<br>  csvName = ‘/home/kong/4T/official3D_110W/Shuffle.csv’<br>  imgName = ‘/home/kong/4T/official3D_110W/shuffle3D.bin’</p>
+<p>  ss_list, noaug_list = get_size(CSV_FILE)<br>  lunaTrain(viewPath, imgName, csvName, ss_list, noaug_list)</p>
+<p>if __name__ == ‘__main__‘:<br>  tf.app.run()</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/15/use-tensorflow-queuerunner-to-read-data-from-a-binary-file-according-to-some-conditions/" rel="next" title="Use TensorFlow QueueRunner to read data from a binary file according to some conditions">
+                <i class="fa fa-chevron-left"></i> Use TensorFlow QueueRunner to read data from a binary file according to some conditions
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/15/a-tensorflow-example-to-read-data-using-queuerunner/" rel="prev" title="a TensorFlow example to read data using QueueRunner">
+                a TensorFlow example to read data using QueueRunner <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">434</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">108</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#size-size-NUM-GPU-comment-this-will-cause-tf-exception"><span class="nav-number">1.</span> <span class="nav-text">size -= size % NUM_GPU  # comment this will cause tf exception?</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

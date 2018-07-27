@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="QQ,升级,饭否," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="饭否是一款微博客，因其方便的操作，广泛的应用而在网友之间十分流行。但因为腾讯推出了与饭否竞争的滔滔，所以，一直以来，饭否无法通过导入QQ好友的方式来添加好友，导致我们使用饭否时有诸多不便。 但是现在，这样的不便已经不存在了，最近，月夜 发现，饭否可能与腾讯谈好了条件，腾讯向其开放了接口，使得我们能够在饭否上直接通过导入QQ好友的方式来为自己寻找已经在饭否上安家的QQ好友，也可以往饭否上添加QQ好友">
+<meta name="keywords" content="QQ,升级,饭否">
+<meta property="og:type" content="article">
+<meta property="og:title" content="饭否增加“找朋友”方式——导入QQ好友">
+<meta property="og:url" content="http://yoursite.com/2009/03/13/add-fanfou-friends-through-qq/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="饭否是一款微博客，因其方便的操作，广泛的应用而在网友之间十分流行。但因为腾讯推出了与饭否竞争的滔滔，所以，一直以来，饭否无法通过导入QQ好友的方式来添加好友，导致我们使用饭否时有诸多不便。 但是现在，这样的不便已经不存在了，最近，月夜 发现，饭否可能与腾讯谈好了条件，腾讯向其开放了接口，使得我们能够在饭否上直接通过导入QQ好友的方式来为自己寻找已经在饭否上安家的QQ好友，也可以往饭否上添加QQ好友">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12369521840242507651/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12369522071952760803/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12369522110043881163/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12369522111798785572/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12369522120387718138/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12369522130989776749/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12369522081798473220/A/1/m.jpg">
+<meta property="og:updated_time" content="2018-07-27T03:00:21.883Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="饭否增加“找朋友”方式——导入QQ好友">
+<meta name="twitter:description" content="饭否是一款微博客，因其方便的操作，广泛的应用而在网友之间十分流行。但因为腾讯推出了与饭否竞争的滔滔，所以，一直以来，饭否无法通过导入QQ好友的方式来添加好友，导致我们使用饭否时有诸多不便。 但是现在，这样的不便已经不存在了，最近，月夜 发现，饭否可能与腾讯谈好了条件，腾讯向其开放了接口，使得我们能够在饭否上直接通过导入QQ好友的方式来为自己寻找已经在饭否上安家的QQ好友，也可以往饭否上添加QQ好友">
+<meta name="twitter:image" content="http://laiba.tianya.cn/laiba/images/615721/12369521840242507651/A/1/m.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2009/03/13/add-fanfou-friends-through-qq/"/>
+
+
+
+
+
+  <title>饭否增加“找朋友”方式——导入QQ好友 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2009/03/13/add-fanfou-friends-through-qq/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">饭否增加“找朋友”方式——导入QQ好友</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2009-03-13T22:04:22+08:00">
+                2009-03-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/时讯品评/" itemprop="url" rel="index">
+                    <span itemprop="name">时讯品评</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>饭否是一款微博客，因其方便的操作，广泛的应用而在网友之间十分流行。但因为腾讯推出了与饭否竞争的滔滔，所以，一直以来，饭否无法通过导入QQ好友的方式来添加好友，导致我们使用饭否时有诸多不便。 但是现在，这样的不便已经不存在了，最近，<a href="https://www.yueye.org" target="_blank" rel="noopener">月夜</a> 发现，饭否可能与腾讯谈好了条件，腾讯向其开放了接口，使得我们能够在饭否上直接通过导入QQ好友的方式来为自己寻找已经在饭否上安家的QQ好友，也可以往饭否上添加QQ好友。 首先登录饭否以后，在饭否顶端的导航栏上可以看到“找朋友”链接：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12369521840242507651/A/1/m.jpg" alt="" title="添加新朋友"></p>
+<p>点击如上图中的链接，进入到如下图所示的邀请联系人页面：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12369522071952760803/A/1/m.jpg" alt="" title="邀请联系人"></p>
+<p>选择QQ好友，然后输入你需要导入好友的QQ帐号信息，点击继续后，会在新页面中等待导入：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12369522110043881163/A/1/m.jpg" alt="" title="等待导入"></p>
+<p>等待片刻之后，导入QQ帐号上的好友信息成功，我们首先会看到你QQ好友中已经在饭否上安家的朋友：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12369522111798785572/A/1/m.jpg" alt="" title="饭否上的QQ好友"></p>
+<p>你可以点选相应用户将其加为好友，然后，我们来到邀请导入QQ好友页面：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12369522120387718138/A/1/m.jpg" alt="" title="月夜-邀请QQ好友"></p>
+<p>如上图，选中相应的帐号，点击邀请，即可向你的QQ好友发送邀请信息。 但不知为何，月夜试了数次，最终还是只看到了这样的界面：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12369522130989776749/A/1/m.jpg" alt="" title="月夜-邀请失败"></p>
+<p>提示发送邀请失败，只能通过手动发送方式来进行邀请。 除此之外，邀请的过程中还可能会出现如下界面，提示错误信息：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12369522081798473220/A/1/m.jpg" alt="" title="月夜-错误信息"></p>
+<p>综合看来，饭否这次启用的通过“导入QQ好友”来添加好友的方式并不是太成熟。而且，目前并没有真正实现通过导入QQ好友的方式来进行添加，可能还是通过发送链接来进行邀请的。但不管怎么说，既然饭否能和腾讯不再为敌，对我们这些饭否用户应该还是一个不错的消息。毕竟，接下来的谈判可能相对就会比较容易，而如果腾讯对饭否开放了一个接口，接下来可能只是技术问题了。 另外，<a href="https://www.yueye.org" target="_blank" rel="noopener">月夜</a> 认为，腾讯向饭否开放了这样一个网页接口之后，可能会有后续动作，毕竟我们经常在很多网站上看到导入MSN、Gtalk好友的选项，而唯独没有QQ好友，此番腾讯开放了对饭否的接口之后，未来可能也会对其他类似网站开放，从而为我们这些QQ用户提供很大方便。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/QQ/" rel="tag"># QQ</a>
+          
+            <a href="/tags/升级/" rel="tag"># 升级</a>
+          
+            <a href="/tags/饭否/" rel="tag"># 饭否</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2009/03/12/qq-email-add-foxmail-account/" rel="next" title="QQ邮箱“一邮多名”——注册@foxmail.com帐号">
+                <i class="fa fa-chevron-left"></i> QQ邮箱“一邮多名”——注册@foxmail.com帐号
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2009/03/14/click-party-go-to-hell/" rel="prev" title="点击党们，从月夜滚开！">
+                点击党们，从月夜滚开！ <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">434</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">108</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

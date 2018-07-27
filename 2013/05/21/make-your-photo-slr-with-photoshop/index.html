@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="经验分享,Photoshop," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="随着数码相机以及智能拍照手机的普及，数码照片越来越多，然而，并不是每个人都能用上单反。或者是因为其不菲的价格，或者是因为其便携性较差，所以很多情况下我们还是会有不少（或者是很多）使用入门级DC或者智能机拍摄的照片。不过，因为拍摄设备的问题，这些照片或多或少地距完美有一定的距离。 很多人应该对单反或者微单等相机拍摄的照片的模糊背景的效果印象深刻，然而我们面对这种效果不佳的照片就束手无策了吗？有了Ph">
+<meta name="keywords" content="经验分享,Photoshop">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用Photoshop为照片打造单反一样的模糊背景效果">
+<meta property="og:url" content="http://yoursite.com/2013/05/21/make-your-photo-slr-with-photoshop/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="随着数码相机以及智能拍照手机的普及，数码照片越来越多，然而，并不是每个人都能用上单反。或者是因为其不菲的价格，或者是因为其便携性较差，所以很多情况下我们还是会有不少（或者是很多）使用入门级DC或者智能机拍摄的照片。不过，因为拍摄设备的问题，这些照片或多或少地距完美有一定的距离。 很多人应该对单反或者微单等相机拍摄的照片的模糊背景的效果印象深刻，然而我们面对这种效果不佳的照片就束手无策了吗？有了Ph">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://img.yueye.org/2013/05/21/01.jpg">
+<meta property="og:image" content="https://img.yueye.org/2013/05/21/03.jpg">
+<meta property="og:image" content="https://img.yueye.org/2013/05/21/04.jpg">
+<meta property="og:image" content="https://img.yueye.org/2013/05/21/05.jpg">
+<meta property="og:image" content="https://img.yueye.org/2013/05/21/06.jpg">
+<meta property="og:image" content="https://img.yueye.org/2013/05/21/07.jpg">
+<meta property="og:image" content="https://img.yueye.org/2013/05/21/02.jpg">
+<meta property="og:updated_time" content="2018-07-27T03:00:21.891Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用Photoshop为照片打造单反一样的模糊背景效果">
+<meta name="twitter:description" content="随着数码相机以及智能拍照手机的普及，数码照片越来越多，然而，并不是每个人都能用上单反。或者是因为其不菲的价格，或者是因为其便携性较差，所以很多情况下我们还是会有不少（或者是很多）使用入门级DC或者智能机拍摄的照片。不过，因为拍摄设备的问题，这些照片或多或少地距完美有一定的距离。 很多人应该对单反或者微单等相机拍摄的照片的模糊背景的效果印象深刻，然而我们面对这种效果不佳的照片就束手无策了吗？有了Ph">
+<meta name="twitter:image" content="https://img.yueye.org/2013/05/21/01.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2013/05/21/make-your-photo-slr-with-photoshop/"/>
+
+
+
+
+
+  <title>使用Photoshop为照片打造单反一样的模糊背景效果 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/05/21/make-your-photo-slr-with-photoshop/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">使用Photoshop为照片打造单反一样的模糊背景效果</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2013-05-21T13:47:28+08:00">
+                2013-05-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/经验知识/" itemprop="url" rel="index">
+                    <span itemprop="name">经验知识</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>随着数码相机以及智能拍照手机的普及，数码照片越来越多，然而，并不是每个人都能用上单反。或者是因为其不菲的价格，或者是因为其便携性较差，所以很多情况下我们还是会有不少（或者是很多）使用入门级DC或者智能机拍摄的照片。不过，因为拍摄设备的问题，这些照片或多或少地距完美有一定的距离。 很多人应该对单反或者微单等相机拍摄的照片的模糊背景的效果印象深刻，然而我们面对这种效果不佳的照片就束手无策了吗？有了Photoshop，我们可以轻易地在后期为我们的数码照片制作一种类似单反拍摄的照片的模糊背景效果，而提升我们的照片水准。今天，我们就来看看，如何使用Photoshop为数码照片打造媲美单反的模糊背景效果。 进行下面的操作之前，我们假设你已经对Photoshop有所了解，最起码对其基本操作已经没有什么问题。否则的话，就麻烦你自己先补一补Photoshop的基础知识与基本操作吧。</p>
+<h3 id="1-分析图片"><a href="#1-分析图片" class="headerlink" title="1.分析图片"></a>1.分析图片</h3><p>首先在Photoshop中打开你想要处理的照片，如下图：</p>
+<p><img src="https://img.yueye.org/2013/05/21/01.jpg" alt="" title="一张手机拍摄的面食照片"></p>
+<p>这是一张使用智能机拍摄的面食照片，很显然，这是一张很普通的照片，只是使用智能机记录下了当时的情形。 我们先对其做一下简单的分析，前面的面碗应该是整张照片的核心，而其余部分则是不太重要的背景。所以，我们需要对除了面碗以外的其余部分进行模糊处理。 因此，整个思路应该是这样的：</p>
+<blockquote>
+<p>1.选出需要模糊的背景区域； 2.对背景区域进行从近到远程度不同的模糊处理。</p>
+</blockquote>
+<h3 id="2-选择背景区域"><a href="#2-选择背景区域" class="headerlink" title="2.选择背景区域"></a>2.选择背景区域</h3><p>选择Photoshop工具箱中的快速选择工具：</p>
+<p><img src="https://img.yueye.org/2013/05/21/03.jpg" alt="" title="Photoshop工具箱中的快速选择工具"></p>
+<p>选中后，在需要选出的图片背景区域内拖动，可以选择选取范围；抬起鼠标，停止选择。也可以在选取的过程中按住Alt键（快速选择工具变成了去除选择），将某些部分从选区中去除。当然，为了选择更精细或更快速，也可以按键盘上的[或]减小或增大选择工具的笔头大小。 当然，这里的目的就是将目标物从图片中抠出，所以你也可以使用其他更好的专业抠图方法进行操作。</p>
+<h3 id="3-存储选区"><a href="#3-存储选区" class="headerlink" title="3.存储选区"></a>3.存储选区</h3><p>将整个背景精确选出之后，可以对选区进行适度的平滑或羽化处理，比如本例中我们羽化了3像素。然后右键点击选区，选择存储选区，将选区存储起来。如下图：</p>
+<p><img src="https://img.yueye.org/2013/05/21/04.jpg" alt="" title="选择存储选区"></p>
+<p>为选区取一个名字，将其存储起来，留待下一步处理。</p>
+<h3 id="4-快速蒙版"><a href="#4-快速蒙版" class="headerlink" title="4.快速蒙版"></a>4.快速蒙版</h3><p>大家不要看到蒙版就头晕，我知道这对Photoshop来说是一个比较难以理解的概念。还好，我们只需要按部就班的几步操作。首先点击Photoshop工具箱左下角的以快速蒙版模式编辑，进入蒙版模式。 我们会看到，没有被选择的区域变为了红色；而选中的区域，则依然是透明色下的原始图像。接着我们按住Ctrl键点击Photoshop右侧通道面板上刚刚存储的选区。这时，刚刚存储的选区会被载入进来。</p>
+<h3 id="5-渐变填充"><a href="#5-渐变填充" class="headerlink" title="5.渐变填充"></a>5.渐变填充</h3><p>接下来我们选择Photoshop工具箱中的渐变工具，对渐变稍加编辑，以使填充效果更符本意。如下图：</p>
+<p><img src="https://img.yueye.org/2013/05/21/05.jpg" alt="" title="Photoshop渐变编辑器"></p>
+<p>如上图，我们可以选择从黑到白的渐变。抛开蒙版的概念不谈，此处我们可以这样理解，这里的黑色填充到图像上时，就是没有被选取的部分；而白色就是完全被选取的部分；灰色则昭示着选择的程度的深浅。</p>
+<h3 id="6-填充蒙版"><a href="#6-填充蒙版" class="headerlink" title="6.填充蒙版"></a>6.填充蒙版</h3><p>在如下图所示的图像上我们可以看到，图中较为靠近我们的应该被较轻地模糊，所以它的选择程度应该较轻，也就是可以用较灰一些的颜色蒙版；而较为远离我们的部分应该被较重地模糊，所以它的选择程度应该较重，也就是使用较白一些的颜色蒙版。</p>
+<p><img src="https://img.yueye.org/2013/05/21/06.jpg" alt="" title="Photoshop蒙版编辑模式"></p>
+<p>所以，我们使用刚刚选择的从深灰到白色的渐变对选区进行蒙版，使用线性渐变，从近处向远处拉一条直线，以渐变色填充选区。整个过程如上图所示。 最后点击Photoshop工具箱左下角的“以标准模式编辑”按钮，退出蒙版模式，返回标准模式。可以看到，刚刚的蒙版已经变成了选区。</p>
+<h3 id="7-镜头模糊"><a href="#7-镜头模糊" class="headerlink" title="7.镜头模糊"></a>7.镜头模糊</h3><p>因为我们是要模仿单反的背景模糊来对照片进行处理，所以我们选择Photoshop模糊菜单下的镜头模糊选项，在弹出的对话框中进行如下图所示的设置：</p>
+<p><img src="https://img.yueye.org/2013/05/21/07.jpg" alt="" title="Photoshop镜头模糊设置"></p>
+<p>由于单反通常都是六组镜片，所以为了模拟单反，此处的形状我们选择六边形；而半径则完全视效果自己调节而定，毕竟在对话框的左侧可以实时预览效果。</p>
+<h3 id="8-模糊背景的最终效果"><a href="#8-模糊背景的最终效果" class="headerlink" title="8.模糊背景的最终效果"></a>8.模糊背景的最终效果</h3><p>经过以上处理之后，最后我们得到的效果如下图所示：</p>
+<p><img src="https://img.yueye.org/2013/05/21/02.jpg" alt="" title="使用Photoshop打造的单反一样的模糊背景效果"></p>
+<h3 id="9-后记"><a href="#9-后记" class="headerlink" title="9.后记"></a>9.后记</h3><p>整个处理过程并没有什么特别需要说明的地方，基本上浅显易懂，很容易理解和掌握。而其中最重要的部分当然就是蒙版（可以对选区尤其是选择程度进行精妙的处理）以及渐变（使用线性渐变、径向渐变、对称渐变等）填充，如能很好地理解了这两个地方，则处理其类似任务可以很精妙地举一反三，做出十分美观生动的效果。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/经验分享/" rel="tag"># 经验分享</a>
+          
+            <a href="/tags/Photoshop/" rel="tag"># Photoshop</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2013/05/17/quantitative-evaluation-of-email/" rel="next" title="电子邮箱定量化评价">
+                <i class="fa fa-chevron-left"></i> 电子邮箱定量化评价
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2013/05/22/cell-array-of-strings-in-matlab/" rel="prev" title="MATLAB的元胞字符串数组(cell array of strings)">
+                MATLAB的元胞字符串数组(cell array of strings) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">434</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">108</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-分析图片"><span class="nav-number">1.</span> <span class="nav-text">1.分析图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-选择背景区域"><span class="nav-number">2.</span> <span class="nav-text">2.选择背景区域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-存储选区"><span class="nav-number">3.</span> <span class="nav-text">3.存储选区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-快速蒙版"><span class="nav-number">4.</span> <span class="nav-text">4.快速蒙版</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-渐变填充"><span class="nav-number">5.</span> <span class="nav-text">5.渐变填充</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-填充蒙版"><span class="nav-number">6.</span> <span class="nav-text">6.填充蒙版</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-镜头模糊"><span class="nav-number">7.</span> <span class="nav-text">7.镜头模糊</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-模糊背景的最终效果"><span class="nav-number">8.</span> <span class="nav-text">8.模糊背景的最终效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-后记"><span class="nav-number">9.</span> <span class="nav-text">9.后记</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

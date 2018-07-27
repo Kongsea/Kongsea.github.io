@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="经验分享,微软," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="最近在使用微软的最新版Microsoft Office 2010软件打开一个从网站上汇总下来的Excel表格时，出现了一些问题，对话框提示：  您尝试打开的文件“***.xls”的格式与文件扩展名指定的格式不一致。打开文件前请验证文件没有损坏且来源可信。是否立即打开该文件？  提示信息如下图所示：  一直在使用微软的Excel软件，但使用中基本上也没有出现过类似的提示。那么，我就试着点击对话框中的">
+<meta name="keywords" content="经验分享,微软">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Excel中“您尝试打开的文件的格式与文件扩展名指定的格式不一致”的解决方法">
+<meta property="og:url" content="http://yoursite.com/2013/07/03/solution-to-format-mismatching-of-excel/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="最近在使用微软的最新版Microsoft Office 2010软件打开一个从网站上汇总下来的Excel表格时，出现了一些问题，对话框提示：  您尝试打开的文件“***.xls”的格式与文件扩展名指定的格式不一致。打开文件前请验证文件没有损坏且来源可信。是否立即打开该文件？  提示信息如下图所示：  一直在使用微软的Excel软件，但使用中基本上也没有出现过类似的提示。那么，我就试着点击对话框中的">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://img.yueye.org/2013/07/03/01.jpg">
+<meta property="og:image" content="https://img.yueye.org/2013/07/03/02.jpg">
+<meta property="og:image" content="https://img.yueye.org/2013/07/03/03.jpg">
+<meta property="og:updated_time" content="2018-07-27T03:00:21.891Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Excel中“您尝试打开的文件的格式与文件扩展名指定的格式不一致”的解决方法">
+<meta name="twitter:description" content="最近在使用微软的最新版Microsoft Office 2010软件打开一个从网站上汇总下来的Excel表格时，出现了一些问题，对话框提示：  您尝试打开的文件“***.xls”的格式与文件扩展名指定的格式不一致。打开文件前请验证文件没有损坏且来源可信。是否立即打开该文件？  提示信息如下图所示：  一直在使用微软的Excel软件，但使用中基本上也没有出现过类似的提示。那么，我就试着点击对话框中的">
+<meta name="twitter:image" content="https://img.yueye.org/2013/07/03/01.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2013/07/03/solution-to-format-mismatching-of-excel/"/>
+
+
+
+
+
+  <title>Excel中“您尝试打开的文件的格式与文件扩展名指定的格式不一致”的解决方法 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/07/03/solution-to-format-mismatching-of-excel/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Excel中“您尝试打开的文件的格式与文件扩展名指定的格式不一致”的解决方法</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2013-07-03T15:07:06+08:00">
+                2013-07-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/经验知识/" itemprop="url" rel="index">
+                    <span itemprop="name">经验知识</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近在使用微软的最新版Microsoft Office 2010软件打开一个从网站上汇总下来的Excel表格时，出现了一些问题，对话框提示：</p>
+<blockquote>
+<p>您尝试打开的文件“***.xls”的格式与文件扩展名指定的格式不一致。打开文件前请验证文件没有损坏且来源可信。是否立即打开该文件？</p>
+</blockquote>
+<p>提示信息如下图所示：</p>
+<p><img src="https://img.yueye.org/2013/07/03/01.jpg" alt="" title="您尝试打开的文件的格式与文件扩展名指定的格式不一致"></p>
+<p>一直在使用微软的Excel软件，但使用中基本上也没有出现过类似的提示。那么，我就试着点击对话框中的“是”，来打开文件。可随即就出现了错误：</p>
+<p><img src="https://img.yueye.org/2013/07/03/02.jpg" alt="" title="文件已损坏，无法打开"></p>
+<p>Microsoft Excel提示：“文件已损坏，无法打开”。而我记得清清楚楚的，以前这种汇总的文件在Excel 2003中可以轻松打开，并非文件被损坏。显然应该是这个新版本的Excel 2010对文件的检测问题。 在网上搜索许久，都未能解决问题，因为很多方法解决的只是让上面的第一个对话框消失，而对这种报文件已损坏，无法打开的问题都没有解决。所幸我自己琢磨许久，终于最终解决了这个问题。</p>
+<h1 id="1-为文件取消受保护的视图"><a href="#1-为文件取消受保护的视图" class="headerlink" title="1.为文件取消受保护的视图"></a>1.为文件取消受保护的视图</h1><blockquote>
+<p>1.首先点击Excel 2010中的“文件”菜单项下的“选项”菜单，打开Excel选项对话框。 2.然后点击选项对话框中的“信任中心”选项，并在其下点击“信任中心设置”按钮，打开“信任中心”对话框，如下图所示：</p>
+<p><img src="https://img.yueye.org/2013/07/03/03.jpg" alt="" title="Excel 2010中的信任中心对话框"></p>
+<p>3.接着在信任中心对话框中选择“受保护的视图”自选项，从中取消选择“为来自Internet的文件启用受保护的视图”。点击确定保存设置。</p>
+</blockquote>
+<p>经过如此的设置之后，再次打开刚刚的Excel文件，同样会出现如上第一图中的提示，不过选择点击其中的“是”按钮，即可打开该Excel文件，正常进行接下来的操作。</p>
+<h1 id="2-取消文件格式与文件扩展名是否匹配的检查"><a href="#2-取消文件格式与文件扩展名是否匹配的检查" class="headerlink" title="2.取消文件格式与文件扩展名是否匹配的检查"></a>2.取消文件格式与文件扩展名是否匹配的检查</h1><p>上面第一个图中的提示是由于Excel中开启了文件格式与文件扩展名格式之间匹配的检查，为了去掉那个提示，关闭那个对话框，在以后打开类似文件时，那个对话框不再出现，我们可以这样操作：</p>
+<blockquote>
+<p>1.回到Windows的桌面上，单击开始-&gt;运行-&gt;输入regedit-&gt;确定，打开注册表编辑器，找到注册表子项 HKEY_CURRENT_USER\Software\Microsoft\Office\14.0\Excel\Security； 2.点击这个Security，然后在注册表编辑器窗口右侧的空白处点击右键，从中选择新建-DWORD(32-位)值，将其取名为ExtensionHardening； 3.右击刚刚新建的ExtensionHardening注册表项，然后选择修改，将注册表值修改为0，点击确定，关闭注册表。如此，取消扩展名与文件格式之间匹配的检查。</p>
+</blockquote>
+<p>然后打开刚刚的Excel文件，可以看到，既没有第一个图中的提示，也没有文件损坏的提示，而能直接打开文件进行正常的编辑了。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/经验分享/" rel="tag"># 经验分享</a>
+          
+            <a href="/tags/微软/" rel="tag"># 微软</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2013/06/25/comparison-of-sports-recording-softwares/" rel="next" title="几款运动记录软件简评">
+                <i class="fa fa-chevron-left"></i> 几款运动记录软件简评
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2013/07/16/some-problems-of-codoon-sports-plus/" rel="prev" title="使用咕咚运动+中出现的几个问题">
+                使用咕咚运动+中出现的几个问题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">434</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">108</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-为文件取消受保护的视图"><span class="nav-number">1.</span> <span class="nav-text">1.为文件取消受保护的视图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-取消文件格式与文件扩展名是否匹配的检查"><span class="nav-number">2.</span> <span class="nav-text">2.取消文件格式与文件扩展名是否匹配的检查</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
