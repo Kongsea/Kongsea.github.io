@@ -96,7 +96,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/page/28/index.html">
+<meta property="og:url" content="https://kongsea.github.io/page/28/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
@@ -129,7 +129,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/page/28/"/>
+  <link rel="canonical" href="https://kongsea.github.io/page/28/"/>
 
 
 
@@ -260,7 +260,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2009/04/16/faq-of-wordpress-new-users-third/">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2009/wp-comments-filter/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -279,183 +279,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2009/04/16/faq-of-wordpress-new-users-third/" itemprop="url">WordPress新手问答（三）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2009-04-16T21:20:43+08:00">
-                2009-04-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/网站相关/" itemprop="url" rel="index">
-                    <span itemprop="name">网站相关</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>距<a href="https://www.yueye.org/2009/faq-of-wordpress-new-users-second.html" target="_blank" rel="noopener">上一次的新手问答</a>又有相当长的一段时间了，因为这一系列的文章推出后反响不错，很得朋友们的支持，所以，今天，<a href="https://www.yueye.org" target="_blank" rel="noopener">月夜</a>继续为朋友们送上这一专题的第三篇文章。当然，月夜期待能继续得到朋友们的支持，也希望朋友们能多为月夜提供这一专题的素材和资料。月夜先谢谢朋友们。 今天这个专题里，我们仍然围绕月夜博客上的一些设置进行讲解和说明，以方便朋友们了解月夜的设置，方便自己的订制。 七、问：月夜，我在你博客上留言评论时为什么不能像你或者其他人那样拥有如下图这样的头像呢？</p>
-<p><img src="http://laiba.tianya.cn/laiba/images/615721/12395257151989781193/A/1/m.jpg" alt="" title="设置WordPress评论个性头像"></p>
-<p>需要怎么进行设置才能拥有自己的个性头像呢？具体应该怎么设置呢？ 答：这项在WordPress博客上提供头像的服务统一由一个网站提供，据月夜推测，该网站可能与WordPress有合作关系。 具体设置如下，首先打开服务提供网站：<a href="http://en.gravatar.com" target="_blank" rel="noopener">http://en.gravatar.com</a>。 在该网站上注册一个帐号，记得在注册时填写的E-mail一定要是你在WordPress博客上评论时经常使用的那个E-mail帐号。该网站提供的服务通过E-mail帐号来识别帐号，显示头像。 注册好帐号之后，即可将自己的头像上传到网站上，然后进行适当设置，以后在所有的WordPress博客上留言评论时，只要你填写了相应的E-mail帐号，即可在博客上显示自己的个性头像。不过在你刚刚创建帐号，上传头像之后，其生效可能会有一段时间的延时。具体的效果可以参看上面的图像，也可以参看月夜博客上朋友们评论时显示的头像效果。 八、问：我博客首页上的文章总是显示全文，显得很庞杂，为什么不能像月夜博客一样只显示文章的一部分内容呢？ 答：在博客首页上显示摘要，点开具体的文章之后显示文章全文，这样设置可是使整个博客布局比较美观简洁。 要想实现在博客首页上显示摘要的效果，通常可以有这样两种方法： 1.修改主题模板文件</p>
-<blockquote>
-<p>修改主题模板文件夹中的index.php文件，将其中的</p>
-<p>&lt;?php the_content(‘’); ?&gt;</p>
-<p>修改为</p>
-<p>&lt;?php if(!is_single()) { the_excerpt(); } else { the_content(__(‘(more…)’)); } ?&gt; 或者</p>
-<p>&lt;?php the_content(); ?&gt;</p>
-<p>不过与此对应，你还需要修改主题文件夹下其他文件中的对应内容，比如archive.php或者archives.php等等。然而使用这种方法我们无法灵活控制摘要中显示的内容，因此月夜没有使用；而且，因为修改不易，也不推荐朋友们使用这种方法。</p>
-</blockquote>
-<p>2.使用&lt;!–more–&gt;标签 在需要分割的地方插入&lt;!–more–&gt;标签，这样，就可以将标签前面的内容设为摘要，只在首页显示；标签后面的内容在文章页中可以正常显示。 添加方法有以下两种：</p>
-<blockquote>
-<p>1) 手动添加代码：在WordPress后台编辑文章时，切换到HTML代码界面，在其中需要添加标签的地方直接插入&lt;!–more–&gt;标签即可； 2) 点击图标插入：WordPress后台的文章编辑框上方的按钮中有一个插入&lt;!–more–&gt;标签按钮，如下图：</p>
-<p><img src="http://laiba.tianya.cn/laiba/images/615721/12398858491771116682/A/1/m.jpg" alt="" title="WordPress后台!–more–标签按钮"></p>
-<p>将鼠标放置到正在编辑的文章需要放置标签的地方之后，直接点击该按钮，即可在文章中当前鼠标所在的位置上添加&lt;!–more–&gt;标签。</p>
-</blockquote>
-<p>九、问：月夜，请问怎么才能像你的博客那样，在文章归档和分类列表右侧显示属于它们其中的文章数目呢？如下图这样：</p>
-<p><img src="http://laiba.tianya.cn/laiba/images/615721/12398861241876520548/A/1/m.jpg" alt="" title="归档计数"></p>
-<p>答：设置成如上图所示的效果十分简单，不过分为两种情况： 1.使用归类或文章存档widget（小工具）的主题：</p>
-<blockquote>
-<p>通过WordPress后台的“外观”-“小工具”菜单进入到小工具管理页面，找到右侧的“分类目录”小工具，点击其右侧的“编辑”链接，打开设置页面，如下图：</p>
-<p><img src="http://laiba.tianya.cn/laiba/images/615721/12398866390541307954/A/1/m.jpg" alt="" title="在widget中设置显示计数"></p>
-<p>在如上图所示的设置页面中，选中显示文章计数前的复选框，即可在分类目录后显示属于当前分类的文章计数，实现如上上图月夜博客的效果。日期归档的设置与此类似，月夜在此不再赘言。</p>
-</blockquote>
-<p>2.未使用widget，而使用wp_list_cats和（或）wp_get_archives的主题：</p>
-<blockquote>
-<p>使用非记事本编辑器（最好用Notepad2）打开主题文件夹下的sidebar.php文件，找到其中的如上两个函数，将其中的参数添加上&amp;optioncount=1或show_post_count=1。 月夜设置的参数具体如下：</p>
-<p>&lt;?php wp_list_cats(‘sort_column=name&amp;optioncount=1&amp;hierarchical=0’); ?&gt;</p>
-<p>&lt;?php wp_get_archives(‘show_post_count=1&amp;type=monthly&amp;limit=8’); ?&gt;</p>
-<p>如此，即可在归档项目后面显示相应的计数。关于如上二函数中的其他参数，月夜将在稍后为朋友们继续介绍。</p>
-</blockquote>
-<p>除此之外，还有一种更为酷炫的计数效果，如下图所示：</p>
-<p><img src="http://laiba.tianya.cn/laiba/images/615721/12398863401735252027/A/1/m.jpg" alt="" title="一种更为酷炫的计数效果"></p>
-<p>因为这种效果实现起来稍显复杂，因此，月夜将在以后的文章中单独撰文详细地为朋友们进行介绍。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2009/04/15/wp-comments-filter/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2009/04/15/wp-comments-filter/" itemprop="url">月夜推出WP评论关键词替换插件</a></h1>
+                <a class="post-title-link" href="/2009/wp-comments-filter/" itemprop="url">月夜推出WP评论关键词替换插件</a></h1>
         
 
         <div class="post-meta">
@@ -578,7 +402,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2009/04/14/yueye-2009-03-china-internet/">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2009/yueye-2009-03-china-internet/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -597,7 +421,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2009/04/14/yueye-2009-03-china-internet/" itemprop="url">月夜盘点2009年3月中国互联网事件</a></h1>
+                <a class="post-title-link" href="/2009/yueye-2009-03-china-internet/" itemprop="url">月夜盘点2009年3月中国互联网事件</a></h1>
         
 
         <div class="post-meta">
@@ -739,7 +563,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2009/04/13/yueye-experiences-windows-7-7106/">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2009/yueye-experiences-windows-7-7106/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -758,7 +582,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2009/04/13/yueye-experiences-windows-7-7106/" itemprop="url">Windows 7 7106 新鲜体验</a></h1>
+                <a class="post-title-link" href="/2009/yueye-experiences-windows-7-7106/" itemprop="url">Windows 7 7106 新鲜体验</a></h1>
         
 
         <div class="post-meta">
@@ -933,7 +757,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2009/04/12/faq-of-wordpress-new-users-second/">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2009/faq-of-wordpress-new-users-second/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -952,7 +776,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2009/04/12/faq-of-wordpress-new-users-second/" itemprop="url">WordPress新手问答（二）</a></h1>
+                <a class="post-title-link" href="/2009/faq-of-wordpress-new-users-second/" itemprop="url">WordPress新手问答（二）</a></h1>
         
 
         <div class="post-meta">
@@ -1109,7 +933,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2009/04/11/faq-of-wordpress-new-users-first/">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2009/faq-of-wordpress-new-users-first/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -1128,7 +952,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2009/04/11/faq-of-wordpress-new-users-first/" itemprop="url">WordPress新手问答（一）</a></h1>
+                <a class="post-title-link" href="/2009/faq-of-wordpress-new-users-first/" itemprop="url">WordPress新手问答（一）</a></h1>
         
 
         <div class="post-meta">
@@ -1309,7 +1133,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2009/04/10/welcome-to-exchange-blogrolls/">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2009/welcome-to-exchange-blogrolls/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -1328,7 +1152,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2009/04/10/welcome-to-exchange-blogrolls/" itemprop="url">欢迎朋友们交换友链</a></h1>
+                <a class="post-title-link" href="/2009/welcome-to-exchange-blogrolls/" itemprop="url">欢迎朋友们交换友链</a></h1>
         
 
         <div class="post-meta">
@@ -1455,7 +1279,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2009/04/10/note-of-installing-and-experiencing-windows-7/">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2009/note-of-installing-and-experiencing-windows-7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -1474,7 +1298,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2009/04/10/note-of-installing-and-experiencing-windows-7/" itemprop="url">Windows 7 7068 安装体验笔记</a></h1>
+                <a class="post-title-link" href="/2009/note-of-installing-and-experiencing-windows-7/" itemprop="url">Windows 7 7068 安装体验笔记</a></h1>
         
 
         <div class="post-meta">
@@ -1659,7 +1483,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2009/04/08/functions-must-known-using-wordpress-second/">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2009/functions-must-known-using-wordpress-second/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -1678,7 +1502,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2009/04/08/functions-must-known-using-wordpress-second/" itemprop="url">用好WordPress不可不知的函数（二）</a></h1>
+                <a class="post-title-link" href="/2009/functions-must-known-using-wordpress-second/" itemprop="url">用好WordPress不可不知的函数（二）</a></h1>
         
 
         <div class="post-meta">
@@ -1848,7 +1672,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2009/04/07/use-ctrl-enter-to-submit-comments-for-wordpress/">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2009/use-ctrl-enter-to-submit-comments-for-wordpress/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -1867,7 +1691,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2009/04/07/use-ctrl-enter-to-submit-comments-for-wordpress/" itemprop="url">为WordPress增加Ctrl+Enter快捷回复功能</a></h1>
+                <a class="post-title-link" href="/2009/use-ctrl-enter-to-submit-comments-for-wordpress/" itemprop="url">为WordPress增加Ctrl+Enter快捷回复功能</a></h1>
         
 
         <div class="post-meta">
@@ -2005,6 +1829,171 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2009/tianya-laiba-photo-sharing-service/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2009/tianya-laiba-photo-sharing-service/" itemprop="url">免费图片外链服务推荐——天涯来吧相册</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2009-04-06T21:51:55+08:00">
+                2009-04-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/免费资源/" itemprop="url" rel="index">
+                    <span itemprop="name">免费资源</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="注：目前天涯来吧相册已经停止提供外链服务，请朋友们不要再申请使用。谢谢。（20091116）"><a href="#注：目前天涯来吧相册已经停止提供外链服务，请朋友们不要再申请使用。谢谢。（20091116）" class="headerlink" title="注：目前天涯来吧相册已经停止提供外链服务，请朋友们不要再申请使用。谢谢。（20091116）"></a>注：目前天涯来吧相册已经停止提供外链服务，请朋友们不要再申请使用。谢谢。（20091116）</h2><p>我们使用独立博客，自然就要面对租用的空间流量会有所限制的问题。当然，还要考虑访客访问我们的博客时，博客内容加载的速度问题。综合考虑，对此二者有很大影响的就是我们博客中引用的图片。如果将图片放到我们自己的空间上，或者放到数据库中，显然一方面会增大数据库的容量，或者占用更多的空间；另一方面也会大大增加我们博客消耗的流量。这显然不是我们想要的。于是，独立博客的博主们就想到将博客中使用的图片外链，放置到提供免费外链服务的网站上。这样就不用考虑网站数据库的与日俱增，也无需担心大量图片增加博客流量，更不用担心图片数据的丢失。 目前比较流行的图片外链服务，国外首推Google提供的Picasa：</p>
+<p><a href="http://picasa.google.com" target="_blank" rel="noopener"><img src="http://laiba.tianya.cn/laiba/images/615721/12390229701836523705/A/1/m.jpg" alt="" title="Picasa"></a></p>
+<p>以及雅虎提供的Flickr：</p>
+<p><a href="http://www.flickr.com" target="_blank" rel="noopener"><img src="http://laiba.tianya.cn/laiba/images/615721/12390229702048130944/A/1/m.jpg" alt="" title="Flickr"></a></p>
+<p>而国内目前提供免费图片外链服务的也不在少数，比如常见的巴巴变：</p>
+<p><a href="http://www.bababian.com" target="_blank" rel="noopener"><img src="http://laiba.tianya.cn/laiba/images/615721/12390229711012960756/A/1/m.jpg" alt="" title="巴巴变"></a></p>
+<p>Yupoo：</p>
+<p><a href="http://www.yupoo.com" target="_blank" rel="noopener"><img src="http://laiba.tianya.cn/laiba/images/615721/12390229720495372927/A/1/m.jpg" alt="" title="Yupoo"></a></p>
+<p>以及随意贴等等：</p>
+<p><a href="http://www.freep.cn" target="_blank" rel="noopener"><img src="http://laiba.tianya.cn/laiba/images/615721/12390229711321645113/A/1/m.jpg" alt="" title="随意贴"></a></p>
+<p>但遗憾的是，国内尽管产品众多，可从中选择一款适合自己的，或者说让自己充分放心的产品却着实不易；而国外的图片外链服务提供商，如Google的Picasa和Yahoo的Flickr，却面临着被墙的危险；而且，国外提供商的服务器可能会在国外，造成博客速度下降，无法为访客朋友提供一个最好的体验环境。 不过月夜在长期经营独立博客的过程中，却发现了一款既拥有Google的Picasa所具有的稳定性与可信赖性，也拥有国内提供商的一流速度的产品——天涯来吧相册：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12390229722075417637/A/1/m.jpg" alt="" title="天涯来吧相册"></p>
+<p>如上图，天涯来吧相册提供1G空间，可以永久存储。经月夜查证发现，该服务是天涯和Google合作的产品。因此，有着Google的技术支持和保证，有着天涯论坛的信誉保证，相信这款产品可以让朋友们放心。而且，相比Picasa，这款产品的服务器可能会在国内，速度应该会比Picasa更好，而且不必担心被墙，比Picasa更有保证。 使用天涯来吧相册提供的免费外链服务，需要首先登录天涯论坛：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12390241571443136309/A/1/m.jpg" alt="" title="进入天涯来吧相册"></p>
+<p>在如上图所示的我的天涯主界面上，可以找到“个人相册”主菜单，点击进入个人相册；接着点击个人相册里的“来吧相册”子菜单，即可进入到我们要用的来吧相册。然后点击如上图中的上传照片按钮，即可打开如下图所示的上传照片对话框：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12390240631275008807/A/1/m.jpg" alt="" title="来吧相册上传照片对话框"></p>
+<p>目前，来吧相册提供了普通上传和批量上传两种方式，你可以根据自己的习惯以及上传量的多少选择对应的方式；可以为待上传的照片新建一个独立的文件夹；除此之外，你还可以选择上传照片的压缩选项，目前来吧相册提供了1600*1200像素、1024*1024像素以及不压缩三种方式。根据月夜的经验，此处如无特例，取默认的普通（1600*1600）压缩方式即可。 上传好照片之后的相册界面如下图所示：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12390242551014075384/A/1/m.jpg" alt="" title="上传好照片之后的相册界面"></p>
+<p>在如上图的界面上，你可以点击相应的图片，打开该图片页面。比如，我们点击如上相册中的06.jpg图片，即可进入到如下图的界面中：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12390242551014075385/A/1/m.jpg" alt="" title="图片详情界面"></p>
+<p>在如上图所示的界面上，我们可以看到原始大小的照片，以及照片说明、照片信息等内容。更重要的是，我们还可以看到照片地址，而该地址正是我们需要的图片外链地址。点击复制链接，将其插入到需要图片链接的地方，即可将该图片外链到我们的博客中。 关于来吧相册照片地址的一点说明</p>
+<blockquote>
+<p>如下是我们在如上图中复制到的来吧相册的照片的外链地址： <a href="http://laiba.tianya.cn/laiba/images/615721/12390242551014075385/A/1/m.jpg" target="_blank" rel="noopener">http://laiba.tianya.cn/laiba/images/615721/12390242551014075385/A/1/m.jpg</a> 与此对应，将链接最后的m（medium）修改为s（small）、l（large）、o（original）则分别为对应的图片的小缩略图（<a href="http://laiba.tianya.cn/laiba/images/615721/12390242551014075385/A/1/s.jpg" target="_blank" rel="noopener">http://laiba.tianya.cn/laiba/images/615721/12390242551014075385/A/1/s.jpg</a>），大缩略图（<a href="http://laiba.tianya.cn/laiba/images/615721/12390242551014075385/A/1/l.jpg" target="_blank" rel="noopener">http://laiba.tianya.cn/laiba/images/615721/12390242551014075385/A/1/l.jpg</a>）和原始图片（<a href="http://laiba.tianya.cn/laiba/images/615721/12390242551014075385/A/1/o.jpg" target="_blank" rel="noopener">http://laiba.tianya.cn/laiba/images/615721/12390242551014075385/A/1/o.jpg</a>）。</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -2055,7 +2044,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">434</span>
+                <span class="site-state-item-count">433</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>

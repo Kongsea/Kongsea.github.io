@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="网站建设,WordPress,网站," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="前一段时间 月夜 上线后使用的一直是Wp Blogging免费提供的WordPress空间，空间速度尽管不如国内吧，但毕竟还是不错，Linux空间上使用WordPress还是最明智的方法。但遗憾的是，那空间总是出问题，在过去的6天时间里，几乎每天都有宕机发生，短则数分钟，长达数小时，给访客带来了诸多不便。而据朋友反映，是因为空间用户太多，MySQL数据库的连接超限造成的。当然，我们免费使用就不必多">
+<meta name="keywords" content="网站建设,WordPress,网站">
+<meta property="og:type" content="article">
+<meta property="og:title" content="月夜再次搬家">
+<meta property="og:url" content="https://kongsea.github.io/2008/yueye-move-to-linux-again/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="前一段时间 月夜 上线后使用的一直是Wp Blogging免费提供的WordPress空间，空间速度尽管不如国内吧，但毕竟还是不错，Linux空间上使用WordPress还是最明智的方法。但遗憾的是，那空间总是出问题，在过去的6天时间里，几乎每天都有宕机发生，短则数分钟，长达数小时，给访客带来了诸多不便。而据朋友反映，是因为空间用户太多，MySQL数据库的连接超限造成的。当然，我们免费使用就不必多">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-27T03:00:21.883Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="月夜再次搬家">
+<meta name="twitter:description" content="前一段时间 月夜 上线后使用的一直是Wp Blogging免费提供的WordPress空间，空间速度尽管不如国内吧，但毕竟还是不错，Linux空间上使用WordPress还是最明智的方法。但遗憾的是，那空间总是出问题，在过去的6天时间里，几乎每天都有宕机发生，短则数分钟，长达数小时，给访客带来了诸多不便。而据朋友反映，是因为空间用户太多，MySQL数据库的连接超限造成的。当然，我们免费使用就不必多">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://kongsea.github.io/2008/yueye-move-to-linux-again/"/>
+
+
+
+
+
+  <title>月夜再次搬家 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2008/yueye-move-to-linux-again/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">月夜再次搬家</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2008-12-30T11:37:31+08:00">
+                2008-12-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/网站相关/" itemprop="url" rel="index">
+                    <span itemprop="name">网站相关</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>前一段时间 <a href="https://www.yueye.org" target="_blank" rel="noopener">月夜</a> 上线后使用的一直是<a href="http://wordpresschina.com/archives/20081108/1gb-blog-hosting-is-free-now_621.html" target="_blank" rel="noopener">Wp Blogging</a>免费提供的WordPress空间，空间速度尽管不如国内吧，但毕竟还是不错，Linux空间上使用WordPress还是最明智的方法。但遗憾的是，那空间总是出问题，在过去的6天时间里，几乎每天都有宕机发生，短则数分钟，长达数小时，给访客带来了诸多不便。而据朋友反映，是因为空间用户太多，MySQL数据库的连接超限造成的。当然，我们免费使用就不必多说什么，但朋友自己花钱购买的空间做了好事儿却总是出些问题，这让我们心里面怎么能好受呢。 于是，昨晚，月夜就在WordPress中文论坛上<a href="http://wordpress.org.cn/thread-27429-1-1.html" target="_blank" rel="noopener">发贴求空间</a>。热心网友真的很多，先后有数位朋友表示愿意为月夜免费提供空间。月夜先是试用了帖子中二楼的速腾互联提供的免费空间，但空间在国外，速度稍慢，而且没有提供独立的控制面板，使用起来略显不便。所以，当论坛的版大<a href="http://wordpress.org.cn/space.php?action=viewpro&amp;uid=55989" target="_blank" rel="noopener">hedy</a>给我发来短消息表示可以替我向她的经理申请一款<a href="http://www.eblhost.cn/" target="_blank" rel="noopener">EBL国内双线Linux空间</a>时，我才发现什么是我想要的。 EBL这款空间提供100M容量，在Linux系统下使用cPanel控制面板，而更为重要的是，这是一款国内空间，而且还是双线空间，速度很好。其实最近这款空间正在做活动，即使购买，也不过只要区区28块钱。所以，其性价比是不言而喻的。 其实目前国内使用Linux系统的空间不少，而且便宜的空间也不在少数，但像EBL这样兼有Linux系统和cPanel控制面板的优惠空间，月夜在国内还没有见到。因此，如果您想建立自己的WordPress独立博客，完全可以前去购买这款空间。购买了这样的一款空间，再购买一个com、net或者org顶级域名，加起来每年投入不到80块钱，却从此可以自由的使用WordPress写博了。不过需要注意的是，他们的活动截止日期是12月31日，因此，您还需要抓紧时间。 空间介绍完毕，就来简单说一下月夜此次搬家的过程，因为是最适合WordPress的LAMP空间，而且使用的又是通用的cPanel面板，所以搬家几乎没有花费月夜的太多时间。除去域名解析的时间，月夜只用了不到十分钟，就成功搬了回来。因此，您现在可以感受一下使用目前空间时月夜的访问速度。 在这里，月夜还要特别感谢一下在过去的数天中，<a href="http://wordpresschina.com/archives/20081108/1gb-blog-hosting-is-free-now_621.html" target="_blank" rel="noopener">Wp Blogging</a>为月夜提供了空间。感谢愿意为月夜提供空间的<a href="http://www.liyoutong.cn" target="_blank" rel="noopener">速腾互联</a>、<a href="http://xueming.name/" target="_blank" rel="noopener">沉睡的舞者</a>以及<a href="http://www.keephelp.com/" target="_blank" rel="noopener">xddxz</a>等诸位朋友，谢谢你们，月夜期待在以后的时间里能够使用上你们提供的服务。当然，月夜最要感谢为月夜提供空间的<a href="http://www.eblhost.cn/index.php" target="_blank" rel="noopener">EBL主机</a>，以及为月夜的主机辛苦的<a href="http://www.makedir.cn/" target="_blank" rel="noopener">hedy版大</a>。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/网站建设/" rel="tag"># 网站建设</a>
+          
+            <a href="/tags/WordPress/" rel="tag"># WordPress</a>
+          
+            <a href="/tags/网站/" rel="tag"># 网站</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2008/will-fail-while-long-success/" rel="next" title="数战数胜，国将亡">
+                <i class="fa fa-chevron-left"></i> 数战数胜，国将亡
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2008/yueye-withdraw-google-adsense/" rel="prev" title="月夜AdSense广告全盘下撤">
+                月夜AdSense广告全盘下撤 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">433</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">108</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

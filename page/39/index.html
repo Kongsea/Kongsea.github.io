@@ -96,7 +96,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/page/39/index.html">
+<meta property="og:url" content="https://kongsea.github.io/page/39/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
@@ -129,7 +129,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/page/39/"/>
+  <link rel="canonical" href="https://kongsea.github.io/page/39/"/>
 
 
 
@@ -260,7 +260,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2008/12/10/google-photo-uploader-discuz-plugin/">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2008/site-construct-cpanel-fourth/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -279,174 +279,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2008/12/10/google-photo-uploader-discuz-plugin/" itemprop="url">谷歌贴图：Discuz论坛可以考虑的一个插件</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2008-12-10T19:19:32+08:00">
-                2008-12-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/网站相关/" itemprop="url" rel="index">
-                    <span itemprop="name">网站相关</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>在前面的文章<a href="https://www.yueye.org/2008/site-construct-cpanel-fourth.html" target="_blank" rel="noopener">网站建设全过程（使用cPanel X）详细讲解（四）</a>中，<a href="https://www.yueye.org" target="_blank" rel="noopener">51Blog</a>为您详细介绍了如何安装目前网络上最流行的论坛之一——Discuz! 论坛。当然，安装完成之后我们还有许多工作要做，比如进行论坛的各种设置，优化论坛，建设版块，扩充论坛内容等等。不过这些事情都不是一朝一夕所能完成，而且因为Discuz论坛的设置和建设都相当容易，你可以通过长期的努力和摸索慢慢完成，所以<a href="https://www.yueye.org" target="_blank" rel="noopener">51Blog</a>在此也不再赘言。 然而，在这里，<a href="https://www.yueye.org" target="_blank" rel="noopener">51Blog</a>还是要为朋友们推荐一个Discuz! 论坛的很不错的插件——谷歌贴图（Photo-Uploader）。该插件是Google中文在今年十月份刚刚推出的，主要是将Discuz! 论坛和Google Picasa结合使用，能够使我们在论坛上进行贴图时使用Google Picasa相册中的图片，或者将图片上传到Picasa相册中，从而节省我们的网站数据库空间。<a href="https://www.yueye.org" target="_blank" rel="noopener">51Blog</a>经过一段时间的试用，感觉的确十分方便，所以现在将其推荐给大家。</p>
-<h1 id="一、下载谷歌贴图"><a href="#一、下载谷歌贴图" class="headerlink" title="一、下载谷歌贴图"></a>一、下载谷歌贴图</h1><blockquote>
-<p><a href="http://code.google.com/p/photo-uploader/" target="_blank" rel="noopener">点此进入</a>谷歌贴图的<a href="http://code.google.com/p/photo-uploader/" target="_blank" rel="noopener">官方主页</a>，在官方主页上你可以看到关于谷歌贴图的简单介绍，在官方主页的右侧你可以看到谷歌贴图的下载链接，点击链接或者直接<a href="http://photo-uploader.googlecode.com/files/PhotoUploader_v1.0.zip" target="_blank" rel="noopener">点此下载</a>谷歌贴图。</p>
-</blockquote>
-<h1 id="二、解压上传谷歌贴图"><a href="#二、解压上传谷歌贴图" class="headerlink" title="二、解压上传谷歌贴图"></a>二、解压上传谷歌贴图</h1><blockquote>
-<p>下载完成之后，解压，然后将解压后文件夹中plugins文件夹下的photouploader文件夹取出，以便我们下面使用。 然后我们需要将文件夹中的photouploader.php进行一下修改，使用写字板或其他PHP编辑器（注意：不可用记事本）打开文件，将文件的第三行和第四行之间加上一个空行，然后保存即可。 修改完毕之后，将整个文件夹上传到Discuz! 论坛安装目录下的plugins文件夹中。</p>
-</blockquote>
-<h1 id="三、设置启用谷歌贴图"><a href="#三、设置启用谷歌贴图" class="headerlink" title="三、设置启用谷歌贴图"></a>三、设置启用谷歌贴图</h1><blockquote>
-<p>上传完成之后，我们找到Discuz! 安装目录下的templates\default\文件夹，然后在该文件夹中找到post_editor.htm文件，打开该文件，在第227行找到：</p>
-<!--{if $allowpostattach}-->
-<p>然后在其前的226行插入：</p>
-<p>&lt;?php include ‘./plugins/photouploader/photouploader.php’ ?&gt;</p>
-<p>接着保存该文件，我们就设置好了谷歌贴图插件。 此时，进入论坛的发贴页面，即可在适当位置看到“谷歌贴图”按钮，如下图所示：</p>
-<p><img src="https://img.yueye.org/2008/12/10/01.jpg" alt="" title="谷歌贴图"></p>
-<p>谷歌贴图插件安装成功。 特别提示：如果您的谷歌贴图插件安装完成之后，在如上图所示的按钮前面有形如“诺？”字样的字符，那么你可以打开photouploader.php文件，将其中第一行开头“&lt;?”前的字符删除，然后保存修改；或者还有可能是您的Discuz! 论坛的编码是GBK版本，此时，您需要将photouploader.php文件打开，然后将其编码格式修改为ansi并保存即可。</p>
-</blockquote>
-<h1 id="四、使用谷歌贴图"><a href="#四、使用谷歌贴图" class="headerlink" title="四、使用谷歌贴图"></a>四、使用谷歌贴图</h1><blockquote>
-<p>安装完成谷歌贴图之后，<a href="https://www.yueye.org" target="_blank" rel="noopener">51Blog</a>再来为您简单介绍一下如何使用谷歌贴图。 点击如上图中的谷歌贴图按钮，系统将弹出谷歌贴图对话框，如下图所示：</p>
-<p><img src="https://img.yueye.org/2008/12/10/02.jpg" alt="" title="谷歌贴图"></p>
-<p>我们通常可以直接选用如上图中的“Picasa网络相册”标签，然后在对话框中输入我们的Picasa帐号用户名，接着点击“查看相册”按钮，系统将跳转到我们的Picasa网络相册，如下图所示：</p>
-<p><img src="https://img.yueye.org/2008/12/10/03.jpg" alt="" title="谷歌贴图"></p>
-<p>我们点击相应的相册进入到我们的Picasa相册中，如下图：</p>
-<p><img src="https://img.yueye.org/2008/12/10/04.jpg" alt="" title="谷歌贴图"></p>
-<p>在如上图所示的Picasa相册中点选相应的图片或照片。选择完成之后，直接点击对话框右下角的“插入”按钮，系统将弹出如上图所示的提示框。我们可以点击退出，或者点击继续，选择好图片之后，点击退出，回到帖子页面，即可看到插入的图片（当然，如果你没有使用所见即所得模式，则显示了一些代码）。直接发表帖子，即可看到使用谷歌贴图成功发布帖子的效果。 当然，你也可以在谷歌贴图的对话框中选择“上传图片”标签来直接上传本地图片到Picasa相册中进行使用，但<a href="https://www.yueye.org" target="_blank" rel="noopener">51Blog</a>推荐您首先上传完成之后直接使用Picasa网络相册标签。 从上面我们简单的介绍可以看出，谷歌贴图的使用十分方便和简单，<a href="https://www.yueye.org" target="_blank" rel="noopener">51Blog</a>在此不必多言。然而，<a href="https://www.yueye.org" target="_blank" rel="noopener">51Blog</a>觉得，谷歌贴图对照片的保护不够严密，我们可以使用任何公开的Picasa网络相册中的图片。当然，既然照片的所有者已经选择了向所有人公开照片，我们拿来使用并无不妥。</p>
-</blockquote>
-<p>还有一点需要说明的是，Google中国在推出谷歌贴图的同时，也推出了一款名为<a href="http://code.google.com/p/photo-viewer/" target="_blank" rel="noopener">谷歌看图</a>（photo-viewer）的Discuz! 插件，然而经<a href="https://www.yueye.org" target="_blank" rel="noopener">51Blog</a>试用发现，其并无太大作用，所以此处我们对其不予介绍。如果您对其比较感兴趣，可以<a href="http://code.google.com/p/photo-viewer/" target="_blank" rel="noopener">点此访问</a>谷歌看图的主页了解相关信息。 最后再说一下<a href="https://www.yueye.org" target="_blank" rel="noopener">51Blog</a>对谷歌贴图的一些期待：如上所述，我们可以发现使用谷歌贴图发布图片的方便性，所以<a href="https://www.yueye.org" target="_blank" rel="noopener">51Blog</a>真心期待谷歌贴图能够加快开发速度，早日开发出适用于除Discuz! 论坛之外的其他脚本程序的谷歌贴图，比如适用于WordPress的版本，如此，则为我们这些WordPress使用者的一大福音。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2008/12/09/site-construct-cpanel-fourth/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2008/12/09/site-construct-cpanel-fourth/" itemprop="url">网站建设全过程（使用cPanel X）详细讲解（四）</a></h1>
+                <a class="post-title-link" href="/2008/site-construct-cpanel-fourth/" itemprop="url">网站建设全过程（使用cPanel X）详细讲解（四）</a></h1>
         
 
         <div class="post-meta">
@@ -624,7 +457,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2008/12/09/choose-best-email-so-far/">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2008/choose-best-email-so-far/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -643,7 +476,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2008/12/09/choose-best-email-so-far/" itemprop="url">迄今最好的电子邮箱</a></h1>
+                <a class="post-title-link" href="/2008/choose-best-email-so-far/" itemprop="url">迄今最好的电子邮箱</a></h1>
         
 
         <div class="post-meta">
@@ -780,7 +613,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2008/12/08/choose-best-pinyin-ime/">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2008/choose-best-pinyin-ime/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -799,7 +632,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2008/12/08/choose-best-pinyin-ime/" itemprop="url">迄今最好的拼音输入法</a></h1>
+                <a class="post-title-link" href="/2008/choose-best-pinyin-ime/" itemprop="url">迄今最好的拼音输入法</a></h1>
         
 
         <div class="post-meta">
@@ -926,7 +759,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2008/12/06/some-advice-google-search/">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2008/some-advice-google-search/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -945,7 +778,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2008/12/06/some-advice-google-search/" itemprop="url">给Google搜索的几点建议</a></h1>
+                <a class="post-title-link" href="/2008/some-advice-google-search/" itemprop="url">给Google搜索的几点建议</a></h1>
         
 
         <div class="post-meta">
@@ -1085,7 +918,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2008/12/04/things-after-wordpress-installation-third/">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2008/things-after-wordpress-installation-third/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -1104,7 +937,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2008/12/04/things-after-wordpress-installation-third/" itemprop="url">WordPress安装完成后需要做的几件事（三）</a></h1>
+                <a class="post-title-link" href="/2008/things-after-wordpress-installation-third/" itemprop="url">WordPress安装完成后需要做的几件事（三）</a></h1>
         
 
         <div class="post-meta">
@@ -1247,7 +1080,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2008/12/03/microsoft-levodisk-skydrive-update/">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2008/microsoft-levodisk-skydrive-update/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -1266,7 +1099,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2008/12/03/microsoft-levodisk-skydrive-update/" itemprop="url">微软网络硬盘SkyDrive重要升级</a></h1>
+                <a class="post-title-link" href="/2008/microsoft-levodisk-skydrive-update/" itemprop="url">微软网络硬盘SkyDrive重要升级</a></h1>
         
 
         <div class="post-meta">
@@ -1395,7 +1228,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2008/12/03/things-after-wordpress-installation-second/">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2008/things-after-wordpress-installation-second/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -1414,7 +1247,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2008/12/03/things-after-wordpress-installation-second/" itemprop="url">WordPress安装完成后需要做的几件事（二）</a></h1>
+                <a class="post-title-link" href="/2008/things-after-wordpress-installation-second/" itemprop="url">WordPress安装完成后需要做的几件事（二）</a></h1>
         
 
         <div class="post-meta">
@@ -1569,7 +1402,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2008/12/02/things-after-wordpress-installation-first/">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2008/things-after-wordpress-installation-first/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -1588,7 +1421,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2008/12/02/things-after-wordpress-installation-first/" itemprop="url">WordPress安装完成后需要做的几件事（一）</a></h1>
+                <a class="post-title-link" href="/2008/things-after-wordpress-installation-first/" itemprop="url">WordPress安装完成后需要做的几件事（一）</a></h1>
         
 
         <div class="post-meta">
@@ -1737,7 +1570,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2008/12/01/site-construct-cpanel-third/">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2008/site-construct-cpanel-third/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -1756,7 +1589,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2008/12/01/site-construct-cpanel-third/" itemprop="url">网站建设全过程（使用cPanel X）详细讲解（三）</a></h1>
+                <a class="post-title-link" href="/2008/site-construct-cpanel-third/" itemprop="url">网站建设全过程（使用cPanel X）详细讲解（三）</a></h1>
         
 
         <div class="post-meta">
@@ -1907,6 +1740,156 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2008/add-category-icon-for-template/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2008/add-category-icon-for-template/" itemprop="url">为WordPress主题添加分类图标</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2008-12-01T10:07:32+08:00">
+                2008-12-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/网站相关/" itemprop="url" rel="index">
+                    <span itemprop="name">网站相关</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>很久以前就考虑着为我的WordPress模板添加一个分类图标，但因为一直忙于其他事情，也没有顾得上这些。终于在昨天有了一点时间，就在网上搜了一下方法，自己摸索着给添加了上去。 事实上开始时我自己考虑着的方法还是比较合理的，也初步有了最终完成的方法的雏形，但我考虑的是使用大概如这种方式： <img src="<?php bloginfo('url'); ?>/img/<?php the_category(); ?>.jpg"> 但搞了半天没有成功，在网上搜了一下，发现是用的这样的方法，原文请见：<a href="http://zeuscn.net/archives/2008/09/10/wordpress-category-icon/" target="_blank" rel="noopener">Wordpress 技巧—显示分类图片</a>，代码如下：</p>
+<blockquote>
+<p>&lt;?php foreach((get_the_category()) as $cat)<br>{<br>$catname =$cat-&gt;category_nicename;<br>echo “&lt;a href=/category/“;<br>echo $catname;<br>echo “/&gt;”;<br>echo “&lt;img src=<a href="http://yourdomain/wp-content/cat-icons/&quot;" target="_blank" rel="noopener">http://yourdomain/wp-content/cat-icons/&quot;</a>;<br>echo $catname;<br>echo “.jpg alt=\“$catname category \“ title=\“$catname 分类 \“ /&gt;\n”;<br>}<br>?&gt;</p>
+</blockquote>
+<p>原来使用的是echo，将HTML代码一个个输出，看来我的知识实在是太匮乏了啊。不过正如原文中所言，对于属于多个分类的文章来说，会显示多张图标，用着不是太好，于是，我就直接在末尾加了一句break，显示一张图标之后就直接退出。又适当修改了一下主题的CSS代码，最后得到的总体效果还算是可以。 可正如原作者在<a href="http://zeuscn.net/archives/2008/09/10/wordpress-category-icon-plus/" target="_blank" rel="noopener">Wordpress 显示分类图片的补充</a>一文中所言，如上的代码还略有不足，主要是鼠标悬停于图标上时，显示的文字不是我们设置的汉字分类，而是我们设置的分类的英文缩写。原作者将上面的代码修改如下：</p>
+<blockquote>
+<p>&lt;?php foreach((get_the_category()) as $cat)<br>{<br>$catname =$cat-&gt;category_nicename;<br>$cattitle=$cat-&gt;cat_name;<br>echo “&lt;a href=/category/“;<br>echo $catname;<br>echo “/&gt;”;<br>echo “&lt;img src=<a href="http://yourdomain/wp-content/cat-icons/&quot;" target="_blank" rel="noopener">http://yourdomain/wp-content/cat-icons/&quot;</a>;<br>echo $catname;<br>echo “.jpg alt=\“$catname category \“ title=\“$cattitle\“ /&gt;\n”;<br>} ?&gt;</p>
+</blockquote>
+<p>这样，使用上面的代码，并在最后一个?&gt;之前添加上break;语句，即可完美为文章添加分类图标。最终实现的效果可以参看<a href="https://www.yueye.org" target="_blank" rel="noopener">51Blog</a>。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -1957,7 +1940,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">434</span>
+                <span class="site-state-item-count">433</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>

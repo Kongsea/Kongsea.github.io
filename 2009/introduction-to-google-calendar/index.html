@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Google,生活辅助," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="随着社会的发展，我们越来越感觉自己的脑袋无法记住所有的事情，经常有忘记重要事情的烦恼。Google在几年前推出了Google日历这项日程管理服务，试图为人们解决这类问题。月夜 很久以前也用上了这项服务。不过正如很多朋友一样，可能是因为中国人的做事传统，开始时月夜并没有太在意，也很少有意识的去使用这项功能。只不过偶尔用它来发几条激励自己的短信；添加上一项天气预报而已。只是后来，在生活中，月夜慢慢发现">
+<meta name="keywords" content="Google,生活辅助">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Google日历使用入门">
+<meta property="og:url" content="https://kongsea.github.io/2009/introduction-to-google-calendar/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="随着社会的发展，我们越来越感觉自己的脑袋无法记住所有的事情，经常有忘记重要事情的烦恼。Google在几年前推出了Google日历这项日程管理服务，试图为人们解决这类问题。月夜 很久以前也用上了这项服务。不过正如很多朋友一样，可能是因为中国人的做事传统，开始时月夜并没有太在意，也很少有意识的去使用这项功能。只不过偶尔用它来发几条激励自己的短信；添加上一项天气预报而已。只是后来，在生活中，月夜慢慢发现">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://img.yueye.org/2009/02/21/01.jpg">
+<meta property="og:image" content="https://img.yueye.org/2009/02/21/02.jpg">
+<meta property="og:image" content="https://img.yueye.org/2009/02/21/03.jpg">
+<meta property="og:image" content="https://img.yueye.org/2009/02/21/04.jpg">
+<meta property="og:image" content="https://img.yueye.org/2009/02/21/05.jpg">
+<meta property="og:image" content="https://img.yueye.org/2009/02/21/06.jpg">
+<meta property="og:image" content="https://img.yueye.org/2009/02/21/07.jpg">
+<meta property="og:image" content="https://img.yueye.org/2009/02/21/08.jpg">
+<meta property="og:image" content="https://img.yueye.org/2009/02/21/09.jpg">
+<meta property="og:image" content="https://img.yueye.org/2009/02/21/10.jpg">
+<meta property="og:image" content="https://img.yueye.org/2009/02/21/11.jpg">
+<meta property="og:image" content="https://img.yueye.org/2009/02/21/12.jpg">
+<meta property="og:image" content="https://img.yueye.org/2009/02/21/13.jpg">
+<meta property="og:image" content="https://img.yueye.org/2009/02/21/14.jpg">
+<meta property="og:updated_time" content="2018-07-27T03:00:21.883Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Google日历使用入门">
+<meta name="twitter:description" content="随着社会的发展，我们越来越感觉自己的脑袋无法记住所有的事情，经常有忘记重要事情的烦恼。Google在几年前推出了Google日历这项日程管理服务，试图为人们解决这类问题。月夜 很久以前也用上了这项服务。不过正如很多朋友一样，可能是因为中国人的做事传统，开始时月夜并没有太在意，也很少有意识的去使用这项功能。只不过偶尔用它来发几条激励自己的短信；添加上一项天气预报而已。只是后来，在生活中，月夜慢慢发现">
+<meta name="twitter:image" content="https://img.yueye.org/2009/02/21/01.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://kongsea.github.io/2009/introduction-to-google-calendar/"/>
+
+
+
+
+
+  <title>Google日历使用入门 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2009/introduction-to-google-calendar/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Google日历使用入门</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2009-02-21T19:40:54+08:00">
+                2009-02-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/精品推介/" itemprop="url" rel="index">
+                    <span itemprop="name">精品推介</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>随着社会的发展，我们越来越感觉自己的脑袋无法记住所有的事情，经常有忘记重要事情的烦恼。Google在几年前推出了<a href="https://www.google.com/calendar/" target="_blank" rel="noopener">Google日历</a>这项日程管理服务，试图为人们解决这类问题。<a href="https://www.yueye.org" target="_blank" rel="noopener">月夜</a> 很久以前也用上了这项服务。不过正如很多朋友一样，可能是因为中国人的做事传统，开始时月夜并没有太在意，也很少有意识的去使用这项功能。只不过偶尔用它来发几条激励自己的短信；添加上一项天气预报而已。只是后来，在生活中，月夜慢慢发现自己应该更好的去使用Google日历，来帮助自己解决一些烦恼，甚至月夜开始动起了脑筋试图让Google日历更大程度的来帮助自己。 在使用Google日历一段时间之后，月夜发现自己积累了一些经验，当然，月夜不敢独享，就冒昧将自己的这些经验分享给大家。不过，考虑到很多朋友可能对Google日历并不熟悉，甚至没有接触过这项服务，因此，为了惠及更多朋友，月夜首先为大家简单介绍一下Google日历。 首先点击<a href="https://www.google.com/calendar/" target="_blank" rel="noopener">Google日历</a>，我们进入Google日历的首页。在首页的右侧，我们可以看到如下图所示的登录页面：</p>
+<p><img src="https://img.yueye.org/2009/02/21/01.jpg" alt="" title="Google日历登录页"></p>
+<p>如果您有Google账户，则可以直接在上面的登陆框中输入帐户名和密码来登录Google日历；若您还没有Google账户，则可以点击下面的“创建帐户”按钮来创建一个Google账户。需要提醒的是，现在，Google账户对网民已经算是必备品，所以，如果您还没有Google账户，那么，就赶快创建一个吧。 如果您是第一次使用Google日历，在登录之后，系统将跳到如下图所示的“开始使用Google日历”界面：</p>
+<p><img src="https://img.yueye.org/2009/02/21/02.jpg" alt="" title="开始使用Google日历"></p>
+<p>基本上不用修改如上图所示的系统默认设置，直接点击“继续”按钮，我们开始使用Google日历，进入如下图所示的Google日历主页面：</p>
+<p><img src="https://img.yueye.org/2009/02/21/03.jpg" alt="" title="Google日历主页面英文版"></p>
+<p>如上图，系统默认的语言为英文；尽管英文版的Google日历可以抢先体验很多功能，但对于我们这些母语非英文的人来说还是不太方便。点击如上图右上角的“Settings”按钮，我们来修改Google日历的语言为简体中文。系统跳转到calendar settings界面，我们在language选项右侧的下拉框中选择中文（简体）：</p>
+<p><img src="https://img.yueye.org/2009/02/21/04.jpg" alt="" title="Google日历设置英文版"></p>
+<p>然后点击页面上方或下方的Save按钮来应用设置，可以看到，系统的语言已经修改为了简体中文，如下图：</p>
+<p><img src="https://img.yueye.org/2009/02/21/05.jpg" alt="" title="Google日历主界面中文版"></p>
+<p>接下来，我们继续来设置Google日历，为你的Google日历账户绑定手机号。点击如上图所示右上角的“设置”按钮，进入到日历设置页面，接着点击并选择“移动设置”选项，进入如下图所示的移动设置页面：</p>
+<p><img src="https://img.yueye.org/2009/02/21/06.jpg" alt="" title="Google日历移动设置"></p>
+<p>在如上图所示的页面中电话号码右侧的方框中输入你的手机号码，然后点击“发送验证代码”按钮，系统将弹出如下图所示的提示信息：</p>
+<p><img src="https://img.yueye.org/2009/02/21/07.jpg" alt="" title="提示信息"></p>
+<p>稍候片刻，我们就会收到Google发送过来的消息：</p>
+<blockquote>
+<p>您的 Google  日历验证代码是684179。</p>
+</blockquote>
+<p>将信息中的验证代码输入到如上上图所示的方框中，然后点击“完成设置”按钮，系统回到首页面。接着进入到“移动设置”页面，我们可以看到如下图的界面：</p>
+<p><img src="https://img.yueye.org/2009/02/21/08.jpg" alt="" title="Google日历移动设置完成"></p>
+<p>系统提示“电话号码已通过验证。”，我们可以使用手机接收Google日历中的信息了。 回到Google日历主界面，我们来设置Google日历的通知方式。如下图，我们可以点击“我的日历”中的任一个日历右侧的小按钮，在弹出的菜单中选择相应的选项对每一个日历进行各种设置：</p>
+<p><img src="https://img.yueye.org/2009/02/21/09.jpg" alt="" title="Google日历详细设置"></p>
+<p>如上图，我们选择并点击“通知”来设置日历“yueye.org # gmail.com”的通知方式，系统进入到设置页面：</p>
+<p><img src="https://img.yueye.org/2009/02/21/10.jpg" alt="" title="Google日历通知方式"></p>
+<p>如上图，在“活动提醒”中，选择默认情况下的提醒方式为“SMS”，也就是我们通常所说的短信。这样，以后我们的Google日历就会使用短信方式来提醒我们需要做的各种事情。 设置好以后，我们回到Google日历主界面，在主界面中你需要添加任务或事情的时间方格中单击，系统将弹出创建活动窗口，如下图：</p>
+<p><img src="https://img.yueye.org/2009/02/21/11.jpg" alt="" title="创建活动"></p>
+<p>在方框中输入你的活动内容，然后点击“创建活动”按钮，即成功创建一个活动，我们可以在主界面中看到这个活动，如下图：</p>
+<p><img src="https://img.yueye.org/2009/02/21/12.jpg" alt="" title="一个活动"></p>
+<p>我们可以单击如上图所示的活动内容来修改该活动，单击后系统进入如下图所示的页面：</p>
+<p><img src="https://img.yueye.org/2009/02/21/13.jpg" alt="" title="修改活动"></p>
+<p>在如上图所示的页面中，我们可以修改活动的内容、时间，也可以设置活动的重复频率、地点、说明以及提醒方式等等。修改完成后，点击保存按钮，即完成修改。这样，当设置的活动日期到来时，我们的手机就可以接收到Google日历发来的短信，提醒我们需要完成的任务，以防忘记重要的事情。 比如，今天月夜去省图借了几本书，图书的超期期限为30天。那么回来之后，就可以在Google日历中28天之后的某个时间添加上一个如上图所示的“省图图书续期”或者“记得去省图还书”之类的提示。这样，到时间Google日历就会发来短信提醒，以防自己忘记续期或还书而招致罚款，从而打造一个永不过期的图书馆！ 下面，月夜再来简单介绍一下Google日历的其他设置。 点击Google日历主界面上的“设置”，我们可以在日历设置的“基本”选项中设置Google日历的默认视图、天气预报等等，如下图：</p>
+<p><img src="https://img.yueye.org/2009/02/21/14.jpg" alt="" title="Google日历设置"></p>
+<p>关于Google日历使用的一些入门级内容，我们就介绍到这里。在接下来的内容中，月夜将为您分享一些Google日历和生活中的具体内容结合使用的经验，敬请关注。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Google/" rel="tag"># Google</a>
+          
+            <a href="/tags/生活辅助/" rel="tag"># 生活辅助</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2009/one-classical-music-for-musician-third/" rel="next" title="一人一首经典曲（三）：I至K">
+                <i class="fa fa-chevron-left"></i> 一人一首经典曲（三）：I至K
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2009/yueye-try-out-qzone-5/" rel="prev" title="QQ空间5.0新版本“自由之夏”初体验">
+                QQ空间5.0新版本“自由之夏”初体验 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">433</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">108</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

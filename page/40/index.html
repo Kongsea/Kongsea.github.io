@@ -96,7 +96,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/page/40/index.html">
+<meta property="og:url" content="https://kongsea.github.io/page/40/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
@@ -129,7 +129,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/page/40/"/>
+  <link rel="canonical" href="https://kongsea.github.io/page/40/"/>
 
 
 
@@ -260,7 +260,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2008/12/01/add-category-icon-for-template/">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2008/remember-remind-friend-birthday/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -279,157 +279,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2008/12/01/add-category-icon-for-template/" itemprop="url">为WordPress主题添加分类图标</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2008-12-01T10:07:32+08:00">
-                2008-12-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/网站相关/" itemprop="url" rel="index">
-                    <span itemprop="name">网站相关</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>很久以前就考虑着为我的WordPress模板添加一个分类图标，但因为一直忙于其他事情，也没有顾得上这些。终于在昨天有了一点时间，就在网上搜了一下方法，自己摸索着给添加了上去。 事实上开始时我自己考虑着的方法还是比较合理的，也初步有了最终完成的方法的雏形，但我考虑的是使用大概如这种方式： <img src="<?php bloginfo('url'); ?>/img/<?php the_category(); ?>.jpg"> 但搞了半天没有成功，在网上搜了一下，发现是用的这样的方法，原文请见：<a href="http://zeuscn.net/archives/2008/09/10/wordpress-category-icon/" target="_blank" rel="noopener">Wordpress 技巧—显示分类图片</a>，代码如下：</p>
-<blockquote>
-<p>&lt;?php foreach((get_the_category()) as $cat)<br>{<br>$catname =$cat-&gt;category_nicename;<br>echo “&lt;a href=/category/“;<br>echo $catname;<br>echo “/&gt;”;<br>echo “&lt;img src=<a href="http://yourdomain/wp-content/cat-icons/&quot;" target="_blank" rel="noopener">http://yourdomain/wp-content/cat-icons/&quot;</a>;<br>echo $catname;<br>echo “.jpg alt=\“$catname category \“ title=\“$catname 分类 \“ /&gt;\n”;<br>}<br>?&gt;</p>
-</blockquote>
-<p>原来使用的是echo，将HTML代码一个个输出，看来我的知识实在是太匮乏了啊。不过正如原文中所言，对于属于多个分类的文章来说，会显示多张图标，用着不是太好，于是，我就直接在末尾加了一句break，显示一张图标之后就直接退出。又适当修改了一下主题的CSS代码，最后得到的总体效果还算是可以。 可正如原作者在<a href="http://zeuscn.net/archives/2008/09/10/wordpress-category-icon-plus/" target="_blank" rel="noopener">Wordpress 显示分类图片的补充</a>一文中所言，如上的代码还略有不足，主要是鼠标悬停于图标上时，显示的文字不是我们设置的汉字分类，而是我们设置的分类的英文缩写。原作者将上面的代码修改如下：</p>
-<blockquote>
-<p>&lt;?php foreach((get_the_category()) as $cat)<br>{<br>$catname =$cat-&gt;category_nicename;<br>$cattitle=$cat-&gt;cat_name;<br>echo “&lt;a href=/category/“;<br>echo $catname;<br>echo “/&gt;”;<br>echo “&lt;img src=<a href="http://yourdomain/wp-content/cat-icons/&quot;" target="_blank" rel="noopener">http://yourdomain/wp-content/cat-icons/&quot;</a>;<br>echo $catname;<br>echo “.jpg alt=\“$catname category \“ title=\“$cattitle\“ /&gt;\n”;<br>} ?&gt;</p>
-</blockquote>
-<p>这样，使用上面的代码，并在最后一个?&gt;之前添加上break;语句，即可完美为文章添加分类图标。最终实现的效果可以参看<a href="https://www.yueye.org" target="_blank" rel="noopener">51Blog</a>。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2008/11/29/remember-remind-friend-birthday/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2008/11/29/remember-remind-friend-birthday/" itemprop="url">为你记住并免费短信提醒好友的生日</a></h1>
+                <a class="post-title-link" href="/2008/remember-remind-friend-birthday/" itemprop="url">为你记住并免费短信提醒好友的生日</a></h1>
         
 
         <div class="post-meta">
@@ -580,7 +430,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2008/11/29/move-from-linux-win-host/">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2008/move-from-linux-win-host/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -599,7 +449,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2008/11/29/move-from-linux-win-host/" itemprop="url">从国外免费Linux空间成功搬回国内Win主机空间</a></h1>
+                <a class="post-title-link" href="/2008/move-from-linux-win-host/" itemprop="url">从国外免费Linux空间成功搬回国内Win主机空间</a></h1>
         
 
         <div class="post-meta">
@@ -739,7 +589,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2008/11/26/site-construct-cpanel-second/">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2008/site-construct-cpanel-second/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -758,7 +608,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2008/11/26/site-construct-cpanel-second/" itemprop="url">网站建设全过程（使用cPanel X）详细讲解（二）</a></h1>
+                <a class="post-title-link" href="/2008/site-construct-cpanel-second/" itemprop="url">网站建设全过程（使用cPanel X）详细讲解（二）</a></h1>
         
 
         <div class="post-meta">
@@ -911,7 +761,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2008/11/25/site-construct-cpanel-first/">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2008/site-construct-cpanel-first/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -930,7 +780,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2008/11/25/site-construct-cpanel-first/" itemprop="url">网站建设全过程（使用cPanel X）详细讲解（一）</a></h1>
+                <a class="post-title-link" href="/2008/site-construct-cpanel-first/" itemprop="url">网站建设全过程（使用cPanel X）详细讲解（一）</a></h1>
         
 
         <div class="post-meta">
@@ -1105,7 +955,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2008/11/24/online-proxy-recommand-first/">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2008/online-proxy-recommand-first/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -1124,7 +974,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2008/11/24/online-proxy-recommand-first/" itemprop="url">推荐几个不错的免费在线代理</a></h1>
+                <a class="post-title-link" href="/2008/online-proxy-recommand-first/" itemprop="url">推荐几个不错的免费在线代理</a></h1>
         
 
         <div class="post-meta">
@@ -1262,7 +1112,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2008/11/24/register-domain-anydz-com/">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2008/register-domain-anydz-com/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -1281,7 +1131,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2008/11/24/register-domain-anydz-com/" itemprop="url">注册了一个com域名anyDZ.com</a></h1>
+                <a class="post-title-link" href="/2008/register-domain-anydz-com/" itemprop="url">注册了一个com域名anyDZ.com</a></h1>
         
 
         <div class="post-meta">
@@ -1419,7 +1269,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2008/11/23/website-construct-process-fifth/">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2008/website-construct-process-fifth/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -1438,7 +1288,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2008/11/23/website-construct-process-fifth/" itemprop="url">网站建设全过程详细讲解(五)</a></h1>
+                <a class="post-title-link" href="/2008/website-construct-process-fifth/" itemprop="url">网站建设全过程详细讲解(五)</a></h1>
         
 
         <div class="post-meta">
@@ -1605,7 +1455,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2008/11/22/change-new-template/">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2008/change-new-template/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -1624,7 +1474,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2008/11/22/change-new-template/" itemprop="url">换了一个新主题模板</a></h1>
+                <a class="post-title-link" href="/2008/change-new-template/" itemprop="url">换了一个新主题模板</a></h1>
         
 
         <div class="post-meta">
@@ -1747,7 +1597,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2008/11/21/website-construct-process-fourth/">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2008/website-construct-process-fourth/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -1766,7 +1616,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2008/11/21/website-construct-process-fourth/" itemprop="url">网站建设全过程详细讲解(四)</a></h1>
+                <a class="post-title-link" href="/2008/website-construct-process-fourth/" itemprop="url">网站建设全过程详细讲解(四)</a></h1>
         
 
         <div class="post-meta">
@@ -1918,6 +1768,183 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2008/website-construct-process-third/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2008/website-construct-process-third/" itemprop="url">网站建设全过程详细讲解(三)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2008-11-21T16:00:01+08:00">
+                2008-11-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/网站相关/" itemprop="url" rel="index">
+                    <span itemprop="name">网站相关</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>接上文<a href="https://www.yueye.org/2008/website-construct-process-first.html" target="_blank" rel="noopener">网站建设全过程详细讲解(一)</a> 和<a href="https://www.yueye.org/2008/website-construct-process-second.html" target="_blank" rel="noopener">网站建设全过程详细讲解(二)</a> ，<a href="https://www.yueye.org/" target="_blank" rel="noopener">51blog</a>继续为您详细讲解网站建设的全过程。</p>
+<h1 id="四、使用空间商提供的安装脚本建设网站"><a href="#四、使用空间商提供的安装脚本建设网站" class="headerlink" title="四、使用空间商提供的安装脚本建设网站"></a>四、使用空间商提供的安装脚本建设网站</h1><p>因为很多空间商都提供流行的脚本程序，或者称为一键安装程序，而且使用这些程序建设网站又十分简单、方便和快捷。<a href="https://www.yueye.org/2008/800m-20g-zobyhost-register.html" target="_blank" rel="noopener">ZobyHost</a>也提供了很多Fantastico脚本程序，所以，<a href="https://www.yueye.org/" target="_blank" rel="noopener">51blog</a>将首先带您了解一下如何使用空间商提供的Fantastico脚本程序来建设网站。但因为使用Fantastico脚本程序建设网站有一定的不足，所以，此处我们只是做个示例，稍作练手，因此，我们将把网站建设到空间商提供的二级域名下。</p>
+<blockquote>
+<p>首先点击如下图所示的<a href="https://www.yueye.org/2008/800m-20g-zobyhost-register.html" target="_blank" rel="noopener">ZobyHost</a>空间菜单中Software/Services菜单下的Fantastico type installer子菜单：</p>
+<p><img src="https://img.yueye.org/2008/11/211/01.jpg" alt="" title="网站建设全过程"></p>
+<p>系统将跳转到新的页面，要求你选择将程序安装到哪个域名下，如下图所示：</p>
+<p><img src="https://img.yueye.org/2008/11/211/02.jpg" alt="" title="51blog"></p>
+<p>如上图所示，选择空间商提供的二级域名，如deeepsea.zobyhost.com，然后点击下面的Proceed按钮。系统将跳转到选择脚本程序页面，如下图所示：</p>
+<p><img src="https://img.yueye.org/2008/11/211/03.jpg" alt="" title="网站建设全过程"></p>
+<p>在如上图所示的页面中选择相应的脚本程序。因为此处我们只是练手，而且因为本系列文章只是入门，所以，<a href="https://www.yueye.org/" target="_blank" rel="noopener">51blog</a>选择了WordPress程序。直接选择并点击WordPress脚本程序后面的Click to install超链接，系统即跳转到下一页面，如下图：</p>
+<p><img src="https://img.yueye.org/2008/11/211/04.jpg" alt="" title="51blog"></p>
+<p>在如上图的安装目录设置页面中，你可以设置将程序安装到哪个具体的目录中。此处我们直接去默认，将程序安装到域名<a href="http://deeepsea.zobyhost.com" target="_blank" rel="noopener">http://deeepsea.zobyhost.com</a>下的根目录中。然后点击下面的Complete Install按钮，系统将跳转到新的页面，如下图所示：</p>
+<p><img src="https://img.yueye.org/2008/11/211/05.jpg" alt="" title="网站建设全过程"></p>
+<p>我们可以从上图中看到信息，提示脚本程序已经被成功复制到了根目录。接下来，我们就可以安装程序了。直接点击如上图所示的地址超链接，或者在新窗口中打开（推荐），即开始了安装过程。 我们开始了安装过程，网页跳转到了安装界面，如下图所示：</p>
+<p><img src="https://img.yueye.org/2008/11/211/06.jpg" alt="" title="网站建设全过程"></p>
+<p>提示我们，安装程序中没有wp-config.php文件，我们不必在意，因为在接下来的过程中我们将一步步创建这个文件。直接点击Create a Configuration File按钮，安装继续进行，新的页面如下图：</p>
+<p><img src="https://img.yueye.org/2008/11/211/07.jpg" alt="" title="不花一分钱，建设属于自己的独立网站"></p>
+<p>页面中无非是一些提示信息，我们不必在意，只需点击下面的Let’s go!按钮即可，页面又跳转到了下一个页面：</p>
+<p><img src="https://img.yueye.org/2008/11/211/08.jpg" alt="" title="不花一分钱，建设属于自己的独立网站"></p>
+<p>如上图所示的页面，要求我们输入数据库的相关信息。在前面的<a href="https://www.yueye.org/2008/website-construct-process-second.html" target="_blank" rel="noopener">网站建设全过程详细讲解(二)</a>中，我们已经详细讲解了关于数据库的内容，只需按部就班地进行设置就可以了。不必关心最后一项的表前缀，在设置好了数据库名（可是使用我们在前文中创建的数据库，或者自己重新创建一个）、用户名（和控制面板用户名相同）、用户密码（与控制面板密码相同）和数据库主机名（前文已述）之后，我们直接点击Submit按钮，进入到下一个页面，如下图所示：</p>
+<p><img src="https://img.yueye.org/2008/11/211/09.jpg" alt="" title="网站建设全过程"></p>
+<p>不用管那些提示信息，直接点击Run the install进入到下一页：</p>
+<p><img src="https://img.yueye.org/2008/11/211/10.jpg" alt="" title="51blog"></p>
+<p>如上图所示，设置好网站（博客）名称以及站长信箱以后，点击下面的Install WordPress按钮开始安装。或许你和我一样，以为安装要用很长时间，但让你感到“失望”的是，安装在一瞬间就完成了，很快就跳转到了安装完成界面，如下图所示：</p>
+<p><img src="https://img.yueye.org/2008/11/211/11.jpg" alt="" title="网站建设全过程"></p>
+<p>记住如上图所示的用户名和密码，然后点击下面的Log In按钮，我们来登录博客后台，如下图：</p>
+<p><img src="https://img.yueye.org/2008/11/211/12.jpg" alt="" title="不花一分钱，建设自己的独立网站"></p>
+<p>在如上图所示的登陆框中输入用户名和密码，然后点击Log In按钮，即可登录到网站后台。网站后台一瞥如下图所示：</p>
+<p><img src="https://img.yueye.org/2008/11/211/13.jpg" alt="" title="网站建设全过程"></p>
+<p>在如上图所示的页面中，点击Visit Site可以访问网站页面；点击Write可以写博客文章或者博客页面；点Manage可以管理相应的内容，等等。 因为此处我们只是练手，熟悉一下安装过程，所以更为详细的使用方法我们就略去不讲了。下面我们只讲述一下如何修改自己的密码。在后台右上角，有如下图所示的部分：</p>
+<p><img src="https://img.yueye.org/2008/11/211/14.jpg" alt="" title="51blog"></p>
+<p>点击如图所示的admin链接，即可打开admin账户的设置界面。在界面的左下方，我们可以找到如下图所示的部分：</p>
+<p><img src="https://img.yueye.org/2008/11/211/15.jpg" alt="" title="网站建设全过程"></p>
+<p>在如上图所示的方框中输入新密码，然后点击Update Profile按钮，即可完成密码修改。</p>
+</blockquote>
+<p>好了，今天的<a href="https://www.yueye.org/2008/website-construct-process-first.html" target="_blank" rel="noopener">网站建设全过程讲解</a>就说到这里，更多内容请继续关注<a href="https://www.yueye.org/2008/website-construct-process-first.html" target="_blank" rel="noopener">网站建设全过程系列文章</a>、<a href="https://www.yueye.org/2008/website-construct-process-fourth.html" target="_blank" rel="noopener">网站建设全过程详细讲解(四)</a>以及<a href="https://www.yueye.org/" target="_blank" rel="noopener">51blog</a>。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -1968,7 +1995,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">434</span>
+                <span class="site-state-item-count">433</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>

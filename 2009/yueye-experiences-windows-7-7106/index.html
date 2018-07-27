@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="升级,Windows,微软," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="貌似微软最近在疯狂的为Windows 7造势，不时的放出Windows 7的最新Build版本。前几天 月夜 刚刚安装了Windows 7 7068版本，并为朋友们送上了自己在安装和体验7068版本中的一份笔记。昨天，微软又放出了7106版本，而且这次放出的版本中含有官方简体中文版，自然就给了我们一个试用和体验的机会。 当然，因为月夜的IPv4限制流量，所以自然不敢下载如Windows 7这样的大">
+<meta name="keywords" content="升级,Windows,微软">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Windows 7 7106 新鲜体验">
+<meta property="og:url" content="https://kongsea.github.io/2009/yueye-experiences-windows-7-7106/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="貌似微软最近在疯狂的为Windows 7造势，不时的放出Windows 7的最新Build版本。前几天 月夜 刚刚安装了Windows 7 7068版本，并为朋友们送上了自己在安装和体验7068版本中的一份笔记。昨天，微软又放出了7106版本，而且这次放出的版本中含有官方简体中文版，自然就给了我们一个试用和体验的机会。 当然，因为月夜的IPv4限制流量，所以自然不敢下载如Windows 7这样的大">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12395972730209248940/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12395972730209248941/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12395972740209248942/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12395972740209248943/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12395972740209248944/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12395977141612058658/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12395977141612058659/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12395977141612058660/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12395977151612058661/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12395996880153060647/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12395996890153060648/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12395996890153060649/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12395996890153060650/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12395996900153060651/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12396001650508880974/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12396001660508880975/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12396001660508880976/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12396001660508880977/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12396001660508880978/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12396005231980865216/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12396005231980865217/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12396005241980865218/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12396005241980865219/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12396005251980865220/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12396008091432907892/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12396008101432907893/A/1/m.jpg">
+<meta property="og:updated_time" content="2018-07-27T03:00:21.883Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Windows 7 7106 新鲜体验">
+<meta name="twitter:description" content="貌似微软最近在疯狂的为Windows 7造势，不时的放出Windows 7的最新Build版本。前几天 月夜 刚刚安装了Windows 7 7068版本，并为朋友们送上了自己在安装和体验7068版本中的一份笔记。昨天，微软又放出了7106版本，而且这次放出的版本中含有官方简体中文版，自然就给了我们一个试用和体验的机会。 当然，因为月夜的IPv4限制流量，所以自然不敢下载如Windows 7这样的大">
+<meta name="twitter:image" content="http://laiba.tianya.cn/laiba/images/615721/12395972730209248940/A/1/m.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://kongsea.github.io/2009/yueye-experiences-windows-7-7106/"/>
+
+
+
+
+
+  <title>Windows 7 7106 新鲜体验 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2009/yueye-experiences-windows-7-7106/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Windows 7 7106 新鲜体验</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2009-04-13T13:53:36+08:00">
+                2009-04-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/时讯品评/" itemprop="url" rel="index">
+                    <span itemprop="name">时讯品评</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>貌似微软最近在疯狂的为Windows 7造势，不时的放出Windows 7的最新Build版本。前几天 <a href="https://www.yueye.org" target="_blank" rel="noopener">月夜</a> 刚刚安装了<a href="https://www.yueye.org/2009/note-of-installing-and-experiencing-windows-7.html" target="_blank" rel="noopener">Windows 7 7068版本</a>，并为朋友们送上了自己在<a href="https://www.yueye.org/2009/note-of-installing-and-experiencing-windows-7.html" target="_blank" rel="noopener">安装和体验7068版本中的一份笔记</a>。昨天，微软又放出了7106版本，而且这次放出的版本中含有官方简体中文版，自然就给了我们一个试用和体验的机会。 当然，因为月夜的IPv4限制流量，所以自然不敢下载如Windows 7这样的大块头。因此，直到下午，在六维空间上看到Windows 7 7106的种子之后，才正式开始下载。结果耗时将近6个小时，昨天晚上9点多，才下载完成。 安装过程和7068版本没有太大区别，最大的改变就是安装界面上显得很丑陋的雅黑字体更改成了系统默认的字体，比如宋体，使得安装界面也十分华美。如下是7106的安装启动界面：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12395972730209248940/A/1/m.jpg" alt="" title="Windows 7 7106 安装启动界面"></p>
+<p>接着是Windows 7安装中复制文件的界面，不过这个界面中的宋体就不是那么美观了：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12395972730209248941/A/1/m.jpg" alt="" title="Windows 7 7106 安装复制临时文件"></p>
+<p>接下来是Windows 7安装中的几个选项选择界面，相比前面的7068，这里的界面显然要美观的多。首先是安装类型选择界面：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12395972740209248942/A/1/m.jpg" alt="" title="Windows 7 7106安装中选择安装类型"></p>
+<p>接着是是否更新Windows 7的安装程序，因为这已经是最新版本，显然无需更新：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12395972740209248943/A/1/m.jpg" alt="" title="Windows 7 7106安装中是否更新"></p>
+<p>紧接着的下一步是选择Windows 7的安装位置，遗憾的是，安装进行到这里我们看到了7106版本中的第一次乱码：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12395972740209248944/A/1/m.jpg" alt="" title="Windows 7 7106选择安装位置界面"></p>
+<p>接下来就是Windows 7安装程序中的复制和展开Windows 7安装文件的界面：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12395977141612058658/A/1/m.jpg" alt="" title="Windows 7 7106安装中复制展开安装文件"></p>
+<p>令人欣喜的是，7068中的乱码在这里已经消失了，使我们对7106的表现又多了一分期许。 当然，安装并不需要太长时间，经过几次重启之后，安装好Windows 7，我们就可以进入到系统中了。在进入系统前，月夜在Windows 7中首次发现了“旗舰版”字样：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12395977141612058659/A/1/m.jpg" alt="" title="Windows 7旗舰版"></p>
+<p>由7068到7106，增加了三个汉字，是否表示在Windows 7正式版推出时会使用这样的标志？月夜不得而知，不过让我们一起拭目以待吧。 进入到Windows 7 7106中以后，让我们首先来看看它的桌面：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12395977141612058660/A/1/m.jpg" alt="" title="Windows 7 7106桌面"></p>
+<p>当然，桌面和以前的版本相比，并没有什么大的变化。唯一明显的变化是桌面右下角的版本信息变成了“内部版本 7106”。 接着让我们一起来看看桌面快捷键的变化：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12395977151612058661/A/1/m.jpg" alt="" title="Windows 7 7106桌面快捷键"></p>
+<p>遗憾的是，怀着欣喜的心情的我们在这里发现了Windows 7 7106操作系统的第一个乱码。可是尽管乱码问题仍然出现，但此次7106版本的推出，还是在一定程度上减少了乱码，优化了界面。 比如，Windows 7 7106的库中，已经几乎没有了乱码：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12395996880153060647/A/1/m.jpg" alt="" title="Windows 7 7106库"></p>
+<p>媒体库中的乱码也得到了很大改善：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12395996890153060648/A/1/m.jpg" alt="" title="Windows 7 7106媒体库"></p>
+<p>控制面板中对外观和桌面进行个性化的窗口中，也修正了乱码问题：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12395996890153060649/A/1/m.jpg" alt="" title="个性化设置窗口"></p>
+<p>修正了乱码的其他地方还包括，桌面小工具设置窗口：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12395996890153060650/A/1/m.jpg" alt="" title="Windows 7 7106 桌面小工具设置窗口"></p>
+<p>桌面右下角的通知区域信息提示：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12395996900153060651/A/1/m.jpg" alt="" title="Windows 7 7106桌面右下角信息提示"></p>
+<p>通知区域信息提示设置窗口：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12396001650508880974/A/1/m.jpg" alt="" title="通知区域信息提示设置窗口"></p>
+<p>以及系统维护中的备份和还原设置窗口：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12396001660508880975/A/1/m.jpg" alt="" title="备份和还原设置窗口"></p>
+<p>另外，媒体播放器中播放完毕时屏幕上可供选择的菜单项中的乱码也被取消：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12396001660508880976/A/1/m.jpg" alt="" title="Windows 7 7106媒体播放器"></p>
+<p>不过，尽管微软在Windows 7简体中文版的乱码问题上已经做了相当努力，目前，乱码在Windows 7操作系统中仍然大量出现。 比如在画图程序中，菜单上仍然出现了不少乱码：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12396001660508880977/A/1/m.jpg" alt="" title="Windows 7画图程序乱码"></p>
+<p>在计算器的菜单中，也出现了不少乱码：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12396001660508880978/A/1/m.jpg" alt="" title="Windows 7 计算器"></p>
+<p>乱码还被发现存在于如下图所示的Windows 媒体中心中：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12396005231980865216/A/1/m.jpg" alt="" title="Windows 7 媒体中心"></p>
+<p>以及Windows 7的游戏中心中：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12396005231980865217/A/1/m.jpg" alt="" title="Windows 7 游戏中心"></p>
+<p>此外，在不少窗口右上角的搜索框中，也发现了一些乱码，如下图：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12396005241980865218/A/1/m.jpg" alt="" title="Windows 7 7106搜索乱码"></p>
+<p>在Windows 7 7106的开始菜单里，也依然有乱码出现：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12396005241980865219/A/1/m.jpg" alt="" title="Windows 7 7106开始菜单乱码"></p>
+<p>不过，<a href="https://www.yueye.org" target="_blank" rel="noopener">月夜</a>发现，尽管目前Windows 7的版本中依然存在不少乱码，但这些乱码无一例外，都出现在中英文混用的地方，或者说是中文紧跟英文时，中文发生了乱码。不知道这到底是因为汉化不彻底，或者是程序设置的有偏差。不过，月夜只希望微软能尽早解决Windows 7简体中文版中的乱码，还简体中文用户一个没有乱码的世界。 最后，月夜带你来看看Windows 7 7106中的几个小程序以及其中的更新。首先是Windows 7的游戏中的国际象棋：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12396005251980865220/A/1/m.jpg" alt="" title="Windows 7国际象棋"></p>
+<p>酷炫的三维效果，很值得一玩。 Windows 7中的写字板：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12396008091432907892/A/1/m.jpg" alt="" title="Windows 7 写字板"></p>
+<p>尽管Windows 7中的记事本相比以前版本并没有什么变化，但写字板还是进行了不小的更新。现在的写字板已经带有Office 2007的界面，尽管功能仍然和Word有不少差距。 最后是Windows 7的数学输入面板：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12396008101432907893/A/1/m.jpg" alt="" title="Windows 7数学输入面板"></p>
+<p>只能用一句话来形容：很好很强大！不过经月夜试用发现，其对手写以及常用公式中符号的识别能力仍然有待提升。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/升级/" rel="tag"># 升级</a>
+          
+            <a href="/tags/Windows/" rel="tag"># Windows</a>
+          
+            <a href="/tags/微软/" rel="tag"># 微软</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2009/faq-of-wordpress-new-users-second/" rel="next" title="WordPress新手问答（二）">
+                <i class="fa fa-chevron-left"></i> WordPress新手问答（二）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2009/yueye-2009-03-china-internet/" rel="prev" title="月夜盘点2009年3月中国互联网事件">
+                月夜盘点2009年3月中国互联网事件 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">433</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">108</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

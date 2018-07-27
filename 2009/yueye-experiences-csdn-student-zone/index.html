@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="网站,大学学习,SNS," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="国内著名IT技术社区CSDN近日面向其注册用户中的学生用户开放了一个SNS社区——CSDN学生大本营。月夜 在CSDN注册的帐号填写的职业是学生，所以收到了CSDN学生大本营管理员的邀请信，邀请我们加入CSDN学生大本营。邀请信的大致内容如下（也可以看作是CSDN对其SNS社区的官方介绍）：  月夜同学你好， 首先，欢迎你作为第一批用户加入到CSDN面向IT学生的新社区：学生大本营中来。你只需要使">
+<meta name="keywords" content="网站,大学学习,SNS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSDN学生大本营(SNS)初体验">
+<meta property="og:url" content="https://kongsea.github.io/2009/yueye-experiences-csdn-student-zone/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="国内著名IT技术社区CSDN近日面向其注册用户中的学生用户开放了一个SNS社区——CSDN学生大本营。月夜 在CSDN注册的帐号填写的职业是学生，所以收到了CSDN学生大本营管理员的邀请信，邀请我们加入CSDN学生大本营。邀请信的大致内容如下（也可以看作是CSDN对其SNS社区的官方介绍）：  月夜同学你好， 首先，欢迎你作为第一批用户加入到CSDN面向IT学生的新社区：学生大本营中来。你只需要使">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12440107000376470338/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12440130201261977499/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12440130201261977500/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12440130201261977501/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12440130201261977502/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12440130211261977503/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12440130871085849819/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12440130881085849820/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12440130881085849821/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12440131091446913106/A/1/m.jpg">
+<meta property="og:updated_time" content="2018-07-27T03:00:21.887Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSDN学生大本营(SNS)初体验">
+<meta name="twitter:description" content="国内著名IT技术社区CSDN近日面向其注册用户中的学生用户开放了一个SNS社区——CSDN学生大本营。月夜 在CSDN注册的帐号填写的职业是学生，所以收到了CSDN学生大本营管理员的邀请信，邀请我们加入CSDN学生大本营。邀请信的大致内容如下（也可以看作是CSDN对其SNS社区的官方介绍）：  月夜同学你好， 首先，欢迎你作为第一批用户加入到CSDN面向IT学生的新社区：学生大本营中来。你只需要使">
+<meta name="twitter:image" content="http://laiba.tianya.cn/laiba/images/615721/12440107000376470338/A/1/m.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://kongsea.github.io/2009/yueye-experiences-csdn-student-zone/"/>
+
+
+
+
+
+  <title>CSDN学生大本营(SNS)初体验 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2009/yueye-experiences-csdn-student-zone/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">CSDN学生大本营(SNS)初体验</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2009-06-03T15:50:59+08:00">
+                2009-06-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/时讯品评/" itemprop="url" rel="index">
+                    <span itemprop="name">时讯品评</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>国内著名IT技术社区CSDN近日面向其注册用户中的学生用户开放了一个SNS社区——<a href="http://student.csdn.net/invite.php?u=104745&amp;c=1a38e4ffa818b745" target="_blank" rel="noopener">CSDN学生大本营</a>。<a href="https://www.yueye.org" target="_blank" rel="noopener">月夜</a> 在CSDN注册的帐号填写的职业是学生，所以收到了CSDN学生大本营管理员的邀请信，邀请我们加入CSDN学生大本营。邀请信的大致内容如下（也可以看作是CSDN对其SNS社区的官方介绍）：</p>
+<blockquote>
+<p>月夜同学你好， 首先，欢迎你作为第一批用户加入到CSDN面向IT学生的新社区：学生大本营中来。你只需要使用CSDN的用户名和密码就可以登陆<a href="http://student.csdn.net/invite.php?u=104745&amp;c=1a38e4ffa818b745" target="_blank" rel="noopener">http://student.csdn.net</a>。 然后，你就能够加入到完全与论坛不同的交流和学习氛围的空间中来。 因为，在学生大本营，您可以与中国来自不同学校IT专业的同学交流和交友。大家根据不同的学习方向重新加入到新的“课堂”中，感受大家一起学习的氛围和魅力。 同时我们还将不断引入在各个技术和专业方向上的技术专家加入到这个社区，通过与老师的互动来更快速的学习。这些老师不是纯粹的学校的只会照着书本教课的老师，而是在IT企业中有多年经验和实践的老师。他们将告诉你，在未来就业过程中，你真正需要的技能是什么，你需要学习的知识是什么！ CSDN学生大本营 管理员</p>
+</blockquote>
+<p>点击邮件中的链接，进入到CSDN学生大本营的页面，使用你具有学生身份的CSDN帐号登录之后，即可看到这是一个使用UCenter Home直接建立起来的SNS社区：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12440107000376470338/A/1/m.jpg" alt="" title="CSDN学生大本营SNS社区主界面"></p>
+<p>如上图，可以发现其界面和其他使用UCenter Home建立的SNS社区并没有太大区别，包括修改头像、个人资料、好友和随便看看等功能，以及相册、分享、心理测试和从个人博客换了个名字的“笔记”、从心情状态换了个名字的“记录”等栏目。但因为CSDN的IT技术社区的特性，所以，CSDN学生大本营和一般的SNS社区相比又有其自身的特色，这些特色包括CSDN学生大本营中的课堂、课程资源、老师、专家陪练营、收费讲座等栏目。下面，请朋友们跟随 <a href="https://www.yueye.org" target="_blank" rel="noopener">月夜</a> 一起来简单体验一下CSDN学生大本营SNS社区的特色功能。</p>
+<h2 id="1-测试题"><a href="#1-测试题" class="headerlink" title="1.测试题"></a>1.测试题</h2><p>在学生大本营的首页左侧的侧边栏中可以看到测试题菜单，点击即可进入测试题主界面，如下图：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12440130201261977499/A/1/m.jpg" alt="" title="CSDN学生大本营测试题模块"></p>
+<p>这里的测试题题库中罗列了由诸位老师提出的从Java、C++到PHP等各种IT知识的试题，点击试题的标题，即可进入相应试题界面，如下：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12440130201261977500/A/1/m.jpg" alt="" title="CSDN学生大本营SNS社区测试题试题界面"></p>
+<p>在试题页面上，你可以进行相应的测试或者回答相应的题目，并和其他同学进行交流。</p>
+<h2 id="2-课程资源"><a href="#2-课程资源" class="headerlink" title="2.课程资源"></a>2.课程资源</h2><p>得益于CSDN丰富的IT知识资源库，CSDN学生大本营SNS社区推出了这一模块，其主界面如下：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12440130201261977501/A/1/m.jpg" alt="" title="CSDN学生大本营SNS社区课程资源页面"></p>
+<p>在此，CSDN也提供了极为丰富的有关各种IT知识的课程资源。点击如上页面中感兴趣的资源名称，即可进入到资源页面，如下：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12440130201261977502/A/1/m.jpg" alt="" title="CSDN学生大本营SNS社区课程资源介绍页面"></p>
+<p>在这里，对相应课程资源进行了一些介绍，提供了该课程资源的下载以及针对该资源的讨论等等。</p>
+<h2 id="3-老师"><a href="#3-老师" class="headerlink" title="3.老师"></a>3.老师</h2><p>CSDN还依托其高水平的用户资源提供了独具特色的老师模块，事实上该模块并没有太大作用，只是将各行各业的CSDN高手汇聚一堂，方便同学们寻找比较适合自己的老师。该栏目的主界面如下：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12440130211261977503/A/1/m.jpg" alt="" title="CSDN学生大本营SNS社区老师栏目"></p>
+<p>点击如上图的老师照片，或者其链接即可进入到老师的页面上，然后可以添加老师为好友，或者进行其他操作。</p>
+<h2 id="4-课堂"><a href="#4-课堂" class="headerlink" title="4.课堂"></a>4.课堂</h2><p>CSDN学生大本营还提供了丰富的课堂栏目，不过事实上经月夜试用发现，这些所谓的课堂其实也就是其他SNS中的群组，只不过这里的课堂栏目更为专业。课堂栏目的主界面如下：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12440130871085849819/A/1/m.jpg" alt="" title="CSDN学生大本营SNS社区课堂栏目"></p>
+<p>从如上界面中，我们可以看出CSDN已经提供了包括各行各业十分丰富的课堂，我们可以点击相应课堂，进入其主页面，然后进行接下来的操作：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12440130881085849820/A/1/m.jpg" alt="" title="CSDN学生大本营SNS社区课堂子页面"></p>
+<p>因为课堂栏目与通用的群组并没有太大区别，此处我们也不再对其作更详细介绍。</p>
+<h2 id="5-专家陪练营和收费讲座"><a href="#5-专家陪练营和收费讲座" class="headerlink" title="5.专家陪练营和收费讲座"></a>5.专家陪练营和收费讲座</h2><p>CSDN学生大本营尽管将这两个栏目分开呈现，但事实上它们并没有太大区别，我们完全可以将其理解为CSDN收费讲座的推销区。专家陪练营主界面如下：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12440130881085849821/A/1/m.jpg" alt="" title="CSDN学生大本营SNS社区专家陪练营界面"></p>
+<p>收费讲座的主界面与此大体类似。进入主界面之后，点击相应的陪练营或者讲座题目，即可进行观看或者缴费，其形式大体是播放课程的视频录像。</p>
+<h2 id="6-每天进步"><a href="#6-每天进步" class="headerlink" title="6.每天进步"></a>6.每天进步</h2><p>这一模块也是CSDN学生大本营推出的独特内容，不过貌似目前还没有调试完毕，依然无法进行正常访问。如下图：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12440131091446913106/A/1/m.jpg" alt="" title="CSDN学生大本营SNS社区每天进步栏目"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/网站/" rel="tag"># 网站</a>
+          
+            <a href="/tags/大学学习/" rel="tag"># 大学学习</a>
+          
+            <a href="/tags/SNS/" rel="tag"># SNS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2009/many-sites-were-walled-recently/" rel="next" title="大批网站近日被墙">
+                <i class="fa fa-chevron-left"></i> 大批网站近日被墙
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2009/strange-phenomemon-of-the-twentieth-anniversary/" rel="prev" title="二十年目睹之怪现状">
+                二十年目睹之怪现状 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">433</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">108</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-测试题"><span class="nav-number">1.</span> <span class="nav-text">1.测试题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-课程资源"><span class="nav-number">2.</span> <span class="nav-text">2.课程资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-老师"><span class="nav-number">3.</span> <span class="nav-text">3.老师</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-课堂"><span class="nav-number">4.</span> <span class="nav-text">4.课堂</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-专家陪练营和收费讲座"><span class="nav-number">5.</span> <span class="nav-text">5.专家陪练营和收费讲座</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-每天进步"><span class="nav-number">6.</span> <span class="nav-text">6.每天进步</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

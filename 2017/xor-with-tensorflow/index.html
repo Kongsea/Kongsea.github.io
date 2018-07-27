@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="TensorFlow,Python," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="最近读到一个网友的博客，记录他在一次面试时，碰到面试官要求他在白板上用TensorFlow写一个简单的网络实现异或（XOR）功能。这个本身并不难，单层感知器不能解决异或问题是学习神经网络中的一个常识，而简单的两层神经网络却能将其轻易解决。但这个问题的难处在于，我们接触TensorFlow通常直接拿来写CNN，或者其他的深度学习相关的网络了，而实现这种简单网络，基本上从未做过；更何况，要求在白板上写">
+<meta name="keywords" content="TensorFlow,Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用TensorFlow写一个简单网络实现异或（XOR）">
+<meta property="og:url" content="https://kongsea.github.io/2017/xor-with-tensorflow/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="最近读到一个网友的博客，记录他在一次面试时，碰到面试官要求他在白板上用TensorFlow写一个简单的网络实现异或（XOR）功能。这个本身并不难，单层感知器不能解决异或问题是学习神经网络中的一个常识，而简单的两层神经网络却能将其轻易解决。但这个问题的难处在于，我们接触TensorFlow通常直接拿来写CNN，或者其他的深度学习相关的网络了，而实现这种简单网络，基本上从未做过；更何况，要求在白板上写">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-27T03:00:21.891Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="用TensorFlow写一个简单网络实现异或（XOR）">
+<meta name="twitter:description" content="最近读到一个网友的博客，记录他在一次面试时，碰到面试官要求他在白板上用TensorFlow写一个简单的网络实现异或（XOR）功能。这个本身并不难，单层感知器不能解决异或问题是学习神经网络中的一个常识，而简单的两层神经网络却能将其轻易解决。但这个问题的难处在于，我们接触TensorFlow通常直接拿来写CNN，或者其他的深度学习相关的网络了，而实现这种简单网络，基本上从未做过；更何况，要求在白板上写">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://kongsea.github.io/2017/xor-with-tensorflow/"/>
+
+
+
+
+
+  <title>用TensorFlow写一个简单网络实现异或（XOR） | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2017/xor-with-tensorflow/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">用TensorFlow写一个简单网络实现异或（XOR）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-20T18:04:50+08:00">
+                2017-09-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/人工智能/" itemprop="url" rel="index">
+                    <span itemprop="name">人工智能</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近读到一个网友的博客，记录他在一次面试时，碰到面试官要求他在白板上用TensorFlow写一个简单的网络实现异或（XOR）功能。这个本身并不难，单层感知器不能解决异或问题是学习神经网络中的一个常识，而简单的两层神经网络却能将其轻易解决。但这个问题的难处在于，我们接触TensorFlow通常直接拿来写CNN，或者其他的深度学习相关的网络了，而实现这种简单网络，基本上从未做过；更何况，要求在白板上写出来，如果想bug free，并不是容易的事儿啊。 下面，我们就来简单写一下吧。其实，无论复杂还是简单，用TensorFlow写一个网络无非这样几个部分：</p>
+<h4 id="0-import模块"><a href="#0-import模块" class="headerlink" title="0.import模块"></a>0.import模块</h4><p>import numpy as np<br>import tensorflow as tf</p>
+<h4 id="1-输入数据的placeholder"><a href="#1-输入数据的placeholder" class="headerlink" title="1.输入数据的placeholder"></a>1.输入数据的placeholder</h4><p>具体来说，一个data，一个label：</p>
+<p>data = tf.placeholder(tf.float32, shape=(4, 2))<br>label = tf.placeholder(tf.float32, shape=(4, 1))</p>
+<p>由于本例比较特殊，异或只有4种输入和对应的4个输出，所以根据需求定义固定的shape。</p>
+<h4 id="2-基于输入数据的placeholder构建model"><a href="#2-基于输入数据的placeholder构建model" class="headerlink" title="2.基于输入数据的placeholder构建model"></a>2.基于输入数据的placeholder构建model</h4><p>异或需要两层神经网络，每层分别需要一个weight和一个bias，所以定义如下：</p>
+<p>with tf.variable_scope(‘layer1’) as scope:<br>  weight = tf.get_variable(name=’weight’, shape=(2, 2))<br>  bias = tf.get_variable(name=’bias’, shape=(2,))<br>  x = tf.nn.sigmoid(tf.matmul(data, weight) + bias)<br>with tf.variable_scope(‘layer2’) as scope:<br>  weight = tf.get_variable(name=’weight’, shape=(2, 1))<br>  bias = tf.get_variable(name=’bias’, shape=(1,))<br>  x = tf.matmul(x, weight) + bias</p>
+<p>这里为了方便变量管理，以及在tensorboard上的条理性，使用了variable_scope，当然，也可以不使用。 此外，因为我们后面的loss要使用sigmoid_cross_entropy_with_logits函数，所以这里第二层网络的输出没有过sigmoid函数。如果loss使用其他函数，则可以做相应处理。</p>
+<h4 id="3-定义loss"><a href="#3-定义loss" class="headerlink" title="3.定义loss"></a>3.定义loss</h4><p>其实这里可以灵活选用各种loss函数，比如MSE，等等。但我们还是选用了在CNN中广泛使用的cross entropy：</p>
+<p>preds = tf.nn.sigmoid(x)<br>loss = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(labels=label, logits=x))</p>
+<p>我们这里把模型的输出x过了一下sigmoid函数，作为最终输出，以便在训练时对模型进行监视。</p>
+<h4 id="4-定义Optimizer"><a href="#4-定义Optimizer" class="headerlink" title="4.定义Optimizer"></a>4.定义Optimizer</h4><p>learning_rate = tf.placeholder(tf.float32)<br>optimizer = tf.train.GradientDescentOptimizer(learning_rate).minimize(loss)</p>
+<p>这里，我们为learning rate也定义了一个placeholder，以方便后续处理；当然也可以直接选择使用常值learning rate。</p>
+<h4 id="5-构建并输入数据，开始训练"><a href="#5-构建并输入数据，开始训练" class="headerlink" title="5.构建并输入数据，开始训练"></a>5.构建并输入数据，开始训练</h4><p>train_data = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])<br>train_label = np.array([[0], [1], [1], [0]])</p>
+<p>with tf.Session() as sess:<br>  sess.run(tf.global_variables_initializer())<br>  for step in range(10000):<br>    if step &lt; 3000:<br>      lr = 1<br>    elif step &lt; 6000:<br>      lr = 0.1<br>    else:<br>      lr = 0.01<br>    _, l, pred = sess.run([optimizer, loss, preds], feed_dict={data: train_data, label: train_label, learning_rate: lr})<br>    if step % 500:<br>      print(‘Step: {} -&gt; Loss: {} -&gt; Predictions: {}’.format(step, l, pred)</p>
+<h3 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h3><p>由此，整个网络的代码如下：</p>
+<p>import numpy as np<br>import tensorflow as tf</p>
+<p>data = tf.placeholder(tf.float32, shape=(4, 2))<br>label = tf.placeholder(tf.float32, shape=(4, 1))</p>
+<p>with tf.variable_scope(‘layer1’) as scope:<br>  weight = tf.get_variable(name=’weight’, shape=(2, 2))<br>  bias = tf.get_variable(name=’bias’, shape=(2,))<br>  x = tf.nn.sigmoid(tf.matmul(data, weight) + bias)<br>with tf.variable_scope(‘layer2’) as scope:<br>  weight = tf.get_variable(name=’weight’, shape=(2, 1))<br>  bias = tf.get_variable(name=’bias’, shape=(1,))<br>  x = tf.matmul(x, weight) + bias</p>
+<p>preds = tf.nn.sigmoid(x)<br>loss = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(labels=label, logits=x))<br>learning_rate = tf.placeholder(tf.float32)<br>optimizer = tf.train.GradientDescentOptimizer(learning_rate).minimize(loss)</p>
+<p>train_data = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])<br>train_label = np.array([[0], [1], [1], [0]])</p>
+<p>with tf.Session() as sess:<br>  sess.run(tf.global_variables_initializer())<br>  for step in range(10000):<br>    if step &lt; 3000:<br>      lr = 1<br>    elif step &lt; 6000:<br>      lr = 0.1<br>    else:<br>      lr = 0.01<br>    _, l, pred = sess.run([optimizer, loss, preds], feed_dict={data: train_data, label: train_label, learning_rate: lr})<br>    if step % 500:<br>      print(‘Step: {} -&gt; Loss: {} -&gt; Predictions: {}’.format(step, l, pred))</p>
+<p><a href="https://github.com/Kongsea/yueye/blob/master/xor_with_tensorflow.py" target="_blank" rel="noopener">也可以点击链接在GitHub上查看代码。</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/TensorFlow/" rel="tag"># TensorFlow</a>
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/summary-of-save-and-restore-models-in-tensorflow/" rel="next" title="TensorFlow保存和恢复模型的方法总结">
+                <i class="fa fa-chevron-left"></i> TensorFlow保存和恢复模型的方法总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/fizzbuzz-with-tensorflow/" rel="prev" title="用TensorFlow训练神经网络解决Fizz Buzz问题">
+                用TensorFlow训练神经网络解决Fizz Buzz问题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">433</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">108</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#0-import模块"><span class="nav-number">1.</span> <span class="nav-text">0.import模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-输入数据的placeholder"><span class="nav-number">2.</span> <span class="nav-text">1.输入数据的placeholder</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-基于输入数据的placeholder构建model"><span class="nav-number">3.</span> <span class="nav-text">2.基于输入数据的placeholder构建model</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-定义loss"><span class="nav-number">4.</span> <span class="nav-text">3.定义loss</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-定义Optimizer"><span class="nav-number">5.</span> <span class="nav-text">4.定义Optimizer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-构建并输入数据，开始训练"><span class="nav-number">6.</span> <span class="nav-text">5.构建并输入数据，开始训练</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完整代码"><span class="nav-number"></span> <span class="nav-text">完整代码</span></a></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

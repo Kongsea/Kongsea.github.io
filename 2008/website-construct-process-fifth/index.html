@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="网站建设,经验分享,网络相关,网站," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="通过前面网站建设全过程详细讲解（一）、网站建设全过程详细讲解（二）、网站建设全过程详细讲解（三）和网站建设全过程详细讲解（四）四篇文章，相信诸位朋友已经学会了架设WordPress博客程序。当然架设完成之后，还有很多事情要做，然而那是另一类问题，不属于网站建设系列文章的范畴。你可以自己通过Google搜索引擎来查找相应的内容进行学习。本文主要做这一系列文章的收尾工作，51blog主要讲述一下其他使">
+<meta name="keywords" content="网站建设,经验分享,网络相关,网站">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网站建设全过程详细讲解(五)">
+<meta property="og:url" content="https://kongsea.github.io/2008/website-construct-process-fifth/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="通过前面网站建设全过程详细讲解（一）、网站建设全过程详细讲解（二）、网站建设全过程详细讲解（三）和网站建设全过程详细讲解（四）四篇文章，相信诸位朋友已经学会了架设WordPress博客程序。当然架设完成之后，还有很多事情要做，然而那是另一类问题，不属于网站建设系列文章的范畴。你可以自己通过Google搜索引擎来查找相应的内容进行学习。本文主要做这一系列文章的收尾工作，51blog主要讲述一下其他使">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://img.yueye.org/2008/11/23/01.jpg">
+<meta property="og:image" content="https://img.yueye.org/2008/11/23/02.jpg">
+<meta property="og:image" content="https://img.yueye.org/2008/11/23/03.jpg">
+<meta property="og:image" content="https://img.yueye.org/2008/11/23/04.jpg">
+<meta property="og:image" content="https://img.yueye.org/2008/11/23/05.jpg">
+<meta property="og:image" content="https://img.yueye.org/2008/11/23/06.jpg">
+<meta property="og:image" content="https://img.yueye.org/2008/11/23/07.jpg">
+<meta property="og:image" content="https://img.yueye.org/2008/11/23/08.jpg">
+<meta property="og:image" content="https://img.yueye.org/2008/11/23/09.jpg">
+<meta property="og:image" content="https://img.yueye.org/2008/11/23/10.jpg">
+<meta property="og:image" content="https://img.yueye.org/2008/11/23/11.jpg">
+<meta property="og:image" content="https://img.yueye.org/2008/11/23/12.jpg">
+<meta property="og:updated_time" content="2018-07-27T03:00:21.883Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="网站建设全过程详细讲解(五)">
+<meta name="twitter:description" content="通过前面网站建设全过程详细讲解（一）、网站建设全过程详细讲解（二）、网站建设全过程详细讲解（三）和网站建设全过程详细讲解（四）四篇文章，相信诸位朋友已经学会了架设WordPress博客程序。当然架设完成之后，还有很多事情要做，然而那是另一类问题，不属于网站建设系列文章的范畴。你可以自己通过Google搜索引擎来查找相应的内容进行学习。本文主要做这一系列文章的收尾工作，51blog主要讲述一下其他使">
+<meta name="twitter:image" content="https://img.yueye.org/2008/11/23/01.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://kongsea.github.io/2008/website-construct-process-fifth/"/>
+
+
+
+
+
+  <title>网站建设全过程详细讲解(五) | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2008/website-construct-process-fifth/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">网站建设全过程详细讲解(五)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2008-11-23T13:03:41+08:00">
+                2008-11-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/网站相关/" itemprop="url" rel="index">
+                    <span itemprop="name">网站相关</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>通过前面<a href="https://www.yueye.org/2008/website-construct-process-first.html" target="_blank" rel="noopener">网站建设全过程详细讲解（一）</a>、<a href="https://www.yueye.org/2008/website-construct-process-second.html" target="_blank" rel="noopener">网站建设全过程详细讲解（二）</a>、<a href="https://www.yueye.org/2008/website-construct-process-third.html" target="_blank" rel="noopener">网站建设全过程详细讲解（三）</a>和<a href="https://www.yueye.org/2008/website-construct-process-fourth.html" target="_blank" rel="noopener">网站建设全过程详细讲解（四）</a>四篇文章，相信诸位朋友已经学会了架设WordPress博客程序。当然架设完成之后，还有很多事情要做，然而那是另一类问题，不属于网站建设系列文章的范畴。你可以自己通过Google搜索引擎来查找相应的内容进行学习。本文主要做这一系列文章的收尾工作，<a href="https://www.yueye.org" target="_blank" rel="noopener">51blog</a>主要讲述一下其他使用<a href="https://www.yueye.org/2008/800m-20g-zobyhost-register.html" target="_blank" rel="noopener">ZobyHost</a>免费空间的技巧以及注意事项。</p>
+<h1 id="六、网站建设的其他内容闲谈"><a href="#六、网站建设的其他内容闲谈" class="headerlink" title="六、网站建设的其他内容闲谈"></a>六、网站建设的其他内容闲谈</h1><p>当然，事实上建设一个网站，即使是一个简单的WordPress博客，也绝非前面数文中所讲述的那么简单。除此之外，你还有很多东西要学习。本文不谈这些，只简单讨论一下<a href="https://www.yueye.org/2008/800m-20g-zobyhost-register.html" target="_blank" rel="noopener">ZobyHost</a>空间的其他使用注意事项。当然，因为<a href="https://www.yueye.org/2008/800m-20g-zobyhost-register.html" target="_blank" rel="noopener">ZobyHost</a>免费空间使用的是Vista Panel控制面板，所以，你也可以触类旁通，通过这一系列文章的学习能够达到熟练使用其他的Vista Panel控制面板免费空间，比如：<a href="https://www.yueye.org/2008/800m-20g-byteact-register.html" title="打开 800M空间20G流量国外免费空间Byteact" target="_blank" rel="noopener">800M空间20G流量国外免费空间Byteact</a>等等。</p>
+<h3 id="1-网站程序文件管理"><a href="#1-网站程序文件管理" class="headerlink" title="1.网站程序文件管理"></a>1.网站程序文件管理</h3><blockquote>
+<p>管理文件我们通常有两种方式，一种是通过FTP进行管理，这种方法比较简单快捷，而且FTP客户端又是中文，也方便我们使用；如果没有什么特别要求的话，<a href="https://www.yueye.org" target="_blank" rel="noopener">51blog</a>推荐大家采用这种方法；另一种就是通过空间商提供的网页客户端，虽然不如FTP客户端使用起来快捷，但有时候用起来也十分方便，而且毕竟并不是所有时候都有FTP客户端可用，所以这种方法还是需要了解一下的。 下面我们就来看看<a href="https://www.yueye.org/2008/800m-20g-zobyhost-register.html" target="_blank" rel="noopener">ZobyHost</a>的文件管理器，如下图所示，可以通过菜单找到文件管理器：</p>
+<p><img src="https://img.yueye.org/2008/11/23/01.jpg" alt="" title="网站建设全过程"></p>
+<p>直接选择并点击Site Management菜单下的File manager子菜单，即可打开文件管理器，如下图所示：</p>
+<p><img src="https://img.yueye.org/2008/11/23/02.jpg" alt="" title="51blog"></p>
+<p>在如上图所示的空间商提供的文件管理器中单击文件夹即可打开该文件夹，选中文件夹或者文件前的复选框即可选中相应文件，然后即可对文件进行上传、下载操作，当然也可以对文件进行编辑、修改、重命名、删除以及修改权限能操作。 这里<a href="https://www.yueye.org" target="_blank" rel="noopener">51blog</a>要特别说明的一点是修改文件权限的操作。事实上在安装程序的过程中，很多时候都需要修改相关文件的权限，比如将权限修改为可读写，或者将文件权限修改为777模式（这是Linux下文件可读写的模式）。 使用FTP客户端进行修改比较容易，只需直接选中相应的文件或文件夹，然后右击从弹出的菜单中选择“属性/CHMOD”打开文件属性对话框进行相应修改即可。因为操作比较简单，而且又是中文界面，此处不再赘述。 下面我们来详细说一下使用空间商提供的文件管理器进行相应操作的过程。 首先打开文件管理器，如上图所示，选中（选中其前的复选框）需要修改权限的文件夹或者文件，如下图所示：</p>
+<p><img src="https://img.yueye.org/2008/11/23/03.jpg" alt="" title="网站建设全过程"></p>
+<p>然后点击图中的Chmod按钮，如下图所示：</p>
+<p><img src="https://img.yueye.org/2008/11/23/04.jpg" alt="" title="网站建设全过程"></p>
+<p>点击之后，文件管理器跳转到新的页面，如下图：</p>
+<p><img src="https://img.yueye.org/2008/11/23/05.jpg" alt="" title="网站建设全过程"></p>
+<p>在如上图所示的页面中，即可修改文件或者文件夹的权限模式，对文件夹来说还能选择最下面的两个选项来同时修改文件夹下的子文件夹以及子文件的权限。选择并设置好相应选项以后，点击上图中绿色的勾号，稍等片刻，即可完成文件模式的修改。</p>
+</blockquote>
+<h3 id="2-数据库操作与管理"><a href="#2-数据库操作与管理" class="headerlink" title="2.数据库操作与管理"></a>2.数据库操作与管理</h3><blockquote>
+<p>数据库是一个网站的基础，所以，数据库的重要性不言而喻。前文中我们已经讲述过如何创建数据库，也讲述过怎么在创建数据库的页面上找到管理数据库的入口，如下图所示：</p>
+<p><img src="https://img.yueye.org/2008/11/23/06.jpg" alt="" title="网站建设全过程"></p>
+<p>点击如上图所示的各个按钮可以新建或删除数据库；而点击其中的Backup按钮则可以备份数据库，点击Admin按钮则可以进入到phpMyAdmin中管理数据库。 在这里，我们将说明一下通过另外一种方式进入到phpMyAdmin，如下图所示：</p>
+<p><img src="https://img.yueye.org/2008/11/23/07.jpg" alt="" title="51blog"></p>
+<p>我们点击Databases菜单下的phpMyAdmin子菜单，即可进入到phpMyAdmin页面，如下图：</p>
+<p><img src="https://img.yueye.org/2008/11/23/08.jpg" alt="" title="网站建设全过程"></p>
+<p>在如上图所示的页面中我们可以看到数据库的名称，点击数据库右侧的超链接即可打开phpMyAdmin页面，进入到手动操作数据库页面。当然，有关phpMyAdmin的对数据库的管理和操作又是一门知识，此处我们也不在赘述。如果您需要学习这方面的知识，建议使用Google搜索相应的教程。</p>
+</blockquote>
+<h3 id="3-网站数据备份"><a href="#3-网站数据备份" class="headerlink" title="3.网站数据备份"></a>3.网站数据备份</h3><blockquote>
+<p>网站数据一共包括两个部分，一是站点的程序；另一部分就是数据库。所以我们的备份过程要分为两个部分。 第一部分是备份程序，直接用前文所述的方法，使用FTP软件登录站点空间，将站点数据下载到本地即可。而且因为站点的程序通常没有太大变化，所以不需要经常备份。只是当自己修改了部分程序之后，将修改的文件备份下来就可以了。比如模板、插件等等。 第二部分是MySQL数据库，这个是网站的核心，而且经常更新，比如发表了文章，新增了评论等等。所以这部分内容需要经常更新，最起码要每天备份一次。 数据库的备份可以使用我们前面所述的通过phpMyAdmin备份的方法，当然也十分方便和简单。但在这里，51blog还是推荐您使用数据库备份插件<a href="http://www.ilfilosofo.com/blog/wp-db-backup/" target="_blank" rel="noopener">WP-DB-Backup</a>。使用该插件，可以定时将自己的数据库文件以邮件附件方式发送到自己的邮箱，十分安全方便。具体操作可自己搜索，当然，如果您在文章后面留言说明问题的话，我也很乐意帮您。</p>
+</blockquote>
+<h3 id="4-添加域名和子域名"><a href="#4-添加域名和子域名" class="headerlink" title="4.添加域名和子域名"></a>4.添加域名和子域名</h3><blockquote>
+<p>事实上我们在前文已经说过这些了，在这里就再说明一下。 首先，如下图所示：</p>
+<p><img src="https://img.yueye.org/2008/11/23/09.jpg" alt="" title="网站建设全过程"></p>
+<p>点击Domains菜单下的Sub domains子菜单，进入到添加子域名页面，如下图所示：</p>
+<p><img src="https://img.yueye.org/2008/11/23/10.jpg" alt="" title="网站建设全过程"></p>
+<p>从如上图所示的页面右侧的下拉列表中选择域名的后缀，然后在左侧输入域名，点击Create Domain按钮，即可添加相应的子域名。 特别提醒：最近应该有不少中国人申请了<a href="https://www.yueye.org/2008/800m-20g-zobyhost-register.html" target="_blank" rel="noopener">ZobyHost</a>空间，也可能有非法内容，所以导致<a href="https://www.yueye.org/2008/800m-20g-zobyhost-register.html" target="_blank" rel="noopener">ZobyHost</a>的部分服务器被G <em> F </em> W封掉而不能正常访问。但还有一部分<a href="https://www.yueye.org/2008/800m-20g-zobyhost-register.html" target="_blank" rel="noopener">ZobyHost</a>服务器是正常的，所以我们可以通过这种方法多申请几个子域名（最多10个），逐一试验是否被封掉。而且还可以将已经被封掉的域名删除，重新申请，最终达到可以正常使用的目的。 比如我申请的forum.totalh.com被封掉了，但重新申请的forum.zobyhost.com却可以正常访问。</p>
+</blockquote>
+<h3 id="5-设置域名的MX和CNAME记录"><a href="#5-设置域名的MX和CNAME记录" class="headerlink" title="5.设置域名的MX和CNAME记录"></a>5.设置域名的MX和CNAME记录</h3><blockquote>
+<p><a href="https://www.yueye.org/2008/800m-20g-zobyhost-register.html" target="_blank" rel="noopener">ZobyHost</a>空间提供了设置域名的MX和CNAME记录，但我们只能设置添加到Addon domains里面的域名的MX和CNAME记录。我们可以通过如下图所示的菜单项进入到MX和CNAME记录设置页面：</p>
+<p><img src="https://img.yueye.org/2008/11/23/11.jpg" alt="" title="网站建设全过程"></p>
+<p>具体的MX和CNAME记录都代表着什么？此处也不再赘述，如果您感兴趣的话，可以搜索相应的内容来详细了解。</p>
+</blockquote>
+<h3 id="6-修改账户信息和密码"><a href="#6-修改账户信息和密码" class="headerlink" title="6.修改账户信息和密码"></a>6.修改账户信息和密码</h3><blockquote>
+<p>事实上这些都是很简单的内容，但对于<a href="https://www.yueye.org/2008/800m-20g-zobyhost-register.html" target="_blank" rel="noopener">ZobyHost</a>空间却有着特殊的意义，所以此处<a href="https://www.yueye.org" target="_blank" rel="noopener">51blog</a>就来特别说明一下。首先，如下图：</p>
+<p><img src="https://img.yueye.org/2008/11/23/12.jpg" alt="" title="51blog"></p>
+<p>我们点击上图中的Change password菜单项来修改密码；点击Update contact info菜单项来更新我们注册时使用的邮箱。 为什么我们需要更新这个邮箱呢？您应该还记得前面我们讲述申请co.cc域名时所说过的话，一个邮箱账户只能注册2个域名，所以此处更新邮箱后，就可以使用<a href="https://www.yueye.org/2008/800m-20g-zobyhost-register.html" target="_blank" rel="noopener">ZobyHost</a>空间控制面板中的Addon domains页面来申请新的co.cc域名了。</p>
+</blockquote>
+<p>好了，关于网站建设的系列文章<a href="https://www.yueye.org/2008/website-construct-process-first.html" target="_blank" rel="noopener">网站建设全过程讲解</a>我们就讲到这里，在接下来的文章中我会给大家讲述如何申请使用另一个比较普遍的控制面板——cPanel控制面板的空间，并建设相应的网站。更多精彩内容，也请您随时关注<a href="https://www.yueye.org/" target="_blank" rel="noopener">51blog</a>。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/网站建设/" rel="tag"># 网站建设</a>
+          
+            <a href="/tags/经验分享/" rel="tag"># 经验分享</a>
+          
+            <a href="/tags/网络相关/" rel="tag"># 网络相关</a>
+          
+            <a href="/tags/网站/" rel="tag"># 网站</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2008/change-new-template/" rel="next" title="换了一个新主题模板">
+                <i class="fa fa-chevron-left"></i> 换了一个新主题模板
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2008/register-domain-anydz-com/" rel="prev" title="注册了一个com域名anyDZ.com">
+                注册了一个com域名anyDZ.com <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">433</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">108</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#六、网站建设的其他内容闲谈"><span class="nav-number">1.</span> <span class="nav-text">六、网站建设的其他内容闲谈</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-网站程序文件管理"><span class="nav-number">1.0.1.</span> <span class="nav-text">1.网站程序文件管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-数据库操作与管理"><span class="nav-number">1.0.2.</span> <span class="nav-text">2.数据库操作与管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-网站数据备份"><span class="nav-number">1.0.3.</span> <span class="nav-text">3.网站数据备份</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-添加域名和子域名"><span class="nav-number">1.0.4.</span> <span class="nav-text">4.添加域名和子域名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-设置域名的MX和CNAME记录"><span class="nav-number">1.0.5.</span> <span class="nav-text">5.设置域名的MX和CNAME记录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-修改账户信息和密码"><span class="nav-number">1.0.6.</span> <span class="nav-text">6.修改账户信息和密码</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

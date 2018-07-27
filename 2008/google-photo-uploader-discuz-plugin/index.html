@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="网站建设,Google,经验分享,网络相关,Discuz!,论坛," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="在前面的文章网站建设全过程（使用cPanel X）详细讲解（四）中，51Blog为您详细介绍了如何安装目前网络上最流行的论坛之一——Discuz! 论坛。当然，安装完成之后我们还有许多工作要做，比如进行论坛的各种设置，优化论坛，建设版块，扩充论坛内容等等。不过这些事情都不是一朝一夕所能完成，而且因为Discuz论坛的设置和建设都相当容易，你可以通过长期的努力和摸索慢慢完成，所以51Blog在此也不">
+<meta name="keywords" content="网站建设,Google,经验分享,网络相关,Discuz!,论坛">
+<meta property="og:type" content="article">
+<meta property="og:title" content="谷歌贴图：Discuz论坛可以考虑的一个插件">
+<meta property="og:url" content="https://kongsea.github.io/2008/google-photo-uploader-discuz-plugin/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="在前面的文章网站建设全过程（使用cPanel X）详细讲解（四）中，51Blog为您详细介绍了如何安装目前网络上最流行的论坛之一——Discuz! 论坛。当然，安装完成之后我们还有许多工作要做，比如进行论坛的各种设置，优化论坛，建设版块，扩充论坛内容等等。不过这些事情都不是一朝一夕所能完成，而且因为Discuz论坛的设置和建设都相当容易，你可以通过长期的努力和摸索慢慢完成，所以51Blog在此也不">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://img.yueye.org/2008/12/10/01.jpg">
+<meta property="og:image" content="https://img.yueye.org/2008/12/10/02.jpg">
+<meta property="og:image" content="https://img.yueye.org/2008/12/10/03.jpg">
+<meta property="og:image" content="https://img.yueye.org/2008/12/10/04.jpg">
+<meta property="og:updated_time" content="2018-07-27T03:00:21.883Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="谷歌贴图：Discuz论坛可以考虑的一个插件">
+<meta name="twitter:description" content="在前面的文章网站建设全过程（使用cPanel X）详细讲解（四）中，51Blog为您详细介绍了如何安装目前网络上最流行的论坛之一——Discuz! 论坛。当然，安装完成之后我们还有许多工作要做，比如进行论坛的各种设置，优化论坛，建设版块，扩充论坛内容等等。不过这些事情都不是一朝一夕所能完成，而且因为Discuz论坛的设置和建设都相当容易，你可以通过长期的努力和摸索慢慢完成，所以51Blog在此也不">
+<meta name="twitter:image" content="https://img.yueye.org/2008/12/10/01.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://kongsea.github.io/2008/google-photo-uploader-discuz-plugin/"/>
+
+
+
+
+
+  <title>谷歌贴图：Discuz论坛可以考虑的一个插件 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2008/google-photo-uploader-discuz-plugin/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">谷歌贴图：Discuz论坛可以考虑的一个插件</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2008-12-10T19:19:32+08:00">
+                2008-12-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/网站相关/" itemprop="url" rel="index">
+                    <span itemprop="name">网站相关</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在前面的文章<a href="https://www.yueye.org/2008/site-construct-cpanel-fourth.html" target="_blank" rel="noopener">网站建设全过程（使用cPanel X）详细讲解（四）</a>中，<a href="https://www.yueye.org" target="_blank" rel="noopener">51Blog</a>为您详细介绍了如何安装目前网络上最流行的论坛之一——Discuz! 论坛。当然，安装完成之后我们还有许多工作要做，比如进行论坛的各种设置，优化论坛，建设版块，扩充论坛内容等等。不过这些事情都不是一朝一夕所能完成，而且因为Discuz论坛的设置和建设都相当容易，你可以通过长期的努力和摸索慢慢完成，所以<a href="https://www.yueye.org" target="_blank" rel="noopener">51Blog</a>在此也不再赘言。 然而，在这里，<a href="https://www.yueye.org" target="_blank" rel="noopener">51Blog</a>还是要为朋友们推荐一个Discuz! 论坛的很不错的插件——谷歌贴图（Photo-Uploader）。该插件是Google中文在今年十月份刚刚推出的，主要是将Discuz! 论坛和Google Picasa结合使用，能够使我们在论坛上进行贴图时使用Google Picasa相册中的图片，或者将图片上传到Picasa相册中，从而节省我们的网站数据库空间。<a href="https://www.yueye.org" target="_blank" rel="noopener">51Blog</a>经过一段时间的试用，感觉的确十分方便，所以现在将其推荐给大家。</p>
+<h1 id="一、下载谷歌贴图"><a href="#一、下载谷歌贴图" class="headerlink" title="一、下载谷歌贴图"></a>一、下载谷歌贴图</h1><blockquote>
+<p><a href="http://code.google.com/p/photo-uploader/" target="_blank" rel="noopener">点此进入</a>谷歌贴图的<a href="http://code.google.com/p/photo-uploader/" target="_blank" rel="noopener">官方主页</a>，在官方主页上你可以看到关于谷歌贴图的简单介绍，在官方主页的右侧你可以看到谷歌贴图的下载链接，点击链接或者直接<a href="http://photo-uploader.googlecode.com/files/PhotoUploader_v1.0.zip" target="_blank" rel="noopener">点此下载</a>谷歌贴图。</p>
+</blockquote>
+<h1 id="二、解压上传谷歌贴图"><a href="#二、解压上传谷歌贴图" class="headerlink" title="二、解压上传谷歌贴图"></a>二、解压上传谷歌贴图</h1><blockquote>
+<p>下载完成之后，解压，然后将解压后文件夹中plugins文件夹下的photouploader文件夹取出，以便我们下面使用。 然后我们需要将文件夹中的photouploader.php进行一下修改，使用写字板或其他PHP编辑器（注意：不可用记事本）打开文件，将文件的第三行和第四行之间加上一个空行，然后保存即可。 修改完毕之后，将整个文件夹上传到Discuz! 论坛安装目录下的plugins文件夹中。</p>
+</blockquote>
+<h1 id="三、设置启用谷歌贴图"><a href="#三、设置启用谷歌贴图" class="headerlink" title="三、设置启用谷歌贴图"></a>三、设置启用谷歌贴图</h1><blockquote>
+<p>上传完成之后，我们找到Discuz! 安装目录下的templates\default\文件夹，然后在该文件夹中找到post_editor.htm文件，打开该文件，在第227行找到：</p>
+<!--{if $allowpostattach}-->
+<p>然后在其前的226行插入：</p>
+<p>&lt;?php include ‘./plugins/photouploader/photouploader.php’ ?&gt;</p>
+<p>接着保存该文件，我们就设置好了谷歌贴图插件。 此时，进入论坛的发贴页面，即可在适当位置看到“谷歌贴图”按钮，如下图所示：</p>
+<p><img src="https://img.yueye.org/2008/12/10/01.jpg" alt="" title="谷歌贴图"></p>
+<p>谷歌贴图插件安装成功。 特别提示：如果您的谷歌贴图插件安装完成之后，在如上图所示的按钮前面有形如“诺？”字样的字符，那么你可以打开photouploader.php文件，将其中第一行开头“&lt;?”前的字符删除，然后保存修改；或者还有可能是您的Discuz! 论坛的编码是GBK版本，此时，您需要将photouploader.php文件打开，然后将其编码格式修改为ansi并保存即可。</p>
+</blockquote>
+<h1 id="四、使用谷歌贴图"><a href="#四、使用谷歌贴图" class="headerlink" title="四、使用谷歌贴图"></a>四、使用谷歌贴图</h1><blockquote>
+<p>安装完成谷歌贴图之后，<a href="https://www.yueye.org" target="_blank" rel="noopener">51Blog</a>再来为您简单介绍一下如何使用谷歌贴图。 点击如上图中的谷歌贴图按钮，系统将弹出谷歌贴图对话框，如下图所示：</p>
+<p><img src="https://img.yueye.org/2008/12/10/02.jpg" alt="" title="谷歌贴图"></p>
+<p>我们通常可以直接选用如上图中的“Picasa网络相册”标签，然后在对话框中输入我们的Picasa帐号用户名，接着点击“查看相册”按钮，系统将跳转到我们的Picasa网络相册，如下图所示：</p>
+<p><img src="https://img.yueye.org/2008/12/10/03.jpg" alt="" title="谷歌贴图"></p>
+<p>我们点击相应的相册进入到我们的Picasa相册中，如下图：</p>
+<p><img src="https://img.yueye.org/2008/12/10/04.jpg" alt="" title="谷歌贴图"></p>
+<p>在如上图所示的Picasa相册中点选相应的图片或照片。选择完成之后，直接点击对话框右下角的“插入”按钮，系统将弹出如上图所示的提示框。我们可以点击退出，或者点击继续，选择好图片之后，点击退出，回到帖子页面，即可看到插入的图片（当然，如果你没有使用所见即所得模式，则显示了一些代码）。直接发表帖子，即可看到使用谷歌贴图成功发布帖子的效果。 当然，你也可以在谷歌贴图的对话框中选择“上传图片”标签来直接上传本地图片到Picasa相册中进行使用，但<a href="https://www.yueye.org" target="_blank" rel="noopener">51Blog</a>推荐您首先上传完成之后直接使用Picasa网络相册标签。 从上面我们简单的介绍可以看出，谷歌贴图的使用十分方便和简单，<a href="https://www.yueye.org" target="_blank" rel="noopener">51Blog</a>在此不必多言。然而，<a href="https://www.yueye.org" target="_blank" rel="noopener">51Blog</a>觉得，谷歌贴图对照片的保护不够严密，我们可以使用任何公开的Picasa网络相册中的图片。当然，既然照片的所有者已经选择了向所有人公开照片，我们拿来使用并无不妥。</p>
+</blockquote>
+<p>还有一点需要说明的是，Google中国在推出谷歌贴图的同时，也推出了一款名为<a href="http://code.google.com/p/photo-viewer/" target="_blank" rel="noopener">谷歌看图</a>（photo-viewer）的Discuz! 插件，然而经<a href="https://www.yueye.org" target="_blank" rel="noopener">51Blog</a>试用发现，其并无太大作用，所以此处我们对其不予介绍。如果您对其比较感兴趣，可以<a href="http://code.google.com/p/photo-viewer/" target="_blank" rel="noopener">点此访问</a>谷歌看图的主页了解相关信息。 最后再说一下<a href="https://www.yueye.org" target="_blank" rel="noopener">51Blog</a>对谷歌贴图的一些期待：如上所述，我们可以发现使用谷歌贴图发布图片的方便性，所以<a href="https://www.yueye.org" target="_blank" rel="noopener">51Blog</a>真心期待谷歌贴图能够加快开发速度，早日开发出适用于除Discuz! 论坛之外的其他脚本程序的谷歌贴图，比如适用于WordPress的版本，如此，则为我们这些WordPress使用者的一大福音。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/网站建设/" rel="tag"># 网站建设</a>
+          
+            <a href="/tags/Google/" rel="tag"># Google</a>
+          
+            <a href="/tags/经验分享/" rel="tag"># 经验分享</a>
+          
+            <a href="/tags/网络相关/" rel="tag"># 网络相关</a>
+          
+            <a href="/tags/Discuz/" rel="tag"># Discuz!</a>
+          
+            <a href="/tags/论坛/" rel="tag"># 论坛</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2008/site-construct-cpanel-fourth/" rel="next" title="网站建设全过程（使用cPanel X）详细讲解（四）">
+                <i class="fa fa-chevron-left"></i> 网站建设全过程（使用cPanel X）详细讲解（四）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2008/google-account-theme-change/" rel="prev" title="Google账户页面改版">
+                Google账户页面改版 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">433</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">108</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、下载谷歌贴图"><span class="nav-number">1.</span> <span class="nav-text">一、下载谷歌贴图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、解压上传谷歌贴图"><span class="nav-number">2.</span> <span class="nav-text">二、解压上传谷歌贴图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、设置启用谷歌贴图"><span class="nav-number">3.</span> <span class="nav-text">三、设置启用谷歌贴图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、使用谷歌贴图"><span class="nav-number">4.</span> <span class="nav-text">四、使用谷歌贴图</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

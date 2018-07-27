@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="WordPress,主题,函数," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="在前面的文章用好WordPress不可不知的函数（一）和用好WordPress不可不知的函数（二）中，月夜为你介绍了用好WordPress不可不知的前近20个函数，那些函数主要包括获取博客信息的函数，获取博客内容的函数以及一些用于判断是否能满足相应条件的条件函数，等等。今天，月夜继续为你介绍WordPress的重要函数。本文中将要介绍的函数除get_bloginfo()外，几乎全部都是将用在Wor">
+<meta name="keywords" content="WordPress,主题,函数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用好WordPress不可不知的函数（三）">
+<meta property="og:url" content="https://kongsea.github.io/2009/functions-must-known-using-wordpress-third/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="在前面的文章用好WordPress不可不知的函数（一）和用好WordPress不可不知的函数（二）中，月夜为你介绍了用好WordPress不可不知的前近20个函数，那些函数主要包括获取博客信息的函数，获取博客内容的函数以及一些用于判断是否能满足相应条件的条件函数，等等。今天，月夜继续为你介绍WordPress的重要函数。本文中将要介绍的函数除get_bloginfo()外，几乎全部都是将用在Wor">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12400229401562686815/A/1/m.jpg">
+<meta property="og:updated_time" content="2018-07-27T03:00:21.883Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="用好WordPress不可不知的函数（三）">
+<meta name="twitter:description" content="在前面的文章用好WordPress不可不知的函数（一）和用好WordPress不可不知的函数（二）中，月夜为你介绍了用好WordPress不可不知的前近20个函数，那些函数主要包括获取博客信息的函数，获取博客内容的函数以及一些用于判断是否能满足相应条件的条件函数，等等。今天，月夜继续为你介绍WordPress的重要函数。本文中将要介绍的函数除get_bloginfo()外，几乎全部都是将用在Wor">
+<meta name="twitter:image" content="http://laiba.tianya.cn/laiba/images/615721/12400229401562686815/A/1/m.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://kongsea.github.io/2009/functions-must-known-using-wordpress-third/"/>
+
+
+
+
+
+  <title>用好WordPress不可不知的函数（三） | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2009/functions-must-known-using-wordpress-third/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">用好WordPress不可不知的函数（三）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2009-04-18T11:03:41+08:00">
+                2009-04-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/网站相关/" itemprop="url" rel="index">
+                    <span itemprop="name">网站相关</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在前面的文章<a href="https://www.yueye.org/2009/functions-must-known-using-wordpress-first.html" target="_blank" rel="noopener">用好WordPress不可不知的函数（一）</a>和<a href="https://www.yueye.org/2009/functions-must-known-using-wordpress-second.html" target="_blank" rel="noopener">用好WordPress不可不知的函数（二）</a>中，月夜为你介绍了用好WordPress不可不知的前近20个函数，那些函数主要包括获取博客信息的函数，获取博客内容的函数以及一些用于判断是否能满足相应条件的条件函数，等等。今天，月夜继续为你介绍WordPress的重要函数。本文中将要介绍的函数除get_bloginfo()外，几乎全部都是将用在WordPress主题的侧边栏上的一些函数，比如get_posts()等等。 20.get_bloginfo()</p>
+<blockquote>
+<p>该函数和我们前面的文章<a href="https://www.yueye.org/2009/functions-must-known-using-wordpress-first.html" target="_blank" rel="noopener">用好WordPress不可不知的函数（一）</a>中介绍的bloginfo()函数实现近乎相同的功能。主要用来显示博客的信息；而且根据后跟参数的不同，会输出博客的不同信息。 其后不跟参数时，get_bloginfo()可以显示博客名称，形如“月夜”； 后跟其他参数时，可以显示对应的信息，比如get_bloginfo ( ‘description’ )用以显示博客描述信息； 其他还可以使用的参数包括name、url、wpurl以及admin_email等等。但因为其与bloginfo()函数实现相同的结果，所以，在bloginfo能够实现的情况下，月夜不推荐使用get_bloginfo()函数。</p>
+</blockquote>
+<p>21.query_posts()</p>
+<blockquote>
+<p>query_posts()函数结合适当的参数用来控制哪些文章会在页面上显示。 形如query_posts(“cat=3,6&amp;cat=-5,-10”)表示取分类ID为3和6的文章显示，不取分类ID为5和10的文章显示； 形如query_posts(“order=ASC&amp;showposts=10&amp;offset=1&amp;orderby=date&amp;posts_per_page=5”)意义如下： order=ASC表示按照升序排列，取为DESC则表示按降序； showposts=10则表示获取10篇文章； offset=1表示取最新的文章； orderby=date表示将文章按照日期排序； posts_per_page=5表示每页显示5篇文章。 需要注意的是该函数只是将文章内容从MySQL数据库中查询出来，要将其显示，还需要与其他语句配合，比如一个经常在侧边栏中使用的形式如下：</p>
+<p><li><h2>最近文章</h2> &lt;?php query_posts(‘showposts=5&amp;offset=1’); ?&gt; <ul> &lt;?php while (have_posts()) : the_post(); ?&gt; <li><a href="<?php the\_permalink(); ?>" title="<?php the\_title(); ?>">&lt;?php the_title(); ?&gt;</a></li> &lt;?php endwhile;?&gt; </ul> </li> 如上的这段代码用以在侧边栏的指定位置上显示最新的5篇文章。 query_posts()函数后面可以跟众多种类的参数，功能十分强大，在此，我们不进行过多介绍。如果时间和精力允许，月夜会在以后的文章中专门撰文详细地为朋友们做一介绍。</p>
+</blockquote>
+<p>22.get_posts()</p>
+<blockquote>
+<p>该函数和query_posts()函数功能大体相同，都是用来从数据库中查询并得到符合某条件的文章。不过get_posts()函数的使用有一个固定的形式，如下：</p>
+<p>&lt;?php $lastposts = get_posts(‘numberposts=5’); foreach($lastposts as $post) : setup_postdata($post); ?&gt; </p><h2><a href="<?php the\_permalink(); ?>" id="post-<?php the\_ID(); ?>">&lt;?php the_title(); ?&gt;</a></h2> &lt;?php the_content(); ?&gt; &lt;?php endforeach; ?&gt; 即首先使用get_posts()函数查询得到文章数据，然后使用形如foreach($lastposts as $post) : setup_postdata($post);的循环将查询得到的文章内容显示出来。 get_posts()函数使用和query_posts()函数相同的参数，在此我们也不再作详细介绍。<p></p>
+</blockquote>
+<p>23.wp_list_cats()</p>
+<blockquote>
+<p>该函数和前文<a href="https://www.yueye.org/2009/functions-must-known-using-wordpress-first.html" target="_blank" rel="noopener">用好WordPress不可不知的函数（一）</a>中wp_list_categories()函数实现相同的功能，不过在最新的WordPress版本中，此函数已经被弃用，其功能为wp_list_categories()函数完全取代。</p>
+</blockquote>
+<p>24.get_calendar()</p>
+<blockquote>
+<p>get_calendar()函数用以在WordPress上显示日历，日历样式和使用widget显示的效果相同，如下图所示：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12400229401562686815/A/1/m.jpg" alt="" title="WordPress日历样式"></p>
+<p>其后可以跟一个BOOL参数，用以控制日历上方星期的显示样式。但经月夜测试，在中文状态下，使用TRUE或FALSE参数，日历的显示效果并没有什么区别。</p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/WordPress/" rel="tag"># WordPress</a>
+          
+            <a href="/tags/主题/" rel="tag"># 主题</a>
+          
+            <a href="/tags/函数/" rel="tag"># 函数</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2009/faq-of-wordpress-new-users-third/" rel="next" title="WordPress新手问答（三）">
+                <i class="fa fa-chevron-left"></i> WordPress新手问答（三）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2009/a-new-trend-of-music-searching/" rel="prev" title="模糊搜索——音乐搜索市场的新动向">
+                模糊搜索——音乐搜索市场的新动向 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">433</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">108</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">最近文章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">&lt;?php the_title(); ?&gt;</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="WordPress,主题,插件," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="这两天有点空闲，就抽空对 月夜 使用的主题进行了一些小的改动，又顺便往月夜博客上增加了些东西。其实很久以前就想着进行这些改动，但一方面因为没有时间，另一方面月夜个人比较懒，就一拖再拖的拖到了现在。 改动主要包括这样几个方面，一是修改了月夜的留言板“月夜私语”，使其能够留言；二是修改了主题中的page模板，使其默认不能评论；三是安装了DDSitemapGen插件，并使用该插件建立了“纵览月夜”页面。">
+<meta name="keywords" content="WordPress,主题,插件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="月夜博客进行一些完善">
+<meta property="og:url" content="https://kongsea.github.io/2009/make-some-improvements-for-yueye/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="这两天有点空闲，就抽空对 月夜 使用的主题进行了一些小的改动，又顺便往月夜博客上增加了些东西。其实很久以前就想着进行这些改动，但一方面因为没有时间，另一方面月夜个人比较懒，就一拖再拖的拖到了现在。 改动主要包括这样几个方面，一是修改了月夜的留言板“月夜私语”，使其能够留言；二是修改了主题中的page模板，使其默认不能评论；三是安装了DDSitemapGen插件，并使用该插件建立了“纵览月夜”页面。">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-27T03:00:21.883Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="月夜博客进行一些完善">
+<meta name="twitter:description" content="这两天有点空闲，就抽空对 月夜 使用的主题进行了一些小的改动，又顺便往月夜博客上增加了些东西。其实很久以前就想着进行这些改动，但一方面因为没有时间，另一方面月夜个人比较懒，就一拖再拖的拖到了现在。 改动主要包括这样几个方面，一是修改了月夜的留言板“月夜私语”，使其能够留言；二是修改了主题中的page模板，使其默认不能评论；三是安装了DDSitemapGen插件，并使用该插件建立了“纵览月夜”页面。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://kongsea.github.io/2009/make-some-improvements-for-yueye/"/>
+
+
+
+
+
+  <title>月夜博客进行一些完善 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2009/make-some-improvements-for-yueye/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">月夜博客进行一些完善</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2009-03-22T11:22:19+08:00">
+                2009-03-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/网站相关/" itemprop="url" rel="index">
+                    <span itemprop="name">网站相关</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>这两天有点空闲，就抽空对 <a href="https://www.yueye.org" target="_blank" rel="noopener">月夜</a> 使用的主题进行了一些小的改动，又顺便往月夜博客上增加了些东西。其实很久以前就想着进行这些改动，但一方面因为没有时间，另一方面月夜个人比较懒，就一拖再拖的拖到了现在。 改动主要包括这样几个方面，一是修改了月夜的留言板“月夜私语”，使其能够留言；二是修改了主题中的page模板，使其默认不能评论；三是安装了DDSitemapGen插件，并使用该插件建立了“纵览月夜”页面。 1.修改留言板“<a href="https://www.yueye.org/guestbook" target="_blank" rel="noopener">月夜私语</a>”</p>
+<blockquote>
+<p>月夜私语页面一直是作为月夜的留言板使用的。MySQL数据库中的信息显示，1月5日，该页面就已经上线了，但因为种种原因，上线后的月夜私语只是一个摆设，名为留言板，甚至都不能留言。其实还是模板的问题，月夜私语页面建立时，使用的是Guestbook模板，但可能是因为我不成功的修改，导致Guestbook不能留言。 昨天就拿来single.php直接修改，主要的内容全部去除，只留下了&lt;?php get_header(); ?&gt;、&lt;?php the_content(‘’); ?&gt;和&lt;?php comments_template(‘/guestcomments.php’); ?&gt;等三部分核心内容。甚至，为了让其更符合页面的风格，将single中用来显示发布日期以及文章分类的代码也统统去掉了。接着，又把comments.php复制到guestcomments.php中，简单修改一下，将评论改成了“留言”，这样，就做成了现在的留言板效果。</p>
+</blockquote>
+<p>2.修改page页面</p>
+<blockquote>
+<p>月夜的page页面主要包括<a href="https://www.yueye.org/about" target="_blank" rel="noopener">关于月夜</a>、<a href="https://www.yueye.org/post" target="_blank" rel="noopener">评论投递</a>以及<a href="https://www.yueye.org/sitemap" target="_blank" rel="noopener">纵览月夜</a>等几个页面，显然，这些页面不应该允许评论。月夜就一鼓作气的将它们也做了修改。其实修改十分简单，无非就是把page.php中的&lt;?php comments_template(); ?&gt;去除，并适当的再稍作一些修改，比如和1中相同，去掉页面的发布日期，去掉页面的类别等等。</p>
+</blockquote>
+<p>3.添加“<a href="https://www.yueye.org/sitemap" target="_blank" rel="noopener">纵览月夜</a>”页面</p>
+<blockquote>
+<p>开始时月夜觉得添加这样的页面似乎没有必要，但目前，随着文章的增多，添加这样的一个页面就显得十分必要了。 其实这样的一个页面只是Sitemap的另一种形式罢了。首先找到了这款插件——DDSitemapGen插件。安装设置好参数以后，新建了一个页面，转到HTML模式下编辑，添加这样的一行代码： <code>&lt;!-- ddsitemapgen --&gt;</code> 保存之后，纵览月夜页面就做好了。如此，我们就能够为访客提供一个机会，最大程度上方面他们了解我们的博客内容，从而选择阅读自己感兴趣的文章。</p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/WordPress/" rel="tag"># WordPress</a>
+          
+            <a href="/tags/主题/" rel="tag"># 主题</a>
+          
+            <a href="/tags/插件/" rel="tag"># 插件</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2009/phpmyadmin-to-solve-database-of-wordpress/" rel="next" title="善用phpMyAdmin，完美解决WordPress数据库问题">
+                <i class="fa fa-chevron-left"></i> 善用phpMyAdmin，完美解决WordPress数据库问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2009/some-sql-sentences-in-using-wordpress/" rel="prev" title="用好WordPress不可不知的几条SQL语句">
+                用好WordPress不可不知的几条SQL语句 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">433</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">108</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

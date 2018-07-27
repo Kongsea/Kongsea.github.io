@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="网络相关,升级,IPV6," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="2008年圣诞节那天，所里正式开通了IPv6。因为使用IPV4一直限制流量，每天都不能自由下载东西；而IPv6目前还没有流量限制，速度又很快，当时，月夜就在第一时间安装了IPv6。 到今天，月夜升级到IPv6已经有三个多月了，体验时间不算太短，其中也积累了不少经验。为了满足朋友们了解IPv6的好奇心，并向更多的朋友们介绍IPv6的资源以及使用经验，今天，月夜来为朋友们简单介绍一下自己在IPv6环境">
+<meta name="keywords" content="网络相关,升级,IPV6">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IPv6新鲜体验">
+<meta property="og:url" content="https://kongsea.github.io/2009/yueye-experiences-ipv6/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="2008年圣诞节那天，所里正式开通了IPv6。因为使用IPV4一直限制流量，每天都不能自由下载东西；而IPv6目前还没有流量限制，速度又很快，当时，月夜就在第一时间安装了IPv6。 到今天，月夜升级到IPv6已经有三个多月了，体验时间不算太短，其中也积累了不少经验。为了满足朋友们了解IPv6的好奇心，并向更多的朋友们介绍IPv6的资源以及使用经验，今天，月夜来为朋友们简单介绍一下自己在IPv6环境">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12389161551556519014/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12389161561325204019/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12389161550256619997/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12389161570523577754/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12389188430695531898/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12389192780775121960/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12389171650137524543/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12389171621143852459/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12389171641566716198/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12389171661630992000/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12389171650343891518/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12389220680297589187/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12389220690297589188/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12389161580522426199/A/1/m.jpg">
+<meta property="og:updated_time" content="2018-07-27T03:00:21.883Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="IPv6新鲜体验">
+<meta name="twitter:description" content="2008年圣诞节那天，所里正式开通了IPv6。因为使用IPV4一直限制流量，每天都不能自由下载东西；而IPv6目前还没有流量限制，速度又很快，当时，月夜就在第一时间安装了IPv6。 到今天，月夜升级到IPv6已经有三个多月了，体验时间不算太短，其中也积累了不少经验。为了满足朋友们了解IPv6的好奇心，并向更多的朋友们介绍IPv6的资源以及使用经验，今天，月夜来为朋友们简单介绍一下自己在IPv6环境">
+<meta name="twitter:image" content="http://laiba.tianya.cn/laiba/images/615721/12389161551556519014/A/1/m.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://kongsea.github.io/2009/yueye-experiences-ipv6/"/>
+
+
+
+
+
+  <title>IPv6新鲜体验 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2009/yueye-experiences-ipv6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">IPv6新鲜体验</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2009-04-05T18:45:41+08:00">
+                2009-04-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/时讯品评/" itemprop="url" rel="index">
+                    <span itemprop="name">时讯品评</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>2008年圣诞节那天，所里正式开通了IPv6。因为使用IPV4一直限制流量，每天都不能自由下载东西；而IPv6目前还没有流量限制，速度又很快，当时，<a href="https://www.yueye.org/2008/net-update-to-ipv6.html" target="_blank" rel="noopener">月夜就在第一时间安装了IPv6</a>。 到今天，月夜升级到IPv6已经有三个多月了，体验时间不算太短，其中也积累了不少经验。为了满足朋友们了解IPv6的好奇心，并向更多的朋友们介绍IPv6的资源以及使用经验，今天，月夜来为朋友们简单介绍一下自己在IPv6环境下的新鲜体验。 1.安装IPv6 目前因为月夜没有Windows 2000系统，而vista系统又自带了IPv6协议，并不需要自己安装；所以，月夜就简单为朋友们截图演示一下在XP系统下安装IPv6的过程。 首先，启动命令行窗口，在窗口中输入ipv6 install命令，回车执行，如下图：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12389161551556519014/A/1/m.jpg" alt="" title="XP下安装IPv6"></p>
+<p>如上，运行命令后，稍等片刻，系统提示Succeeded，即表示IPv6安装成功。安装成功IPv6之后，我们打开网络连接窗口，如下图：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12389161561325204019/A/1/m.jpg" alt="" title="网络连接窗口"></p>
+<p>在如上图的窗口中我们可以看到新安装的协议，如Microsoft TCP/IP 版本 6，等等。 然后，为了检测系统的IPv6是否真正安装成功，我们还可以通过以下几种方式进行检查。 第一种，可以在命令行中输入ipconfig /all，查看我们的IP地址：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12389161550256619997/A/1/m.jpg" alt="" title="IPv6安装成功检查"></p>
+<p>从如上图所示的命令窗口中，可以看到我们有两种IP地址，一种是V4形式的，如：192.168.2.134（因为月夜使用代理上网，所以是一个内网IP）；一种是V6形式的，如：2001:cc0:c002:6:35*<em>:\</em>*c0:bb76:d3ab（注，IP地址中无*，*是为了隐藏真实地址，由月夜自行修改的，其实也只是字母和数字）。不过需要说明的是，如上图中列出了四个IPv6的地址，但事实上只有第一行的地址（如上）是真实的IPv6地址，其他几个的意义，月夜不甚清楚。 第二种方法，我们可以访问中国科技网（<a href="http://www.cstnet.cn" target="_blank" rel="noopener">http://www.cstnet.cn</a>）等网站，查看其上显示的我们的IPv6地址，如下图：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12389161570523577754/A/1/m.jpg" alt="" title="网站上显示IPv6地址"></p>
+<p>需要注意的是，如果你使用IPV4登录这些网站，则显示你的IPV4地址，而不会显示你的V6地址。 甚至有些地方，不仅能显示你的IPv6地址，还可以进行IPv6的测速，比如东北大学的IPv6测速网站：<a href="http://speed.neu6.edu.cn" target="_blank" rel="noopener">http://speed.neu6.edu.cn</a>。月夜测试的结果如下：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12389188430695531898/A/1/m.jpg" alt="" title="IPv6测速"></p>
+<p>经实测及与别人对比发现，月夜的IPv6网速的确偏低。很多朋友可以达到10M以上，月夜只有区区不到5M；当相比传统的IPV4，速度已经有了很大飞跃。 2.IPv6搜索服务 目前，提供针对IPv6搜索服务的仅有Google，Google的IPv6搜索引擎地址为：<a href="http://ipv6.google.com" target="_blank" rel="noopener">http://ipv6.google.com</a>。搜索的界面如下：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12389192780775121960/A/1/m.jpg" alt="" title="Google IPv6搜索"></p>
+<p>但因为很多网站没有提供IPv6的连接，所以在搜索结果中，我们只能靠查看快照的方式来查看网站内容，而无法直接访问网站。此外，Google提供的服务也很粗糙，甚至只提供了一个网页搜索；其他，如图片、地图、视频等，在IPv6下均无法使用。 3.IPv6影视资源 目前，IPv6的最大缺点就是资源偏少，但其最大优点却是，速度一流，而且，因其具有超一流的速度，所以影视资源极其丰富。 当前，提供IPv6影视直播的主要有：</p>
+<blockquote>
+<p>北京邮电大学：<a href="http://iptv.bupt.edu.cn" target="_blank" rel="noopener">http://iptv.bupt.edu.cn</a> 中国科学技术大学：<a href="http://video6.ustc.edu.cn" target="_blank" rel="noopener">http://video6.ustc.edu.cn</a> 清华大学：<a href="http://iptv.tsinghua.edu.cn" target="_blank" rel="noopener">http://iptv.tsinghua.edu.cn</a> 东北大学：<a href="http://video.neu6.edu.cn" target="_blank" rel="noopener">http://video.neu6.edu.cn</a> 上海交大：<a href="http://video6.sjtu.edu.cn" target="_blank" rel="noopener">http://video6.sjtu.edu.cn</a></p>
+</blockquote>
+<p>随便打开以上每一个站点，就足以让你享受不已。而且，速度很好，很少有卡的现象发生，经月夜试用发现，已经和直接在电视上看节目没有太大区别。然而，因为这些资源不需要进行什么介绍，和普通IPV4的影视资源播放没有太多区别，在此，月夜也不再介绍，只截几个图以飨朋友们。 北邮的影视资源列表：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12389171650137524543/A/1/m.jpg" alt="" title="北邮IPv6影视资源列表"></p>
+<p>北邮IPv6电视墙（其中图片近实时显示当前各频道正在播放的节目）：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12389171621143852459/A/1/m.jpg" alt="" title="北邮IPv6电视墙"></p>
+<p>上交大IPv6影视资源：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12389171641566716198/A/1/m.jpg" alt="" title="上交大IPv6影视资源"></p>
+<p>从如上的几个截图中，你可以轻易看出，使用IPv6，我们能够享受什么样的在线影视服务。而且，更重要的是，这些在线服务速度一流，根本不会出现IPV4上的各种问题。 4.IPv6 FTP服务 在使用IPv6的FTP服务前，你需要首先安装一款支持IPv6协议的FTP软件。目前，支持IPv6的FTP软件有FileZilla，你可以使用Google搜索、下载并安装上这款软件，以方便自己使用IPv6。 虽然IPv6的FTP服务也具有先天优势——速度一流，但经月夜自己使用发现，在IPv6中，FTP的速度并不是十分理想，如下：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12389171661630992000/A/1/m.jpg" alt="" title="IPv6下FTP下载"></p>
+<p>如上，不过只有区区300K每秒。而且互联网上面向IPv6的FTP资源并不是太多，月夜目前只发现有以下资源比较好用：</p>
+<blockquote>
+<p>东大FTP：<a href="ftp://ftp.neu6.edu.cn" target="_blank" rel="noopener">ftp.neu6.edu.cn</a>（用户名和密码均为anonymous），里面几乎没有什么资源； 广东技术师范学院FTP：music.gdin.edu.cn（用户名和密码均为anonymous），里面有大量的MP3以及MTV； 人大FTP：[2001:da8:21c:100::94]（用户名和密码均为anonymous），里面资源还算丰富，有MP3、电影以及游戏； 浙大FTP：[2001:da8:e000:1000::17] （用户名和密码均为anonymous），内容比较杂；</p>
+</blockquote>
+<p>当然，IPv6的FTP资源已经很多，朋友们可以通过搜索引擎自己搜寻，或者去IPv6网络资源论坛寻找。 5.IPv6资源新秀——BT 开始时，使用BT下载IPv6资源并未流行，甚至在月夜刚装上IPv6时，IPv6上都还没怎么有BT的影子。但进入新年，随着东大一个<a href="http://bt.neu6.edu.cn/?fromuid=35917" target="_blank" rel="noopener">BT资源分享论坛</a>的上线，BT分享在IPv6上开始流行。 在使用BT前，我们首先还是需要安装支持IPv6协议的BT软件，目前只有μTorrent（uTorrent）。其实这是一款灵巧的绿色软件，而无需安装，即可直接使用。月夜自己发现，在使用这款软件下载IPv6的BT资源之前，需要首先进行一下设置。点击软件界面上选项菜单下的设置子菜单，系统跳出如下的设置对话框：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12389171650343891518/A/1/m.jpg" alt="" title="uTorrent设置对话框"></p>
+<p>点击如上图中的安装IPv6/Teredo按钮，安装完毕，即可使用uTorrent软件下载IPv6的BT资源。 要下载，必须首先找到种子。目前在IPv6的BT种子方面，最好的搜寻地方莫过于东大的<a href="http://bt.neu6.edu.cn/?fromuid=35917" target="_blank" rel="noopener">六维空间</a>，朋友们可以通过下面的截图简单了解一下IPv6的BT种子情况：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12389220680297589187/A/1/m.jpg" alt="" title="IPv6的BT资源"></p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12389220690297589188/A/1/m.jpg" alt="" title="IPv6的BT资源"></p>
+<p>IPv6下的BT资源不仅资源丰富，而且速度依然一流，可以看看如下图所示月夜下载时的速度截图：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12389161580522426199/A/1/m.jpg" alt="" title="IPv6下BT速度"></p>
+<p>通常下载都会有数M的速度，而据我同学反映，他们下载BT时，通常甚至能达到10M每秒。拥有这样一流的速度，又有这样丰富的资源，使用IPv6，想不爽都难！ 6.IPv6下DNS服务 IPv6下目前提供DNS服务的有</p>
+<blockquote>
+<p>科技网DNS服务器：2001:cc0:2fff:2::6 CNNIC DNS服务器：2001:dc7:1000::1 清华大学DNS服务器：2001:da8:200:ffff::28 上海交大DNS服务器：2001:da8:8000:1:202:120:2:101 北京邮电大学DNS服务器：2001:da8:202:10::36或2001:da8:202:10::37</p>
+</blockquote>
+<p>但月夜水平有限，所以只是安装了一下，因为不知道如何进行测试，所以也无法向朋友们进行展示。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/网络相关/" rel="tag"># 网络相关</a>
+          
+            <a href="/tags/升级/" rel="tag"># 升级</a>
+          
+            <a href="/tags/IPV6/" rel="tag"># IPV6</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2009/functions-must-known-using-wordpress-first/" rel="next" title="用好WordPress不可不知的函数（一）">
+                <i class="fa fa-chevron-left"></i> 用好WordPress不可不知的函数（一）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2009/tianya-laiba-photo-sharing-service/" rel="prev" title="免费图片外链服务推荐——天涯来吧相册">
+                免费图片外链服务推荐——天涯来吧相册 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">433</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">108</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

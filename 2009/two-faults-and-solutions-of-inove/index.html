@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="WordPress,主题," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="在前面的文章 iNove主题本地化的几点经验(一) 和 iNove主题本地化的几点经验(二) 中，月夜为你详细介绍了自己在将iNove主题本地化过程中的一些经验。但是，月夜在对其进行试用和修改过程中也发现了其存在的两个问题，一个是评论翻页的链接问题；另一个就是首页显示文章摘要过程中的一个小BUG。当然，现在月夜已经找到了解决方案，已经顺利的解决了这些问题，因此，现在，月夜将这些经验与你分享，希望能">
+<meta name="keywords" content="WordPress,主题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iNove主题的两个失误及其解决方法">
+<meta property="og:url" content="https://kongsea.github.io/2009/two-faults-and-solutions-of-inove/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="在前面的文章 iNove主题本地化的几点经验(一) 和 iNove主题本地化的几点经验(二) 中，月夜为你详细介绍了自己在将iNove主题本地化过程中的一些经验。但是，月夜在对其进行试用和修改过程中也发现了其存在的两个问题，一个是评论翻页的链接问题；另一个就是首页显示文章摘要过程中的一个小BUG。当然，现在月夜已经找到了解决方案，已经顺利的解决了这些问题，因此，现在，月夜将这些经验与你分享，希望能">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12361717770699495585/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12361717780839040924/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12361725151448030426/A/1/m.jpg">
+<meta property="og:image" content="http://laiba.tianya.cn/laiba/images/615721/12361717761121305004/A/1/m.jpg">
+<meta property="og:updated_time" content="2018-07-27T03:00:21.883Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iNove主题的两个失误及其解决方法">
+<meta name="twitter:description" content="在前面的文章 iNove主题本地化的几点经验(一) 和 iNove主题本地化的几点经验(二) 中，月夜为你详细介绍了自己在将iNove主题本地化过程中的一些经验。但是，月夜在对其进行试用和修改过程中也发现了其存在的两个问题，一个是评论翻页的链接问题；另一个就是首页显示文章摘要过程中的一个小BUG。当然，现在月夜已经找到了解决方案，已经顺利的解决了这些问题，因此，现在，月夜将这些经验与你分享，希望能">
+<meta name="twitter:image" content="http://laiba.tianya.cn/laiba/images/615721/12361717770699495585/A/1/m.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://kongsea.github.io/2009/two-faults-and-solutions-of-inove/"/>
+
+
+
+
+
+  <title>iNove主题的两个失误及其解决方法 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2009/two-faults-and-solutions-of-inove/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">iNove主题的两个失误及其解决方法</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2009-03-04T21:31:07+08:00">
+                2009-03-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/网站相关/" itemprop="url" rel="index">
+                    <span itemprop="name">网站相关</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在前面的文章 <a href="https://www.yueye.org/2009/some-experience-in-using-inove-first.html" title="打开 iNove主题本地化的几点经验(一)" target="_blank" rel="noopener">iNove主题本地化的几点经验(一)</a> 和 <a href="https://www.yueye.org/2009/some-experience-in-using-inove-second.html" title="打开 iNove主题本地化的几点经验(二)" target="_blank" rel="noopener">iNove主题本地化的几点经验(二)</a> 中，月夜为你详细介绍了自己在将iNove主题本地化过程中的一些经验。但是，月夜在对其进行试用和修改过程中也发现了其存在的两个问题，一个是评论翻页的链接问题；另一个就是首页显示文章摘要过程中的一个小BUG。当然，现在月夜已经找到了解决方案，已经顺利的解决了这些问题，因此，现在，月夜将这些经验与你分享，希望能对你有所帮助。</p>
+<p>1.评论翻页链接错误</p>
+<p>当然，如果要碰到评论翻页，你至少要有一篇评论数多于50条的文章。所幸，月夜有这个机会，因为月夜的<a href="https://www.yueye.org/2009/yueye-try-out-webqq.html" title="打开 WebQQ试用手记" target="_blank" rel="noopener">WebQQ试用手记</a>一文获得了60多条评论，所以，月夜发现了这个问题。</p>
+<p>当你进入文章页面之后，系统默认停留在评论的最后页，也就是评论的第二页，如下图所示，我们把鼠标悬停到第一页的链接上：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12361717770699495585/A/1/m.jpg" alt="" title="鼠标悬停"></p>
+<p>然后观察浏览器的状态栏，可以看到如下图所示的链接地址：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12361717780839040924/A/1/m.jpg" alt="" title="链接地址"></p>
+<p>从图中可以看出，其链接地址为：<a href="https://www.yueye.org/2009/yueye-try-out-webqq.htmlcomment-page-1#comments，点击，发现会跳到404页面，显然这个链接是错误的。" target="_blank" rel="noopener">https://www.yueye.org/2009/yueye-try-out-webqq.htmlcomment-page-1#comments，点击，发现会跳到404页面，显然这个链接是错误的。</a></p>
+<p>其实也很明显，在yueye-try-out-webqq.html和comment之间，缺少一个斜杠（/）。添加上去，点击链接就可以打开评论的第二页了。</p>
+<p>但月夜才疏学浅，对PHP等网页设计语言知之甚少，并没能通过主题文件的程序来解决这一问题。在Google上搜索，发现可以偷懒通过修改永久链接来解决这一问题。如下图，我们在设置永久链接时，在永久链接的最后加上一个斜杠（/）：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12361725151448030426/A/1/m.jpg" alt="" title="修改永久连接"></p>
+<p>按照如上图的方式，在永久链接最后添加上斜杠以后，iNove的这个问题就解决了。</p>
+<p>2.首页显示文章摘要的错误</p>
+<p>使用iNove主题时，如果你的文章摘要部分是以引用（引用语，Blockquote）结束，则在首页、存档页等显示摘要时会出现如下图所示的情况：</p>
+<p><img src="http://laiba.tianya.cn/laiba/images/615721/12361717761121305004/A/1/m.jpg" alt="" title="iNove错误"></p>
+<p>如上图，摘要最后的作者、类别、标签等会被拉到引用（Blockquote）中显示。显然，这不是我们想要的。</p>
+<p>修改的方法如下，找到主题文件夹下index.php文件，在其中第27行和第28行中间插入如下代码：</p>
+<blockquote>
+<p>  </p>
+<div class="content">
+</div></blockquote>
+<p>即可修正首页的显示错误。当然，与此相应，你还应修改archive.php文件的内容。找到其中第52行和第53行，在其间插入如上代码。这样，我们就成功解决了这个问题，使得iNove主题的效果趋于完美。</p>
+<p>亲爱的朋友，你在使用iNove主题时是否也发现了一些问题呢？你是否顺利解决了这些问题？欢迎你留言和月夜探讨，月夜谢谢你的支持！</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/WordPress/" rel="tag"># WordPress</a>
+          
+            <a href="/tags/主题/" rel="tag"># 主题</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2009/some-experience-in-using-inove-second/" rel="next" title="iNove主题本地化的几点经验(二)">
+                <i class="fa fa-chevron-left"></i> iNove主题本地化的几点经验(二)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2009/freely-chat-from-niping-forcing-out-shanzhai/" rel="prev" title="从倪萍的封杀“山寨”说开去">
+                从倪萍的封杀“山寨”说开去 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">433</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">108</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

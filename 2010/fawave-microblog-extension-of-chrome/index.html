@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Google,浏览器,Chrome," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="毫无疑问，微博是2010年中文互联网上的超级明星。这一年，微博一步步走进了我们的生活里，也给我们带来了很大的影响。 或许是因为微博的极大影响力，从最初的饭否开始，到后来新浪微博将微博推进公众生活，而后各大门户网站纷纷推出了自己的微博系统，再加上一些专业的微博网站，目前有不少互联网用户都拥有新浪微博、腾讯微博、饭否、网易微博、嘀咕等数十个微博帐号。而要同时经营这么多微博，显然将会十分费力，而要将它们">
+<meta name="keywords" content="Google,浏览器,Chrome">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Chrome浏览器多微博同步更新插件：发微(FaWave)">
+<meta property="og:url" content="https://kongsea.github.io/2010/fawave-microblog-extension-of-chrome/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="毫无疑问，微博是2010年中文互联网上的超级明星。这一年，微博一步步走进了我们的生活里，也给我们带来了很大的影响。 或许是因为微博的极大影响力，从最初的饭否开始，到后来新浪微博将微博推进公众生活，而后各大门户网站纷纷推出了自己的微博系统，再加上一些专业的微博网站，目前有不少互联网用户都拥有新浪微博、腾讯微博、饭否、网易微博、嘀咕等数十个微博帐号。而要同时经营这么多微博，显然将会十分费力，而要将它们">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://img.yueye.org/2010/12/28/01.JPG">
+<meta property="og:image" content="https://img.yueye.org/2010/12/28/02.JPG">
+<meta property="og:image" content="https://img.yueye.org/2010/12/28/03.JPG">
+<meta property="og:updated_time" content="2018-07-27T03:00:21.887Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chrome浏览器多微博同步更新插件：发微(FaWave)">
+<meta name="twitter:description" content="毫无疑问，微博是2010年中文互联网上的超级明星。这一年，微博一步步走进了我们的生活里，也给我们带来了很大的影响。 或许是因为微博的极大影响力，从最初的饭否开始，到后来新浪微博将微博推进公众生活，而后各大门户网站纷纷推出了自己的微博系统，再加上一些专业的微博网站，目前有不少互联网用户都拥有新浪微博、腾讯微博、饭否、网易微博、嘀咕等数十个微博帐号。而要同时经营这么多微博，显然将会十分费力，而要将它们">
+<meta name="twitter:image" content="https://img.yueye.org/2010/12/28/01.JPG">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://kongsea.github.io/2010/fawave-microblog-extension-of-chrome/"/>
+
+
+
+
+
+  <title>Chrome浏览器多微博同步更新插件：发微(FaWave) | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2010/fawave-microblog-extension-of-chrome/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Chrome浏览器多微博同步更新插件：发微(FaWave)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2010-12-28T22:34:28+08:00">
+                2010-12-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/精品推介/" itemprop="url" rel="index">
+                    <span itemprop="name">精品推介</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>毫无疑问，微博是2010年中文互联网上的超级明星。这一年，微博一步步走进了我们的生活里，也给我们带来了很大的影响。 或许是因为微博的极大影响力，从最初的饭否开始，到后来新浪微博将微博推进公众生活，而后各大门户网站纷纷推出了自己的微博系统，再加上一些专业的微博网站，目前有不少互联网用户都拥有新浪微博、腾讯微博、饭否、网易微博、嘀咕等数十个微博帐号。而要同时经营这么多微博，显然将会十分费力，而要将它们放弃似乎也不会那么心甘情愿。恰在此时，微博同步工具走进了我们的生活。顾名思义，微博同步工具就是提供各大微博内容同步更新的网络服务。 目前的微博同步服务多是网页形式；而具体到浏览器上，比如我们目前正在使用的Chrome浏览器上，前一段时间搜索时，却没有发现有比较好的插件可进行多微博同步更新。 直到几天前，一个偶然的机会，我发现了发微这款插件，当时的腾讯微博还没有开放API，但除了腾讯微博之外，这款插件支持几乎所有的其他微博。而在期盼中，随着最近腾讯微博已经开放，插件作者在最后加入了对腾讯微博的支持后，我毫不犹豫的要将它称为目前更新微博最好的浏览器客户端。 <a href="https://chrome.google.com/extensions/detail/aicelmgbddfgmpieedjiggifabdpcnln" target="_blank" rel="noopener">这是发微Chrome浏览器插件的官方地址</a>，使用Chrome浏览器访问上述地址，即可进入插件页面进行下载安装。安装好以后，即可在Chrome浏览器界面上的扩展图标区看到该插件的图标。该插件目前已支持包括新浪微博、Twitter、腾讯微博、搜狐微博、饭否、做啥、嘀咕、人间网、豆瓣、Google Buzz、网易微博等几乎所有中文微博，可以支持微博信息的获取与发送，可以方便地将信息发送到绑定的所有微博，也可以灵活选取发送到某些微博上；还可以将当前正在浏览的网页分享到微博上；当然，也可以将图片方便地发送到微博。 下面这是发微插件的界面图，我们可以直接发送微博，也可以将发送窗口关掉而直接查看微博内容：</p>
+<p><img src="https://img.yueye.org/2010/12/28/01.JPG" alt="" title="发微Chrome插件界面"></p>
+<p>我们可以在这个界面上自如的在各个微博间进行切换，也可以灵活选择发送消息的微博，还可以方便地发送图片或者将正在浏览的网页分享到微博上。 而右键点击发微图标，可以选择进入到其选项设置界面里，其设置界面上包含如下内容：</p>
+<p><img src="https://img.yueye.org/2010/12/28/02.JPG" alt="" title="发微设置界面"></p>
+<p>在这里，我们可以绑定我们的各种微博，也可以进行各种设置，比如获取信息的时间等；此外，该插件还提供了一些特色功能，比如可以选择在微博里添加微博发送者的地理位置，也可以选择在微博中使用的短网址服务：</p>
+<p><img src="https://img.yueye.org/2010/12/28/03.JPG" alt="" title="发微地址位置及短网址设置"></p>
+<p>但遗憾的是，我们发现其地理位置和实际位置略有偏差，而且不能进行修改。但尽管略有不足，目前该插件已经是同类插件中的最好者，所以，推荐给朋友们，以期能对你的微博生活有所帮助。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Google/" rel="tag"># Google</a>
+          
+            <a href="/tags/浏览器/" rel="tag"># 浏览器</a>
+          
+            <a href="/tags/Chrome/" rel="tag"># Chrome</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2010/my-name-is-khan/" rel="next" title="穆斯林的救赎">
+                <i class="fa fa-chevron-left"></i> 穆斯林的救赎
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2011/the-key-words-of-2010-microblog/" rel="prev" title="2010印象之微博">
+                2010印象之微博 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">433</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">108</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

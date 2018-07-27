@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="域名,网站建设,经验分享,网站," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="因为Feedsky提供了强大的feed订阅功能，所以在开始建立 我要博客 时，月夜 就申请并使用了Feedsky的服务；而在月夜成功搬家并更换新的域名之后，依然继续申请并使用了该服务。并且因为yueye.org域名注册商新网的DNS服务器提供了URL转发功能，所以，开始时，月夜就启用了URL转发，将http://feed.yueye.org转发到了http://feed.feedsky.com/y">
+<meta name="keywords" content="域名,网站建设,经验分享,网站">
+<meta property="og:type" content="article">
+<meta property="og:title" content="月夜启用CNAME方式绑定Feedsky的feed">
+<meta property="og:url" content="https://kongsea.github.io/2008/yueye-cname-feedsky-feed/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="因为Feedsky提供了强大的feed订阅功能，所以在开始建立 我要博客 时，月夜 就申请并使用了Feedsky的服务；而在月夜成功搬家并更换新的域名之后，依然继续申请并使用了该服务。并且因为yueye.org域名注册商新网的DNS服务器提供了URL转发功能，所以，开始时，月夜就启用了URL转发，将http://feed.yueye.org转发到了http://feed.feedsky.com/y">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://img.yueye.org/2008/12/24/01.jpg">
+<meta property="og:image" content="https://img.yueye.org/2008/12/24/02.jpg">
+<meta property="og:updated_time" content="2018-07-27T03:00:21.883Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="月夜启用CNAME方式绑定Feedsky的feed">
+<meta name="twitter:description" content="因为Feedsky提供了强大的feed订阅功能，所以在开始建立 我要博客 时，月夜 就申请并使用了Feedsky的服务；而在月夜成功搬家并更换新的域名之后，依然继续申请并使用了该服务。并且因为yueye.org域名注册商新网的DNS服务器提供了URL转发功能，所以，开始时，月夜就启用了URL转发，将http://feed.yueye.org转发到了http://feed.feedsky.com/y">
+<meta name="twitter:image" content="https://img.yueye.org/2008/12/24/01.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://kongsea.github.io/2008/yueye-cname-feedsky-feed/"/>
+
+
+
+
+
+  <title>月夜启用CNAME方式绑定Feedsky的feed | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2008/yueye-cname-feedsky-feed/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">月夜启用CNAME方式绑定Feedsky的feed</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2008-12-24T18:12:03+08:00">
+                2008-12-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/网站相关/" itemprop="url" rel="index">
+                    <span itemprop="name">网站相关</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>因为Feedsky提供了强大的feed订阅功能，所以在开始建立 <a href="https://www.yueye.org" target="_blank" rel="noopener">我要博客</a> 时，<a href="https://www.yueye.org" target="_blank" rel="noopener">月夜</a> 就申请并使用了Feedsky的服务；而在月夜成功搬家并更换新的域名之后，依然继续申请并使用了该服务。并且因为yueye.org域名注册商新网的DNS服务器提供了URL转发功能，所以，开始时，月夜就启用了URL转发，将<a href="http://feed.yueye.org" target="_blank" rel="noopener">http://feed.yueye.org</a>转发到了<a href="http://feed.feedsky.com/yueye" target="_blank" rel="noopener">http://feed.feedsky.com/yueye</a>上，使得月夜的feed看起来更为短小和正式。 但是，因为是URL转发，所以一旦打开<a href="http://feed.yueye.org/" target="_blank" rel="noopener">http://feed.yueye.org</a>之后，浏览器地址栏中显示的还是形如<a href="http://feed.feedsky.com/yueye" target="_blank" rel="noopener">http://feed.feedsky.com/yueye</a>的形式，看起来让人觉得不是那么舒服。可也没有什么办法，毕竟暂时还是没能找到解决方案。 但今天月夜在Feedsky网站账户上转悠时发现在“Feed优化”主菜单下有一个域名绑定功能，看其下方有这样的提示“绑定域名后，可以直接通过域名访问你的feed页面，域名格式如：feed.yueye.org”，心想这不正是我想要的功能嘛。 于是就开始忙活绑定，首先来到域名的DNS面板上，按照要求设置了一条指向<strong>mydomain.feedsky.com</strong>的CNAME记录，如下图：</p>
+<p><img src="https://img.yueye.org/2008/12/24/01.jpg" alt="" title="feed域名设置"></p>
+<p>当然这里月夜添加的CNAME记录是feed，如果你喜欢其他的二级域名，则可以添加为其他的记录，比如rss等等。不过需要特别注意的是，在添加完成的mydomain.feedsky.com值的末尾应该有一个小点“.”，如果你的DNS服务商没有自动添加的话，你需要自己添加上去。 添加好二级域名的CNAME记录之后，我们需要等待一定的域名解析时间，这个时间根据你DNS提供商的不同而不同，通常2个小时就应该可以了。等待一定时间之后，你可以试着ping 一下你的二级域名（形如feed.yueye.org），如果ping的过程中，返回的信息包括“Reply from 61.4.177.18 ”，则说明域名解析已经生效。 在确认域名解析已经生效之后，我们回到Feedsky账户上，开始绑定域名。在如下图所示的界面上的方框中输入形如“feed.yueye.org”的我们刚刚设置的二级域名：</p>
+<p><img src="https://img.yueye.org/2008/12/24/02.jpg" alt="" title="Feedsky的feed域名绑定"></p>
+<p>输入完毕之后，点击图中的“确定”按钮，我们就完成了feed域名的绑定。如果顺利，你就可以通过刚刚绑定的二级域名（形如<a href="http://feed.yueye.org" target="_blank" rel="noopener">http://feed.yueye.org</a>）来访问你Feedsky上的站点feed了，从而对你的站点访问者彻底隐藏了你的feed提供商的链接。不过需要注意的是，目前Feedsky的每个feed最多只能绑定一个二级域名。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/域名/" rel="tag"># 域名</a>
+          
+            <a href="/tags/网站建设/" rel="tag"># 网站建设</a>
+          
+            <a href="/tags/经验分享/" rel="tag"># 经验分享</a>
+          
+            <a href="/tags/网站/" rel="tag"># 网站</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2008/ailijima-die-in-home/" rel="next" title="著名AV女优饭岛爱家中身亡">
+                <i class="fa fa-chevron-left"></i> 著名AV女优饭岛爱家中身亡
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2008/qq-reader-recommend-update/" rel="prev" title="QQ邮箱阅读空间新增推荐文章功能">
+                QQ邮箱阅读空间新增推荐文章功能 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">433</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">108</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

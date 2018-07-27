@@ -96,7 +96,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/page/9/index.html">
+<meta property="og:url" content="https://kongsea.github.io/page/9/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
@@ -129,7 +129,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/page/9/"/>
+  <link rel="canonical" href="https://kongsea.github.io/page/9/"/>
 
 
 
@@ -260,7 +260,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/04/01/solution-of-problem-installing-windows-7-using-winpe/">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2013/tutorial-of-wordpress-theme-bodega-add-slides/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -279,157 +279,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2013/04/01/solution-of-problem-installing-windows-7-using-winpe/" itemprop="url">U盘Win PE安装Windows 7出现“安装程序无法创建新的系统分区”错误时的解决方法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2013-04-01T08:38:31+08:00">
-                2013-04-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/经验知识/" itemprop="url" rel="index">
-                    <span itemprop="name">经验知识</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>趁周末有空便想着给笔记本重新安装一个新的系统，毕竟Windows 7界面更好看，而且用起来也比XP更舒服。我原本以为安装会十分顺利，因为台式机上安装的Windows 7不过之用了短短一会儿。 然而安装的过程中却出现了一个错误而使得安装过程无法进行下去，在Windows 7安装的“你想将Windows安装在何处”步骤中，当选择以往安装系统一直使用的主分区C盘时，系统提示：“安装程序无法创建新的系统分区，也无法定位现有系统分区。有关详细信息，请参阅安装日志文件。” 安装中的错误提示如下图所示（请自动忽略本电脑的烂配置）：</p>
-<p><img src="https://img.yueye.org/2013/04/01/01.jpg" alt="" title="安装程序无法创建新的系统分区"></p>
-<p>以前在安装Windows系统时从来没有出现过类似的问题，无论是最开始的XP，还是现在的Windows 7，所以当出现这样的问题是，我根本不知道这到底是什么原因，也束手无策。 无奈中上网搜索，曾发生过类似问题的网友提供了不少方法，有网友说根本原因还是因为在BIOS里设置了U盘优先启动，系统启动时出现了两块磁盘，一块硬盘，一块U盘，所以造成了紊乱，使得安装程序不知所措。 有网友说，在这个安装界面上不要点击“下一步”，而是首先拔掉U盘，然后再插上U盘，接着点击界面上的“刷新”链接，错误提示就会消失，安装程序就可以继续进行下去。也有不少人采纳了这种方法，顺利地解决了问题。不过，这种方法对我却无效，即使我插拔多少次U盘，刷新或者格式化多少回，错误提示都依旧存在，而安装依旧无法继续进行。 也有网友说，有可能是因为硬盘采用的格式是FAT32，而Windows 7要求磁盘格式为NTFS，可是我的系统安装分区已经格式化为NTFS，而其他分区，是必须要求为NTFS的吗？我没有尝试，因为格式化所有分区的代价太大，不停地拷贝文件也耗时较多。所有我不知道这种方法是否可行。 最后，我采用的是另一些网友提供的方法，使用该方法，我顺利地解决了问题。 这种方法来自<a href="http://wenku.baidu.com/view/fefb47492e3f5727a5e962d7.html" title="解决方案" target="_blank" rel="noopener">百度文库</a>，我来简单说一下：</p>
-<blockquote>
-<p>首先进入Win PE将要安装Windows 7系统的C盘格式化为NTFS格式，然后将Windows 7安装盘使用虚拟光驱加载，将其中的boot和sources两个文件夹以及bootmgr这个文件拷贝到C盘下。 接着在Win PE下运行cmd调出命令行窗口，输入命令</p>
-<p>c:\boot\bootsect.exe /nt60 c:</p>
-<p>回车运行。 然后重启电脑，在重启中，当电脑关闭而没有启动时，迅速拔掉U盘，等待系统从硬盘启动，然后就进入到Windows 7的系统安装界面。 最后按照通常的过程安装Windows 7，系统再也不会出现最开始的错误提示了。</p>
-</blockquote>
-<p>如参考文献所说，照此方法安装完成后的Windows 7系统在开机加载时，会有两个启动选择，我们不想第二个出现，所以这时，我们在启动系统后运行cmd打开命令行窗口，然后输入msconfig运行系统配置对话框，通过“引导”标签，选择删除需要删除的项目，即可以实现。不过特别需要说明的是，操作中务必小心，千万不要删除了当前正在使用的操作系统的引导项，不然的话，你就摊上大事儿了。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/03/29/tutorial-of-wordpress-theme-bodega-add-slides/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2013/03/29/tutorial-of-wordpress-theme-bodega-add-slides/" itemprop="url">WordPress主题Bodega使用笔记：添加幻灯片</a></h1>
+                <a class="post-title-link" href="/2013/tutorial-of-wordpress-theme-bodega-add-slides/" itemprop="url">WordPress主题Bodega使用笔记：添加幻灯片</a></h1>
         
 
         <div class="post-meta">
@@ -562,7 +412,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/03/26/qq-safe-unfriendly/">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2013/qq-safe-unfriendly/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -581,7 +431,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2013/03/26/qq-safe-unfriendly/" itemprop="url">更换QQ号密保手机时的操蛋验证</a></h1>
+                <a class="post-title-link" href="/2013/qq-safe-unfriendly/" itemprop="url">更换QQ号密保手机时的操蛋验证</a></h1>
         
 
         <div class="post-meta">
@@ -708,7 +558,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/03/21/deceived-liuri-izakaya-in-shenyang/">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2013/deceived-liuri-izakaya-in-shenyang/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -727,7 +577,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2013/03/21/deceived-liuri-izakaya-in-shenyang/" itemprop="url">坑爹的沈阳六日居酒屋</a></h1>
+                <a class="post-title-link" href="/2013/deceived-liuri-izakaya-in-shenyang/" itemprop="url">坑爹的沈阳六日居酒屋</a></h1>
         
 
         <div class="post-meta">
@@ -856,7 +706,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/03/20/count-bug-of-twitter-tweets/">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2013/count-bug-of-twitter-tweets/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -875,7 +725,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2013/03/20/count-bug-of-twitter-tweets/" itemprop="url">一个Twitter推文计数Bug</a></h1>
+                <a class="post-title-link" href="/2013/count-bug-of-twitter-tweets/" itemprop="url">一个Twitter推文计数Bug</a></h1>
         
 
         <div class="post-meta">
@@ -1000,7 +850,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/03/17/byebye-to-vancl/">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2013/byebye-to-vancl/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -1019,7 +869,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2013/03/17/byebye-to-vancl/" itemprop="url">拜拜，凡客</a></h1>
+                <a class="post-title-link" href="/2013/byebye-to-vancl/" itemprop="url">拜拜，凡客</a></h1>
         
 
         <div class="post-meta">
@@ -1144,7 +994,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/03/15/a-regretful-blind-date-experience/">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2013/a-regretful-blind-date-experience/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -1163,7 +1013,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2013/03/15/a-regretful-blind-date-experience/" itemprop="url">一次幸福的机会</a></h1>
+                <a class="post-title-link" href="/2013/a-regretful-blind-date-experience/" itemprop="url">一次幸福的机会</a></h1>
         
 
         <div class="post-meta">
@@ -1309,7 +1159,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/02/27/uproot-grave-and-people-heart/">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2013/uproot-grave-and-people-heart/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -1328,7 +1178,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2013/02/27/uproot-grave-and-people-heart/" itemprop="url">平掉的是祖坟，平不掉的是民心</a></h1>
+                <a class="post-title-link" href="/2013/uproot-grave-and-people-heart/" itemprop="url">平掉的是祖坟，平不掉的是民心</a></h1>
         
 
         <div class="post-meta">
@@ -1457,7 +1307,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/01/23/transfer-domains-to-namecheap/">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2013/transfer-domains-to-namecheap/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -1476,7 +1326,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2013/01/23/transfer-domains-to-namecheap/" itemprop="url">域名转出到Namecheap</a></h1>
+                <a class="post-title-link" href="/2013/transfer-domains-to-namecheap/" itemprop="url">域名转出到Namecheap</a></h1>
         
 
         <div class="post-meta">
@@ -1599,7 +1449,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/01/04/try-to-buy-phone/">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2013/try-to-buy-phone/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -1618,7 +1468,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2013/01/04/try-to-buy-phone/" itemprop="url">我们都在买手机</a></h1>
+                <a class="post-title-link" href="/2013/try-to-buy-phone/" itemprop="url">我们都在买手机</a></h1>
         
 
         <div class="post-meta">
@@ -1728,6 +1578,160 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2012/words-destroyed-by-xiaomi-phone/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2012/words-destroyed-by-xiaomi-phone/" itemprop="url">818那些毁于小米手机的词语</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2012-12-10T19:23:22+08:00">
+                2012-12-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/谈天说地/" itemprop="url" rel="index">
+                    <span itemprop="name">谈天说地</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>时光如流水，逝去的是葡萄和香蕉，留下的也未必值得骄傲。最初，每一个曾追过或关注过小米手机的人，在多年后的某一天，看到粮市场上的小米时，一定会想起2011年8月那个遥远的日子，那天，当1999元的售价爆出时，我们每个人都曾为之疯狂。现在是2012，这种手机携这个公司已经在市场上驰骋了一年多的时间，那些曾经无论为小米痴迷还是为小米吸引过的人，都日渐清醒了过来。 从手机和互联网界的新星，到人人喊打的过街老鼠，小米手机用了不到两年。然而，小米手机或许会被我们用手投票逐出视线，但这种手机、这家公司曾给我们带来的影响，或许要许久还不能消除。 今天，就请朋友们跟随月夜一起，来盘点一下这些年以来，毁于小米手机的词语。</p>
+<h1 id="1-发烧"><a href="#1-发烧" class="headerlink" title="1.发烧"></a>1.发烧</h1><blockquote>
+<p>小米手机从诞生的那一刻，就宣称自己是一款面向发烧友的高性能发烧级智能手机。可是随着小米手机的上市，其销售策略，以及用户使用中出现的各种层出不穷的问题，越来越让用户羞于承认自己是小米的发烧级用户。而如果作为一位发烧级手机用户，最终选择了小米手机，实在也是一件十分没有面子的事情。</p>
+<h3 id="小米手机毁掉的词语之一——"><a href="#小米手机毁掉的词语之一——" class="headerlink" title="小米手机毁掉的词语之一——"></a>小米手机毁掉的词语之一——</h3><h3 id="发烧：我看你不是发烧，你是烧包！"><a href="#发烧：我看你不是发烧，你是烧包！" class="headerlink" title="发烧：我看你不是发烧，你是烧包！"></a>发烧：我看你不是发烧，你是烧包！</h3></blockquote>
+<h1 id="2-预订"><a href="#2-预订" class="headerlink" title="2.预订"></a>2.预订</h1><blockquote>
+<p>无论是最初的小米手机，还是现在的小米手机2，小米似乎先天与缺货结下了不解之缘。而缺货的小米公司似乎不敢寂寞，因此就搞出了这个像耍猴般玩弄小米手机潜在客户于股掌之间的策略——预订。 不过不管是预订，还是期货，自从小米手机起，国内互联网上销售的手机似乎都玩儿起了这个套路：发布会-宣传-预订-缺货…好吧，我头脑里冒出来了一个句子——“始作俑者，其无后乎？”</p>
+<h3 id="小米手机毁掉的词语之二——"><a href="#小米手机毁掉的词语之二——" class="headerlink" title="小米手机毁掉的词语之二——"></a>小米手机毁掉的词语之二——</h3><h3 id="预订：感情消费者是孙子，小米公司是上帝呗！"><a href="#预订：感情消费者是孙子，小米公司是上帝呗！" class="headerlink" title="预订：感情消费者是孙子，小米公司是上帝呗！"></a>预订：感情消费者是孙子，小米公司是上帝呗！</h3></blockquote>
+<h1 id="3-台"><a href="#3-台" class="headerlink" title="3.台"></a>3.台</h1><blockquote>
+<p>最起码在小米手机之前，我没有听闻过哪个手机商敢以台来称呼自己的哪部手机；而且我们似乎在汉语里只听说过诸如一台计算机、一台电脑的说法；至于手机，我们知道，最多能用到一部。 但是，我想或许不用台字，不足以衬托出我大小米的高贵吧。</p>
+<h3 id="小米手机毁掉的词语之三——"><a href="#小米手机毁掉的词语之三——" class="headerlink" title="小米手机毁掉的词语之三——"></a>小米手机毁掉的词语之三——</h3><h3 id="台：“小米月产量将达百万台”，台你妹！"><a href="#台：“小米月产量将达百万台”，台你妹！" class="headerlink" title="台：“小米月产量将达百万台”，台你妹！"></a>台：“小米月产量将达百万台”，台你妹！</h3></blockquote>
+<h1 id="4-粉"><a href="#4-粉" class="headerlink" title="4.粉"></a>4.粉</h1><blockquote>
+<p>在小米手机的米粉之前，我想很多人在被称为某粉的时候是会很自豪的，比如张靓颖的凉粉，等等。因为他们切实地获得了自己粉的那个人的尊重，而自己粉的那个人也没有让自己失望。 但反观小米手机，最开始应该是有不少粉的，以至有了一批批的米粉。可是现在，你说自己是米粉？你抬得起头吗？你被人小米公司当猴一样耍来刷去还自称米粉，你不该活得高贵点吗？</p>
+<h3 id="小米手机毁掉的词语之四——"><a href="#小米手机毁掉的词语之四——" class="headerlink" title="小米手机毁掉的词语之四——"></a>小米手机毁掉的词语之四——</h3><h3 id="粉：你才是米粉，你全家都是米粉！"><a href="#粉：你才是米粉，你全家都是米粉！" class="headerlink" title="粉：你才是米粉，你全家都是米粉！"></a>粉：你才是米粉，你全家都是米粉！</h3></blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -1778,7 +1782,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">434</span>
+                <span class="site-state-item-count">433</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>

@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="QQ,微信,Android,意见建议," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="最近一段时间微信5.0即将推出，而其传言更改微信公众号的信息推送机制，更是引起了许多微信公众号的经营者迫切关注。关于信息推送机制的改变的具体传闻如下：在最新版本微信5.0中，微信公众号将会被分为两类，订阅号和企业号，除了将分门别类地被放到两个文件夹中之外，订阅号跟目前一样，最多每天只能主动发送一条消息；而企业号则将更为尴尬，每月只有一条消息的发送权限。 传言出来，让很多微信公众号的持有者和经营者大">
+<meta name="keywords" content="QQ,微信,Android,意见建议">
+<meta property="og:type" content="article">
+<meta property="og:title" content="说说微信公众号的信息推送：何不把选择权交给用户？">
+<meta property="og:url" content="https://kongsea.github.io/2013/give-back-users-message-push-of-wechat/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="最近一段时间微信5.0即将推出，而其传言更改微信公众号的信息推送机制，更是引起了许多微信公众号的经营者迫切关注。关于信息推送机制的改变的具体传闻如下：在最新版本微信5.0中，微信公众号将会被分为两类，订阅号和企业号，除了将分门别类地被放到两个文件夹中之外，订阅号跟目前一样，最多每天只能主动发送一条消息；而企业号则将更为尴尬，每月只有一条消息的发送权限。 传言出来，让很多微信公众号的持有者和经营者大">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://img.yueye.org/2013/07/17/01.jpg">
+<meta property="og:updated_time" content="2018-07-27T03:00:21.891Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="说说微信公众号的信息推送：何不把选择权交给用户？">
+<meta name="twitter:description" content="最近一段时间微信5.0即将推出，而其传言更改微信公众号的信息推送机制，更是引起了许多微信公众号的经营者迫切关注。关于信息推送机制的改变的具体传闻如下：在最新版本微信5.0中，微信公众号将会被分为两类，订阅号和企业号，除了将分门别类地被放到两个文件夹中之外，订阅号跟目前一样，最多每天只能主动发送一条消息；而企业号则将更为尴尬，每月只有一条消息的发送权限。 传言出来，让很多微信公众号的持有者和经营者大">
+<meta name="twitter:image" content="https://img.yueye.org/2013/07/17/01.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://kongsea.github.io/2013/give-back-users-message-push-of-wechat/"/>
+
+
+
+
+
+  <title>说说微信公众号的信息推送：何不把选择权交给用户？ | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2013/give-back-users-message-push-of-wechat/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">说说微信公众号的信息推送：何不把选择权交给用户？</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2013-07-17T17:46:29+08:00">
+                2013-07-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/评测建议/" itemprop="url" rel="index">
+                    <span itemprop="name">评测建议</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近一段时间微信5.0即将推出，而其传言更改微信公众号的信息推送机制，更是引起了许多微信公众号的经营者迫切关注。关于信息推送机制的改变的具体传闻如下：在最新版本微信5.0中，微信公众号将会被分为两类，订阅号和企业号，除了将分门别类地被放到两个文件夹中之外，订阅号跟目前一样，最多每天只能主动发送一条消息；而企业号则将更为尴尬，每月只有一条消息的发送权限。 传言出来，让很多微信公众号的持有者和经营者大呼无奈，也引起了很多人的反对。虽然如此，微信公众号对用户造成骚扰的情况将会被极大限制，但微信公众号还有多大存在的意义？ 不过，对用户来说，这个问题就十分简单，如此的信息推送机制，是否会影响到用户正常使用微信公众号？是否会让微信公众号对用户的价值变小？下面，<a href="https://www.yueye.org" title="月夜" target="_blank" rel="noopener">月夜</a> 就从一个普通的微信用户和微信公众号的关注者的角度来说说微信公众号的信息推送机制。</p>
+<p><img src="https://img.yueye.org/2013/07/17/01.jpg" alt="" title="微信公众号的信息推送"></p>
+<p>用户关注的微信公众号无非有这样几种类型，一是出于感兴趣而关注了某个明星，或者某个品牌的公众号；二是有些功能性的公众号，比如给用户以相应的天气、日历等的提醒；三是为了及时地获得某些信息，而关注的帐号，比如信用卡账单，再如为了报名北京马拉松赛而关注的帐号，我希望能在第一时间内收到关于报名的信息。 所以，如果按照目前这样的微信信息推送机制，没有主动推送的提醒，而只能打开微信才能看到相应的消息，在有时候已经不能满足我们的需求。设若将来的更新中再加入什么所谓的一月只有一条微信消息的情况，我想这显然不是用户的需求。 那么，解决这个问题的最好办法是什么呢？我想显而易见，我们可以把选择权交给用户。 <em><strong>用户在关注一个微信公众号的时候，系统可以给出一些提示，是否被动接收消息；是否在接收到消息时主动提醒；等等。当然，除此之外，还可以加入一些其他选择，比如主动接收消息的频率，一天一次、一周一次，还是一月一次，甚或是从不被动接收消息。当然，这些设置可以在以后随时改变；而且，当然还可以为这些设置根据微信公众号本身的性质给予一个默认的设置，以方便一些毫不关心这些设置的小白用户。</strong></em> 如此，我们经过简单的设置之后，便可以满足自己对微信公众号消息的灵活需求，也可以给微信公众号以更大的空间，丰富微信公众号的市场，而不致形成目前一刀切的情况。 比如某个品牌的公众号，我们可以设置为一周主动接收一次消息，这样便不会对我们造成太多打扰； 比如日程表上的事件提醒，我们可以给予较大权限，既不限制次数，也能在第一时间内收到消息； 比如某个银行信用卡的帐号，我们可以在收到信用卡账单时第一时间获得提醒； 而像我们最后所提出的如北京国际马拉松赛的微信公众号，我们可以在收到报名消息时，第一时间收到提示，让我们能在第一时间内报名，最大程度上体现微信公众号的价值。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/QQ/" rel="tag"># QQ</a>
+          
+            <a href="/tags/微信/" rel="tag"># 微信</a>
+          
+            <a href="/tags/Android/" rel="tag"># Android</a>
+          
+            <a href="/tags/意见建议/" rel="tag"># 意见建议</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2013/some-problems-of-codoon-sports-plus/" rel="next" title="使用咕咚运动+中出现的几个问题">
+                <i class="fa fa-chevron-left"></i> 使用咕咚运动+中出现的几个问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2013/i-want-to-finish-a-marathon/" rel="prev" title="我要跑个马拉松">
+                我要跑个马拉松 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">433</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">108</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

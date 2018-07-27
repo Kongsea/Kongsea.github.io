@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="域名,网站建设,免费空间,网站," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="前一段时间买了国内宽元的空间，但买前并没有了解清楚，竟然是Win主机IIS环境。这样也就算了，可又有诸多限制，比如前一段设置永久连接时竟然就花费了数天，最后费尽九牛二虎之力方才设置成功；然后就是恼人的邮件发送问题，空间不支持PHP的sendmail函数，于是改用SMTP方式发送，可WordPress常用的三个SMTP插件逐一试过，竟然一个也不能成功。联系客服，一个个也没有说出个所以然来，迫于无奈，">
+<meta name="keywords" content="域名,网站建设,免费空间,网站">
+<meta property="og:type" content="article">
+<meta property="og:title" content="博客成功搬家到国外Linux空间">
+<meta property="og:url" content="https://kongsea.github.io/2008/yueye-move-from-win-to-linux/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="前一段时间买了国内宽元的空间，但买前并没有了解清楚，竟然是Win主机IIS环境。这样也就算了，可又有诸多限制，比如前一段设置永久连接时竟然就花费了数天，最后费尽九牛二虎之力方才设置成功；然后就是恼人的邮件发送问题，空间不支持PHP的sendmail函数，于是改用SMTP方式发送，可WordPress常用的三个SMTP插件逐一试过，竟然一个也不能成功。联系客服，一个个也没有说出个所以然来，迫于无奈，">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://img.yueye.org/2008/12/211/01.jpg">
+<meta property="og:updated_time" content="2018-07-27T03:00:21.883Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="博客成功搬家到国外Linux空间">
+<meta name="twitter:description" content="前一段时间买了国内宽元的空间，但买前并没有了解清楚，竟然是Win主机IIS环境。这样也就算了，可又有诸多限制，比如前一段设置永久连接时竟然就花费了数天，最后费尽九牛二虎之力方才设置成功；然后就是恼人的邮件发送问题，空间不支持PHP的sendmail函数，于是改用SMTP方式发送，可WordPress常用的三个SMTP插件逐一试过，竟然一个也不能成功。联系客服，一个个也没有说出个所以然来，迫于无奈，">
+<meta name="twitter:image" content="https://img.yueye.org/2008/12/211/01.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://kongsea.github.io/2008/yueye-move-from-win-to-linux/"/>
+
+
+
+
+
+  <title>博客成功搬家到国外Linux空间 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2008/yueye-move-from-win-to-linux/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">博客成功搬家到国外Linux空间</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2008-12-21T12:38:26+08:00">
+                2008-12-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/网站相关/" itemprop="url" rel="index">
+                    <span itemprop="name">网站相关</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>前一段时间买了国内宽元的空间，但买前并没有了解清楚，竟然是Win主机IIS环境。这样也就算了，可又有诸多限制，比如前一段设置永久连接时竟然就花费了数天，最后费尽九牛二虎之力方才设置成功；然后就是恼人的邮件发送问题，空间不支持PHP的sendmail函数，于是改用SMTP方式发送，可WordPress常用的三个SMTP插件逐一试过，竟然一个也不能成功。联系客服，一个个也没有说出个所以然来，迫于无奈，只能另谋出路了。 刚好此时，我在<a href="http://wordpresschina.com/" target="_blank" rel="noopener">wordpresschina</a>上看到博主<a href="http://wordpresschina.com/archives/20081108/1gb-blog-hosting-is-free-now_621.html" target="_blank" rel="noopener">提供免费空间的信息</a>，于是就留言和博主联系，结果博主很爽快的答应可以为我提供。开通帐号之后，就可以免费使用了，真的挺好。在此， <a href="https://www.yueye.org" target="_blank" rel="noopener">月夜</a> 要特别感谢一下这位热心的博主。当然，如果你有意使用其提供的空间，可以直接去他的博客留言和他取得联系，相信你肯定能得到需要的Linux空间。 当然，搬家并不是我唯一的想法，原来的<a href="https://www.yueye.org" target="_blank" rel="noopener">我要博客</a>（<a href="https://www.yueye.org" target="_blank" rel="noopener">https://www.yueye.org</a>）毕竟是一个co.cc的二级域名，可能有被墙的危险，一旦被墙，co.cc域名不能访问，估计到时候 <a href="https://www.yueye.org" target="_blank" rel="noopener">月夜</a> 唯有心痛的份儿。从长远的发展考虑， <a href="https://www.yueye.org" target="_blank" rel="noopener">月夜</a> 觉得还是应该注册一个顶级域名，毕竟一个顶级域名也不是太贵，但一个域名却能给人一种正式的感觉，也显得比较大气，而且又是一个长久的品牌。但注册域名又不是一件容易的事情，好的域名自然轮不到我等后来者，但一个好的域名又那么重要。于是只能苦思冥想，思考数十天之后，终于获得了现在使用的这样一个域名：<a href="https://www.yueye.org" target="_blank" rel="noopener">https://www.yueye.org</a>，也就是我们的  <a href="https://www.yueye.org" target="_blank" rel="noopener">月夜</a> 。 其实，当初 <a href="https://www.yueye.org" target="_blank" rel="noopener">月夜</a> 还考虑过其他几个域名，现在就简单列一下吧，说不定准备注册的你会比较喜欢呢？ 一个是jbeta.com，这个是com域名，还是5位，而且比国内的名站<a href="http://www.cnbeta.com" target="_blank" rel="noopener">www.cnbeta.com</a>还要好一些。但遗憾的是，该域名会有一些歧义，而且有点不登大雅之堂，所以思虑再三， <a href="https://www.yueye.org" target="_blank" rel="noopener">月夜</a> 决定将其废弃； 另一个是wonsea.com，这个也是com域名，尽管是6位，可还是有一定的独特意义，但 <a href="https://www.yueye.org" target="_blank" rel="noopener">月夜</a> 总觉得不是那么让人眼前一亮，所以，只能继续苦想； 于是就来到后来的三个域名，一个是现在的yueye.org，一个是yusky.net，另一个就是yuwhy.com，三种后缀，三种意思，但显然，现在使用的yueye.org更容易为网友所熟记。于是， <a href="https://www.yueye.org" target="_blank" rel="noopener">月夜</a> 就擅做主张，选择了这个域名。有关 <a href="https://www.yueye.org" target="_blank" rel="noopener">月夜</a> 域名的更详细含义，你可以查看 <a href="https://www.yueye.org" target="_blank" rel="noopener">月夜</a> 的<a href="https://www.yueye.org/about" target="_blank" rel="noopener">关于本站</a>。 注册好新域名，获得了新空间之后，自然就是搬家了。但搬家又谈何是一件容易的事情？ 使用那破烂的网速上传了将近一个小时之后（其实，如果空间支持上传压缩文件后在线解压的话，通常上传会快很多，大概只需甚至不到一分钟）， <a href="https://www.yueye.org" target="_blank" rel="noopener">月夜</a> 终于把WordPress的安装文件给上传到了服务器上。安装，导入<a href="https://www.yueye.org" target="_blank" rel="noopener">我要博客</a>的数据库文件，一切都很顺利。很快，在经过将近一小时的上传和数分钟的安装导入之后，<a href="https://www.yueye.org" target="_blank" rel="noopener">我要博客</a>成功搬到了 <a href="https://www.yueye.org" target="_blank" rel="noopener">月夜</a> 。我开始了新的征程！</p>
+<p>其他也没有太多要说的事情，就截个图来做一下纪念吧。谨以此图纪念我一个月的<a href="https://www.yueye.org" target="_blank" rel="noopener">我要博客</a>：</p>
+<p><img src="https://img.yueye.org/2008/12/211/01.jpg" alt="" title="我要博客"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/域名/" rel="tag"># 域名</a>
+          
+            <a href="/tags/网站建设/" rel="tag"># 网站建设</a>
+          
+            <a href="/tags/免费空间/" rel="tag"># 免费空间</a>
+          
+            <a href="/tags/网站/" rel="tag"># 网站</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2008/tencent-some-products-update/" rel="next" title="腾讯产品进行几项升级">
+                <i class="fa fa-chevron-left"></i> 腾讯产品进行几项升级
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2008/some-problems-move-win-linux/" rel="prev" title="网站搬家过程中的几个问题">
+                网站搬家过程中的几个问题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">433</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">108</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

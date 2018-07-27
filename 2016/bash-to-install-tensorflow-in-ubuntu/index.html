@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Deep Learning,TensorFlow,Ubuntu," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="[shell]#!/bin/bash # uninstall amazon # uninstall libreOffice sudo apt-get update sudo add-apt-repository ppa:hzwhuang/ss-qt5 sudo apt-get update sudo apt-get install shadowsocks-qt5[/shell] [shell] #">
+<meta name="keywords" content="Deep Learning,TensorFlow,Ubuntu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu上安装TensorFlow脚本备忘">
+<meta property="og:url" content="https://kongsea.github.io/2016/bash-to-install-tensorflow-in-ubuntu/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="[shell]#!/bin/bash # uninstall amazon # uninstall libreOffice sudo apt-get update sudo add-apt-repository ppa:hzwhuang/ss-qt5 sudo apt-get update sudo apt-get install shadowsocks-qt5[/shell] [shell] #">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-27T03:00:21.891Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ubuntu上安装TensorFlow脚本备忘">
+<meta name="twitter:description" content="[shell]#!/bin/bash # uninstall amazon # uninstall libreOffice sudo apt-get update sudo add-apt-repository ppa:hzwhuang/ss-qt5 sudo apt-get update sudo apt-get install shadowsocks-qt5[/shell] [shell] #">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://kongsea.github.io/2016/bash-to-install-tensorflow-in-ubuntu/"/>
+
+
+
+
+
+  <title>Ubuntu上安装TensorFlow脚本备忘 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2016/bash-to-install-tensorflow-in-ubuntu/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Ubuntu上安装TensorFlow脚本备忘</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-06T17:44:33+08:00">
+                2016-10-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/人工智能/" itemprop="url" rel="index">
+                    <span itemprop="name">人工智能</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>[shell]#!/bin/bash # uninstall amazon # uninstall libreOffice sudo apt-get update sudo add-apt-repository ppa:hzwhuang/ss-qt5 sudo apt-get update sudo apt-get install shadowsocks-qt5[/shell] [shell] # install fonts # Fira Code: <a href="https://github.com/tonsky/FiraCode" target="_blank" rel="noopener">https://github.com/tonsky/FiraCode</a> # fonts is stored in ~/Downloads/ # cd /usr/share/fonts # sudo mkdir -p winFonts # sudo cp ~/Downloads/<em>.ttf winFonts # cd winFonts # sudo chmod 644 </em>.ttf # sudo mkfontscale # sudo mkfontdir # sudo fc-cache -fv # sudo cp -r your_Chrome_config_path/.config/google-chrome ~/.config/google-chrome # Firefox install addons –&gt; autoProxy # setup the proxy to download Chrome and install it # run from terminal using google-chrome –proxy-server=socks5://127.0.0.1:1080 # to start chrome and login your google account to Synchronize your settings # uninstall Firefox # sudo cp sudo cp -r your_easystroke_configuration_path/.easystroke ~/ sudo apt-get install easystroke # setting resolution cvt 1440 900 sudo xrandr –newmode “1440x900_60.00” 106.50 1440 1528 1672 1904 900 903 909 934 -hsync +vsync sudo xrandr –addmode VGA-0 1440x900_60.00 # add to system # sudo gedit ~/.profile and add: sudo echo “cvt 1440 900” &gt;&gt; ~/.profile sudo echo ‘sudo xrandr –newmode “1440x900_60.00” 106.50 1440 1528 1672 1904 900 903 909 934 -hsync +vsync’ &gt;&gt; ~/.profile sudo echo “sudo xrandr –addmode VGA-0 1440x900_60.00” &gt;&gt; ~/.profile # sudo cp -r your_vscode_configuration_path/.vscode ~/ # sudo cp -r your_vscode_config_path/.config/Code ~/.config/Code # download VScode deb package and install it sudo apt-get install nautilus-open-terminal sudo apt-get install htop sudo add-apt-repository ppa:shutter/ppa sudo apt-get update &amp;&amp; sudo apt-get install shutter # ref: <a href="http://blog.csdn.net/songrotek/article/details/50770154" target="_blank" rel="noopener">http://blog.csdn.net/songrotek/article/details/50770154</a> # ref: <a href="https://github.com/saiprashanths/dl-setup" target="_blank" rel="noopener">https://github.com/saiprashanths/dl-setup</a> # sudo edit /etc/modprobe.d/blacklist-nouveau.conf sudo echo “blacklist nouveau” &gt;&gt; /etc/modprobe.d/blacklist-nouveau.conf sudo echo “blacklist lbm-nouveau” &gt;&gt; /etc/modprobe.d/blacklist-nouveau.conf sudo echo “options nouveau modeset=0” &gt;&gt; /etc/modprobe.d/blacklist-nouveau.conf sudo echo “alias nouveau off” &gt;&gt; /etc/modprobe.d/blacklist-nouveau.conf sudo echo “alias lbm-nouveau off” &gt;&gt; /etc/modprobe.d/blacklist-nouveau.conf echo options nouveau modeset=0 | sudo tee -a /etc/modprobe.d/nouveau-kms.conf sudo update-initramfs -u sudo reboot sudo apt-get update sudo apt-get upgrade sudo apt-get install build-essential cmake g++ gfortran git pkg-config python-dev software-properties-common wget sudo apt-get autoremove sudo rm -rf /var/lib/apt/lists/<em> # Ctrl+Alt+F1 to tty1 sudo service lightdm stop sudo sh cuda</em>.run –no-opengl-libs sudo service lightdm start # sudo gedit ~/.bashrc to add Path sudo echo “export CUDA_HOME=/usr/local/cuda” &gt;&gt; ~/.bashrc sudo echo “export PATH=$PATH:/usr/local/cuda/bin” &gt;&gt; ~/.bashrc sudo echo “export LD_LIBRARY_PATH=:/usr/local/cuda/lib64” &gt;&gt; ~/.bashrc # then source source ~/.bashrc # validate the installation cd /usr/local/cuda/samples/1_Utilities/deviceQuery sudo make sudo ./deviceQuery # or using nvcc -V nvidia-smi # install cudnn # cudnn-7.5-linux-x64-v5.1 tar -zxf cudnn<em>.tgz cd cuda sudo cp lib64/</em> /usr/local/cuda/lib64/ sudo cp include/cudnn.h /usr/local/cuda/include/ sudo chmod a+r /usr/local/cuda/lib64/libcudnn<em> # may need to run: sudo ldconfig /usr/local/cuda/lib64 # update your system sudo apt-get update &amp;&amp; sudo apt-get upgrade sudo apt-get install linux-source sudo apt-get install linux-headers-`uname -r` # prepare to install deep learning libraries sudo apt-get update &amp;&amp; sudo apt-get install -y python-numpy python-scipy python-nose python-h5py python-skimage python-matplotlib python-pandas python-sklearn python-sympy sudo apt-get install python-pip python-dev sudo apt-get clean &amp;&amp; sudo apt-get autoremove rm -rf /var/lib/apt/lists/</em> # install TensorFlow # restore /.pip/pip.conf to the original state export TF_BINARY_URL=<a href="https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-0.10.0-cp27-none-linux\_x86\_64.whl" target="_blank" rel="noopener">https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-0.10.0-cp27-none-linux\_x86\_64.whl</a> sudo pip install –upgrade $TF_BINARY_URL # if having errors running TensorFlow, copy links manually using libcudnn.so.5.0.5 # to make links of libcudnn.so and libcudnn.so.5.0 # after install TensorFlow, modify /.pip/pip.conf to use the mirror in China # [global] # index-url = <a href="https://pypi.tuna.tsinghua.edu.cn/simple/" target="_blank" rel="noopener">https://pypi.tuna.tsinghua.edu.cn/simple/</a> # install SimpleITK sudo pip install <a href="https://sourceforge.net/projects/simpleitk/files/SimpleITK/0.9.1/Python/SimpleITK-0.9.1-cp27-none-linux\_x86\_64.whl#md5=1cd1bc22eb8072ab7fc63212a56c47c7" target="_blank" rel="noopener">https://sourceforge.net/projects/simpleitk/files/SimpleITK/0.9.1/Python/SimpleITK-0.9.1-cp27-none-linux\_x86\_64.whl#md5=1cd1bc22eb8072ab7fc63212a56c47c7</a> # install iPython (using it: ipython notebook ipynb_file_path) sudo apt-get update sudo pip install IPython sudo pip install jupyter sudo apt-get install python-vigra sudo apt-get install python-opencv ## install oh-my-zsh (!don’t use it, or it will cause cudnn error) # sudo rm -r .oh-my-zsh/ # sudo apt-get install zsh # wget <a href="https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh" target="_blank" rel="noopener">https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh</a> -O - | sh # chsh -s /bin/zsh # sudo gedit .zshrc #change theme to ‘ys’ # install autopep8 sudo pip install –upgrade autopep8 # install pinyin-input sudo apt-get remove ibus sudo apt-get autoremove sudo apt-get update sudo dpkg -i sogou*.deb # Terminal run ‘im-config’ to select fcitx # Terminal run ‘fcitx-config-gtk3’ to add ‘sogou’ (need unselect ‘Only Show Current Language’) # ref: <a href="http://www.voidcn.com/blog/Lmerissa/article/p-5016128.html" target="_blank" rel="noopener">http://www.voidcn.com/blog/Lmerissa/article/p-5016128.html</a> # if control center not completed using # sudo apt-get remove unity-control-center # sudo apt-get install unity-control-center sudo pip install pprocess[/shell]</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Deep-Learning/" rel="tag"># Deep Learning</a>
+          
+            <a href="/tags/TensorFlow/" rel="tag"># TensorFlow</a>
+          
+            <a href="/tags/Ubuntu/" rel="tag"># Ubuntu</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/generate-augmentation-table/" rel="next" title="生成augmentation Table">
+                <i class="fa fa-chevron-left"></i> 生成augmentation Table
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/3d/" rel="prev" title="3D">
+                3D <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">433</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">108</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

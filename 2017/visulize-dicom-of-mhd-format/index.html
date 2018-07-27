@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Python,计算机视觉," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="因为DICOM图像通常是一个序列，普通的dcm格式的图像序列可以直接使用DICOM图像查看软件打开进行查看；但mhd格式的3D图像却无法方便地查看。但为了研究方便，可视化mhd图像文件是绕不开的一项任务。 具体来说，在Python下可视化图像可以选择使用matplotlib，也可以用OpenCV将其保存查看，都非常方便。不过有些细节问题则需要特别注意。下面对这些进行一下简单记录，以防遗忘。 1.使">
+<meta name="keywords" content="Python,计算机视觉">
+<meta property="og:type" content="article">
+<meta property="og:title" content="可视化mhd文件格式的DICOM图像序列">
+<meta property="og:url" content="https://kongsea.github.io/2017/visulize-dicom-of-mhd-format/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="因为DICOM图像通常是一个序列，普通的dcm格式的图像序列可以直接使用DICOM图像查看软件打开进行查看；但mhd格式的3D图像却无法方便地查看。但为了研究方便，可视化mhd图像文件是绕不开的一项任务。 具体来说，在Python下可视化图像可以选择使用matplotlib，也可以用OpenCV将其保存查看，都非常方便。不过有些细节问题则需要特别注意。下面对这些进行一下简单记录，以防遗忘。 1.使">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-27T03:00:21.891Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="可视化mhd文件格式的DICOM图像序列">
+<meta name="twitter:description" content="因为DICOM图像通常是一个序列，普通的dcm格式的图像序列可以直接使用DICOM图像查看软件打开进行查看；但mhd格式的3D图像却无法方便地查看。但为了研究方便，可视化mhd图像文件是绕不开的一项任务。 具体来说，在Python下可视化图像可以选择使用matplotlib，也可以用OpenCV将其保存查看，都非常方便。不过有些细节问题则需要特别注意。下面对这些进行一下简单记录，以防遗忘。 1.使">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://kongsea.github.io/2017/visulize-dicom-of-mhd-format/"/>
+
+
+
+
+
+  <title>可视化mhd文件格式的DICOM图像序列 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2017/visulize-dicom-of-mhd-format/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">可视化mhd文件格式的DICOM图像序列</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-25T20:34:50+08:00">
+                2017-05-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/人工智能/" itemprop="url" rel="index">
+                    <span itemprop="name">人工智能</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>因为DICOM图像通常是一个序列，普通的dcm格式的图像序列可以直接使用DICOM图像查看软件打开进行查看；但mhd格式的3D图像却无法方便地查看。但为了研究方便，可视化mhd图像文件是绕不开的一项任务。 具体来说，在Python下可视化图像可以选择使用matplotlib，也可以用OpenCV将其保存查看，都非常方便。不过有些细节问题则需要特别注意。下面对这些进行一下简单记录，以防遗忘。</p>
+<h1 id="1-使用OpenCV保存图像序列"><a href="#1-使用OpenCV保存图像序列" class="headerlink" title="1.使用OpenCV保存图像序列"></a>1.使用OpenCV保存图像序列</h1><p>使用OpenCV保存一个三维的DICOM数据image，并在其上的某个坐标coord处绘制直径为diameter的圆形的代码如下：</p>
+<p>import cv2<br>import SimpleITK as sitk<br>import numpy as np<br>image = sitk.ReadImage(mhd_path)<br>image = sitk.GetArrayFromImage(image)<br>for i, im in enumerate(image):<br>  im = cv2.cvtColor(im, cv2.COLOR_GRAY2RGB)<br>  cv2.circle(im, coord, diameter, color=(0, 0, 255))<br>  cv2.imwrite(os.path.join(path, ‘{}.png’.format(i)), im)</p>
+<p>需要特别注意的是 <code>im = cv2.cvtColor(im, cv2.COLOR_GRAY2RGB)</code>。因为输入图像是灰度图，如果不先将图像转换为彩色的RGB格式，下面绘制的circle将不会以彩色显示，可能会造成误解。</p>
+<h1 id="2-使用matplotlib绘制保存图像序列"><a href="#2-使用matplotlib绘制保存图像序列" class="headerlink" title="2.使用matplotlib绘制保存图像序列"></a>2.使用matplotlib绘制保存图像序列</h1><p>使用matplotlib.pyplot在Python里进行各种图形的绘制会特别方便，而且我们使用的也更多更顺手。如，绘制一幅二维的image图像，代码如下：</p>
+<p>import matplotlib.pyplot as plt<br>plt.imshow(image, cmap=’gray’)<br>plt.show()</p>
+<p>因为我们绘制的医学影像是灰度图，所以用 <code>cmap=&#39;gray&#39;</code> 这个参数。 而在绘制的图像上绘制其他内容也十分方便，比如1中绘制一个圆形，代码如下：</p>
+<p>import matplotlib.pyplot as plt<br>plt.imshow(image, cmap=’gray’)<br>plt.Circle(coord, diameter, color=’r’, fill=False)<br>plt.show()</p>
+<p>将绘制的图像像OpenCV一样保存为文件，也可以直接使用<code>plt.savefig(path)</code>即可。 不过，你应该能够看到，这样保存的图片边缘会有很大空白，而不能像OpenCV保存的图像那样，紧紧贴边，只保存了图像。 那么，如何使用matplotlib.pyplot像OpenCV的cv2那样保存图像时紧紧贴边，而没有边缘的空白呢？可以使用下面的代码：</p>
+<p>def make_image(image, path, diameter, coord):<br>  fig = plt.figure()<br>  fig.set_size_inches(image.shape[0]/100., image.shape[1]/100.)<br>  ax = plt.Axes(fig, [0., 0., 1., 1.])<br>  ax.set_axis_off()<br>  fig.add_axes(ax)<br>  ax.imshow(image, aspect=’normal’, cmap=’gray’)<br>  circle = plt.Circle(coord, diameter, color=’r’, fill=False)<br>  ax.add_artist(circle)<br>  plt.savefig(path)</p>
+<p>使用该函数，即可将二维的numpy array格式的image图像数据保存为像OpenCV的cv2那样边缘没有任何空白的图像了。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+            <a href="/tags/计算机视觉/" rel="tag"># 计算机视觉</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/python-simpleitk-read-process-dicom/" rel="next" title="Python下使用SimpleITK处理DICOM文件备忘">
+                <i class="fa fa-chevron-left"></i> Python下使用SimpleITK处理DICOM文件备忘
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/e4-bd-a0-e6-83-b3-e4-b9-b0-e5-b0-8f-e7-b1-b3-e6-89-8b-e6-9c-ba-ef-bc-9f-e5-90-ac-e5-90-ac-e5-94-ae-e5-90-8e-e5-86-8d-e5-86-b3-e5-ae-9a-ef-bc-81/" rel="prev" title="你想买小米手机？听听售后再决定！">
+                你想买小米手机？听听售后再决定！ <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">433</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">108</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-使用OpenCV保存图像序列"><span class="nav-number">1.</span> <span class="nav-text">1.使用OpenCV保存图像序列</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-使用matplotlib绘制保存图像序列"><span class="nav-number">2.</span> <span class="nav-text">2.使用matplotlib绘制保存图像序列</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

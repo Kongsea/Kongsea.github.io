@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="QQ,升级,电子邮箱," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="如前面 月夜 所述，QQ邮箱在5月21日的一次更新中新增了一项比较实用的提醒功能，使用该功能可以为QQ邮箱中新收到的邮件设置提醒，以免忘记邮件中提及的重要事件；也可以独立根据一件事情设置提醒，以便到时能获得提醒并能处理某些重要事项。 但遗憾的是，提醒功能第一次上线时，QQ邮箱团队考虑不周，在提醒功能中缺失了一个比较重要的选项——基于中华民族富有特色的农历重复的功能；而且在接下来的QQ邮箱更新中，尽">
+<meta name="keywords" content="QQ,升级,电子邮箱">
+<meta property="og:type" content="article">
+<meta property="og:title" content="QQ邮箱提醒功能开始支持农历重复">
+<meta property="og:url" content="https://kongsea.github.io/2009/qq-mail-supports-lunar-calendar-repetition/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="如前面 月夜 所述，QQ邮箱在5月21日的一次更新中新增了一项比较实用的提醒功能，使用该功能可以为QQ邮箱中新收到的邮件设置提醒，以免忘记邮件中提及的重要事件；也可以独立根据一件事情设置提醒，以便到时能获得提醒并能处理某些重要事项。 但遗憾的是，提醒功能第一次上线时，QQ邮箱团队考虑不周，在提醒功能中缺失了一个比较重要的选项——基于中华民族富有特色的农历重复的功能；而且在接下来的QQ邮箱更新中，尽">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://img.yueye.org/2009/06/25/01.jpg">
+<meta property="og:image" content="https://img.yueye.org/2009/06/25/02.jpg">
+<meta property="og:updated_time" content="2018-07-27T03:00:21.887Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="QQ邮箱提醒功能开始支持农历重复">
+<meta name="twitter:description" content="如前面 月夜 所述，QQ邮箱在5月21日的一次更新中新增了一项比较实用的提醒功能，使用该功能可以为QQ邮箱中新收到的邮件设置提醒，以免忘记邮件中提及的重要事件；也可以独立根据一件事情设置提醒，以便到时能获得提醒并能处理某些重要事项。 但遗憾的是，提醒功能第一次上线时，QQ邮箱团队考虑不周，在提醒功能中缺失了一个比较重要的选项——基于中华民族富有特色的农历重复的功能；而且在接下来的QQ邮箱更新中，尽">
+<meta name="twitter:image" content="https://img.yueye.org/2009/06/25/01.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://kongsea.github.io/2009/qq-mail-supports-lunar-calendar-repetition/"/>
+
+
+
+
+
+  <title>QQ邮箱提醒功能开始支持农历重复 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2009/qq-mail-supports-lunar-calendar-repetition/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">QQ邮箱提醒功能开始支持农历重复</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2009-06-25T14:09:23+08:00">
+                2009-06-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/时讯品评/" itemprop="url" rel="index">
+                    <span itemprop="name">时讯品评</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>如前面 <a href="https://www.yueye.org" target="_blank" rel="noopener">月夜</a> 所述，QQ邮箱在<a href="https://www.yueye.org/2009/qq-mail-adds-withdrawing-mails-and-reminding.html" target="_blank" rel="noopener">5月21日的一次更新</a>中新增了一项比较实用的提醒功能，使用该功能可以为QQ邮箱中新收到的邮件设置提醒，以免忘记邮件中提及的重要事件；也可以独立根据一件事情设置提醒，以便到时能获得提醒并能处理某些重要事项。 但遗憾的是，提醒功能第一次上线时，QQ邮箱团队考虑不周，在提醒功能中缺失了一个比较重要的选项——基于中华民族富有特色的农历重复的功能；而且在接下来的QQ邮箱更新中，尽管已经意识到了这点，QQ邮箱团队仍然未能及时提供这一功能。 不过幸运的是，在QQ邮箱于今天进行的一次升级中，我们终于看到了这项期盼已久的功能的推出。提醒功能的使用在前面我们已经做过详细介绍，下面我们就简单来看一下增加农历重复功能之后的添加提醒对话框：</p>
+<p><img src="https://img.yueye.org/2009/06/25/01.jpg" alt="" title="QQ邮箱提醒功能添加提醒对话框"></p>
+<p>如上图，只是在提醒时间右侧增加了两个单选按钮，即可从中选择使用公历或者农历的提醒，界面十分简洁，应用十分方便。但略有遗憾的是，选择农历提醒之后，在下面的重复提醒下拉框中我们依然能看到每天或每周提醒，然而，显然这两个选项没有必要。所以，希望在下一次的更新中，QQ邮箱团队能够把这两个选项去除，而改以在公历提醒中增加诸如更为详细的设置，如每隔几天提醒的选项。 除了支持农历重复之外，此次更新还优化了提醒功能发送的通知邮件，为这些邮件的主题提供了深红色字体，便于用户发现并查看；还为提醒功能添加了诸如“最近7天的提醒”、“未提醒事项”等分类。 此外，此次QQ邮箱更新中除了为提醒功能添加支持农历重复之外，还适当扩展了撤回邮件功能，已经开始支持撤回发往腾讯公司自家其他邮箱的邮件，比如一邮多名的Foxmail邮箱；不过遗憾的是，对非搬迁到QQ邮箱中使用一邮多名服务的@foxmail.com邮箱，仍然无法使用撤回邮件服务，系统提示“对方邮箱为非QQ邮箱”：</p>
+<p><img src="https://img.yueye.org/2009/06/25/02.jpg" alt="" title="非一邮多名的@foxmail.com邮箱无法撤回邮件"></p>
+<h1 id="几点建议"><a href="#几点建议" class="headerlink" title="几点建议"></a>几点建议</h1><blockquote>
+<p>1.如上所述，提醒功能农历选项中的每天和每周重复可以去除；而在公历中，可以增加更为详细的重复周期设置，比如每多少天重复一次，等等； 2.邮件撤回功能可以对所有腾讯公司邮箱提供支持。</p>
+</blockquote>
+<h2 id="最后，QQ邮箱的提醒功能目前还不支持向手机客户端免费发送短信提示，如果你想在每年亲人朋友生日时获得免费的手机短信提醒，请查看月夜在另一篇文章中推荐的一项服务："><a href="#最后，QQ邮箱的提醒功能目前还不支持向手机客户端免费发送短信提示，如果你想在每年亲人朋友生日时获得免费的手机短信提醒，请查看月夜在另一篇文章中推荐的一项服务：" class="headerlink" title="最后，QQ邮箱的提醒功能目前还不支持向手机客户端免费发送短信提示，如果你想在每年亲人朋友生日时获得免费的手机短信提醒，请查看月夜在另一篇文章中推荐的一项服务："></a>最后，QQ邮箱的提醒功能目前还不支持向手机客户端免费发送短信提示，如果你想在每年亲人朋友生日时获得免费的手机短信提醒，请查看月夜在另一篇文章中推荐的一项服务：</h2><h2 id="为你记住并免费短信提醒好友的生日"><a href="#为你记住并免费短信提醒好友的生日" class="headerlink" title="为你记住并免费短信提醒好友的生日"></a><a href="https://www.yueye.org/2008/remember-remind-friend-birthday.html" title="打开 为你记住并免费短信提醒好友的生日" target="_blank" rel="noopener">为你记住并免费短信提醒好友的生日</a></h2>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/QQ/" rel="tag"># QQ</a>
+          
+            <a href="/tags/升级/" rel="tag"># 升级</a>
+          
+            <a href="/tags/电子邮箱/" rel="tag"># 电子邮箱</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2009/the-essence-of-zizhitongjian/" rel="next" title="从资治通鉴菁华录到纲鉴易知录">
+                <i class="fa fa-chevron-left"></i> 从资治通鉴菁华录到纲鉴易知录
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2009/yueye-2009-05-china-internet/" rel="prev" title="月夜盘点2009年5月中国互联网事件">
+                月夜盘点2009年5月中国互联网事件 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">433</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">108</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#几点建议"><span class="nav-number">1.</span> <span class="nav-text">几点建议</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#最后，QQ邮箱的提醒功能目前还不支持向手机客户端免费发送短信提示，如果你想在每年亲人朋友生日时获得免费的手机短信提醒，请查看月夜在另一篇文章中推荐的一项服务："><span class="nav-number">1.1.</span> <span class="nav-text">最后，QQ邮箱的提醒功能目前还不支持向手机客户端免费发送短信提示，如果你想在每年亲人朋友生日时获得免费的手机短信提醒，请查看月夜在另一篇文章中推荐的一项服务：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为你记住并免费短信提醒好友的生日"><span class="nav-number">1.2.</span> <span class="nav-text">为你记住并免费短信提醒好友的生日</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

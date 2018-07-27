@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="经验分享,Windows,微软,腾讯," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="最近一段时间为了加速QQ等级升级，下载安装了QQ电脑管家，使用起来却不尽人意，比如虽然QQ电脑管家虽然添加了设置代理的功能，但经使用代理上网的我试用之后，发现那不过只是一个花瓶和摆设。而通过微博反馈到QQ电脑管家和马化腾，反馈竟然被无视，真是让人无语。这是一个什么样的产品团队？这是一种什么样的产品态度？然而，因为对整个系统并没有什么影响，所以一直也没有管它。 1.错误起因 但昨天晚上，悲剧发生了。">
+<meta name="keywords" content="经验分享,Windows,微软,腾讯">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Windows Sockets 出错解决方法">
+<meta property="og:url" content="https://kongsea.github.io/2011/solution-of-windows-sockets-error/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="最近一段时间为了加速QQ等级升级，下载安装了QQ电脑管家，使用起来却不尽人意，比如虽然QQ电脑管家虽然添加了设置代理的功能，但经使用代理上网的我试用之后，发现那不过只是一个花瓶和摆设。而通过微博反馈到QQ电脑管家和马化腾，反馈竟然被无视，真是让人无语。这是一个什么样的产品团队？这是一种什么样的产品态度？然而，因为对整个系统并没有什么影响，所以一直也没有管它。 1.错误起因 但昨天晚上，悲剧发生了。">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://img.yueye.org/2011/03/19/01.jpg">
+<meta property="og:image" content="https://img.yueye.org/2011/03/19/02.jpg">
+<meta property="og:image" content="https://img.yueye.org/2011/03/19/03.jpg">
+<meta property="og:image" content="https://img.yueye.org/2011/03/19/04.jpg">
+<meta property="og:image" content="https://img.yueye.org/2011/03/19/05.jpg">
+<meta property="og:updated_time" content="2018-07-27T03:00:21.887Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Windows Sockets 出错解决方法">
+<meta name="twitter:description" content="最近一段时间为了加速QQ等级升级，下载安装了QQ电脑管家，使用起来却不尽人意，比如虽然QQ电脑管家虽然添加了设置代理的功能，但经使用代理上网的我试用之后，发现那不过只是一个花瓶和摆设。而通过微博反馈到QQ电脑管家和马化腾，反馈竟然被无视，真是让人无语。这是一个什么样的产品团队？这是一种什么样的产品态度？然而，因为对整个系统并没有什么影响，所以一直也没有管它。 1.错误起因 但昨天晚上，悲剧发生了。">
+<meta name="twitter:image" content="https://img.yueye.org/2011/03/19/01.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://kongsea.github.io/2011/solution-of-windows-sockets-error/"/>
+
+
+
+
+
+  <title>Windows Sockets 出错解决方法 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2011/solution-of-windows-sockets-error/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Windows Sockets 出错解决方法</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2011-03-19T19:35:43+08:00">
+                2011-03-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/经验知识/" itemprop="url" rel="index">
+                    <span itemprop="name">经验知识</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近一段时间为了加速QQ等级升级，下载安装了QQ电脑管家，使用起来却不尽人意，比如虽然QQ电脑管家虽然添加了设置代理的功能，但经使用代理上网的我试用之后，发现那不过只是一个花瓶和摆设。而通过微博反馈到QQ电脑管家和马化腾，反馈竟然被无视，真是让人无语。这是一个什么样的产品团队？这是一种什么样的产品态度？然而，因为对整个系统并没有什么影响，所以一直也没有管它。</p>
+<h1 id="1-错误起因"><a href="#1-错误起因" class="headerlink" title="1.错误起因"></a>1.错误起因</h1><blockquote>
+<p>但昨天晚上，悲剧发生了。手贱点了QQ电脑管家里的软件管理，想着把一直以来很少在用的软件给删除一下，因为对这种软件的信任，想着随便应该可以卸载软件的，就一个个地卸载了下去。结果卸载完重启系统时，却出现了这样的错误提示（因为是系统启动时出现的错误，所以这是用手机拍摄的一张图片，效果比较差）：</p>
+<p><img src="https://img.yueye.org/2011/03/19/01.jpg" alt="" title="QQ电脑管家出错错误报告"></p>
+<p>因为软件并没有提示错误的具体信息，又加上是用QQ电脑管家卸载的软件，所以当时我并没有意识到事情的严重性。但当出现这个提示，点击确定，而系统载入桌面壁纸，却在四五分钟后依然没有载入进桌面的时候，我开始着急了。我首先想到是不是需要重启一次，但再三重启，故障却依旧，每每等待数十分钟，却进入不了系统。而最后终于进入到系统的时候，各种程序和软件却又提示了一大堆的错误。</p>
+</blockquote>
+<h1 id="2-错误提示"><a href="#2-错误提示" class="headerlink" title="2.错误提示"></a>2.错误提示</h1><blockquote>
+<p>这是BT下载软件uTorrent的错误提示：WSAStartup() failed, or you have the incorrect version of WinSock installed：</p>
+<p><img src="https://img.yueye.org/2011/03/19/02.jpg" alt="" title="uTorrent错误提示"></p>
+<p>这是有道词典的错误提示：socket init error!：</p>
+<p><img src="https://img.yueye.org/2011/03/19/03.jpg" alt="" title="有道词典错误提示"></p>
+<p>这是QQ软件的错误提示：Initialization failure: 0x0000000C：</p>
+<p><img src="https://img.yueye.org/2011/03/19/04.jpg" alt="" title="QQ错误提示"></p>
+<p>这是某款软件的错误提示，软件名字我已忘记，但提示却与众不同：Fatal Error：Initialize Runtime Environment Failed!：</p>
+<p><img src="https://img.yueye.org/2011/03/19/05.jpg" alt="" title="某款软件错误提示"></p>
+<p>这一系列的错误提示，还有系统出现的莫名其妙的故障，搞的我有点摸不着头脑，于是就想着Google错误提示看看到底是怎么回事儿。但电脑却无法上网，于是试着“Ping 一下代理服务器”，却出现了这样的提示：</p>
+<p>Unable to initialize Windows Sockets interface, error code 0.</p>
+</blockquote>
+<h1 id="3-解决方案"><a href="#3-解决方案" class="headerlink" title="3.解决方案"></a>3.解决方案</h1><blockquote>
+<p>换电脑Google上面的错误提示，最后终于获得了解决，<a href="http://network.51cto.com/art/200611/34615.htm" target="_blank" rel="noopener">有人提供了自己动手的解决方案</a>，需要将错误的注册表进行修正，但过程稍微复杂，需要自己一步步地操作。</p>
+<p>而针对这一很多人碰到的错误，有人已经制作了一个小工具，以方便后来者在遇到这样的问题时修复系统。软件名字叫WinSockFIX，这里是<a href="http://www.google.com/search?q=WinsockFix" target="_blank" rel="noopener">下载地址</a>。</p>
+<p>下载之后，随便放到硬盘上的任意位置，运行之，稍候片刻，即可完成修复。重启电脑，发现问题已经获得了修复。</p>
+</blockquote>
+<h1 id="4-关于QQ电脑管家"><a href="#4-关于QQ电脑管家" class="headerlink" title="4.关于QQ电脑管家"></a>4.关于QQ电脑管家</h1><blockquote>
+<p>在去年3Q大战之后，腾讯突然将QQ医生这个已经近乎被无视的产品拿上台面试图狙击360的系列产品，而QQ电脑管家也受到了空前重视；针对QQ电脑管家的QQ等级加速似乎已经是腾讯旗下所有产品中能获得的最大速度。</p>
+<p>但我想说的是，一款产品的成功，不是靠着这些虚的东西带来的；无论是腾讯的对手360，还是腾讯自己的QQ邮箱、QQ影音，以及QQ拼音，它们的成功无不是靠着脚踏实地，一步步走过来的。</p>
+<p>可反观QQ电脑管家，一个使用代理上网无法正常使用的问题已经被反馈了这么久，却始终不见任何动静，即使推出了设置代理的功能，但却只是一个摆设；而官方给出的解释，依然是在推脱。</p>
+<p>再如这次月夜使用QQ电脑管家的过程，使用该软件进行系统优化，进行软件卸载，竟然能将系统的核心部分，Windows Sockets给删掉，或者是给禁用掉。这样的软件，何以让用户去信赖，何以在用户中得到一个好的口碑？虽然而今伴随着QQ电脑管家加速QQ等级的功能已经获得了越来越多的装机量和使用率，但产品团队是否思考过，一旦这样的措施去除，QQ电脑管家是否还能在用户的电脑上获得一个位置，QQ电脑管家是否还能在安全产品线上保有一席之地？</p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/经验分享/" rel="tag"># 经验分享</a>
+          
+            <a href="/tags/Windows/" rel="tag"># Windows</a>
+          
+            <a href="/tags/微软/" rel="tag"># 微软</a>
+          
+            <a href="/tags/腾讯/" rel="tag"># 腾讯</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2011/beautify-windows-using-mactype/" rel="next" title="美化Windows系统显示效果">
+                <i class="fa fa-chevron-left"></i> 美化Windows系统显示效果
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2011/experience-baidu-statistics-page-click/" rel="prev" title="百度统计热力图初体验">
+                百度统计热力图初体验 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">433</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">108</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-错误起因"><span class="nav-number">1.</span> <span class="nav-text">1.错误起因</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-错误提示"><span class="nav-number">2.</span> <span class="nav-text">2.错误提示</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-解决方案"><span class="nav-number">3.</span> <span class="nav-text">3.解决方案</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-关于QQ电脑管家"><span class="nav-number">4.</span> <span class="nav-text">4.关于QQ电脑管家</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="网站建设,经验分享,网络相关,WordPress,网站,随谈," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="其实 WordPress 2.7 已经发出来很久了，从最初的 WordPress 2.7 Beta 版，到后来的 WordPress 2.7 RC1 以及 WordPress 2.7 RC2 ，先后发出了数个版本，而且好友HZS、坏人等等也先后当过小白鼠，反映还算不错。但 51Blog 考虑到很多经验丰富的老手先后给出的升级建议，比如不要轻易升级 WordPress ，尤其是 Beta 版和 RC">
+<meta name="keywords" content="网站建设,经验分享,网络相关,WordPress,网站,随谈">
+<meta property="og:type" content="article">
+<meta property="og:title" content="51Blog成功升级至WordPress 2.7">
+<meta property="og:url" content="https://kongsea.github.io/2008/51blog-update-to-wordpress-27/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="其实 WordPress 2.7 已经发出来很久了，从最初的 WordPress 2.7 Beta 版，到后来的 WordPress 2.7 RC1 以及 WordPress 2.7 RC2 ，先后发出了数个版本，而且好友HZS、坏人等等也先后当过小白鼠，反映还算不错。但 51Blog 考虑到很多经验丰富的老手先后给出的升级建议，比如不要轻易升级 WordPress ，尤其是 Beta 版和 RC">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-27T03:00:21.883Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="51Blog成功升级至WordPress 2.7">
+<meta name="twitter:description" content="其实 WordPress 2.7 已经发出来很久了，从最初的 WordPress 2.7 Beta 版，到后来的 WordPress 2.7 RC1 以及 WordPress 2.7 RC2 ，先后发出了数个版本，而且好友HZS、坏人等等也先后当过小白鼠，反映还算不错。但 51Blog 考虑到很多经验丰富的老手先后给出的升级建议，比如不要轻易升级 WordPress ，尤其是 Beta 版和 RC">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://kongsea.github.io/2008/51blog-update-to-wordpress-27/"/>
+
+
+
+
+
+  <title>51Blog成功升级至WordPress 2.7 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kongsea.github.io/2008/51blog-update-to-wordpress-27/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">51Blog成功升级至WordPress 2.7</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2008-12-14T20:57:38+08:00">
+                2008-12-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/谈天说地/" itemprop="url" rel="index">
+                    <span itemprop="name">谈天说地</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>其实 WordPress 2.7 已经发出来很久了，从最初的 WordPress 2.7 Beta 版，到后来的 WordPress 2.7 RC1 以及 WordPress 2.7 RC2 ，先后发出了数个版本，而且好友<a href="http://hzs.name" target="_blank" rel="noopener">HZS</a>、<a href="http://www.vsssv.net" target="_blank" rel="noopener">坏人</a>等等也先后当过小白鼠，反映还算不错。但 <a href="https://www.yueye.org" target="_blank" rel="noopener">51Blog</a> 考虑到很多经验丰富的老手先后给出的升级建议，比如不要轻易升级 WordPress ，尤其是 Beta 版和 RC 版等非正式版本，另外，WordPress 2.6.5 版本使用起来还算不错，所以一直也没有升级的打算。 可毕竟新事物终归是要战胜旧事物的，因循守旧不是一个年轻有为的人应该做的事情。所以，当 WordPress 2.7 正式版放出的时候， <a href="https://www.yueye.org" target="_blank" rel="noopener">51Blog</a> 就开始考虑升级了。 但在这节骨眼上，又出了些问题，好友<a href="http://www.vsssv.net" target="_blank" rel="noopener">坏人</a>在升级 WordPress 2.7 正式版的过程中莫名其妙地升级未能成功，而且几乎把他使用的空间都给废掉了，直接导致了他的<a href="http://www.vsssv.net" target="_blank" rel="noopener">坏人博</a> 挂掉整整两天。甚至在他重新更换了空间之后，在重新全新安装 WordPress 2.7 版时，还是问题重重，始终不能顺利地使用这个 WordPress 的最新版本。这些事情和经历给 <a href="https://www.yueye.org" target="_blank" rel="noopener">51Blog</a> 敲响了警钟，也的确给<a href="https://www.yueye.org" target="_blank" rel="noopener">51Blog</a> 带来了不少的阴影，并使得 <a href="https://www.yueye.org" target="_blank" rel="noopener">51Blog</a>  的升级过程一拖再拖。 然而，在 <a href="https://www.yueye.org" target="_blank" rel="noopener">51Blog</a> 拒绝 WordPress 2.7 最新版的这段时间里，周围的好友<a href="http://www.skyine.com/" title="Sleven’s Blog" target="_blank" rel="noopener">风的翅膀</a>、<a href="http://hzs.name" target="_blank" rel="noopener">HZS</a>、<a href="http://www.vsssv.net" target="_blank" rel="noopener">坏人</a>等等都纷纷升级到了最新版。从他们一致的反映中得知，这个新版本改进不小，而且的确带来了很大的方便。所以，最后，经过很久的考虑之后，<a href="https://www.yueye.org" target="_blank" rel="noopener">51Blog</a> 今晚终于正式将 WordPress 升级到了最新版 WordPress 2.7 版本。 可是，升级过程却不像先前想像的那样困难，只用了大概5分钟，而且这还包括了使用我那超慢的网速上传文件的时间（上传文件大概用了4.5分钟）。没错，真正的升级过程只用了不到一分钟！在苦苦思索了数天之后，经过短短的数秒钟，<a href="https://www.yueye.org" target="_blank" rel="noopener">51Blog</a> 成功升级到了WordPress 2.7 最新版！</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/网站建设/" rel="tag"># 网站建设</a>
+          
+            <a href="/tags/经验分享/" rel="tag"># 经验分享</a>
+          
+            <a href="/tags/网络相关/" rel="tag"># 网络相关</a>
+          
+            <a href="/tags/WordPress/" rel="tag"># WordPress</a>
+          
+            <a href="/tags/网站/" rel="tag"># 网站</a>
+          
+            <a href="/tags/随谈/" rel="tag"># 随谈</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2008/funny-skating-51blog-diary/" rel="next" title="滑冰趣事——谨记月夜的第一次滑冰">
+                <i class="fa fa-chevron-left"></i> 滑冰趣事——谨记月夜的第一次滑冰
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2008/largest-best-free-levodisk/" rel="prev" title="最大最好的免费网络硬盘">
+                最大最好的免费网络硬盘 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">433</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">108</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
