@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="月夜, 月夜博客" />
 
 
 
@@ -95,12 +95,12 @@
 
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="月夜">
 <meta property="og:url" content="https://kongsea.github.io/page/2/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="月夜">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="月夜">
 
 
 
@@ -135,7 +135,7 @@
 
 
 
-  <title>Hexo</title>
+  <title>月夜</title>
   
 
 
@@ -173,12 +173,12 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Hexo</span>
+        <span class="site-title">月夜</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <p class="site-subtitle">分享网络知识·享受快乐生活</p>
       
   </div>
 
@@ -269,7 +269,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="月夜">
     </span>
 
     
@@ -353,29 +353,15 @@
       
         
           
-            <p>在使用深度学习等方法处理计算机视觉问题而对图像进行处理的过程中，不可避免地要处理原始图像及其相应的mask。比如将mask绘制到原始图像上，将mask的轮廓绘制到原始图像上，提取mask的轮廓，或者已知mask的轮廓而将mask填充，等等。 尽管这些问题都不是复杂的问题，但使用频率比较高，而每一次对其进行处理时都会浪费时间甚至分心，而耽误真正的任务的执行。因此，本文就将在处理这些问题中的经验进行一下总结，同时也为以后的使用备忘。 当然，因为我的经验主要还是在医学图像的处理上，所以这里就以医学图像为例来进行处理。 首先我们来看这样一张原始图像：</p>
-<p><img src="https://img.yueye.org/2017/10/13/image.png" alt="" title="原始图像"></p>
-<p>这是一个肺部CT的一个slice，下面我们给出肺分割的mask，即从上面原始图像中分割出肺部区域的mask，如下图：</p>
-<p><img src="https://img.yueye.org/2017/10/13/mask.png" alt="" title="mask"></p>
-<p>可以看到肺部mask刚好对应了原始图像中的肺部区域，两个图像相乘，即可从原始图像中提取出肺部区域。 这是已知mask之后，图像处理的几个需求： 1.从原始图像中取出mask区域； 2.将mask区域绘制到原始图像上。 其中，1比较简单，可以直接将原始图像与mask相乘即可；而2则有两种需求，一种是直接将mask像蒙版一样覆盖到原始图像上，这样虽然可以看到mask对应的区域，但绘制上去的mask会对原始图像造成影响；另一种则是将mask的轮廓绘制到原始图像上，这样即可以看到mask区域，对原始图像影响也较小。</p>
-<h3 id="1-在原始图像上绘制mask的轮廓"><a href="#1-在原始图像上绘制mask的轮廓" class="headerlink" title="1.在原始图像上绘制mask的轮廓"></a>1.在原始图像上绘制mask的轮廓</h3><p>将原始mask使用OpenCV读进来<code>mask = cv2.imread(&#39;mask.png&#39;, 0)</code>，可以看到，mask是一个二维numpy array，只有0和255两个值。显然，255对应的部分表示选中的区域，0表示未选中的区域。但是这样一个mask array却没有给出mask的轮廓；而绘制mask的轮廓，首先则要找到mask的轮廓。 找到mask的轮廓通常有这样两个包可以使用，一个就是上面用的OpenCV，还有一个是skimage里提供的，下面我们分别使用这两种工具来寻找轮廓进行绘制。</p>
-<h4 id="1-1-使用OpenCV寻找轮廓"><a href="#1-1-使用OpenCV寻找轮廓" class="headerlink" title="1.1 使用OpenCV寻找轮廓"></a>1.1 使用OpenCV寻找轮廓</h4><p>OpenCV里有findContours函数，可以专门用来从mask中寻找其轮廓，如下：</p>
-<p>def draw_mask_edge_on_image_cv2(image, mask, color=(0, 0, 255)):<br>  coef = 255 if np.max(image) &lt; 3 else 1<br>  image = (image * coef).astype(np.float32)<br>  contours, _ = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)<br>  image = cv2.cvtColor(image, cv2.COLOR_GRAY2BGR)<br>  cv2.drawContours(image, contours, -1, color, 1)<br>  cv2.imwrite(‘test.png’, image)</p>
-<p>其中，第2和3行是用来对image进行一个前期处理，如果image的值是0~1的浮点数范围，将其map到0~255；如果直接是0~255的，则不进行处理；至于将image转化为float32格式，则是因为后面第5行对image进行操作时，需要image是float32或者uint8等几种格式，所以我们先期转好。 第4行，即使用findContours函数来从mask中寻找其轮廓（即contours），需要注意，这里传入的mask必须是二值图像；后面的两个参数则分别为mode和method，可以根据实际进行修改选用。 还需要注意的是这个函数寻找到的轮廓，即contours的格式，其为一个列表，列表的元素为一个个contour，每一个contour为一个numpy array，它是一个三维的array，其shape类似：(20， 1， 2)，表示该contour一共有20个点，每个点包括x、y两个坐标，其顺序也是x, y。至于为什么是三维，我也搞不懂，应该是设计时就是这个样子吧。 第5行将image转化为OpenCV特殊的彩色图格式BGR，则是因为后面绘制轮廓时为了醒目，绘制了红色的轮廓，如果不先期将image转化为彩色图模式，则绘制的轮廓仍然为灰色，会造成误导。转换前，image的shape为335*335，转换后，则为335*335*3。 第6行是将寻找到的轮廓绘制到image上，这个drawContours函数的第1、2个参数分别为image和轮廓，第3个参数表示绘制第几个contour，设为-1，表示绘制所有的contours，然后就是轮廓的颜色，最后是轮廓的thickness，需要注意的是，如果设置为-1，则表示以填充模式绘制轮廓，又相当于将提取出的轮廓还原为原始mask了。 第7行将绘制了轮廓之后的image保存一下，以便查看效果。</p>
-<h4 id="1-2-使用skimage寻找轮廓"><a href="#1-2-使用skimage寻找轮廓" class="headerlink" title="1.2 使用skimage寻找轮廓"></a>1.2 使用skimage寻找轮廓</h4><p>接着我们来看使用skimage包中的相应函数来寻找mask的轮廓并进行绘制，如下：</p>
-<p>def draw_mask_edge_on_image_skimage(image, mask, color=(0, 0, 255)):<br>  coef = 255 if np.max(image) &lt; 3 else 1<br>  image = (image * coef).astype(np.float32)<br>  contours = measure.find_contours(mask, 0.5)<br>  image = cv2.cvtColor(image, cv2.COLOR_GRAY2BGR)<br>  for c in contours:<br>    c = np.around(c).astype(np.int)<br>    image[c[:, 0], c[:, 1]] = np.array(color)<br>  cv2.imwrite(‘test.png’, image)</p>
-<p>下面我们进行一下解释： 前几行与前类似，此处不再赘述。 第4行使用skimage.measure的find_contours函数来从mask里寻找轮廓，我不清楚mask这个是否像OpenCV一样还是需要为二值图像，不过第2个参数是level。 第5行与前类似。 第6行开始，因为skimage没有像OpenCV里那样的drawContours函数，所以需要我们自己手动去将找到的轮廓绘制到图像上。</p>
-<h4 id="1-3-skimage与OpenCV混用"><a href="#1-3-skimage与OpenCV混用" class="headerlink" title="1.3 skimage与OpenCV混用"></a>1.3 skimage与OpenCV混用</h4><p>既然skimage与OpenCV都可以从mask中寻找轮廓，而OpenCV可以将寻找到的轮廓绘制到原始图像上，那么是否可以使用skimage寻找而用OpenCV来绘制呢？当然可以，不过需要注意一些细节，即二者找到的轮廓的不同之处。代码如下：</p>
-<p>def draw_mask_edge_on_skimage_using_cv2(image, mask, color=(0, 0, 255)):<br>  coef = 255 if np.max(image) &lt; 3 else 1<br>  image = (image * coef).astype(np.float32)<br>  contours = measure.find_contours(mask, 0.5)<br>  image = cv2.cvtColor(image, cv2.COLOR_GRAY2BGR)<br>  _contours = []<br>  for c in contours:<br>    c[:, [0, 1]] = c[:, [1, 0]]<br>    _contours.append(np.around(np.expand_dims(c, 1)).astype(np.int))<br>  cv2.drawContours(image, _contours, -1, color, 1)<br>  cv2.imwrite(‘test.png’, image)</p>
-<p>该程序的前面几行，与之前程序类似，从第6行开始，是其独特之处，即将skimage寻找到的轮廓转化为OpenCV的轮廓格式，然后用OpenCV的drawContours函数将轮廓绘制到图像上。 skimage中找到的轮廓的x, y坐标与OpenCV中的轮廓的x, y坐标刚好相反，所以首先需要对其进行交换；随后，因为skimage的轮廓坐标是二维的，而OpenCV中的则是三维的，所以需要对skimage找到的轮廓坐标进行维度扩展，在第1维上增加一个维度为1的维度。 还需要注意的是，skimage寻找到的轮廓坐标为浮点数（np.float64），而OpenCV寻找到的轮廓坐标，或者是其要求的轮廓坐标则为整数，所以这里需要有一个转换。 将其转换好之后，即可使用OpenCV的drawContours函数将其绘制出来了。</p>
-<h3 id="2-在原始图像上绘制mask"><a href="#2-在原始图像上绘制mask" class="headerlink" title="2.在原始图像上绘制mask"></a>2.在原始图像上绘制mask</h3><p>前面我们详细讲述了使用skimage和OpenCV将mask的轮廓绘制到原始图像上的方法，下面我们也把将mask绘制到原始图像上的方法进行一下备忘。</p>
-<h4 id="2-1-使用OpenCV进行绘制"><a href="#2-1-使用OpenCV进行绘制" class="headerlink" title="2.1 使用OpenCV进行绘制"></a>2.1 使用OpenCV进行绘制</h4><p>如前所述，使用OpenCV的drawContours函数绘制寻找到的mask轮廓时，将最后一个参数thickness设置为-1，使用fill模式对轮廓进行填充，即将mask绘制到了原始图像上。 代码与前类似，此处不再重复。</p>
-<h4 id="2-2-编写程序进行绘制"><a href="#2-2-编写程序进行绘制" class="headerlink" title="2.2 编写程序进行绘制"></a>2.2 编写程序进行绘制</h4><p>在原始图像上绘制mask，即将mask绘制到原始图像上，也就是将mask中值为255的部分绘制到原始图像上，这样一想，问题变得简单。代码如下：</p>
-<p>def draw_mask_on_image_cv2(image, mask):<br>  coef = 255 if np.max(image) &lt; 3 else 1<br>  image = (image * coef).astype(np.float32)<br>  image = cv2.cvtColor(image, cv2.COLOR_GRAY2BGR)<br>  image[…, 2] = np.where(mask == 255, 255, image[…, 2])<br>  cv2.imwrite(‘test.png’, image)</p>
-<p>前面几行代码，此前已经解释过。 唯一的不同在倒数第2行代码。该行代码将前一行转换为BGR的B、G、R三通道图像中的R通道进行了一些处理，将其中mask为255的部分设置为255，而其余部分保持不变。这样以来，mask范围中的像素点的R通道被设置为255，相当于mask范围被近似处理成了红色（虽然其他两个通道也有值，不是标准的红色，但大体上这些像素点在三通道图像上表现为红色）。</p>
-<h3 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h3><p><a href="https://github.com/Kongsea/yueye/blob/master/plot_mask_on_image.py" target="_blank" rel="noopener">本文的完整代码，请点击参阅GitHub上的文件</a>。</p>
-
-          
+          在使用深度学习等方法处理计算机视觉问题而对图像进行处理的过程中，不可避免地要处理原始图像及其相应的mask。比如将mask绘制到原始图像上，将mask的轮廓绘制到原始图像上，提取mask的轮廓，或者已知mask的轮廓而将mask填充，等等。 尽管这些问题都不是复杂的问题，但使用频率比较高，而每一次对
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/plot-mask-on-image/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -431,7 +417,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="月夜">
     </span>
 
     
@@ -515,31 +501,15 @@
       
         
           
-            <p>在西方国家，<a href="https://en.wikipedia.org/wiki/Fizz_buzz" target="_blank" rel="noopener">Fizz Buzz是一个经典的游戏</a>，经常用来帮助孩子们锻炼学习除法。其从1开始数数，遇到能被3整除的，将数字替换为fizz，遇到能被5整除的，将其替换为buzz，而遇到能同时被3和5整除的数字，则将其替换为fizzbuzz，对其余数字，则保持不变将其直接输出。 当然，这是一个很简单的问题，尤其是编码实现，原本不需要动用TensorFlow这样的牛刀。而本篇博客的来源却是<a href="http://joelgrus.com/2016/05/23/fizz-buzz-in-tensorflow/" target="_blank" rel="noopener">有个牛人在Google面试</a>的时候，面试官出了这个问题给他，他独辟蹊径尝试用TensorFlow训练模型对问题进行了解决。考虑到使用TensorFlow来解决这个问题时，无需外部数据（直接通过程序生成训练数据和测试数据），可以将所有的焦点集中到TensorFlow的使用上，因此，这个问题是一个很好的锻炼TensorFlow的机会，所以我也尝试着用TensorFlow来写一下。</p>
-<h3 id="0-import"><a href="#0-import" class="headerlink" title="0. import"></a>0. import</h3><p>与前类似，首先是import各模块。</p>
-<p>import numpy as np<br>import tensorflow as tf</p>
-<h3 id="1-生成数据"><a href="#1-生成数据" class="headerlink" title="1.  生成数据"></a>1.  生成数据</h3><p>仿面试中的这个问题，我们用1到100之间的数字作为测试集数据；而使用101到10000之间的数字作为训练集数据。 此外，考虑到神经网络的输入一般为多维数据，而本例的输入为一个数字，是单维数据，所以可以将其转化为多维数据。一个很简单的方法，可以通过将输入数字编码为固定长度的二进制数。 首先定义编码函数，将十进制数转化为二进制数：</p>
-<p>DIGITS = 20<br>def binary_encode(num, digits=DIGITS):<br>  return [num &gt;&gt; i &amp; 1 for i in range(digits)][::-1]</p>
-<p>这里，我们定义编码的二进制数为20位，高位补0即可。 输出我们采用one-hot编码，定义得到一个输入数字的label的函数如下：</p>
-<p>def label_encode(num):<br>  if num % 15 == 0:<br>    return [1, 0, 0, 0]<br>  elif num % 3 == 0:<br>    return [0, 1, 0, 0]<br>  elif num % 5 == 0:<br>    return [0, 0, 1, 0]<br>  else:<br>    return [0, 0, 0, 1]</p>
-<p>然后，根据以上定义的编码函数，定义生成数据的函数如下：</p>
-<p>def get_data(num, low=101, high=10000):<br>  binary_num_list = []<br>  label_list = []<br>  for i in range(num):<br>    n = np.random.randint(low, high, 1)[0]<br>    binary_num_list.append(np.array(binary_encode(n)))<br>    label_list.append(np.array(label_encode(n)))<br>  return np.array(binary_num_list), np.array(label_list)</p>
-<p>参数num表示生成数据的数量，随机产生一批数字，并将其编码返回；返回值中的第一个是数据，第二个是label。</p>
-<h3 id="2-定义模型"><a href="#2-定义模型" class="headerlink" title="2. 定义模型"></a>2. 定义模型</h3><p>我们将模型的定义放到一个函数里，以便管理。</p>
-<p>def model(data):<br>  with tf.variable_scope(‘layer1’) as scope:<br>    weight = tf.get_variable(‘weight’, shape=(DIGITS, 256))<br>    bias = tf.get_variable(‘bias’, shape=(256,))<br>    x = tf.nn.relu(tf.matmul(data, weight) + bias)</p>
-<p>  with tf.variable_scope(‘layer2’) as scope:<br>    weight = tf.get_variable(‘weight’, shape=(256, 4))<br>    bias = tf.get_variable(‘bias’, shape=(4,))<br>    x = tf.matmul(x, weight) + bias</p>
-<p>  return x</p>
-<p>此处，我们定义了一个隐含层的神经网络，隐含层节点用了256个，激活函数使用了relu，而模型的定义时输出层没有过激活函数，后续视具体情况再过激活函数。</p>
-<h3 id="3-定义数据Tensor、loss和Optimizer等"><a href="#3-定义数据Tensor、loss和Optimizer等" class="headerlink" title="3.定义数据Tensor、loss和Optimizer等"></a>3.定义数据Tensor、loss和Optimizer等</h3><p>data = tf.placeholder(tf.float32, shape=(None, DIGITS))<br>label = tf.placeholder(tf.float32, shape=(None, 4))</p>
-<p>x = model(data)<br>preds = tf.argmax(tf.nn.softmax(x), 1)<br>acc = tf.reduce_mean(tf.cast(tf.equal(preds, tf.argmax(label, 1)), tf.float32))<br>loss = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(labels=label, logits=x))<br>optimizer = tf.train.AdamOptimizer(0.01).minimize(loss)</p>
-<p>首先定义两个placeholder用以装入数据和label，然后将输入数据过模型得到输出，并使用这个模型的输出来得到预测输出、精度和损失函数，并根据损失函数定义Optimizer。为了训练速度的考虑，直接使用了Adam优化器。</p>
-<h3 id="4-训练"><a href="#4-训练" class="headerlink" title="4.训练"></a>4.训练</h3><p>with tf.Session() as sess:<br>  sess.run(tf.global_variables_initializer())<br>  for step in range(3000):<br>    train_data, train_label = get_data(128)<br>    _, a = sess.run([optimizer, acc],<br>                    feed_dict={data: train_data, label: train_label})<br>    if step % 300 == 0:<br>      print(‘Step: {} -&gt; Accuracy: {:.3f}’.format(step, a))</p>
-<p>接着就是定义Session开始训练过程，训练3000个step，每一个step随机取出128个数据作为一个batch。训练中对精度进行了监视，每300个step会输出当前batch的精度。</p>
-<h3 id="5-测试、输出"><a href="#5-测试、输出" class="headerlink" title="5.测试、输出"></a>5.测试、输出</h3><p>test_data = np.array([binary_encode(i) for i in range(1, 101)])<br>pred = sess.run(preds, feed_dict={data: test_data})<br>results = []<br>for i in range(1, 101):<br>  results.append(‘{}’.format([‘fizzbuzz’, ‘fizz’, ‘buzz’, i][pred[i - 1]]))<br>print(‘, ‘.join(results))</p>
-<p>训练完成后，直接对训练得到的模型进行测试，输出1-100的fizzbuzz结果。测试数据和训练数据的生成过程类似，只是少了一个shuffle的过程，生成的测试数据需要保持最初的顺序。 此外，需要注意的是，这里的测试程序需要在上面的sess下运行。</p>
-<h3 id="6-完整代码"><a href="#6-完整代码" class="headerlink" title="6.完整代码"></a>6.完整代码</h3><p>此处不再将完整代码列出来，而将其放到了<a href="https://github.com/Kongsea/yueye/blob/master/fizzbuzz_with_tensorflow.py" target="_blank" rel="noopener">GitHub上，请点击查看</a>。</p>
-
-          
+          在西方国家，Fizz Buzz是一个经典的游戏，经常用来帮助孩子们锻炼学习除法。其从1开始数数，遇到能被3整除的，将数字替换为fizz，遇到能被5整除的，将其替换为buzz，而遇到能同时被3和5整除的数字，则将其替换为fizzbuzz，对其余数字，则保持不变将其直接输出。 当然，这是一个很简单的问题
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/fizzbuzz-with-tensorflow/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -595,7 +565,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="月夜">
     </span>
 
     
@@ -679,31 +649,15 @@
       
         
           
-            <p>最近读到一个网友的博客，记录他在一次面试时，碰到面试官要求他在白板上用TensorFlow写一个简单的网络实现异或（XOR）功能。这个本身并不难，单层感知器不能解决异或问题是学习神经网络中的一个常识，而简单的两层神经网络却能将其轻易解决。但这个问题的难处在于，我们接触TensorFlow通常直接拿来写CNN，或者其他的深度学习相关的网络了，而实现这种简单网络，基本上从未做过；更何况，要求在白板上写出来，如果想bug free，并不是容易的事儿啊。 下面，我们就来简单写一下吧。其实，无论复杂还是简单，用TensorFlow写一个网络无非这样几个部分：</p>
-<h4 id="0-import模块"><a href="#0-import模块" class="headerlink" title="0.import模块"></a>0.import模块</h4><p>import numpy as np<br>import tensorflow as tf</p>
-<h4 id="1-输入数据的placeholder"><a href="#1-输入数据的placeholder" class="headerlink" title="1.输入数据的placeholder"></a>1.输入数据的placeholder</h4><p>具体来说，一个data，一个label：</p>
-<p>data = tf.placeholder(tf.float32, shape=(4, 2))<br>label = tf.placeholder(tf.float32, shape=(4, 1))</p>
-<p>由于本例比较特殊，异或只有4种输入和对应的4个输出，所以根据需求定义固定的shape。</p>
-<h4 id="2-基于输入数据的placeholder构建model"><a href="#2-基于输入数据的placeholder构建model" class="headerlink" title="2.基于输入数据的placeholder构建model"></a>2.基于输入数据的placeholder构建model</h4><p>异或需要两层神经网络，每层分别需要一个weight和一个bias，所以定义如下：</p>
-<p>with tf.variable_scope(‘layer1’) as scope:<br>  weight = tf.get_variable(name=’weight’, shape=(2, 2))<br>  bias = tf.get_variable(name=’bias’, shape=(2,))<br>  x = tf.nn.sigmoid(tf.matmul(data, weight) + bias)<br>with tf.variable_scope(‘layer2’) as scope:<br>  weight = tf.get_variable(name=’weight’, shape=(2, 1))<br>  bias = tf.get_variable(name=’bias’, shape=(1,))<br>  x = tf.matmul(x, weight) + bias</p>
-<p>这里为了方便变量管理，以及在tensorboard上的条理性，使用了variable_scope，当然，也可以不使用。 此外，因为我们后面的loss要使用sigmoid_cross_entropy_with_logits函数，所以这里第二层网络的输出没有过sigmoid函数。如果loss使用其他函数，则可以做相应处理。</p>
-<h4 id="3-定义loss"><a href="#3-定义loss" class="headerlink" title="3.定义loss"></a>3.定义loss</h4><p>其实这里可以灵活选用各种loss函数，比如MSE，等等。但我们还是选用了在CNN中广泛使用的cross entropy：</p>
-<p>preds = tf.nn.sigmoid(x)<br>loss = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(labels=label, logits=x))</p>
-<p>我们这里把模型的输出x过了一下sigmoid函数，作为最终输出，以便在训练时对模型进行监视。</p>
-<h4 id="4-定义Optimizer"><a href="#4-定义Optimizer" class="headerlink" title="4.定义Optimizer"></a>4.定义Optimizer</h4><p>learning_rate = tf.placeholder(tf.float32)<br>optimizer = tf.train.GradientDescentOptimizer(learning_rate).minimize(loss)</p>
-<p>这里，我们为learning rate也定义了一个placeholder，以方便后续处理；当然也可以直接选择使用常值learning rate。</p>
-<h4 id="5-构建并输入数据，开始训练"><a href="#5-构建并输入数据，开始训练" class="headerlink" title="5.构建并输入数据，开始训练"></a>5.构建并输入数据，开始训练</h4><p>train_data = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])<br>train_label = np.array([[0], [1], [1], [0]])</p>
-<p>with tf.Session() as sess:<br>  sess.run(tf.global_variables_initializer())<br>  for step in range(10000):<br>    if step &lt; 3000:<br>      lr = 1<br>    elif step &lt; 6000:<br>      lr = 0.1<br>    else:<br>      lr = 0.01<br>    _, l, pred = sess.run([optimizer, loss, preds], feed_dict={data: train_data, label: train_label, learning_rate: lr})<br>    if step % 500:<br>      print(‘Step: {} -&gt; Loss: {} -&gt; Predictions: {}’.format(step, l, pred)</p>
-<h3 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h3><p>由此，整个网络的代码如下：</p>
-<p>import numpy as np<br>import tensorflow as tf</p>
-<p>data = tf.placeholder(tf.float32, shape=(4, 2))<br>label = tf.placeholder(tf.float32, shape=(4, 1))</p>
-<p>with tf.variable_scope(‘layer1’) as scope:<br>  weight = tf.get_variable(name=’weight’, shape=(2, 2))<br>  bias = tf.get_variable(name=’bias’, shape=(2,))<br>  x = tf.nn.sigmoid(tf.matmul(data, weight) + bias)<br>with tf.variable_scope(‘layer2’) as scope:<br>  weight = tf.get_variable(name=’weight’, shape=(2, 1))<br>  bias = tf.get_variable(name=’bias’, shape=(1,))<br>  x = tf.matmul(x, weight) + bias</p>
-<p>preds = tf.nn.sigmoid(x)<br>loss = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(labels=label, logits=x))<br>learning_rate = tf.placeholder(tf.float32)<br>optimizer = tf.train.GradientDescentOptimizer(learning_rate).minimize(loss)</p>
-<p>train_data = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])<br>train_label = np.array([[0], [1], [1], [0]])</p>
-<p>with tf.Session() as sess:<br>  sess.run(tf.global_variables_initializer())<br>  for step in range(10000):<br>    if step &lt; 3000:<br>      lr = 1<br>    elif step &lt; 6000:<br>      lr = 0.1<br>    else:<br>      lr = 0.01<br>    _, l, pred = sess.run([optimizer, loss, preds], feed_dict={data: train_data, label: train_label, learning_rate: lr})<br>    if step % 500:<br>      print(‘Step: {} -&gt; Loss: {} -&gt; Predictions: {}’.format(step, l, pred))</p>
-<p><a href="https://github.com/Kongsea/yueye/blob/master/xor_with_tensorflow.py" target="_blank" rel="noopener">也可以点击链接在GitHub上查看代码。</a></p>
-
-          
+          最近读到一个网友的博客，记录他在一次面试时，碰到面试官要求他在白板上用TensorFlow写一个简单的网络实现异或（XOR）功能。这个本身并不难，单层感知器不能解决异或问题是学习神经网络中的一个常识，而简单的两层神经网络却能将其轻易解决。但这个问题的难处在于，我们接触TensorFlow通常直接拿来
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/xor-with-tensorflow/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -759,7 +713,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="月夜">
     </span>
 
     
@@ -843,50 +797,15 @@
       
         
           
-            <p>使用TensorFlow训练模型的过程中，需要适时对模型进行保存，以及对保存的模型进行restore，以方便后续对模型进行处理。比如进行测试，或者部署；比如拿别的模型进行fine-tune，等等。当然，直接的保存和restore比较简单，无需多言，但是保存和restore中还牵涉到其他问题，以及针对各种需求的各种参数等，可能不便一下都记好。因此，有必要对此进行一个总结。本文就是对使用TensorFlow保存和restore模型的相关内容进行一下总结，以便备忘。</p>
-<h3 id="保存模型"><a href="#保存模型" class="headerlink" title="保存模型"></a>保存模型</h3><p>保存模型是整个内容的第一步，当然也十分简单。无非是创建一个saver，并在一个Session里完成保存。比如：</p>
-<p>saver = tf.train.Saver()<br>with tf.Session() as sess:<br>  saver.save(sess, model_name)</p>
-<p>以上代码在0.11以下版本的TensorFlow里会保存与下面类似的3个文件：</p>
-<blockquote>
-<p>checkpoint model.ckpt-1000.meta model.ckpt-1000.ckpt</p>
-</blockquote>
-<p>在0.11及以上版本的TensorFlow里则会保存与下类似的4个文件：</p>
-<blockquote>
-<p>checkpoint model.ckpt-1000.index model.ckpt-1000.data-00000-of-00001 model.ckpt-1000.meta</p>
-</blockquote>
-<p>其中checkpoint列出保存的所有模型以及最近的模型；meta文件是模型定义的内容；ckpt（或data和index）文件是保存的模型数据；内里细节无需过多关注，如果想了解，<a href="https://stackoverflow.com/a/45033500/4049614" target="_blank" rel="noopener">stackOverflow上</a>有一个解释的回答。 当然，除了上面最简单的保存方式，也可以指定保存的步数，多长时间保存一次，磁盘上最多保有几个模型（将前面的删除以保持固定个数），如下： 创建saver时指定参数：</p>
-<p><code>saver = tf.train.Saver(savable_variables, max_to_keep=n, keep_checkpoint_every_n_hours=m)</code></p>
-<p>其中savable_variables指定待保存的变量，比如指定为tf.global_variables()保存所有global变量；指定为[v1, v2]保存v1和v2两个变量；如果省略，则保存所有； max_to_keep指定磁盘上最多保有几个模型；keep_checkpoint_every_n_hours指定多少小时保存一次。 保存模型时指定参数：</p>
-<p><code>saver.save(sess, &#39;model_name&#39;, global_step=step,write_meta_graph=False)</code></p>
-<p>如上，其中可以指定模型文件名，步数，write_meta_graph则用来指定是否保存meta文件记录graph等等。</p>
-<h3 id="Restore模型"><a href="#Restore模型" class="headerlink" title="Restore模型"></a>Restore模型</h3><p>具体来说，Restore模型的过程可以分为两个部分，首先是创建模型，可以手动创建，也可以从meta文件里加载graph进行创建。 创建模型与训练模型时创建模型的代码相同，可以直接复制过来使用。 从meta文件里进行加载，可以直接在Session里进行如下操作：</p>
-<p>with tf.Session() as sess:<br>  saver = tf.train.import_meta_graph(‘model.ckpt-1000.meta’)</p>
-<p>后面的参数直接使用meta文件的路径即可。如此，即将模型定义的graph加载进来了。 当然，还有一点需要注意，并非所有的TensorFlow模型都能将graph输出到meta文件中或者从meta文件中加载进来，如果模型有部分不能序列化的部分，则此种方法可能会无效。 然后就是为模型加载数据，可以使用下面两种方法：</p>
-<p>with tf.Session() as sess:<br>  saver = tf.train.import_meta_graph(‘model.ckpt-1000.meta’)<br>  saver.restore(sess, tf.train.latest_checkpoint(‘./‘))</p>
-<p>此方法加载指定文件夹下最近保存的一个模型的数据；或者</p>
-<p>with tf.Session() as sess:<br>  saver = tf.train.import_meta_graph(‘model.ckpt-1000.meta’)<br>  saver.restore(sess, os.path.join(path, ‘model.ckpt-1000’))</p>
-<p>此方法可以指定具体某个数据，需要注意的是，指定的文件不要包含后缀。</p>
-<h3 id="使用Restore的模型"><a href="#使用Restore的模型" class="headerlink" title="使用Restore的模型"></a>使用Restore的模型</h3><p>将模型数据加载进来之后，下一步就是利用加载的模型进行下一步的操作了。这可以根据不同需要以如下几种方式进行操作。</p>
-<h4 id="1-查看模型参数"><a href="#1-查看模型参数" class="headerlink" title="1.查看模型参数"></a>1.查看模型参数</h4><p>可以直接查看Restore进来的模型的参数，如下：</p>
-<p>with tf.Session() as sess:<br>  saver = tf.train.import_meta_graph(‘model.ckpt-1000.meta’)<br>  saver.restore(sess, tf.train.latest_checkpoint(‘./‘))<br>  tvs = [v for v in tf.trainable_variables()]<br>  for v in tvs:<br>    print(v.name)<br>    print(sess.run(v))</p>
-<p>如名所言，以上是查看模型中的trainable variables；或者我们也可以查看模型中的所有tensor或者operations，如下：</p>
-<p>with tf.Session() as sess:<br>  saver = tf.train.import_meta_graph(‘model.ckpt-1000.meta’)<br>  saver.restore(sess, tf.train.latest_checkpoint(‘./‘))<br>  gv = [v for v in tf.global_variables()]<br>  for v in gv:<br>    print(v.name)</p>
-<p>上面通过global_variables()获得的与前trainable_variables类似，只是多了一些非trainable的变量，比如定义时指定为trainable=False的变量，或Optimizer相关的变量。 下面则可以获得几乎所有的operations相关的tensor：</p>
-<p>with tf.Session() as sess:<br>  saver = tf.train.import_meta_graph(‘model.ckpt-1000.meta’)<br>  saver.restore(sess, tf.train.latest_checkpoint(‘./‘))<br>  ops = [o for o in sess.graph.get_operations()]<br>  for o in ops:<br>    print(o.name)</p>
-<p>首先，上面的sess.graph.get_operations()可以换为tf.get_default_graph().get_operations()，二者区别无非是graph明确的时候可以直接使用前者，否则需要使用后者。 此种方法获得的tensor比较齐全，可以从中一窥模型全貌。不过，最方便的方法还是推荐使用tensorboard来查看，当然这需要你提前将sess.graph输出。</p>
-<h4 id="2-直接使用原始模型进行训练或测试（前传）"><a href="#2-直接使用原始模型进行训练或测试（前传）" class="headerlink" title="2.直接使用原始模型进行训练或测试（前传）"></a>2.直接使用原始模型进行训练或测试（前传）</h4><p>这种操作比较简单，无非是找到原始模型的输入、输出即可。 只要搞清楚输入输出的tensor名字，即可直接使用TensorFlow中graph的get_tensor_by_name函数，建立输入输出的tensor：</p>
-<p>with tf.get_default_graph() as graph:<br>  data = graph.get_tensor_by_name(‘data:0’)<br>  output = graph.get_tensor_by_name(‘output:0’)</p>
-<p>如上，需要特别注意，get_tensor_by_name后面传入的参数，如果没有重复，需要在后面加上“:0”。 从模型中找到了输入输出之后，即可直接使用其继续train整个模型，或者将输入数据feed到模型里，并前传得到test输出了。 需要说明的是，有时候从一个graph里找到输入和输出tensor的名字并不容易，所以，在定义graph时，最好能给相应的tensor取上一个明显的名字，比如：</p>
-<p>data = tf.placeholder(tf.float32, shape=shape, name=’input_data’)</p>
-<p>preds = tf.nn.softmax(logits, name=’output’)</p>
-<p>诸如此类。这样，就可以直接使用tf.get_tensor_by_name(‘input_data:0’)之类的来找到输入输出了。</p>
-<h4 id="3-扩展原始模型"><a href="#3-扩展原始模型" class="headerlink" title="3.扩展原始模型"></a>3.扩展原始模型</h4><p>除了直接使用原始模型，还可以在原始模型上进行扩展，比如对1中的output继续进行处理，添加新的操作，可以完成对原始模型的扩展，如：</p>
-<p>with tf.get_default_graph() as graph:<br>  data = graph.get_tensor_by_name(‘data:0’)<br>  output = graph.get_tensor_by_name(‘output:0’)<br>  logits = tf.nn.softmax(output)</p>
-<h4 id="4-使用原始模型的某部分"><a href="#4-使用原始模型的某部分" class="headerlink" title="4.使用原始模型的某部分"></a>4.使用原始模型的某部分</h4><p>有时候，我们有对某模型的一部分进行fine-tune的需求，比如使用一个VGG的前面提取特征的部分，而微调其全连层，或者将其全连层更换为使用convolution来完成，等等。TensorFlow也提供了这种支持，可以使用TensorFlow的stop_gradient函数，将模型的一部分进行冻结。</p>
-<p>with tf.get_default_graph() as graph:<br>  graph.get_tensor_by_name(‘fc1:0’)<br>  fc1 = tf.stop_gradient(fc1)</p>
-<h1 id="add-new-procedure-on-fc1"><a href="#add-new-procedure-on-fc1" class="headerlink" title="add new procedure on fc1"></a>add new procedure on fc1</h1><h3 id="参考原始资料"><a href="#参考原始资料" class="headerlink" title="参考原始资料"></a>参考原始资料</h3><p><a href="http://cv-tricks.com/tensorflow-tutorial/save-restore-tensorflow-models-quick-complete-tutorial/" target="_blank" rel="noopener">A quick complete tutorial to save and restore Tensorflow models</a></p>
-
-          
+          使用TensorFlow训练模型的过程中，需要适时对模型进行保存，以及对保存的模型进行restore，以方便后续对模型进行处理。比如进行测试，或者部署；比如拿别的模型进行fine-tune，等等。当然，直接的保存和restore比较简单，无需多言，但是保存和restore中还牵涉到其他问题，以及针对
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/summary-of-save-and-restore-models-in-tensorflow/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -942,7 +861,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="月夜">
     </span>
 
     
@@ -1026,23 +945,15 @@
       
         
           
-            <p>随着深度学习以及人工智能领域的火热，Python越发普及和流行。使用Python进行数据处理时，有时候会有这样的操作，比如从一个列表或者numpy array中随机取出一个元素，对一个列表中的元素进行shuffle，等等。虽然这些操作也可以通过编写很简短的程序完成，但我们使用Python有一点很重要，就是不要重复遭轮子，如果有轮子可以直接拿来用，为什么不省时省力地去用呢？</p>
-<h3 id="1-从序列中随机取出一个或多个元素"><a href="#1-从序列中随机取出一个或多个元素" class="headerlink" title="1.从序列中随机取出一个或多个元素"></a>1.从序列中随机取出一个或多个元素</h3><p>使用random模块的sample函数： 从列表lst或numpy array中随机取出k（当然，k要小于等于lst中元素的个数）个元素：random.sample(lst, k)</p>
-<p>import random<br>lst = range(20)<br>print(random.sample(lst, 1)) #取出1个元素<br>print(random.sample(lst, 5)) #取出多个元素</p>
-<h3 id="2-对一个序列中的元素进行shuffle"><a href="#2-对一个序列中的元素进行shuffle" class="headerlink" title="2.对一个序列中的元素进行shuffle"></a>2.对一个序列中的元素进行shuffle</h3><p>其实如果使用1中的sample函数，从lst中随机取出所有元素，也就实现了对列表中元素进行shuffle的目的。</p>
-<p>import random<br>lst = range(20)<br>print(random.sample(lst, len(lst)))</p>
-<p>也有另一种方法，使用numpy的random下的permutation函数，即：np.random.permutation。该函数直接输入一个序列，即返回shuffle后的该序列。其参数可以为列表，也可以为numpy array。</p>
-<p>import numpy as np<br>nda = np.array(range(20))<br>print(np.random.permutation(nda))</p>
-<h3 id="3-从序列中取出固定长度的所有组合"><a href="#3-从序列中取出固定长度的所有组合" class="headerlink" title="3.从序列中取出固定长度的所有组合"></a>3.从序列中取出固定长度的所有组合</h3><p>有时候我们需要从序列中取出固定长度的所有组合，比如一个有10个元素的列表，我们从中取出所有元素的两两组合，即取出长度为2的所有组合，可以使用itertools模块的combinations函数：</p>
-<p>import itertools<br>lst = range(10)<br>print(list(itertools.combinations(lst, 2)))</p>
-<p>上面的程序中，因为itertools的函数返回的是一个iterator，所以需要用list将其转为列表，然后打印输出。</p>
-<h3 id="4-从序列中取出元素的所有排列组合"><a href="#4-从序列中取出元素的所有排列组合" class="headerlink" title="4.从序列中取出元素的所有排列组合"></a>4.从序列中取出元素的所有排列组合</h3><p>有时候我们需要从序列中取出元素的所有组合，比如，如果列表中的每个元素对应于一个模型的效果，我们想看不同模型ensamble起来的结果，来找到最优组合，就需要这种操作。 还是使用itertools的combinations函数，如下：</p>
-<p>import itertools<br>lst = range(5)<br>for i in range(len(lst)):<br>  _lst = itertools.combinations(lst, i+1)<br>  print(_lst)</p>
-<p>该函数返回的是一个iterable，所以打印显示前需要用list转化一下。 如果取出元素的顺序不同也算不同的方式，即取出元素的所有排列呢？可以使用itertools的permutations函数，如下：</p>
-<p>import itertools<br>lst = range(5)<br>print(list(itertools.permutations(lst)))<br>print(list(itertools.permutations(lst, 3)))</p>
-<p>该函数返回的也是一个iterable，所以打印显示前也需要用list转化一下。 此外，该函数可以传一个长度的参数，以示取出的排列长度。</p>
-
-          
+          随着深度学习以及人工智能领域的火热，Python越发普及和流行。使用Python进行数据处理时，有时候会有这样的操作，比如从一个列表或者numpy array中随机取出一个元素，对一个列表中的元素进行shuffle，等等。虽然这些操作也可以通过编写很简短的程序完成，但我们使用Python有一点很重要
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/retrieve-elements-from-python-sequence/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1098,7 +1009,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="月夜">
     </span>
 
     
@@ -1182,25 +1093,15 @@
       
         
           
-            <p>自2012年AlexNet横空出世以来，GPU用于为矩阵运算进行加速开始在工业界和研究人员中获得了广泛关注。尤其是近来推出的各种深度学习框架，如mxnet、TensorFlow等，GPU加速更是不可或缺，成了提升运算速度的法宝。 然而，作为在Python中占据基础地位的numpy却始终没能提供这一功能，我们无法灵活地使用GPU为numpy的矩阵运算进行加速。不过，近来，作为mxnet的开发者，dmlc在mxnet的基础上，进一步开发了minpy，其为矩阵运算提供了GPU加速，而且可以做到与numpy近乎完美兼容；甚至有时，不需改动一行代码，只需在程序的开头将<code>import numpy as np</code>改为<code>import minpy.numpy as np</code>即可实现GPU加速，可谓十分省事儿方便。</p>
-<h1 id="1-安装minpy"><a href="#1-安装minpy" class="headerlink" title="1. 安装minpy"></a>1. 安装minpy</h1><p>首先需要注意的是，以下内容是基于Ubuntu进行描述的，如果是其他操作系统，可能需要作相应的修改。 其次，因为要用GPU加速运算，自然要确保你的计算机上有NVIDIA的GPU，而且安装好GPU的诸如CUDA和cudnn驱动。 minpy是基于mxnet进行运算的，所以它离不开mxnet。安装minpy之前，需要先安装mxnet。现在的深度学习框架，再也不像早期的caffe那样毫无人性了，安装都十分方便快捷。具体来说，只需首先执行如下命令进行编译：</p>
-<p>sudo apt-get update<br>sudo apt-get install -y build-essential git libatlas-base-dev libopencv-dev<br>git clone –recursive -b engine <a href="https://github.com/apache/incubator-mxnet" target="_blank" rel="noopener">https://github.com/apache/incubator-mxnet</a><br>cd mxnet;<br>cp make/config.mk .<br>echo “USE_CUDA=1” &gt;&gt;config.mk<br>echo “USE_CUDA_PATH=/usr/local/cuda” &gt;&gt;config.mk<br>echo “USE_CUDNN=1” &gt;&gt;config.mk<br>make -j$(nproc)</p>
-<p>编译完mxnet之后，可以直接设置一下路径（假设mxnet在home目录~下）：<code>export PYTHONPATH=~/mxnet/python:$PYTHONPATH</code>，即可使用。 当然，也可以在编译完之后，cd到mxnet目录的python目录下，运行<code>sudo python setup.py install</code>将mxnet安装到系统目录下，这跟使用pip安装其他包的方式一样，安装完，即可以直接使用了。 安装完mxnet之后，再安装minpy则是极其简单的事情了，只需<code>sudo pip install minpy</code>即可。</p>
-<h1 id="2-使用minpy"><a href="#2-使用minpy" class="headerlink" title="2. 使用minpy"></a>2. 使用minpy</h1><p>相比安装时的简单方便来说，使用minpy可能更为简单。无非如前所述，在程序的最开头将<code>import numpy as np</code>替换为<code>import minpy.numpy as np</code>。 下面以一个例子来说明一下。</p>
-<h3 id="使用numpy："><a href="#使用numpy：" class="headerlink" title="使用numpy："></a>使用numpy：</h3><p>import numpy as np<br>import numpy.random as random<br>import time</p>
-<p>x= random.rand(1024, 1024)<br>y= random.rand(1024, 1024)</p>
-<p>st = time.time()<br>for i in xrange(10):<br>    z= np.dot(x, y)<br>print(‘time: {:.3f}.’.format(time.time()-st))</p>
-<h3 id="使用minpy："><a href="#使用minpy：" class="headerlink" title="使用minpy："></a>使用minpy：</h3><p>import minpy.numpy as np<br>import minpy.numpy.random as random<br>import time</p>
-<p>x= random.rand(1024, 1024)<br>y= random.rand(1024, 1024)</p>
-<p>st = time.time()<br>for i in xrange(10):<br>    z= np.dot(x, y)<br>z.asnumpy()<br>print(‘time: {:.3f}.’.format(time.time()-st))</p>
-<p>两个例子在我的计算机（GPU为Titan X）的运行时间对比： 直接使用numpy，即CPU进行运算，时间为：0.350s左右； 使用minpy，即GPU进行加速，时间为：0.040s左右。 从上对比可以看到使用minpy时，GPU对矩阵运算的加速效果。</p>
-<h1 id="3-不足之处和注意事项"><a href="#3-不足之处和注意事项" class="headerlink" title="3. 不足之处和注意事项"></a>3. 不足之处和注意事项</h1><p>虽然使用minpy.numpy取代numpy可以灵活地在有GPU时实现加速，无GPU时正常使用CPU进行计算，但它也有自己的不足之处，具体来说，包括以下几点：</p>
-<h3 id="1-不支持inplace操作"><a href="#1-不支持inplace操作" class="headerlink" title="1. 不支持inplace操作"></a>1. 不支持inplace操作</h3><p>比如对minpy的ndarray a：a.transpose()会报错；但可以使用a = a.transpose()来实现。 另，如a[1, 2] = 12这样的操作虽然可以运行，但作为深度学习的autograd对这种操作将不能正常运行。</p>
-<h3 id="2-使用numpy或minpy要保持连续性"><a href="#2-使用numpy或minpy要保持连续性" class="headerlink" title="2. 使用numpy或minpy要保持连续性"></a>2. 使用numpy或minpy要保持连续性</h3><p>即最好不要同时在一个程序的一部分使用numpy，另一部分又使用minpy，这可能会导致你得到预期之外的结果。</p>
-<h3 id="3-minpy支持的功能仍然有限"><a href="#3-minpy支持的功能仍然有限" class="headerlink" title="3. minpy支持的功能仍然有限"></a>3. minpy支持的功能仍然有限</h3><p>因为numpy的庞杂，minpy暂时还不能支持numpy的所有子模块。</p>
-<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p><a href="http://minpy.readthedocs.io/en/latest/get-started/install.html" target="_blank" rel="noopener">minpy installation guide</a> <a href="http://minpy.readthedocs.io/en/latest/tutorial/numpy_under_minpy.html" target="_blank" rel="noopener">numpy under minpy</a> <a href="http://minpy.readthedocs.io/en/latest/feature/limitation.html" target="_blank" rel="noopener">minpy limitations</a></p>
-
-          
+          自2012年AlexNet横空出世以来，GPU用于为矩阵运算进行加速开始在工业界和研究人员中获得了广泛关注。尤其是近来推出的各种深度学习框架，如mxnet、TensorFlow等，GPU加速更是不可或缺，成了提升运算速度的法宝。 然而，作为在Python中占据基础地位的numpy却始终没能提供这一功
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/use-minpy-to-accelerate-numpy/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1256,7 +1157,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="月夜">
     </span>
 
     
@@ -1340,11 +1241,15 @@
       
         
           
-            <p>我是去年工作后开始接触TensorFlow的，彼时，人工智能大潮刚刚启幕，Caffe正当其时；然而，Google推出了TensorFlow。依据其时相关行业的研究者以及社区的强烈反响，和很多人一样，我认为这会是一个影响未来的东西，而我若想进入这一行业，TensorFlow不可错过。 但对于当时的我，学习TensorFlow又谈何容易？系统需要Linux，使用最多的是Ubuntu，但我对其一无所知；使用TensorFlow，最匹配的语言是Python，但我对其最多只是知道个名字；了解TensorFlow的应用自然需要对机器学习、深度学习比较熟悉，可我当时不过仅仅看过寥寥几篇相关论文；而我们用TensorFlow，最终是在应用在图像处理上，但我对图像处理的理解尚停留在PS上。 知难而退固然是一种智慧，可是与我又谈何人工智能的大潮和未来？无奈之下，迎难而上，终于还是慢慢的在踩过无数坑之后一步步地入门上路了。其后就在网上看到一些TensorFlow用起来很溜的大神为TensorFlow项目做了诸多贡献，贡献了很多代码，成了TensorFlow的Contributor；而部门主管也曾在跟我们聊天时提及，有机会好好研读一下TensorFlow的代码，如果能Contribe to TensorFlow，自然会对以后的职业推进有不小帮助。但这高高在上的TensorFlow Contributor于我，却不过是天方夜谭，莫说可望而不可及，甚至连想都不敢想啊。 但机缘巧合，终究在我用TensorFlow做深度学习的开发而过了十来个月的时候，机会来了。 我们使用TensorFlow做进行的研究主要涉及医学影像的处理，而我们所处理的医学影像主要是CT序列，不同于普通的图像处理，这是一个3D数据。具体说来，普通图像是二维的3通道RGB图像（即128*128*3）；而CT序列是三维的单通道灰度图像（即128*128*128*1）。这样，在很多既有的面向普通图像处理的框架和模型中，2D图像处理的功能实现的都已经淋漓尽致，但3D图像处理方面的功能则可能偶有遗漏。 一个很明显的例子就是TensorFlow框架中的一个高层封装——slim，其主要面对的就是图像处理，因此TensorFlow的models中的很多示例，为方便实现，以及实现和代码的简便性，多使用了这个封装，比如经典的ResNet。而因为这些模型面对的主要还是2D普通图像，所以我们在3D的医学影像上无法使用。而且，在我试图将其修改为3D医学影像可以处理的过程中，却发现slim尚未将TensorFlow的3D操作进行封装，比如3D卷积、反卷积，等等。 最初在16年年底发现这些问题的时候，我并没有想到去做，一方面是自己并没有这个时间；另一方面也考虑到自己水平的欠缺，从来没敢去想过这些事情。而且，彼时我使用比较简单的深度模型已经能够较好地完成任务，所以对尝试更多模型的需求也并不迫切，因此将更多模型修改为3D可用的需求也不迫切，所以，slim没有3D就没有呗，反正我也没那么需要。 可年后在一些项目的推进中，最初的简单模型已经很显乏力，而我在尝试新的模型的过程中，多次遇到slim没有3D功能的问题而多次碰壁。而且在尝试阅读slim的2D封装的代码时，发现原来根本就是很简单的事情。所以，我自然就着手实施。 其实过程中还是碰到了不少问题，最典型的就是，开始前我甚至都不知道GitHub怎么使用，诸如最简单的Pull Request、Push、Pull、Commit等等，我一点都不了解，更不用说后来在提交过程中碰到的rebase、revert了。当然，这些东西无非在使用中学习一下，即使出了什么问题，大不了也就是删了重新clone一份去重做一下而已。 而整个commit过程中最让我后悔的则是，我的行动和进度都太慢了。slim的conv3d_transpose封装需要用到tensorflow.layers里面的conv3d_transpose，而当时，这个东西还并不存在，因此，我一并使用tensorflow.nn.conv3d_transpose进行了封装实现。然而遗憾的是，在我提交PR之后几天，我才突然发现，有一个老外，已经在不到一个月之前提交了PR，在tensorflow.layers里进行了封装。只是当时，这个PR尚在review的过程中。所以后来才不得不rebase和revert。 还好slim中这些我commit的东西没有其他人做，而终于在经过漫长的两个月的反复修改和提交、不停学习与改进之后，PR最后被Merge到了TensorFlow中。 <img src="https://img.yueye.org/2017/06/30/01.jpg" alt="" title="Contribute to TensorFlow"> 具体来说，就是这么几个东西：</p>
-<p>tensorflow.contrib.slim.conv3d<br>tensorflow.contrib.slim.avg_pool3d<br>tensorflow.contrib.slim.max_pool3d<br>tensorflow.contrib.slim.conv3d_transpose</p>
-<p>谨此纪念！</p>
-
-          
+          我是去年工作后开始接触TensorFlow的，彼时，人工智能大潮刚刚启幕，Caffe正当其时；然而，Google推出了TensorFlow。依据其时相关行业的研究者以及社区的强烈反响，和很多人一样，我认为这会是一个影响未来的东西，而我若想进入这一行业，TensorFlow不可错过。 但对于当时的我，
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/contribute-to-tensorflow-successfully/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1400,7 +1305,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="月夜">
     </span>
 
     
@@ -1484,9 +1389,16 @@
       
         
           
-            <p>[embed]<a href="https://img.yueye.org/2017/05/01.mp4\[/embed\]" target="_blank" rel="noopener">https://img.yueye.org/2017/05/01.mp4\[/embed\]</a></p>
+          [embed]https://img.yueye.org/2017/05/01.mp4\[/embed\]
 
           
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/e4-bd-a0-e6-83-b3-e4-b9-b0-e5-b0-8f-e7-b1-b3-e6-89-8b-e6-9c-ba-ef-bc-9f-e5-90-ac-e5-90-ac-e5-94-ae-e5-90-8e-e5-86-8d-e5-86-b3-e5-ae-9a-ef-bc-81/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1542,7 +1454,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="月夜">
     </span>
 
     
@@ -1626,19 +1538,15 @@
       
         
           
-            <p>因为DICOM图像通常是一个序列，普通的dcm格式的图像序列可以直接使用DICOM图像查看软件打开进行查看；但mhd格式的3D图像却无法方便地查看。但为了研究方便，可视化mhd图像文件是绕不开的一项任务。 具体来说，在Python下可视化图像可以选择使用matplotlib，也可以用OpenCV将其保存查看，都非常方便。不过有些细节问题则需要特别注意。下面对这些进行一下简单记录，以防遗忘。</p>
-<h1 id="1-使用OpenCV保存图像序列"><a href="#1-使用OpenCV保存图像序列" class="headerlink" title="1.使用OpenCV保存图像序列"></a>1.使用OpenCV保存图像序列</h1><p>使用OpenCV保存一个三维的DICOM数据image，并在其上的某个坐标coord处绘制直径为diameter的圆形的代码如下：</p>
-<p>import cv2<br>import SimpleITK as sitk<br>import numpy as np<br>image = sitk.ReadImage(mhd_path)<br>image = sitk.GetArrayFromImage(image)<br>for i, im in enumerate(image):<br>  im = cv2.cvtColor(im, cv2.COLOR_GRAY2RGB)<br>  cv2.circle(im, coord, diameter, color=(0, 0, 255))<br>  cv2.imwrite(os.path.join(path, ‘{}.png’.format(i)), im)</p>
-<p>需要特别注意的是 <code>im = cv2.cvtColor(im, cv2.COLOR_GRAY2RGB)</code>。因为输入图像是灰度图，如果不先将图像转换为彩色的RGB格式，下面绘制的circle将不会以彩色显示，可能会造成误解。</p>
-<h1 id="2-使用matplotlib绘制保存图像序列"><a href="#2-使用matplotlib绘制保存图像序列" class="headerlink" title="2.使用matplotlib绘制保存图像序列"></a>2.使用matplotlib绘制保存图像序列</h1><p>使用matplotlib.pyplot在Python里进行各种图形的绘制会特别方便，而且我们使用的也更多更顺手。如，绘制一幅二维的image图像，代码如下：</p>
-<p>import matplotlib.pyplot as plt<br>plt.imshow(image, cmap=’gray’)<br>plt.show()</p>
-<p>因为我们绘制的医学影像是灰度图，所以用 <code>cmap=&#39;gray&#39;</code> 这个参数。 而在绘制的图像上绘制其他内容也十分方便，比如1中绘制一个圆形，代码如下：</p>
-<p>import matplotlib.pyplot as plt<br>plt.imshow(image, cmap=’gray’)<br>plt.Circle(coord, diameter, color=’r’, fill=False)<br>plt.show()</p>
-<p>将绘制的图像像OpenCV一样保存为文件，也可以直接使用<code>plt.savefig(path)</code>即可。 不过，你应该能够看到，这样保存的图片边缘会有很大空白，而不能像OpenCV保存的图像那样，紧紧贴边，只保存了图像。 那么，如何使用matplotlib.pyplot像OpenCV的cv2那样保存图像时紧紧贴边，而没有边缘的空白呢？可以使用下面的代码：</p>
-<p>def make_image(image, path, diameter, coord):<br>  fig = plt.figure()<br>  fig.set_size_inches(image.shape[0]/100., image.shape[1]/100.)<br>  ax = plt.Axes(fig, [0., 0., 1., 1.])<br>  ax.set_axis_off()<br>  fig.add_axes(ax)<br>  ax.imshow(image, aspect=’normal’, cmap=’gray’)<br>  circle = plt.Circle(coord, diameter, color=’r’, fill=False)<br>  ax.add_artist(circle)<br>  plt.savefig(path)</p>
-<p>使用该函数，即可将二维的numpy array格式的image图像数据保存为像OpenCV的cv2那样边缘没有任何空白的图像了。</p>
-
-          
+          因为DICOM图像通常是一个序列，普通的dcm格式的图像序列可以直接使用DICOM图像查看软件打开进行查看；但mhd格式的3D图像却无法方便地查看。但为了研究方便，可视化mhd图像文件是绕不开的一项任务。 具体来说，在Python下可视化图像可以选择使用matplotlib，也可以用OpenCV将其
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/visulize-dicom-of-mhd-format/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1694,7 +1602,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="月夜">
     </span>
 
     
@@ -1778,21 +1686,15 @@
       
         
           
-            <p>随着最近几大肺部图像处理相关的竞赛的推出，如<a href="https://luna16.grand-challenge.org/" target="_blank" rel="noopener">LUNA16</a>、<a href="https://www.kaggle.com/c/data-science-bowl-2017" target="_blank" rel="noopener">Kaggle Data Science Bowl</a>，AI领域的科研人员对肺部CT图像变得越来越熟悉，尤其是DICOM序列，以及这些竞赛官方所提供的mhd数据格式。 ITK是一个功能很强大的医学图像处理公开库，搭配VTK用以显示图像，可以实现几乎所有医学图像处理的功能需要。ITK通常以C++包进行提供，当然也可以自己编译为Python包，不过编译过程比较繁琐耗时，而且很容易踩坑。但ITK官方进行的Python封装SimpleITK，则直接可以拿来使用；虽然有部分ITK的功能没有包含，但已基本够用了。我们在处理医学图像时，使用的基本都是SimpleITK。 本文就简单总结一下我们在处理这些图像时的经验，以便备忘，并为后来者参考。</p>
-<h1 id="1-读取文件"><a href="#1-读取文件" class="headerlink" title="1.读取文件"></a>1.读取文件</h1><h3 id="读取DICOM序列"><a href="#读取DICOM序列" class="headerlink" title="读取DICOM序列"></a>读取DICOM序列</h3><p>医学图像中一个CT序列包含很多张图片，即一个case包含许多slice，使用SimpleITK可以直接读取一个序列，并方便地得到各种参数，将图像数据转换成numpy Array：</p>
-<p>import SimpleITK as sitk<br>import numpy as np<br>reader = sitk.ImageSeriesReader()<br>dicom_names = reader.GetGDCMSeriesFileNames(case_path)<br>reader.SetFileNames(dicom_names)<br>image = reader.Execute()<br>image_array = sitk.GetArrayFromImage(image) # z, y, x<br>origin = image.GetOrigin() # x, y, z<br>spacing = image.GetSpacing() # x, y, z</p>
-<p>需要注意的是，SimpleITK读取的图像数据的坐标顺序为zyx，即从多少张切片到单张切片的宽和高；而据SimpleITK Image获取的origin和spacing的坐标顺序则是xyz。这些需要特别注意。</p>
-<h3 id="读取DICOM单张图片"><a href="#读取DICOM单张图片" class="headerlink" title="读取DICOM单张图片"></a>读取DICOM单张图片</h3><p>可以将一个DICOM序列作为一个整体一次读入，也可以一张一张地读入每张切片：</p>
-<p>import SimpleITK as sitk<br>import numpy as np<br>image = sitk.ReadImage(slice_path)<br>image_array = sitk.GetArrayFromImage(image) # z, y, x</p>
-<p>这里需要注意的除了坐标顺序是zyx之外，还需注意，即使读取单张切片，所得到的结果也是3维的，只不过第一维是1。</p>
-<h3 id="读取mhd文件"><a href="#读取mhd文件" class="headerlink" title="读取mhd文件"></a>读取mhd文件</h3><p>涉及DICOM序列时，为了传输方便（从上百个dcm文件到一个mhd文件），很多情况下以mhd文件格式进行呈现，不过mhd文件只是一个很小的包含数据信息的文件，同时搭配的通常还有一个二进制的数据文件（格式为raw或zraw等）。使用SimpleITK读取这种文件也比较方便。</p>
-<p>import SimpleITK as sitk<br>import numpy as np<br>image = sitk.ReadImage(mhd_path)<br>image_array = sitk.GetArrayFromImage(image) # z, y, x<br>origin = image.GetOrigin() # x, y, z<br>…</p>
-<p>有时候不想整个读取数据（因为比较大，读取处理比较慢），想要读取的只是一些基本信息，比如origin、spacing等等。这时可以只读取mhd文件，据此获取信息，读取方法比较简单，不再赘述。</p>
-<h1 id="2-处理文件"><a href="#2-处理文件" class="headerlink" title="2.处理文件"></a>2.处理文件</h1><p>处理DICOM文件主要有插值等操作，可以直接使用SimpleITK（或者说是ITK）的相关函数，并通过pipeline结构进行处理。</p>
-<h3 id="插值"><a href="#插值" class="headerlink" title="插值"></a>插值</h3><p>import SimpleITK as sitk<br>reader = sitk.ImageSeriesReader()<br>dicom_names = reader.GetGDCMSeriesFileNames(case_path) reader.SetFileNames(dicom_names)<br>image = reader.Execute()<br>resample = sitk.ResampleImageFilter()<br>resample.SetOutputDirection(image.GetDirection())<br>resample.SetOutputOrigin(image.GetOrigin())<br>newspacing = [1, 1, 1]<br>resample.SetOutputSpacing(newspacing)<br>newimage = resample.Execute(image)</p>
-<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>…</p>
-
-          
+          随着最近几大肺部图像处理相关的竞赛的推出，如LUNA16、Kaggle Data Science Bowl，AI领域的科研人员对肺部CT图像变得越来越熟悉，尤其是DICOM序列，以及这些竞赛官方所提供的mhd数据格式。 ITK是一个功能很强大的医学图像处理公开库，搭配VTK用以显示图像，可以实现几乎
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/python-simpleitk-read-process-dicom/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
